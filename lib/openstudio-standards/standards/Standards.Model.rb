@@ -1841,10 +1841,12 @@ class Standard
     # pull the capacities of their paried DX clg coils, and this does not work
     # correctly if the DX clg coil efficiencies have been set because they are renamed.
     model.getCoilHeatingDXSingleSpeeds.sort.each {|obj| sql_db_vars_map = coil_heating_dx_single_speed_apply_efficiency_and_curves(obj, sql_db_vars_map)}
+    model.getCoilHeatingDXMultiSpeeds.sort.each {|obj| sql_db_vars_map = coil_heating_dx_single_speed_apply_efficiency_and_curves(obj, sql_db_vars_map)}
 
     # Unitary ACs
     model.getCoilCoolingDXTwoSpeeds.sort.each {|obj| sql_db_vars_map = coil_cooling_dx_two_speed_apply_efficiency_and_curves(obj, sql_db_vars_map)}
     model.getCoilCoolingDXSingleSpeeds.sort.each {|obj| sql_db_vars_map = coil_cooling_dx_single_speed_apply_efficiency_and_curves(obj, sql_db_vars_map)}
+    model.getCoilCoolingDXMultiSpeeds.sort.each {|obj| sql_db_vars_map = coil_cooling_dx_multi_speed_apply_efficiency_and_curves(obj, sql_db_vars_map)}
 
     # Chillers
     clg_tower_objs = model.getCoolingTowerSingleSpeeds
@@ -1863,6 +1865,9 @@ class Standard
 
     # ERVs
     model.getHeatExchangerAirToAirSensibleAndLatents.each {|obj| heat_exchanger_air_to_air_sensible_and_latent_apply_efficiency(obj)}
+
+    # Gas Heaters
+    model.getCoilHeatingGasMultiStages.each {|obj| coil_heating_gas_multi_stage_apply_efficiency_and_curves(obj, sql_db_vars_map)}
 
     OpenStudio.logFree(OpenStudio::Info, 'openstudio.model.Model', 'Finished applying HVAC efficiency standards.')
   end

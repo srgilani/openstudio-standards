@@ -45,7 +45,15 @@ module CoilDX
       if coil_dx.containingHVACComponent.is_initialized
         containing_comp = coil_dx.containingHVACComponent.get
         if containing_comp.to_AirLoopHVACUnitaryHeatPumpAirToAir.is_initialized
-          heat_pump = true
+          htg_coil = containing_comp.to_AirLoopHVACUnitaryHeatPumpAirToAir.get.heatingCoil
+          if htg_coil.to_CoilHeatingDXSingleSpeed.is_initialized
+            heat_pump = true
+          end
+        elsif containing_comp.to_AirLoopHVACUnitaryHeatPumpAirToAirMultiSpeed.is_initialized
+          htg_coil = containing_comp.to_AirLoopHVACUnitaryHeatPumpAirToAirMultiSpeed.get.heatingCoil
+          if htg_coil.to_CoilHeatingDXMultiSpeed.is_initialized
+            heat_pump = true
+          end
         end # TODO: Add other unitary systems
       elsif coil_dx.containingZoneHVACComponent.is_initialized
         containing_comp = coil_dx.containingZoneHVACComponent.get
@@ -70,7 +78,20 @@ module CoilDX
       if coil_dx.containingHVACComponent.is_initialized
         containing_comp = coil_dx.containingHVACComponent.get
         if containing_comp.to_AirLoopHVACUnitaryHeatPumpAirToAir.is_initialized
-          htg_type = 'Electric Resistance or None'
+          htg_coil = containing_comp.to_AirLoopHVACUnitaryHeatPumpAirToAir.get.heatingCoil
+          if htg_coil.to_CoilHeatingDXSingleSpeed.is_initialized
+            htg_type = 'Electric Resistance or None'
+          else
+            htg_type = 'All Other'
+          end
+        elsif containing_comp.to_AirLoopHVACUnitaryHeatPumpAirToAirMultiSpeed.is_initialized
+          htg_coil = containing_comp.to_AirLoopHVACUnitaryHeatPumpAirToAirMultiSpeed.get.heatingCoil
+          supp_htg_coil = containing_comp.to_AirLoopHVACUnitaryHeatPumpAirToAirMultiSpeed.get.supplementalHeatingCoil
+          if htg_coil.to_CoilHeatingDXMultiSpeed.is_initialized || supp_htg_coil.to_CoilHeatingElectric.is_initialized
+            htg_type = 'Electric Resistance or None'
+          else
+            htg_type = 'All Other'
+          end
         end # TODO: Add other unitary systems
       elsif coil_dx.containingZoneHVACComponent.is_initialized
         containing_comp = coil_dx.containingZoneHVACComponent.get
@@ -142,12 +163,12 @@ module CoilDX
 
     # The heating side of unitary heat pumps don't have a heating type
     # as part of the search
-    if coil_dx.to_CoilHeatingDXSingleSpeed.is_initialized
+    if coil_dx.to_CoilHeatingDXSingleSpeed.is_initialized || coil_dx.to_CoilHeatingDXMultiSpeed.is_initialized
       if coil_dx_heat_pump?(coil_dx)
         if coil_dx.airLoopHVAC.empty?
           if coil_dx.containingHVACComponent.is_initialized
             containing_comp = coil_dx.containingHVACComponent.get
-            if containing_comp.to_AirLoopHVACUnitaryHeatPumpAirToAir.is_initialized
+            if containing_comp.to_AirLoopHVACUnitaryHeatPumpAirToAir.is_initialized || containing_comp.to_AirLoopHVACUnitaryHeatPumpAirToAirMultiSpeed.is_initialized
               search_criteria['heating_type'] = nil
             end # TODO: Add other unitary systems
           end

@@ -1898,8 +1898,6 @@ class NECB2011
     # boiler_fueltype choices match OS choices for Boiler component fuel type, i.e.
     # "NaturalGas","Electricity","PropaneGas","FuelOil#1","FuelOil#2","Coal","Diesel","Gasoline","OtherFuel1"
 
-    heating_coil_type = 'DX'
-
     always_on = model.alwaysOnDiscreteSchedule
 
     # get heating and cooling temperature setpoint schedules

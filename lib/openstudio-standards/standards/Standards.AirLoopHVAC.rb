@@ -420,6 +420,15 @@ class Standard
         elsif sup_fan.to_FanVariableVolume.is_initialized
           fans << sup_fan.to_FanVariableVolume.get
         end
+      elsif comp.to_AirLoopHVACUnitaryHeatPumpAirToAirMultiSpeed.is_initialized
+        sup_fan = comp.to_AirLoopHVACUnitaryHeatPumpAirToAirMultiSpeed.get.supplyAirFan
+        if sup_fan.to_FanConstantVolume.is_initialized
+          fans << sup_fan.to_FanConstantVolume.get
+        elsif sup_fan.to_FanOnOff.is_initialized
+          fans << sup_fan.to_FanOnOff.get
+        elsif sup_fan.to_FanVariableVolume.is_initialized
+          fans << sup_fan.to_FanVariableVolume.get
+        end
       end
     end
 

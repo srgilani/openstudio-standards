@@ -1877,6 +1877,7 @@ class Standard
 
     # Gas Heaters
     model.getCoilHeatingGasMultiStages.each {|obj| coil_heating_gas_multi_stage_apply_efficiency_and_curves(obj, sql_db_vars_map)}
+    model.getCoilHeatingGass.sort.each {|obj| coil_heating_gas_apply_efficiency_and_curves(obj)}
 
     OpenStudio.logFree(OpenStudio::Info, 'openstudio.model.Model', 'Finished applying HVAC efficiency standards.')
   end

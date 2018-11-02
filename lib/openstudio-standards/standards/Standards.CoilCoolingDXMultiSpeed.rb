@@ -228,8 +228,8 @@ class Standard
     clg_stages = coil_cooling_dx_multi_speed.stages
     if clg_stages.last.grossRatedTotalCoolingCapacity.is_initialized
       capacity_w = clg_stages.last.grossRatedTotalCoolingCapacity.get
-    elsif coil_cooling_dx_multi_speed.autosizedSpeed4GrossRatedTotalCoolingCapacity.is_initialized
-      capacity_w = coil_cooling_dx_multi_speed.autosizedSpeed4GrossRatedTotalCoolingCapacity.get
+    elsif coil_cooling_dx_multi_speed.send("autosizedSpeed#{clg_stages.size}GrossRatedTotalCoolingCapacity").is_initialized
+      capacity_w = coil_cooling_dx_multi_speed.send("autosizedSpeed#{clg_stages.size}GrossRatedTotalCoolingCapacity").get
     else
       OpenStudio.logFree(OpenStudio::Warn, 'openstudio.standards.CoilCoolingDXMultiSpeed', "For #{coil_cooling_dx_multi_speed.name} capacity is not available, cannot apply efficiency standard.")
       successfully_set_all_properties = false

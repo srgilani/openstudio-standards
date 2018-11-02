@@ -54,8 +54,8 @@ class Standard
     htg_stages = coil_heating_gas_multi_stage.stages
     if htg_stages.last.nominalCapacity.is_initialized
       capacity_w = htg_stages.last.nominalCapacity.get
-    elsif coil_heating_gas_multi_stage.autosizedStage4NominalCapacity.is_initialized
-      capacity_w = coil_heating_gas_multi_stage.autosizedStage4NominalCapacity.get
+    elsif coil_heating_gas_multi_stage.send("autosizedStage#{htg_stages.size}NominalCapacity").is_initialized
+      capacity_w = coil_heating_gas_multi_stage.send("autosizedStage#{htg_stages.size}NominalCapacity").get
     else
       OpenStudio.logFree(OpenStudio::Warn, 'openstudio.standards.CoilCoolingDXMultiSpeed', "For #{coil_heating_gas_multi_stage.name} capacity is not available, cannot apply efficiency standard.")
       successfully_set_all_properties = false

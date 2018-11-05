@@ -958,20 +958,25 @@ class NECB2011
     num_stages = [num_stages, max_num_stages].min
     stage_cap = []
     final_num_stages = num_stages
-    case num_stages
-    when 1
-      stage_cap[0] = capacity_w / 2.0
-      stage_cap[1] = 2.0 * stage_cap[0]
-      final_num_stages = 2
+    if capacity_w == 0.1
+      final_num_stages = 1
+      stage_cap[0] = capacity_w
     else
-      stage_cap[0] = 66.0 * 1000.0
-      stage_cap[1] = 2.0 * stage_cap[0]
       case num_stages
-      when 3
-        stage_cap[2] = 3.0 * stage_cap[0]
-      when 4
-        stage_cap[2] = 3.0 * stage_cap[0]
-        stage_cap[3] = 4.0 * stage_cap[0]
+      when 1
+        stage_cap[0] = capacity_w / 2.0
+        stage_cap[1] = 2.0 * stage_cap[0]
+        final_num_stages = 2
+      else
+        stage_cap[0] = 66.0 * 1000.0
+        stage_cap[1] = 2.0 * stage_cap[0]
+        case num_stages
+        when 3
+          stage_cap[2] = 3.0 * stage_cap[0]
+        when 4
+          stage_cap[2] = 3.0 * stage_cap[0]
+          stage_cap[3] = 4.0 * stage_cap[0]
+        end
       end
     end
 
@@ -2139,11 +2144,12 @@ class NECB2011
         htg_coil.addStage(htg_stage_1)
         if heating_coil_type == 'Gas'
           supplemental_htg_coil = OpenStudio::Model::CoilHeatingGas.new(model, always_on)
-          supplemental_htg_coil.setNominalCapacity(0.001)
         elsif heating_coil_type == 'Electric'
           supplemental_htg_coil = OpenStudio::Model::CoilHeatingElectric.new(model, always_on)
+          main_elec_htg_coil = OpenStudio::Model::CoilHeatingElectric.new(model, always_on)
           htg_stage_1.setNominalCapacity(0.1)
         end
+        supplemental_htg_coil.setNominalCapacity(0.1)
 
       # Single stage DX and Electric heating
       elsif heating_coil_type == 'DX'
@@ -2180,6 +2186,7 @@ class NECB2011
       air_to_air_heatpump.setName("#{zone.name} ASHP")
       air_to_air_heatpump.setSupplyAirFanOperatingModeSchedule(always_on)
       air_to_air_heatpump.addToNode(supply_inlet_node)
+      if (heating_coil_type == 'Electric') then main_elec_htg_coil.addToNode(supply_inlet_node) end
 
       oa_system.addToNode(supply_inlet_node)
 

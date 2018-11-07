@@ -872,6 +872,9 @@ class NECB2011
       return successfully_set_all_properties
     end
 
+    # get clg stages
+    clg_stages = coil_cooling_dx_multi_speed.stages
+
     # Make the COOL-CAP-FT curve
     cool_cap_ft = model_add_curve(coil_cooling_dx_multi_speed.model, ac_props['cool_cap_ft'])
     if cool_cap_ft
@@ -1058,6 +1061,9 @@ class NECB2011
 
     # Set the name
     coil_heating_gas_multi_stage.setName(new_comp_name)
+
+    # Get heating stages
+    htg_stages = coil_heating_gas_multi_stage.stages
 
     # Set the efficiency values
     unless thermal_eff.nil?
@@ -2074,21 +2080,6 @@ class NECB2011
     # "NaturalGas","Electricity","PropaneGas","FuelOil#1","FuelOil#2","Coal","Diesel","Gasoline","OtherFuel1"
 
     always_on = model.alwaysOnDiscreteSchedule
-
-    # get heating and cooling temperature setpoint schedules
-    htg_temp_sch = nil
-    clg_temp_sch = nil
-    zones.each do |izone|
-      if izone.thermostat.is_initialized
-        zone_thermostat = izone.thermostat.get
-        if zone_thermostat.to_ThermostatSetpointDualSetpoint.is_initialized
-          dual_thermostat = zone_thermostat.to_ThermostatSetpointDualSetpoint.get
-          htg_temp_sch = dual_thermostat.heatingSetpointTemperatureSchedule.get
-          clg_temp_sch = dual_thermostat.coolingSetpointTemperatureSchedule.get
-          break
-        end
-      end
-    end
 
     zones.each do |zone|
 

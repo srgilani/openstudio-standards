@@ -2940,6 +2940,11 @@ class Standard
 
     # Set HVAC availability schedule to follow occupancy
     air_loop_hvac.setAvailabilitySchedule(loop_occ_sch)
+    air_loop_hvac.supplyComponents.each do |icomp|
+      if icomp.to_AirLoopHVACUnitaryHeatPumpAirToAirMultiSpeed.is_initialized
+        icomp.to_AirLoopHVACUnitaryHeatPumpAirToAirMultiSpeed.get.setAvailabilitySchedule(loop_occ_sch)
+      end
+    end
 
     return true
   end

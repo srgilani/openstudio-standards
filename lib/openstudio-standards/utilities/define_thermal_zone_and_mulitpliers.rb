@@ -31,7 +31,11 @@ geometry_json = JSON.parse('
                 "above_ground_floors": 3,
                 "below_ground_floors": 0
             },
-			"MediumOfficeDetailed": {
+			"LargeOfficeDetailed": {
+                "above_ground_floors": 12,
+                "below_ground_floors": 1
+            },
+            "MediumOfficeDetailed": {
                 "above_ground_floors": 3,
                 "below_ground_floors": 0
             },
@@ -82,6 +86,22 @@ geometry_json = JSON.parse('
             "SmallHotel": {
                 "above_ground_floors": 4,
                 "below_ground_floors": 0
+            },
+            "SmallDataCenterLowITE": {
+                "above_ground_floors": 1,
+                "below_ground_floors": 0
+            },
+            "SmallDataCenterHighITE": {
+                "above_ground_floors": 1,
+                "below_ground_floors": 0
+            },
+            "LargeDataCenterLowITE": {
+                "above_ground_floors": 1,
+                "below_ground_floors": 0
+            },
+            "LargeDataCenterHighITE": {
+                "above_ground_floors": 1,
+                "below_ground_floors": 0
             }
 }
 ')
@@ -91,7 +111,7 @@ data_hash = JSON.parse(File.read("#{File.dirname(__FILE__)}/../refactor/prototyp
 
 data_hash.each do |info|
   info.delete('geometry')
-  #   if info['template'] == 'NECB 2011'
+  #   if info['template'] == 'NECB2011'
   #     puts "fudsfadfas"
   #     info.delete("system_to_space_map")
   #

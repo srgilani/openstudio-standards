@@ -1,3 +1,4 @@
+=begin
 require "#{File.dirname(__FILE__)}/btap"
   
 module BTAP
@@ -623,6 +624,7 @@ module BTAP
       module ZoneEquipment
 
 
+
         #Test Plant Module
         if __FILE__ == $0
           require 'test/unit'
@@ -676,6 +678,7 @@ module BTAP
 
           end
         end # End Test ZoneEquipment
+
 
         def self.add_ideal_air_loads(model,zone)
           zone.setUseIdealAirLoads(true)
@@ -821,6 +824,7 @@ module BTAP
       module HVACTemplates
         module OS
 
+
           def self.add_rooftop_vav_with_reheat( model, zones = [] )
             airloop = OpenStudio::Model::addSystemType3(model).to_AirLoopHVAC.get
             zones.each { |zone| airloop.addBranchForZone(zone) }
@@ -867,6 +871,7 @@ module BTAP
             zones.each { |zone| airloop.addBranchForZone(zone) }
             return airloop
           end
+
         end #OpenStudio
         module ASHRAE90_1
           #These methods are works in progresss from Andrew Parker at NREL.
@@ -2298,6 +2303,7 @@ module BTAP
           end
         end
 
+
         module NECB2011
 
           #wrapper methods for the auto_zoner
@@ -3535,7 +3541,7 @@ module BTAP
                   
                   vav_terminal = OpenStudio::Model::AirTerminalSingleDuctVAVReheat.new(model,always_on,reheat_coil)
                   air_loop.addBranchForZone(zone,vav_terminal.to_StraightComponent)
-				  # NECB 2011 minimum zone airflow setting 
+				  # NECB2011 minimum zone airflow setting 
                   min_flow_rate = 0.002 * zone.floorArea
                   vav_terminal.setFixedMinimumAirFlowRate(min_flow_rate) 
 	              vav_terminal.setMaximumReheatAirTemperature(43.0)
@@ -3686,6 +3692,10 @@ module BTAP
             cw_supply_inlet_node = cw_loop.supplyInletNode
             cw_supply_outlet_node = cw_loop.supplyOutletNode
             cw_pump.addToNode(cw_supply_inlet_node)
+            clg_tower.setDesignInletAirWetBulbTemperature(24.0)
+            clg_tower.setDesignInletAirDryBulbTemperature(35.0)
+            clg_tower.setDesignApproachTemperature(5.0)
+            clg_tower.setDesignRangeTemperature(6.0)
             cw_loop.addSupplyBranchForComponent(clg_tower)
             cw_loop.addSupplyBranchForComponent(clg_tower_bypass_pipe)
             cw_supply_outlet_pipe.addToNode(cw_supply_outlet_node)
@@ -3705,9 +3715,11 @@ module BTAP
 
         end
 
+
       end # module HVACTemplates
       
     end #module HVAC
 
   end #module Resources
 end
+=end

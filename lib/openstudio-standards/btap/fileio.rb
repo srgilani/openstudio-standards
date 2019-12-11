@@ -18,11 +18,10 @@
 # **********************************************************************/
 
 
-require "#{File.dirname(__FILE__)}/btap"
+
 require 'fileutils'
 require 'csv'
 require 'securerandom'
-#require 'rubygems'
 
 
 module BTAP
@@ -78,18 +77,18 @@ module BTAP
     def self.get_find_files_from_folder_by_extension(folder, ext)
       Dir.glob("#{folder}/**/*#{ext}")
     end
-    
+
     def self.delete_files_in_folder_by_extention(folder,ext)
       BTAP::FileIO::get_find_files_from_folder_by_extension(folder, ext).each do |file|
         FileUtils.rm(file)
         #puts "#{file} deleted."
       end
     end
-    
+
     def self.find_file_in_folder_by_filename(folder,filename)
       Dir.glob("#{folder}/**/*#{filename}")
     end
-    
+
     def self.fix_url_to_path(url_string)
       if  url_string =~/\/([a-zA-Z]:.*)/
         return $1
@@ -159,10 +158,10 @@ module BTAP
       model.addObjects( new_model.toIdfFile.objects )
       BTAP::runner_register("Info",  "Model name is now #{model.building.get.name}.", runner)
     end
-    
-    
-    
-    
+
+
+
+
 
     # This method loads an Openstudio file into the model.
     # @author Phylroy A. Lopez
@@ -262,10 +261,10 @@ module BTAP
       # add new file to empty model
       model.addObjects( new_model.toIdfFile.objects )
       BTAP::runner_register("Info",  "Model name is now #{model.building.get.name}.", runner)
-      
-      
-      
-      
+
+
+
+
     end
 
     # This method will save the model to an osm file.
@@ -304,7 +303,7 @@ module BTAP
       }
     end
 
-   
+
 
 
 
@@ -312,7 +311,7 @@ module BTAP
       column_data = get_timeseries_arrays(sql, env_period, hourly_time_step, "Boiler Fan Coil Part Load Ratio")
     end
 
-    
+
     def self.convert_all_eso_to_csv(in_folder,out_folder)
       list_of_csv_files = Array.new
       FileUtils.mkdir_p(out_folder)
@@ -325,7 +324,7 @@ module BTAP
         #puts File.dirname(eso_file_path)
         Dir.chdir(File.dirname(eso_file_path))
         if File.exist?("eplustbl.htm")
-          File.open("dummy.rvi", 'w') {|f| f.write("") } 
+          File.open("dummy.rvi", 'w') {|f| f.write("") }
 
 
           system("#{BTAP::SimManager::ProcessManager::find_read_vars_eso()} dummy.rvi unlimited")
@@ -348,7 +347,7 @@ module BTAP
           #puts "copy sql results to #{out_folder}/#{runname}_eplusout.sql"
           FileUtils.cp("eplusout.sql","#{out_folder}/#{runname}_eplusout.sql")
 
-          
+
           list_of_csv_files << "#{out_folder}/#{runname}_eplusout.csv"
         end
         Dir.chdir(root_folder)
@@ -364,8 +363,8 @@ module BTAP
     # @return matches A Array of rows that match the searchHash. The row is a Hash itself.
     def self.csv_look_up_rows(file, searchHash)
       options = {
-        :headers =>       true,
-        :converters =>     :numeric }
+          :headers =>       true,
+          :converters =>     :numeric }
       table = CSV.read( file, options )
       # we'll save the matches here
       matches = nil
@@ -393,7 +392,7 @@ module BTAP
     # This method will read a CSV file and return the unique values in a given column header.
     # @author Phylroy Lopez
     # @param file The path to the csv file.
-    # @param colHeader The header name in teh csv file. 
+    # @param colHeader The header name in teh csv file.
     # @return matches A Array of rows that match the searchHash. The row is a Hash itself.
     def self.csv_look_up_unique_col_data(file, colHeader)
       column_data = Array.new
@@ -414,10 +413,10 @@ module BTAP
       #puts "reading #{csv_file} being processed"
       #reads csv file into memory.
       original = CSV.read(csv_file,
-        {
-          :headers =>       true, #This flag tell the parser that there are headers.
-          :converters =>     :numeric  #This tell it to convert string data into numeric when possible.
-        }
+                          {
+                              :headers =>       true, #This flag tell the parser that there are headers.
+                              :converters =>     :numeric  #This tell it to convert string data into numeric when possible.
+                          }
       )
       #puts "done reading #{csv_file} being processed"
       # We are going to collect the header names  that fit a pattern. But first we need to
@@ -482,18 +481,18 @@ module BTAP
       CSV.open("#{csv_file}.terminus_hourly.csv", 'w') do |csv|
         #Create header row for new terminus hourly file.
         csv << [
-          "Date/Time",
-          "water_heater_gas_rate_total",
-          "water_heater_electric_rate_total",
-          "water_heater_heating_rate_total",
-          "cooling_coil_electric_power_total",
-          "cooling_coil_total_cooling_rate_total",
-          "heating_coil_air_heating_rate_total",
-          "heating_coil_gas_rate_total",
-          "heating_coil_electric_power_total",
-          "plant_supply_heating_demand_rate_total",
-          "facility_total_electrical_demand_total",
-          "boiler_gas_rate_total"
+            "Date/Time",
+            "water_heater_gas_rate_total",
+            "water_heater_electric_rate_total",
+            "water_heater_heating_rate_total",
+            "cooling_coil_electric_power_total",
+            "cooling_coil_total_cooling_rate_total",
+            "heating_coil_air_heating_rate_total",
+            "heating_coil_gas_rate_total",
+            "heating_coil_electric_power_total",
+            "plant_supply_heating_demand_rate_total",
+            "facility_total_electrical_demand_total",
+            "boiler_gas_rate_total"
         ]
         original.each do |row|
 
@@ -517,18 +516,18 @@ module BTAP
 
           #Write the data out. Should match header row as above.
           csv << [
-            row["Date/Time"], #Time index is hardcoded because every file will have a "Date/Time" column header.
-            water_heater_gas_rate_total,
-            water_heater_electric_rate_total,
-            water_heater_heating_rate_total,
-            cooling_coil_electric_power_total,
-            cooling_coil_total_cooling_rate_total,
-            heating_coil_air_heating_rate_total,
-            heating_coil_gas_rate_total,
-            heating_coil_electric_power_total,
-            plant_supply_heating_demand_rate_total,
-            facility_total_electrical_demand_total,
-            boiler_gas_rate_headers_total
+              row["Date/Time"], #Time index is hardcoded because every file will have a "Date/Time" column header.
+              water_heater_gas_rate_total,
+              water_heater_electric_rate_total,
+              water_heater_heating_rate_total,
+              cooling_coil_electric_power_total,
+              cooling_coil_total_cooling_rate_total,
+              heating_coil_air_heating_rate_total,
+              heating_coil_gas_rate_total,
+              heating_coil_electric_power_total,
+              plant_supply_heating_demand_rate_total,
+              facility_total_electrical_demand_total,
+              boiler_gas_rate_headers_total
           ]
         end
       end
@@ -620,7 +619,7 @@ module BTAP
       time_series_array = []
       puts env_period.class
       if env_period.nil?
-        puts "here"
+
         time_series_array = [nil]
         return time_series_array
       end
@@ -698,7 +697,7 @@ module BTAP
       full_json = []
       Dir.foreach("#{output_folder}") do |folder|
         next if folder == '.' or folder == '..'
-        Dir.glob("#{output_folder}/#{folder}/qaqc.json") { |item| 
+        Dir.glob("#{output_folder}/#{folder}/qaqc.json") { |item|
           puts "Reading #{output_folder}/#{folder}/qaqc.json"
           json = JSON.parse(File.read(item))
           json['eplusout_err']['warnings'] = json['eplusout_err']['warnings'].size
@@ -713,66 +712,485 @@ module BTAP
       end
       File.open("#{output_folder}/../RESULTS-#{Time.now.strftime("%m-%d-%Y")}.json", 'w') {|f| f.write(JSON.pretty_generate(full_json)) }
     end
-    
-    # This is a simple example which uses rubyzip to
-    # recursively generate a zip file from the contents of
-    # a specified directory. The directory itself is not
-    # included in the archive, rather just its contents.
+
+    def self.compare_osm_files(model_true, model_compare)
+      only_model_true = [] # objects only found in the true model
+      only_model_compare = [] # objects only found in the compare model
+      both_models = [] # objects found in both models
+      diffs = [] # differences between the two models
+      num_ignored = 0 # objects not compared because they don't have names
+
+      # Define types of objects to skip entirely during the comparison
+      object_types_to_skip = [
+          'OS:EnergyManagementSystem:Sensor', # Names are UIDs
+          'OS:EnergyManagementSystem:Program', # Names are UIDs
+          'OS:EnergyManagementSystem:Actuator', # Names are UIDs
+          'OS:Connection', # Names are UIDs
+          'OS:PortList', # Names are UIDs
+          'OS:Building', # Name includes timestamp of creation
+          'OS:ModelObjectList' # Names are UIDs
+      ]
+
+      # Find objects in the true model only or in both models
+      model_true.getModelObjects.sort.each do |true_object|
+
+        # Skip comparison of certain object types
+        next if object_types_to_skip.include?(true_object.iddObject.name)
+
+        # Skip comparison for objects with no name
+        unless true_object.iddObject.hasNameField
+          num_ignored += 1
+          next
+        end
+
+        # Find the object with the same name in the other model
+        compare_object = model_compare.getObjectByTypeAndName(true_object.iddObject.type, true_object.name.to_s)
+        if compare_object.empty?
+          only_model_true << true_object
+        else
+          both_models << [true_object, compare_object.get]
+        end
+      end
+
+      # Report a diff for each object found in only the true model
+      only_model_true.each do |true_object|
+        diffs << "A #{true_object.iddObject.name} called '#{true_object.name}' was found only in the before model"
+      end
+
+      # Find objects in compare model only
+      model_compare.getModelObjects.sort.each do |compare_object|
+
+        # Skip comparison of certain object types
+        next if object_types_to_skip.include?(compare_object.iddObject.name)
+
+        # Skip comparison for objects with no name
+        unless compare_object.iddObject.hasNameField
+          num_ignored += 1
+          next
+        end
+
+        # Find the object with the same name in the other model
+        true_object = model_true.getObjectByTypeAndName(compare_object.iddObject.type, compare_object.name.to_s)
+        if true_object.empty?
+          only_model_compare << compare_object
+        end
+      end
+
+      # Report a diff for each object found in only the compare model
+      only_model_compare.each do |compare_object|
+        #diffs << "An object called #{compare_object.name} of type #{compare_object.iddObject.name} was found only in the compare model"
+        diffs << "A #{compare_object.iddObject.name} called '#{compare_object.name}' was found only in the after model"
+      end
+
+      # Compare objects found in both models field by field
+      both_models.each do |b|
+        true_object = b[0]
+        compare_object = b[1]
+        idd_object = true_object.iddObject
+
+        true_object_num_fields = true_object.numFields
+        compare_object_num_fields = compare_object.numFields
+
+        # loop over fields skipping handle
+        (1...[true_object_num_fields, compare_object_num_fields].max).each do |i|
+
+          field_name = idd_object.getField(i).get.name
+
+          # Don't compare node, branch, or port names because they are populated with IDs
+          next if field_name.include?('Node Name')
+          next if field_name.include?('Branch Name')
+          next if field_name.include?('Inlet Port')
+          next if field_name.include?('Outlet Port')
+          next if field_name.include?('Inlet Node')
+          next if field_name.include?('Outlet Node')
+          next if field_name.include?('Port List')
+          next if field_name.include?('Cooling Control Zone or Zone List Name')
+          next if field_name.include?('Heating Control Zone or Zone List Name')
+          next if field_name.include?('Heating Zone Fans Only Zone or Zone List Name')
+
+          # Don't compare the names of schedule type limits
+          # because they appear to be created non-deteministically
+          next if field_name.include?('Schedule Type Limits Name')
+
+          # Get the value from the true object
+          true_value = ""
+          if i < true_object_num_fields
+            true_value = true_object.getString(i).to_s
+          end
+          true_value = "-" if true_value.empty?
+
+          # Get the same value from the compare object
+          compare_value = ""
+          if i < compare_object_num_fields
+            compare_value = compare_object.getString(i).to_s
+          end
+          compare_value = "-" if compare_value.empty?
+
+          # Round long numeric fields
+          true_value = true_value.to_f.round(5) unless true_value.to_f.zero?
+          compare_value = compare_value.to_f.round(5) unless compare_value.to_f.zero?
+
+          # Move to the next field if no difference was found
+          next if true_value == compare_value
+
+          # Report the difference
+          diffs << "For #{true_object.iddObject.name} called '#{true_object.name}' field '#{field_name}': before model = #{true_value}, after model = #{compare_value}"
+
+        end
+
+      end
+
+      return diffs
+    end
+
+    # This method converts an idf object to a hash
     #
-    # Usage:
-    # require /path/to/the/ZipFileGenerator/Class
-    # directoryToZip = "/tmp/input"
-    # outputFile = "/tmp/out.zip"
-    # zf = BTAP::FileIO::ZipFileGenerator.new(directoryToZip, outputFile)
-    # zf.write()
+    # @author Padmassun Rajakareyar
+    # @param obj [Openstudio::ModelObject]
+    # @return new_obj_hash [Hash] idf object converted to hash.
+    # @example
+    #   Converts the following IDF (openstudio::ModelObject) to
+    #   ==================================================================
+    #   OS:Material,
+    #     {8adb3faa-8e6a-48e3-bd73-ba6a02154b02}, !- Handle
+    #     1/2IN Gypsum,                           !- Name
+    #     Smooth,                                 !- Roughness
+    #     0.0127,                                 !- Thickness {m}
+    #     0.16,                                   !- Conductivity {W/m-K}
+    #     784.9,                                  !- Density {kg/m3}
+    #     830.000000000001,                       !- Specific Heat {J/kg-K}
+    #     0.9,                                    !- Thermal Absorptance
+    #     0.4,                                    !- Solar Absorptance
+    #     0.4;                                    !- Visible Absorptance
+    #   ===================================================================
     #
-    #    class ZipFileGenerator
-    #      # Initialize with the directory to zip and the location of the output archive.
-    #      def initialize(input_dir, output_file)
-    #        @input_dir = input_dir
-    #        @output_file = output_file
-    #        self.write()
-    #      end
+    #   ===================================================================
+    #   {
+    #     "Handle": "{8adb3faa-8e6a-48e3-bd73-ba6a02154b02}",
+    #     "Name": "1/2IN Gypsum",
+    #     "Roughness": "Smooth",
+    #     "Thickness {m}": "0.0127",
+    #     "Conductivity {W/m-K}": "0.16",
+    #     "Density {kg/m3}": "784.9",
+    #     "Specific Heat {J/kg-K}": "830.000000000001",
+    #     "Thermal Absorptance": "0.9",
+    #     "Solar Absorptance": "0.4",
+    #     "Visible Absorptance": "0.4"
+    #   },
+    #   ===================================================================
+    def self.idf_to_h(obj)
+      # split idf object by line
+      obj_string = obj.to_s.split("\n")
+      new_obj_hash = {}
+
+      # itterate through each line and split the value and field
+      # and assign it to the hash
+      obj_string.each_with_index {|line,i|
+        next if i == 0
+        line.gsub!(/(\,|\;)/, '') # remove commas and semi-colons
+        line.strip! # remove whitespace at the end and the beginning of the string
+        v,k = line.split(/\s*\!\-\s+/) # split the line into at the string '!-' including the spaces before and after
+        new_obj_hash[k] = v
+      }
+      new_obj_hash
+    end
+
+    # This method uses idf_to_h(obj) method, but deletes the fields named 'Handle' and 'Name'
     #
-    #      # Zip the input directory.
-    #      def write
-    #        entries = Dir.entries(@input_dir) - %w(. ..)
+    # @author Padmassun Rajakareyar
+    # @param obj [Openstudio::ModelObject]
+    # @return new_obj_hash [Hash] idf object converted to hash.
+    # @example
+    #   Converts the following IDF (openstudio::ModelObject) to
+    #   ==================================================================
+    #   OS:Material,
+    #     {8adb3faa-8e6a-48e3-bd73-ba6a02154b02}, !- Handle
+    #     1/2IN Gypsum,                           !- Name
+    #     Smooth,                                 !- Roughness
+    #     0.0127,                                 !- Thickness {m}
+    #     0.16,                                   !- Conductivity {W/m-K}
+    #     784.9,                                  !- Density {kg/m3}
+    #     830.000000000001,                       !- Specific Heat {J/kg-K}
+    #     0.9,                                    !- Thermal Absorptance
+    #     0.4,                                    !- Solar Absorptance
+    #     0.4;                                    !- Visible Absorptance
+    #   ===================================================================
     #
-    #        ::Zip::File.open(@output_file, ::Zip::File::CREATE) do |io|
-    #          write_entries entries, '', io
-    #        end
-    #      end
+    #   ===================================================================
+    #   {
+    #     "Roughness": "Smooth",
+    #     "Thickness {m}": "0.0127",
+    #     "Conductivity {W/m-K}": "0.16",
+    #     "Density {kg/m3}": "784.9",
+    #     "Specific Heat {J/kg-K}": "830.000000000001",
+    #     "Thermal Absorptance": "0.9",
+    #     "Solar Absorptance": "0.4",
+    #     "Visible Absorptance": "0.4"
+    #   },
+    #   ===================================================================
+    def self.idf_to_h_clean(obj)
+      # converts the idf object to hash
+      idf_hash = idf_to_h(obj)
+
+      # remove the field named `Handle` and `Name` from the idf_hash
+      idf_hash.delete("Handle") if idf_hash.key?("Handle")
+      idf_hash.delete("Handle".to_sym) if idf_hash.key?("Handle".to_sym)
+
+      idf_hash.delete("Name") if idf_hash.key?("Name")
+      idf_hash.delete("Name".to_sym) if idf_hash.key?("Name".to_sym)
+
+      # Loop through idf_hash and delete any field that matched the UUID regex
+      # idf_hash.each {|k,v|
+      #   idf_hash.delete(k) if /^\{[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}\}$/.match(v)
+      # }
+      # idf_hash
+    end
+
+    # This method will group similar objects under a key that has all the
+    # values of an IDF object which excludes Handles and Names.
+    # NOTE: The objexts grouped should have the fields in the same order.
+    # If not, then it would not be consired as a duplicate.
     #
-    #      private
+    # @author Padmassun Rajakareyar
+    # @param obj_array [Array] An array of idf_hash. Each idf_hash was created by idf_to_h_clean or idf_to_h method
+    # @return grouped_objs [Hash] grouped idf_hash based on values within the obj_array.
+    # @example Output:
+    #   "[\"Smooth\", \"0.216479986995276\", \"0.9\", \"0.7\", \"0.8\"]": [
+    #       {
+    #         "Handle": "{a7c45cf6-166d-48a6-9750-efb5c3386d91}",
+    #         "Name": "Typical Carpet Pad",
+    #         "Roughness": "Smooth",
+    #         "Thermal Resistance {m2-K/W}": "0.216479986995276",
+    #         "Thermal Absorptance": "0.9",
+    #         "Solar Absorptance": "0.7",
+    #         "Visible Absorptance": "0.8"
+    #       },
+    #       {
+    #         "Handle": "{9873fb84-bfaf-459d-8b70-2c3f5722bda9}",
+    #         "Name": "Typical Carpet Pad 1",
+    #         "Roughness": "Smooth",
+    #         "Thermal Resistance {m2-K/W}": "0.216479986995276",
+    #         "Thermal Absorptance": "0.9",
+    #         "Solar Absorptance": "0.7",
+    #         "Visible Absorptance": "0.8"
+    #       },
+    #       {
+    #         "Handle": "{63a12315-1de4-453a-b154-e6e6e9871be2}",
+    #         "Name": "Typical Carpet Pad 4",
+    #         "Roughness": "Smooth",
+    #         "Thermal Resistance {m2-K/W}": "0.216479986995276",
+    #         "Thermal Absorptance": "0.9",
+    #         "Solar Absorptance": "0.7",
+    #         "Visible Absorptance": "0.8"
+    #       }
+    #     ],
+    def self.group_similar_objects(obj_array)
+      # group [objects] by values except Handles and Name
+      grouped_objs = obj_array.group_by{ |idf_hash|
+        out = []
+        # skip Handle and Name keys
+        #
+        # ideally the `keys` of the `idf_hash` should be sorted,
+        # but I'll leave it alone for now
+        idf_hash.each {|key, val|
+          next if key == "Handle"
+          next if key == "Name"
+          out << val # push all the values into an array. This becomes the key of the hash that contains the duplicate objects
+        }
+        out
+      }
+
+      # Sort the grouped [objects] by Name.
+      # This is doen such that the first object will always have the smaller name
+      grouped_objs.each {|key, dup_array|
+        dup_array.sort_by{|idf_hash|
+          # puts idf_hash
+          idf_hash['Name'] # Sort by Name
+        }
+      }
+      return grouped_objs
+    end
+
+    # Replace the UUID of the duplicate material, unless it contains ", !- Handle"
+    # This is done so after the model has been written to the disk, It can be read and
+    # the duplicate materials can be removed safely.
     #
-    #      # A helper method to make the recursion work.
-    #      def write_entries(entries, path, io)
-    #        entries.each do |e|
-    #          zip_file_path = path == '' ? e : File.join(path, e)
-    #          disk_file_path = File.join(@input_dir, zip_file_path)
-    #          puts "Deflating #{disk_file_path}"
+    # @author Padmassun Rajakareyar
+    # @param model [Openstudio::Model]
+    # @param grouped_objs [Hash] Output provided by group_similar_objects()
+    # @return model_string [String] An Openstudio::Model object converted to a string
+    def self.replace_duplicate_obj_handles(model, grouped_objs)
+      model_string = model.to_s # convert the OS:Model into a String
+      grouped_objs.each {|key, dup_array|
+        dup_array.each_with_index {|idf_hash, index |
+          next if index == 0 # skipping index 0, because it has the shortest name and considered as the original
+
+          # givn that the idf_hash['Handle'] => '{8c88931b-e19d-479b-ac71-138d18c97cc9}'
+          # The following regex matches "{8c88931b-e19d-479b-ac71-138d18c97cc9}" in the following line
+          # {8c88931b-e19d-479b-ac71-138d18c97cc9}, !- Layer 1
+          #
+          # but matches nothing if the line has the keyword '!- Handle' in it e.g.
+          # {8c88931b-e19d-479b-ac71-138d18c97cc9}, !- Handle
+          replace_regex = idf_hash['Handle'].to_s.gsub('{', '\{'). # escape brackets
+          gsub('}', '\}').   # escape brackets
+          gsub('-', '\-') +  # escape dashes
+              '(?!.*?\!\-(\s)*Handle)' # making sure the matched handle is not part of the line that contains the substring '!- Handle'
+          replace_regex = Regexp.new(replace_regex)
+          # p replace_regex
+
+          # replace duplicate handles with the handle found at index 0
+          model_string.gsub!(replace_regex, dup_array[0]['Handle'])# {|match| puts match;  dup_array[0]['Handle']}
+        }
+      }
+      return model_string
+    end
+
+    # This method gets the model string, writes it in a temporary location, reads it, and
+    # converts it to an OpenStudio Model using a VersionTranslater
     #
-    #          if File.directory? disk_file_path
-    #            recursively_deflate_directory(disk_file_path, io, zip_file_path)
-    #          else
-    #            put_into_archive(disk_file_path, io, zip_file_path)
-    #          end
-    #        end
-    #      end
+    # @author Padmassun Rajakareyar
+    # @param model_string [String] An Openstudio::Model object converted to a string
+    # @return model [Openstudio::Model]
+    def self.get_OS_Model_from_string(model_string)
+      require 'securerandom'
+      require 'fileutils'
+      # make temerorary directory called `temp` to store the osm file
+      FileUtils.mkdir_p(File.join('.', 'temp'))
+      # Using SecureRandom to generate the UUID to keep the osm file unique
+      temp_filename =File.join('.', 'temp',SecureRandom.uuid.to_s + '.osm')
+      # write the model string as a file
+      File.open(temp_filename, 'w') { |file| file.write(model_string) }
+      # use a VersionTranslator to read the osm model
+      translator = OpenStudio::OSVersion::VersionTranslator.new
+      path = OpenStudio::Path.new(temp_filename)
+      # read the model
+      model = translator.loadModel(path)
+      model = model.get
+      # remove the temporary model
+      FileUtils.rm(temp_filename)
+      return model
+    end
+
+    # Eleminates duplicate ModelObjects of the given ModelObject type,
+    # based on the values of each fields within the ModelObject
     #
-    #      def recursively_deflate_directory(disk_file_path, io, zip_file_path)
-    #        io.mkdir zip_file_path
-    #        subdir = Dir.entries(disk_file_path) - %w(. ..)
-    #        write_entries subdir, zip_file_path, io
-    #      end
+    # @author Padmassun Rajakareyar
+    # @param model [Openstudio::Model]
+    # @param model_obj_type [String] ModelObject type e.g. "OS:Material"
+    # @return new_model [Openstudio::Model] Returns new model (OS:Model) if the changes were made.
+    #   or else returns the old model if no changes were made.
+    def self.eleminate_duplicate_objs(model, model_obj_type) # = "OS:Material")
+      model_objs_json = {}
+
+      # convert each of the ModelObjectas a hash for easy parsing
+      model.getModelObjects.sort.each {|obj|
+        # hsh = idf_to_h_clean(obj) # stores the idf converted to hash, without UUIDs and Name field
+
+        # create a hash containing all the model objects sorted by the name of the model object.
+        # e.g the `OS:Construction` ModelObject  type will e placed within the `OS:Construction` key, and
+        # each ModelObject has been converted to an idf_hash and pushed into the array with the appropriate key.
+        (model_objs_json[obj.iddObject.name.to_s] ||= []) << idf_to_h(obj) # unless hsh.empty?
+      }
+
+      # isolate a single ModelObject type specified by the model_obj_type variable
+      mat_array = model_objs_json[model_obj_type]
+      if mat_array.nil? # return the old model if model_obj_type is not found
+        puts "Skipping because ModelObject of type [#{model_obj_type}] was not found"
+        return model
+      end
+      # group duplicates
+      grouped_objs = group_similar_objects(mat_array)
+      # replace handles of duplicate objects
+      model_string = replace_duplicate_obj_handles(model, grouped_objs)
+      # write the model string to a file and read it as a model
+      new_model = get_OS_Model_from_string(model_string)
+
+      # Now loop through each of the grouped objects. skip the first one, and get ModelObjects (from new osm file)
+      # by name and safely remove all the duplicates
+      grouped_objs.each {|key, dup_array|
+        dup_array.each_with_index {|object, index |
+          next if index == 0
+          unless object.key?('Name') # if the idf_hash does not have a key called Name, Skip it.
+            puts "Skipping ModelObject of type [#{model_obj_type}] With data [#{object.inspect}] does not have a field called 'Name'"
+            next
+          end
+          name = object['Name']
+          # puts "object: [#{object}]"
+          # puts "object['Name']: [#{object['Name']}]"
+          # get the object to delete by name
+          obj_to_delete = new_model.getModelObjectByName(name)
+          if obj_to_delete.empty? # check if the object to be deleted is initialized (or present within the new model)
+            puts "ModelObject of type [#{model_obj_type}] with name [#{object['Name']}] does not exist in new model"
+          else
+            puts "ModelObject of type [#{model_obj_type}] with name [#{object['Name']}] was deleted"
+            obj_to_delete = obj_to_delete.get # get the modelObject if it is initialized
+            obj_to_delete.remove # remove object form the model
+          end
+        }
+      }
+      # File.open('./models/after.osm', 'w') { |file| file.write(new_model.to_s) }
+
+
+      # File.open("./models/grp_#{model_obj_type}.json", 'w') { |file| file.write(JSON.pretty_generate(grouped_objs)) }
+
+      return new_model
+      # File.open('./models/after.osm', 'w') { |file| file.write(model_string) }
+      # puts("\n\n\n" + "=="*10 + "\n\n")
+      # puts JSON.pretty_generate(grouped_mats)
+    end
+
+    # Eleminates duplicate Materials and Construction Objects
+    # The list of ModelObjects that are removed are:
+    #   "OS:Material",
+    #   "OS:Material:NoMass"
+    #   "OS:WindowMaterial:SimpleGlazingSystem"
+    #   "OS:WindowMaterial:Glazing"
+    #   "OS:WindowMaterial:Gas"
+    #   "OS:StandardsInformation:Material"
+    #   "OS:Construction"
+    #   "OS:DefaultSurfaceConstructions"
+    #   "OS:DefaultSubSurfaceConstructions"
+    #   "OS:DefaultConstructionSet"
+    #   "OS:StandardsInformation:Construction"
     #
-    #      def put_into_archive(disk_file_path, io, zip_file_path)
-    #        io.get_output_stream(zip_file_path) do |f|
-    #          f.puts(File.open(disk_file_path, 'rb').read)
-    #        end
-    #      end
-    #    end
-    #      
+    # @author Padmassun Rajakareyar
+    # @param model [Openstudio::Model]
+    # @return new_model [Openstudio::Model] Returns new model after removing the
+    #   duplicate ModelObjects atated abioe.
+    def self.remove_duplicate_materials_and_constructions(model)
+      old_number_of_objects = model.getModelObjects.length
+      new_model = model
+      # eleminate dplicate Material objects
+      obj_types = [
+          "OS:Material",
+          "OS:Material:NoMass",
+          "OS:WindowMaterial:SimpleGlazingSystem",
+          "OS:WindowMaterial:Glazing",
+          "OS:WindowMaterial:Gas",
+          "OS:StandardsInformation:Material"
+      ]
+
+      obj_types.each {|model_obj_type|
+        new_model = eleminate_duplicate_objs(new_model, model_obj_type)
+      }
+
+      # eleminate dplicate Construction objects
+      obj_types = [
+          "OS:Construction",
+          "OS:DefaultSurfaceConstructions",
+          "OS:DefaultSubSurfaceConstructions",
+          "OS:DefaultConstructionSet",
+          "OS:StandardsInformation:Construction",
+      ]
+      obj_types.each {|model_obj_type|
+        new_model = eleminate_duplicate_objs(new_model, model_obj_type)
+      }
+
+      new_number_of_objects = new_model.getModelObjects.length
+
+      puts "Number of objects removed: #{old_number_of_objects - new_number_of_objects}"
+      return new_model
+    end
 
   end #FileIO
 

@@ -226,7 +226,7 @@ module BTAP
       construction_info[:name] = construction.name.get
       construction_info[:net_area_m2] = construction.getNetArea.round(2)
       construction_info[:thermal_conductance_m2_w_per_k] = BTAP::Resources::Envelope::Constructions::get_conductance(construction).round(3)
-      construction_info[:solar_transmittance] = BTAP::Resources::Envelope::Constructions::get_tsol(model,construction).round(3)
+      construction_info[:solar_transmittance] = BTAP::Resources::Envelope::Constructions::get_shgc(model, construction).round(3)
       construction_info[:visible_tranmittance] = BTAP::Resources::Envelope::Constructions::get_tvis(model,construction).round(3)
     end	
     
@@ -639,7 +639,7 @@ module BTAP
        
     
     # Perform qaqc
-    necb_2011_qaqc(qaqc, model) if qaqc[:building][:name].include?("NECB 2011") #had to nodify this because this is specifically for "NECB-2011" standard
+    necb_2011_qaqc(qaqc, model) if qaqc[:building][:name].include?("NECB2011") #had to nodify this because this is specifically for "NECB-2011" standard
     sanity_check(qaqc)
     
     qaqc[:information] = qaqc[:information].sort
@@ -773,7 +773,7 @@ end
   
   
 def necb_2011_qaqc(qaqc, model)
-  #Now perform basic QA/QC on items for necb 2011 
+  #Now perform basic QA/QC on items for NECB2011 
   qaqc[:information] = []
   qaqc[:warnings] =[]
   qaqc[:errors] = []
@@ -976,7 +976,7 @@ def necb_2011_qaqc(qaqc, model)
     end
   end	
   #Air flow sizing check
-  #determine correct economizer usage according to section 5.2.2.7 of NECB 2011
+  #determine correct economizer usage according to section 5.2.2.7 of NECB2011
   necb_section_name = "NECB2011-5.2.2.7"
   qaqc[:air_loops].each do |air_loop_info|
     #    air_loop_info[:name] 

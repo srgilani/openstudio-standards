@@ -41,21 +41,42 @@ module LargeOffice
       end
     end
 
+    # TODO: replace CoolingTowerTwoSpeed with a FluidCoolerTwoSpeed once the simulation failures are resolved
+
+    # set infiltration schedule for plenums
+    # @todo remove once infil_sch in Standards.Space pulls from default building infiltration schedule
+    model.getSpaces.each do |space|
+      next unless space.name.get.to_s.include? 'Plenum'
+      # add infiltration if DOE Ref vintage
+      if template == 'DOE Ref 1980-2004' || template == 'DOE Ref Pre-1980'
+        # Create an infiltration rate object for this space
+        infiltration = OpenStudio::Model::SpaceInfiltrationDesignFlowRate.new(space.model)
+        infiltration.setName("#{space.name} Infiltration")
+        all_ext_infil_m3_per_s_per_m2 = OpenStudio.convert(0.2232, 'ft^3/min*ft^2', 'm^3/s*m^2').get
+        infiltration.setFlowperExteriorSurfaceArea(all_ext_infil_m3_per_s_per_m2)
+        infiltration.setSchedule(model_add_schedule(model, 'Large Office Infil Quarter On'))
+        infiltration.setConstantTermCoefficient(1.0)
+        infiltration.setTemperatureTermCoefficient(0.0)
+        infiltration.setVelocityTermCoefficient(0.0)
+        infiltration.setVelocitySquaredTermCoefficient(0.0)
+        infiltration.setSpace(space)
+      else
+        space.spaceInfiltrationDesignFlowRates.each do |infiltration_object|
+          infiltration_object.setSchedule(model_add_schedule(model, 'OfficeLarge INFIL_SCH_PNNL'))
+        end
+      end
+    end
+
     return true
   end
 
-  def update_waterheater_loss_coefficient(model)
-    case template
-      when '90.1-2004', '90.1-2007', '90.1-2010', '90.1-2013', 'NECB 2011'
-        model.getWaterHeaterMixeds.sort.each do |water_heater|
-          water_heater.setOffCycleLossCoefficienttoAmbientTemperature(11.25413987)
-          water_heater.setOnCycleLossCoefficienttoAmbientTemperature(11.25413987)
-        end
-    end
+  def model_custom_swh_tweaks(model, building_type, climate_zone, prototype_input)
+
+    return true
   end
 
-  def model_custom_swh_tweaks(model, building_type, climate_zone, prototype_input)
-    update_waterheater_loss_coefficient(model)
+  def model_custom_geometry_tweaks(building_type, climate_zone, prototype_input, model)
+
     return true
   end
 end

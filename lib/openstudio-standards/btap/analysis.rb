@@ -21,7 +21,7 @@ module BTAP
   #Contains methods to perform multi-run analysis of a building model
   module Analysis
     module Baseline
-      "NECB2011"
+      "NECB 2011"
     end  
     
     #A single measure that is selectable.

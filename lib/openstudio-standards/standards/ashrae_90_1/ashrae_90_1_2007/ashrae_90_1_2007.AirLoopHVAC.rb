@@ -18,23 +18,16 @@ class ASHRAE9012007 < ASHRAE901
   def air_loop_hvac_motorized_oa_damper_limits(air_loop_hvac, climate_zone)
     case climate_zone
     when 'ASHRAE 169-2006-1A',
-         'ASHRAE 169-2006-1B',
-         'ASHRAE 169-2006-2A',
-         'ASHRAE 169-2006-2B',
-         'ASHRAE 169-2006-3A',
-         'ASHRAE 169-2006-3B',
-         'ASHRAE 169-2006-3C',
-         'ASHRAE 169-2013-1A',
-         'ASHRAE 169-2013-1B',
-         'ASHRAE 169-2013-2A',
-         'ASHRAE 169-2013-2B',
-         'ASHRAE 169-2013-3A',
-         'ASHRAE 169-2013-3B',
-         'ASHRAE 169-2013-3C'
-      minimum_oa_flow_cfm = 0
+        'ASHRAE 169-2006-1B',
+        'ASHRAE 169-2006-2A',
+        'ASHRAE 169-2006-2B',
+        'ASHRAE 169-2006-3A',
+        'ASHRAE 169-2006-3B',
+        'ASHRAE 169-2006-3C',
+      minimum_oa_flow_cfm = 300
       maximum_stories = 999 # Any number of stories
     else
-      minimum_oa_flow_cfm = 0
+      minimum_oa_flow_cfm = 300
       maximum_stories = 3
     end
 

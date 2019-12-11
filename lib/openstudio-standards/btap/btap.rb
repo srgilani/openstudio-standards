@@ -18,6 +18,7 @@
 # **********************************************************************/
 
 
+require 'openstudio/energyplus/find_energyplus'
 require 'fileutils'
 require 'singleton'
 require 'find'

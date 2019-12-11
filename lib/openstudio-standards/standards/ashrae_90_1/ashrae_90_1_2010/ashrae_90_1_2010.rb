@@ -2,15 +2,13 @@
 # to a given model.
 # @ref [References::ASHRAE9012010]
 class ASHRAE9012010 < ASHRAE901
-  register_standard '90.1-2010'
+  @@template = '90.1-2010' # rubocop:disable Style/ClassVars
+  register_standard @@template
   attr_reader :template
 
   def initialize
-    @template = '90.1-2010'
+    super()
+    @template = @@template
     load_standards_database
-  end
-
-  def load_standards_database(data_directories = [])
-    super([__dir__] + data_directories)
   end
 end

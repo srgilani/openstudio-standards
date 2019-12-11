@@ -101,10 +101,12 @@ module BTAP
 
 
       def getPaths
+        # Find EnergyPlus on this computer.
+        @ep_hash = OpenStudio::EnergyPlus::find_energyplus(BTAP::ENERGY_PLUS_MAJOR_VERSION,BTAP::ENERGY_PLUS_MINOR_VERSION)
         #set the Energyplus.exe path variable
-        @ep_path = OpenStudio.getEnergyPlusExecutable
+        @ep_path = OpenStudio::Path.new(  @ep_hash[:energyplus_exe].to_s)
         #set the root folder for E+
-        @ep_parent_path = OpenStudio.getEnergyPlusDirectory
+        @ep_parent_path = @ep_path.parent_path();
 
         #find IDD path
         idd_path = @ep_parent_path.to_s + "/Energy+.idd"
@@ -144,7 +146,12 @@ module BTAP
       #@author Phylroy A. Lopez
       #@return [String] a simple string of the epw file path, remember to escape the slashes..(i.e. // not / )
       def self.find_energyplus_folder()
-        return OpenStudio.getEnergyPlusDirectory.to_s
+        # Find EnergyPlus on this computer.
+        ep_hash = OpenStudio::EnergyPlus::find_energyplus(BTAP::ENERGY_PLUS_MAJOR_VERSION,BTAP::ENERGY_PLUS_MINOR_VERSION)
+        #set the Energyplus.exe path variable
+        ep_path = OpenStudio::Path.new(  ep_hash[:energyplus_exe].to_s)
+        #set the root folder for E+
+        return ep_path.parent_path();
       end
 
       #This method finds the eReadVarsESO.exe and returns the path string.

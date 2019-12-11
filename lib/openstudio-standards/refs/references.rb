@@ -36,11 +36,7 @@ module References
   # as of 2017.
   class NRELZNEReady2017; end
 
-  # ZE AEDG Multifamily
-  # This template contains values from the Zero Energy Advanced Energy Design Guide for Multifamily Buildings
-  class ZEAEDGMultifamily; end
-
-  # NECB2011
+  # NECB 2011
   # @see https://www.nrc-cnrc.gc.ca/eng/publications/codes_centre/2011_national_energy_code_buildings.html Purchase in the NRC Virtual Store
   class NECB2011; end
 
@@ -72,47 +68,5 @@ module References
   # envelope air barrier characteristics
   # @see http://www.pnl.gov/main/publications/external/technical_reports/PNNL-18898.pdf The PNNL technical report
   class PNNLInfiltration; end
-
-  # DEER and MASControl
-  # The Database for Energy Efficient Resources (DEER) contains information on selected energy-efficient technologies and measures.
-  # The DEER provides estimates of the energy-savings potential for these technologies in residential and nonresidential applications.
-  # To determine the energy-savings potential, a DOE-2-based system called MASControl was developed by consultants of
-  # the California Public Utility Commission. The DEER "Standards" in this library represent the input assumptions used
-  # inside of MASControl to represent CA buildings of different vintages.
-  # @see http://deeresources.com/index.php/deer-versions
-  class DEERMASControl; end
-
-  # OEESC 2014
-  # The Oregon Energy Efficiency Specialty Code is the building energy code for the
-  # state of Oregon.  It is very similar to ASHRAE 90.1-2013, but has been tailored
-  # to meet the needs of Oregon.
-  # @see http://www.oregon.gov/bcd/codes-stand/Pages/energy-efficiency.aspx
-  class OEESC2014; end
-
-  # ICC IECC 2015
-  # The International Code Council's International Energy Conservation Code is widely
-  # used across the United States.
-  # @see https://codes.iccsafe.org/public/document/toc/545/
-  class ICCIECC2015; end
-
-  # CBES
-  # The LBNL Commercial Building Energy Saver is an online tool that is used to perform
-  # benchmarking and retrofit analysis for small to medium sized office buildings in California.
-  # @see http://cbes.lbl.gov/
-  class CBES; end
-
-  # University of California Berkeley Center for the Built Environment
-  # These EnergyPlus objects implement a proportional control for a single
-  # thermal zone with a radiant system. The full details of the control
-  # strategy are described in the paper Raftery et al. (2017), "A new control
-  # strategy for high thermal mass radiant systems". The work was supported
-  # by the California Energy Commission (CEC) Electric Program Investment
-  # Charge (EPIC) (EPC-14-009) "Optimizing Radiant Systems for Energy Efficiency
-  # and Comfort", and the Center for the Built Environment, UC Berkeley, California.
-  # For more information please contact the following:
-  # Paul Raftery p.raftery@berkeley.edu
-  # Carlos Duarte cduarte@berkeley.edu
-  # @see https://cbe.berkeley.edu/project/optimizing-radiant-systems-energy-efficiency-comfort/
-  class CBERadiantSystems; end
 
 end

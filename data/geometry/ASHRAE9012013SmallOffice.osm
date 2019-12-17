@@ -116,7 +116,7 @@ OS:Space,
   0,                                      !- X Origin {m}
   0,                                      !- Y Origin {m}
   0,                                      !- Z Origin {m}
-  ,                                       !- Building Story Name
+  {314c62be-fce7-4e5a-bd05-c87c85e86c27}, !- Building Story Name
   {761af5ec-0e7c-4fea-81cc-7d7860391e92}, !- Thermal Zone Name
   No;                                     !- Part of Total Floor Area
 
@@ -824,12 +824,6 @@ OS:Timestep,
   {eb583d9a-28e0-49c6-8519-cae0088b5073}, !- Handle
   6;                                      !- Number of Timesteps per Hour
 
-OS:Sizing:Parameters,
-  {532162e8-b44e-4d19-8f3f-148fea654320}, !- Handle
-  1.2,                                    !- Heating Sizing Factor
-  1.2,                                    !- Cooling Sizing Factor
-  6;                                      !- Timesteps in Averaging Window
-
 OS:Surface,
   {1f023a99-6062-4e6b-a2ee-74cc9513d97f}, !- Handle
   Perimeter_ZN_1_floor,                   !- Name
@@ -1210,7 +1204,7 @@ OS:SubSurface,
 
 OS:Building,
   {6b25c3c7-39e4-4be7-84a9-17e80feecaf5}, !- Handle
-  DOE Prototype SmallOffice,              !- Name
+  A90_1_2013SmallOffice,                  !- Name
   ,                                       !- Building Sector Type
   0,                                      !- North Axis {deg}
   ,                                       !- Nominal Floor to Floor Height {m}
@@ -1218,7 +1212,7 @@ OS:Building,
   ,                                       !- Default Construction Set Name
   ,                                       !- Default Schedule Set Name
   1,                                      !- Standards Number of Stories
-  1,                                      !- Standards Number of Above Ground Stories
+  0,                                      !- Standards Number of Above Ground Stories
   SmallOffice;                            !- Standards Building Type
 
 OS:Surface,
@@ -1309,7 +1303,7 @@ OS:SubSurface,
 OS:SubSurface,
   {53588f1b-5734-4f40-b8d3-73d92c10e021}, !- Handle
   Perimeter_ZN_1_wall_south_door,         !- Name
-  GlassDoor,                              !- Sub Surface Type
+  Door,                                   !- Sub Surface Type
   ,                                       !- Construction Name
   {67ca62ce-e572-4957-8e6a-efb74825f170}, !- Surface Name
   ,                                       !- Outside Boundary Condition Object
@@ -1330,6 +1324,15 @@ OS:BuildingStory,
   {2edc3034-10d9-48ff-9f1e-ff89d18bbb3f}, !- Handle
   Building Story 1,                       !- Name
   0,                                      !- Nominal Z Coordinate {m}
+  ,                                       !- Nominal Floor to Floor Height {m}
+  ,                                       !- Default Construction Set Name
+  ,                                       !- Default Schedule Set Name
+  ;                                       !- Group Rendering Name
+
+OS:BuildingStory,
+  {314c62be-fce7-4e5a-bd05-c87c85e86c27}, !- Handle
+  Building Story 2,                       !- Name
+  3.05,                                   !- Nominal Z Coordinate {m}
   ,                                       !- Nominal Floor to Floor Height {m}
   ,                                       !- Default Construction Set Name
   ,                                       !- Default Schedule Set Name

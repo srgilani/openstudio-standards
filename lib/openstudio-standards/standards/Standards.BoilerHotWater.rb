@@ -4,7 +4,7 @@ class Standard
 
   # find search criteria
   #
-  # @return [Hash] used for standards_lookup_table(model)
+  # @return [Hash] used for model_find_object(model)
   def boiler_hot_water_find_search_criteria(boiler_hot_water)
     # Define the criteria to find the boiler properties
     # in the hvac standards data set.
@@ -130,20 +130,18 @@ class Standard
     # Get the boiler properties
     blr_props = model_find_object(standards_data['boilers'], search_criteria, capacity_btu_per_hr)
     unless blr_props
-      OpenStudio.logFree(OpenStudio::Warn, 'openstudio.standards.BoilerHotWater', "For #{boiler_hot_water.name}, cannot find boiler properties with search criteria #{search_criteria}, cannot apply efficiency standard.")
+      OpenStudio.logFree(OpenStudio::Warn, 'openstudio.standards.BoilerHotWater', "For #{boiler_hot_water.name}, cannot find boiler properties, cannot apply efficiency standard.")
       successfully_set_all_properties = false
       return successfully_set_all_properties
     end
 
-    # Make the EFFFPLR curve (not all boilers will have one)
-    if blr_props['efffplr']
-      eff_fplr = model_add_curve(boiler_hot_water.model, blr_props['efffplr'])
-      if eff_fplr
-        boiler_hot_water.setNormalizedBoilerEfficiencyCurve(eff_fplr)
-      else
-        OpenStudio.logFree(OpenStudio::Warn, 'openstudio.standards.BoilerHotWater', "For #{boiler_hot_water.name}, cannot find eff_fplr curve, will not be set.")
-        successfully_set_all_properties = false
-      end
+    # Make the EFFFPLR curve
+    eff_fplr = model_add_curve(boiler_hot_water.model, blr_props['efffplr'])
+    if eff_fplr
+      boiler_hot_water.setNormalizedBoilerEfficiencyCurve(eff_fplr)
+    else
+      OpenStudio.logFree(OpenStudio::Warn, 'openstudio.standards.BoilerHotWater', "For #{boiler_hot_water.name}, cannot find eff_fplr curve, will not be set.")
+      successfully_set_all_properties = false
     end
 
     # Get the minimum efficiency standards

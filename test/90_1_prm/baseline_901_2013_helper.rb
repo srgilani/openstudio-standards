@@ -197,14 +197,9 @@ module Baseline9012013
 
           # minimum fraction, which is the greater
           # of the min fraction or the min fixed value converted to a fraction.
-          act_fixed_min_frac = terminal.constantMinimumAirFlowFraction.get
+          act_fixed_min_frac = terminal.constantMinimumAirFlowFraction
           act_oa_min_frac = 0.0
           act_min_flow = terminal.fixedMinimumAirFlowRate
-          if act_min_flow.is_initialized
-            act_min_flow = act_min_flow.get
-          else
-            act_min_flow = 0.0
-          end
           if act_min_flow > 0.0
             act_oa_min_frac = act_min_flow/des_flow
           end
@@ -337,24 +332,19 @@ module Baseline9012013
           # tests against 90.1-2013 efficiencies
           if size < 65000
             seer = 14.0
-            # Per PNNL, convert SEER to COP with fan
-            eer = -0.0182 * seer * seer + 1.1088 * seer
-            cop = (eer / 3.413 + 0.12) / (1 - 0.12)
+            cop = -0.0076 * seer * seer + 0.3796 * seer
           elsif size >= 65000 && size < 135000
             eer = 11.0
-            cop = (eer / 3.413 + 0.12) / (1 - 0.12)
+            cop = 7.84e-8 * eer * size + 0.338 * eer
           elsif size >= 135000 && size < 240000
             eer = 10.8
-            # Per PNNL, covert EER to COP using a capacity-agnostic formula
-            cop = (eer / 3.413 + 0.12) / (1 - 0.12)
+            cop = 7.84e-8 * eer * size + 0.338 * eer
           elsif size >= 240000 && size < 760000
             eer = 9.8
-            # Per PNNL, covert EER to COP using a capacity-agnostic formula
-            cop = (eer / 3.413 + 0.12) / (1 - 0.12)
+            cop = 7.84e-8 * eer * size + 0.338 * eer
           else # size >= 760000
             eer = 9.5
-            # Per PNNL, covert EER to COP using a capacity-agnostic formula
-            cop = (eer / 3.413 + 0.12) / (1 - 0.12)
+            cop = 7.84e-8 * eer * size + 0.338 * eer
           end
         
           if (coil_cop - cop).abs >= 0.1
@@ -429,7 +419,7 @@ module Baseline9012013
     prm_maj_sec = 'G3.1.1 Baseline HVAC System Type' 
     
     # get model objects
-    climate_zone = climate_zone.gsub('ASHRAE 169-2013-', '')
+    climate_zone = climate_zone.gsub('ASHRAE 169-2006-', '')
     model_area_si = prop_model.getBuilding.floorArea
     model_area_ip = OpenStudio.convert(model_area_si, 'm^2', 'ft^2').get
     building_storys = prop_model.getBuildingStorys.size
@@ -878,7 +868,8 @@ module Baseline9012013
          'Outpatient' # Health-care clinic
       prm_shw_fuel = 'NaturalGas'
     when 'SmallOffice', 'MediumOffice', 'LargeOffice', # Office
-         'RetailStandalone', 'RetailStripmall', # Retail
+         'SmallOfficeDetailed', 'MediumOfficeDetailed',
+		 'RetailStandalone', 'RetailStripmall', # Retail
          'Warehouse' # Warehouse
       prm_shw_fuel = 'Electricity'
     else
@@ -906,12 +897,6 @@ module Baseline9012013
         ua_on = wh.onCycleLossCoefficienttoAmbientTemperature.get
         ua_on = OpenStudio.convert(ua_on,'W/K','Btu/hr*R').get
         
-        # Estimate storage tank volume
-        tank_volume = vol > 100 ? (vol - 100).round(0) : 0
-        wh_tank_volume = vol > 100 ? 100 : vol
-        # SL Storage Tank: polynomial regression based on a set of manufacturer data
-        sl_tank = 0.0000005 * tank_volume**3 - 0.001 * tank_volume**2 + 1.3519 * tank_volume + 64.456 # in Btu/h
-
         # test baseline water heater fuel
          assert_equal(prm_shw_fuel, fuel, "#{prm_maj_sec}: baseline water heater fuel type")
         
@@ -949,10 +934,10 @@ module Baseline9012013
           elsif cap > prm_cap_gas
             # from standard
             e_t = 0.8
+            sl = cap / 799 + 16.6 * Math.sqrt(vol) #per 2013 errata
             # from PNNL
-            p_on = cap / e_t
-            sl = p_on / 800 + 110 * Math.sqrt(vol) + sl_tank #per 2013 errata
             ua = sl * e_t / 70
+            p_on = cap
             e_ht = (ua * 70 + p_on * e_t) / p_on
             
             # test

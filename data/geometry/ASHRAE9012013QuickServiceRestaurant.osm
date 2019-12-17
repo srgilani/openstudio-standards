@@ -184,7 +184,7 @@ OS:HeatBalanceAlgorithm,
 
 OS:Building,
   {2359408b-6252-42dc-81e2-5632894e0032}, !- Handle
-  DOE Prototype QuickServiceRestaurant,   !- Name
+  A90_1_2013QuickServiceRestaurant,       !- Name
   ,                                       !- Building Sector Type
   0,                                      !- North Axis {deg}
   ,                                       !- Nominal Floor to Floor Height {m}
@@ -192,7 +192,7 @@ OS:Building,
   ,                                       !- Default Construction Set Name
   ,                                       !- Default Schedule Set Name
   1,                                      !- Standards Number of Stories
-  1,                                      !- Standards Number of Above Ground Stories
+  0,                                      !- Standards Number of Above Ground Stories
   QuickServiceRestaurant;                 !- Standards Building Type
 
 OS:Output:Meter,
@@ -355,12 +355,6 @@ OS:Output:Meter,
 OS:Timestep,
   {9063a0cc-5920-4b09-9aec-904158ca50a0}, !- Handle
   6;                                      !- Number of Timesteps per Hour
-
-OS:Sizing:Parameters,
-  {0752771b-ebe2-442b-918f-fba857f81335}, !- Handle
-  1.2,                                    !- Heating Sizing Factor
-  1.2,                                    !- Cooling Sizing Factor
-  6;                                      !- Timesteps in Averaging Window
 
 OS:SubSurface,
   {d143d736-245a-42f7-8084-9f92d4c6b4f4}, !- Handle

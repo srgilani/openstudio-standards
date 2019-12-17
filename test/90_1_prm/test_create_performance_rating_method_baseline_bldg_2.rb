@@ -8,7 +8,7 @@ class Baseline9012013Test2 < Minitest::Test
 
   # Test LPDs for bldg_1
   # @author Matt Leach, NORESCO
-  def ci_fail_test_lpd_bldg1 # disable this test, which succeeds locally but fails on circleci for no apparent reason
+  def test_lpd_bldg1
 
     model = create_baseline_model('bldg_1', '90.1-2013', 'ASHRAE 169-2006-5B', 'MediumOffice', 'Xcel Energy CO EDA', false, true)
     failure_array = []
@@ -36,7 +36,7 @@ class Baseline9012013Test2 < Minitest::Test
   
   # Test LPDs for bldg_2
   # @author Matt Leach, NORESCO
-  def ci_fail_test_lpd_bldg2 # disable this test, which succeeds locally but fails on circleci for no apparent reason
+  def test_lpd_bldg2
 
     model = create_baseline_model('bldg_2', '90.1-2013', 'ASHRAE 169-2006-5B', 'MediumOffice', 'Xcel Energy CO EDA', false, true)
     failure_array = []
@@ -69,8 +69,7 @@ class Baseline9012013Test2 < Minitest::Test
     failure_array = []
     
     lpd_test_hash = {}
-    # lpd_test_hash["Base2 Weight 2B55 1B50"] = {"LPD" => 0.72,"Space_Type" => "Exercise"}
-    # no Exercise space type defined for medium office so it's pulling the small hotel value (RCR adjusted value = 0.864)
+    lpd_test_hash["Base2 Weight 2B55 1B50"] = {"LPD" => 0.72,"Space_Type" => "Exercise"}
     lpd_test_hash["Flr1 Corridor 115"] = {"LPD" => 0.66,"Space_Type" => "Corridor"}
     lpd_test_hash["Flr2 Office 280"] = {"LPD" => 1.11,"Space_Type" => "ClosedOfficeOffice"}
     lpd_test_hash["Flr2 Computer 266"] = {"LPD" => 1.24,"Space_Type" => "Classroom"}
@@ -154,9 +153,9 @@ class Baseline9012013Test2 < Minitest::Test
     failure_array = []
     
     lpd_test_hash = {}
-    lpd_test_hash["L1-ES_apt"] = {"LPD" => 1.34,"Space_Type" => "Apartment"}
+    lpd_test_hash["L1-ES_apt"] = {"LPD" => 0.45,"Space_Type" => "Apartment"}
     lpd_test_hash["L1-E_corr"] = {"LPD" => 0.792,"Space_Type" => "Corridor"}
-    lpd_test_hash["L1-W_ret"] = {"LPD" => 1.11,"Space_Type" => "Office"} # Apartment offices have 1.11 W/f^2 extra task lighting according to the DOE prototype buildings
+    lpd_test_hash["L1-W_ret"] = {"LPD" => 1.11,"Space_Type" => "Office"}
     
       lpd_test_hash.keys.each do |space_name|
       space = model.getSpaceByName(space_name).get
@@ -174,7 +173,7 @@ class Baseline9012013Test2 < Minitest::Test
 
   # Test Daylighting for bldg_1
   # @author Matt Leach, NORESCO
-  def ci_fail_test_daylighting_bldg1 # disable this test, which succeeds locally but fails on circleci for no apparent reason
+  def test_daylighting_bldg1
 
     model = create_baseline_model('bldg_1', '90.1-2013', 'ASHRAE 169-2006-5B', 'MediumOffice', 'Xcel Energy CO EDA', false, true)
     failure_array = []
@@ -348,7 +347,7 @@ class Baseline9012013Test2 < Minitest::Test
 
   # Test System Type for bldg_1
   # @author Matt Leach, NORESCO
-  def ci_fail_test_system_type_bldg1 # disable this test, which succeeds locally but fails on circleci for no apparent reason
+  def test_system_type_bldg1
 
     model = create_baseline_model('bldg_1', '90.1-2013', 'ASHRAE 169-2006-5B', 'MediumOffice', 'Xcel Energy CO EDA', false, true)
     failure_array = []
@@ -498,7 +497,7 @@ class Baseline9012013Test2 < Minitest::Test
 
   # Test System Type for bldg_2
   # @author Matt Leach, NORESCO
-  def known_fail_test_system_type_bldg2 # This test fails on circleci but succeeds locally.  Cannot figure out why.
+  def test_system_type_bldg2
 
     model = create_baseline_model('bldg_2', '90.1-2013', 'ASHRAE 169-2006-5B', 'MediumOffice', 'Xcel Energy CO EDA', false, true)
     failure_array = []

@@ -2,46 +2,37 @@
 
 ## Setup
 
-1. Install the [latest version of OpenStudio](https://www.openstudio.net/downloads). Minimum supported version is 2.4.4.
+1. Install the [latest version of OpenStudio](https://www.openstudio.net/downloads)
 2. Install Ruby:
       1. **On Mac**:
-      2. Install Ruby 2.2.4 using [rbenv](http://octopress.org/docs/setup/rbenv/) (`ruby -v` from command prompt to check installed version).
+      2. Install Ruby 2.2 using [rbenv](http://octopress.org/docs/setup/rbenv/) (`ruby -v` from command prompt to check installed version).
       3. **On Windows**:
-      4. Install [Ruby 2.2.4](https://rubyinstaller.org/downloads/archives/) (`ruby -v` from command prompt to check installed version).
-      5. Install [Ruby DevKit](https://rubyinstaller.org/downloads/archives/) by following [these installation instructions](https://github.com/oneclick/rubyinstaller/wiki/Development-Kit)
-      6. **Using BTAP development Environment**
-      7. Do nothing.
+      4. Install [Ruby 2.2.6](http://rubyinstaller.org/downloads/) (`ruby -v` from command prompt to check installed version).
+      5. Install [Ruby DevKit](http://rubyinstaller.org/downloads/) by following [these installation instructions](https://github.com/oneclick/rubyinstaller/wiki/Development-Kit)
 
 4. Connect Ruby to OpenStudio:
 	1. **On Mac**:
 	2. Create a file called `openstudio.rb`
-	3. Contents: `require "/Applications/openstudio-2.6.0/Ruby/openstudio.rb"`. Modify `2.6.0` to the version you installed.
+	3. Contents: `require "/Applications/openstudio-2.1.0/Ruby/openstudio.rb"` Modify `2.1.0` to the version you installed.
 	4. Save it here: `/usr/lib/ruby/site_ruby/openstudio.rb`
 	5. **On Windows**:
 	6. Create a file called `openstudio.rb`
-	7. Contents: `require "C:/openstudio-2.6.0/Ruby/openstudio.rb"`.  Modify `2.6.0` to the version you installed.
+	7. Contents: `require "C:/openstudio-2.1.0/Ruby/openstudio.rb"`  Modify `2.1.0` to the version you installed.
 	8. Save it here: `C:/Ruby22-x64/lib/ruby/site_ruby/openstudio.rb`
 	9. Start > right click Computer > Properties > Advanced system settings > Environment variables.  In the User variables section (top) add a new Variable with the name `GEM_PATH` and the Value `C:\Ruby22-x64\lib\ruby\gems\2.2.0`.
-	10. **Using BTAP development Environment**
-	11.  Do nothing.
-
-5. Enable your OpenStudio Application installation to use the version of the gem built through the development process 
-    1. **On Windows**:
-    2. Start > right click Computer > Properties > Advanced system settings > Environment variables.
-    3. In the User variables section (top) add a new Variable with the name `GEM_HOME` and the Value `C:\Ruby22-x64\lib\ruby\gems\2.2.0`.
 
 5. Install the `bundler` ruby gem. (`gem install bundler` from command prompt)
 6. Install the `json` ruby gem. (`gem install json` from command prompt)
 7. Install [Git](https://git-scm.com/).
 8. Install [GitHub desktop](https://desktop.github.com/) or another GUI that makes Git easier to use.
 8. Clone the [source code](https://github.com/NREL/openstudio-standards.git) using GitHub desktop (easier) or Git (harder).
-9. Run all commands below from the top level directory 
+9. Run all commands below from the `/openstudio-standards/openstudio-standards` directory 
 10. **On Windows**, use the Git Bash instead of the default command prompt.
 11. **On Mac** the default terminal is fine.
-12. **Using BTAP development Environment** use the terminator terminal ideally.
-13. Command prompt: `bundle install`. This will install all ruby gems necessary to develop this code.
-14. Sign up for an account at [CircleCI](https://circleci.com/) and follow the `NREL/openstudio-standards` project.
-15. That's it, you are ready to make changes!
+11. Navigate to the `openstudio-standards` directory.
+12. Command prompt: `bundle install`. This will install all ruby gems necessary to develop this code.
+13. Sign up for an account at [CircleCI](https://circleci.com/) and follow the `NREL/openstudio-standards` project.
+14. That's it, you are ready to make changes!
 
 ## Development Process
 
@@ -57,41 +48,35 @@
 
 This project uses [Rake](http://rake.rubyforge.org/) to run tasks from the terminal.  
 
-`bundle exec rake -T`: List all available commands
+`rake -T`: List all available commands
 
-- `bundle exec rake build`                    # Build openstudio-standards-X.X.XX.gem into the pkg directory
-- `bundle exec rake clean`                    # Remove any temporary products
-- `bundle exec rake clobber`                  # Remove any generated files
-- `bundle exec rake data:update`              # Download OpenStudio_Standards from Google & export JSONs
-- `bundle exec rake data:update:costing`      # Update RS-Means Database
-- `bundle exec rake data:update:manual`       # Export JSONs from OpenStudio_Standards
-- `bundle exec rake doc`                      # Generate the documentation
-- `bundle exec rake doc:show`                 # Show the documentation in a web browser
-- `bundle exec rake install`                  # Build and install openstudio-standards-X.X.XX.gem into system gems
-- `bundle exec rake install:local`            # Build and install openstudio-standards-X.X.XX.gem into system gems without network access
-- `bundle exec rake library:export`           # Export libraries for the OpenStudio Application
-- `bundle exec rake release[remote`]          # Create tag vX.X.XX and build and push openstudio-standards-X.X.XX.gem to Rubygems
-- `bundle exec rake rubocop`                  # Check the code for style consistency
-- `bundle exec rake rubocop:auto_correct`     # Auto-correct RuboCop offenses
-- `bundle exec rake rubocop:show`             # Show the rubocop output in a web browser
-- `bundle exec rake test:btap_json_test`      # Run tests for btap_json_test
-- `bundle exec rake test:circ-90_1_general`   # Run tests for circ-90_1_general
-- `bundle exec rake test:circ-90_1_prm`       # Run tests for circ-90_1_prm
-- `bundle exec rake test:circ-all-tests`      # Run tests for circ-all-tests
-- `bundle exec rake test:circ-doe_prototype`  # Run tests for circ-doe_prototype
-- `bundle exec rake test:circ-necb`           # Run tests for circ-necb
-- `bundle exec rake test:circ-necb_bldg`      # Run tests for circ-necb_bldg
-- `bundle exec rake test:necb_local_bldgs_regression_tests`  # Run tests for necb_local_bld...`
+- `rake build`: builds the gem
+- `rake clean`: don't use this
+- `rake clobber`: don't use this either
+- `rake data:update`: downloads and exports OpenStudio_Standards Google Spreadsheet
+- `rake data:update:manual`: exports OpenStudio_Standards Google Spreadsheet
+- `rake doc`: generates the documentation
+- `rake doc:show`: generates and shows the documentation
+- `rake install`: installs the gem
+- `rake install:local`: installs the gem locally
+- `rake release`: pushes the code to RubyGems.org. Don't use this without asking!
+- `rake rubocop`: checks the code syntax
+- `rake rubocop`: checks the code syntax and shows the report
+- `rake rubocop:auto_correct`: fixes mistakes in code syntax
+- `rake test:compliance`: runs tests for NECB compliance (Canadian)
+- `rake test:necb-buildings`: runs tests for NECB buildings (Canadian)
+- `rake test:necb-hvac`: runs tests for NECB hvac (Canadian)
+- `rake test:compliance`: runs tests for NECB weather (Canadian)
  
 ### Modify the code
 
-As you add to/modify the code, please try to fit changes into the current structure rather than bolting things on willy-nilly.  See the {file:docs/RepositoryStructure.md Repository Structure page} to see how the code is organized.  If you don't understand something or want to discuss your plan before you get started, contact <mailto:andrew.parker@nrel.gov>.
+As you add to/modify the code, please try to fit changes into the current structure rather than bolting things on willy-nilly.  See the {file:docs/CodeStructure.md Code Structure page} to see how the code is organized.  If you don't understand something or want to discuss your plan before you get started, contact <mailto:andrew.parker@nrel.gov>.
 
 1. Make a new branch for your changes.
 2. Modify the code on your branch.
 3. Modify the [OpenStudio_Standards Google Spreadsheet](https://docs.google.com/spreadsheets/d/15-mlZrWbA4srtFHtWRP1dgPeuI5plFdjCb1B79fEukI/edit?usp=sharing)
  - To get edit access to this spreadsheet, contact <mailto:andrew.parker@nrel.gov>.
-4. `bundle exec rake data:update` to download the latest version of the spreadsheet from Google Drive and export the JSON files.
+4. `rake data:update` to download the latest version of the spreadsheet from Google Drive and export the JSON files.
 
 ### Test the code
 
@@ -107,8 +92,8 @@ Tests prove that your code works as expected, but more importantly they help mak
 Good documentation is critical.  Changes or additions without good documentation will not be accepted.  This library uses [YARD](http://yardoc.org/) to generate documentation.  You simply write the documentation inline as specially tagged comments and the rest happens automagically.  This [YARD cheat sheet](https://gist.github.com/chetan/1827484#methods) quickly shows you how to document things.  You can also look at the other methods documented in the code.
 
 1. Make sure your methods are documented.
-2. `bundle exec rake doc` Generate the documentation and document any undocumented methods that are listed
-3. `bundle exec rake doc:show` Inspect the documentation in a browser to make sure it looks right.
+2. `rake doc` Generate the documentation and document any undocumented methods that are listed
+3. `rake doc:show` Inspect the documentation in a browser to make sure it looks right.
    
 ### Push branch to GitHub
 

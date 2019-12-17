@@ -20,16 +20,14 @@ module LargeHotel
     end
 
     exhaust_fan_space_types.each do |space_type_name|
-      space_type_data = standards_lookup_table_first(table_name: 'space_types', search_criteria:{'template' => template,
-                                                                                                 'building_type' => building_type,
-                                                                                                 'space_type' => space_type_name})
+      space_type_data = model_find_object(standards_data['space_types'], 'template' => template, 'building_type' => building_type, 'space_type' => space_type_name)
       if space_type_data.nil?
         OpenStudio.logFree(OpenStudio::Error, 'openstudio.model.Model', "Unable to find space type #{template}-#{building_type}-#{space_type_name}")
         return false
       end
 
-      exhaust_schedule = model_add_schedule(model, space_type_data['exhaust_availability_schedule'])
-      unless exhaust_schedule
+      exhaust_schedule = model_add_schedule(model, space_type_data['exhaust_schedule'])
+      if exhaust_schedule.class.to_s == 'NilClass'
         OpenStudio.logFree(OpenStudio::Error, 'openstudio.model.Model', "Unable to find Exhaust Schedule for space type #{template}-#{building_type}-#{space_type_name}")
         return false
       end
@@ -73,32 +71,6 @@ module LargeHotel
       end
     end
 
-    # adjust VAV system sizing
-    model.getAirLoopHVACs.each do |air_loop|
-      if air_loop.name.to_s.include? 'VAV WITH REHEAT'
-        # economizer type
-        oa_system = air_loop.airLoopHVACOutdoorAirSystem.get
-        oa_intake_controller = oa_system.getControllerOutdoorAir
-        oa_intake_controller.setEconomizerControlType('DifferentialEnthalpy')
-
-        # zone sizing
-        rht_sa_temp_c = OpenStudio.convert(90.0, 'F', 'C').get
-        air_loop.thermalZones.each do |zone|
-          air_terminal = zone.airLoopHVACTerminal
-          if air_terminal.is_initialized
-            air_terminal = air_terminal.get
-            if air_terminal.to_AirTerminalSingleDuctVAVReheat.is_initialized
-              air_terminal = air_terminal.to_AirTerminalSingleDuctVAVReheat.get
-              air_terminal.setMaximumReheatAirTemperature(rht_sa_temp_c)
-              reheat_coil = air_terminal.reheatCoil
-              reheat_coil = reheat_coil.to_CoilHeatingWater.get
-              reheat_coil.setRatedOutletAirTemperature(rht_sa_temp_c)
-            end
-          end
-        end
-      end
-    end
-
     # Update Sizing Zone
     zone_sizing = model.getSpaceByName('Kitchen_Flr_6').get.thermalZone.get.sizingZone
     zone_sizing.setCoolingMinimumAirFlowFraction(0.7)
@@ -134,8 +106,8 @@ module LargeHotel
           elec_equip_def1.setDesignLevel(457.7)
           elec_equip_def2.setDesignLevel(285)
         else
-          elec_equip_def1.setDesignLevel(457.7)
-          elec_equip_def2.setDesignLevel(285)
+          elec_equip_def1.setDesignLevel(99_999.88)
+          elec_equip_def2.setDesignLevel(99_999.99)
         end
         # Create the electric equipment instance and hook it up to the space type
         elec_equip1 = OpenStudio::Model::ElectricEquipment.new(elec_equip_def1)
@@ -160,28 +132,7 @@ module LargeHotel
     end
   end
 
-  def update_waterheater_ambient_parameters(model)
-    model.getWaterHeaterMixeds.sort.each do |water_heater|
-      if water_heater.name.to_s.include?('300gal')
-        water_heater.resetAmbientTemperatureSchedule
-        water_heater.setAmbientTemperatureIndicator('ThermalZone')		
-        water_heater.setAmbientTemperatureThermalZone(model.getThermalZoneByName('Basement ZN').get)
-      elsif water_heater.name.to_s.include?('6.0gal')
-        water_heater.resetAmbientTemperatureSchedule
-        water_heater.setAmbientTemperatureIndicator('ThermalZone')		
-        water_heater.setAmbientTemperatureThermalZone(model.getThermalZoneByName('Kitchen_Flr_6 ZN').get)
-      end
-    end
-  end
-
   def model_custom_swh_tweaks(model, building_type, climate_zone, prototype_input)
-    update_waterheater_ambient_parameters(model)
-
-    return true
-  end
-
-  def model_custom_geometry_tweaks(building_type, climate_zone, prototype_input, model)
-
     return true
   end
 end

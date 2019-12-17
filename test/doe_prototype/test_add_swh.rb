@@ -63,7 +63,7 @@ class TestAddSwh < Minitest::Test
     non_booster_volume_ip = OpenStudio::convert(non_booster_volume,"m^3","gal").get
 
     # check results
-    assert_equal(2, typical_swh.size, "Wrong number of SWH loops")
+    assert(typical_swh.size == 2)
     # todo - getting size of around 430 vs. expected of 600. Check this on other prototypes. Formula may be valid, fraction flow schedules may be inaccurate
     assert_in_epsilon(600,non_booster_capacity_ip,0.40) # kBtu/hr
     assert_in_epsilon(600,non_booster_volume_ip,0.40) # Gallons
@@ -148,7 +148,7 @@ class TestAddSwh < Minitest::Test
     # check results
     assert(typical_swh.size == 3)
     # todo - getting size of around 270 vs. expected of 600. Check this on other prototypes. Formula may be valid, fraction flow schedules may be inaccurate
-    assert_in_epsilon(600,non_booster_capacity_ip,1.25, "got #{non_booster_capacity_ip} kBtu/hr") # kBtu/hr
+    assert_in_epsilon(600,non_booster_capacity_ip,1.25) # kBtu/hr
 
     output_dir = File.expand_path('output', File.dirname(__FILE__))
     FileUtils.mkdir output_dir unless Dir.exist? output_dir
@@ -177,7 +177,7 @@ class TestAddSwh < Minitest::Test
     end
 
     # check results
-    assert_equal(3, typical_swh.size, "Wrong number of SWH loops") # expecting one per spacetype
+    assert(typical_swh.size == 31)
 
   end
 
@@ -205,8 +205,7 @@ class TestAddSwh < Minitest::Test
     end
 
     # check results
-    assert_equal(3, typical_swh.size, "Wrong number of SWH loops") # expecting one per spacetype
-
+    assert(typical_swh.size == 11)
 
   end
 
@@ -234,7 +233,7 @@ class TestAddSwh < Minitest::Test
     end
 
     # check results
-    assert_equal(2, typical_swh.size, "Wrong number of SWH loops")
+    assert(typical_swh.size == 2)
 
   end
 

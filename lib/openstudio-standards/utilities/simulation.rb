@@ -95,11 +95,8 @@ Standard.class_eval do
 
       cli_path = OpenStudio.getOpenStudioCLI
       cmd = "\"#{cli_path}\" run -w \"#{osw_path}\""
-      #cmd = "\"#{cli_path}\" --verbose run -w \"#{osw_path}\""
       puts cmd
-
-      # Run the sizing run
-      OpenstudioStandards.run_command(cmd)
+      system(cmd)
 
       OpenStudio.logFree(OpenStudio::Info, 'openstudio.model.Model', 'Finished run.')
 
@@ -121,22 +118,8 @@ Standard.class_eval do
       # Attach the sql file from the run to the model
       model.setSqlFile(sql)
     else
-      # If the sql file does not exist, it is likely that EnergyPlus crashed,
-      # in which case the useful errors are inside the eplusout.err file.
-      err_file_path_string = "#{run_dir}/run/eplusout.err"
-      err_file_path = OpenStudio::Path.new(err_file_path_string)
-      if OpenStudio.exists(err_file_path)
-        if __dir__[0] == ':' # Running from OpenStudio CLI
-          errs = EmbeddedScripting.getFileAsString(err_file_path_string)
-        else
-          errs = File.read(err_file_path_string)
-        end
-        OpenStudio.logFree(OpenStudio::Error, 'openstudio.model.Model', "The run did not finish because of the following errors: #{errs}")
-        return false
-      else
-        OpenStudio.logFree(OpenStudio::Error, 'openstudio.model.Model', "Results for the run couldn't be found here: #{sql_path}.")
-        return false
-      end
+      OpenStudio.logFree(OpenStudio::Error, 'openstudio.model.Model', "Results for the run couldn't be found here: #{sql_path}.")
+      return false
     end
 
     # Report severe errors in the run

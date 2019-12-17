@@ -57,9 +57,6 @@ class OpenStudio::Model::Model
   # Heating and cooling fuel methods
   require_relative 'Siz.HeatingCoolingFuels'
   
-  # Component quantity methods
-  require_relative 'Siz.HVACComponent'
-  
   # Takes the values calculated by the EnergyPlus sizing routines
   # and puts them into all objects model in place of the autosized fields.
   # Must have previously completed a run with sql output for this to work.
@@ -287,7 +284,6 @@ class OpenStudio::Model::Model
     object_type = object_type.upcase if object_type == 'Coil:Cooling:WaterToAirHeatPump:EquationFit'
     object_type = object_type.upcase if object_type == 'Coil:Heating:WaterToAirHeatPump:EquationFit'
 		object_type = 'Coil:Heating:GasMultiStage' if object_type == 'Coil:Heating:Gas:MultiStage'
-		object_type = 'Coil:Heating:Fuel' if object_type == 'Coil:Heating:Gas'
 
     sql = self.sqlFile
 

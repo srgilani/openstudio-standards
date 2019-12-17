@@ -519,7 +519,7 @@ class Standard
         elsif chiller.autosizedReferenceCapacity.is_initialized
           total_cooling_capacity_w += chiller.autosizedReferenceCapacity.get
         else
-          OpenStudio.logFree(OpenStudio::Warn, 'openstudio.standards.PlantLoop', "For #{plant_loop.name} capacity of #{chiller.name} is not available, total cooling capacity of plant loop will be incorrect when applying standard.")
+          OpenStudio.logFree(OpenStudio::Warn, 'openstudio.standards.AirLoopHVAC', "For #{plant_loop.name} capacity of #{chiller.name} is not available, total cooling capacity of plant loop will be incorrect when applying standard.")
         end
         # DistrictCooling
       elsif sc.to_DistrictCooling.is_initialized
@@ -535,7 +535,7 @@ class Standard
     end
 
     total_cooling_capacity_tons = OpenStudio.convert(total_cooling_capacity_w, 'W', 'ton').get
-    OpenStudio.logFree(OpenStudio::Info, 'openstudio.standards.PlantLoop', "For #{plant_loop.name}, cooling capacity is #{total_cooling_capacity_tons.round} tons of refrigeration.")
+    OpenStudio.logFree(OpenStudio::Info, 'openstudio.standards.AirLoopHVAC', "For #{plant_loop.name}, cooling capacity is #{total_cooling_capacity_tons.round} tons of refrigeration.")
 
     return total_cooling_capacity_w
   end
@@ -661,7 +661,7 @@ class Standard
     end
     area_served_ft2 = OpenStudio.convert(area_served_m2, 'm^2', 'ft^2').get
 
-    OpenStudio.logFree(OpenStudio::Info, 'openstudio.standards.PlantLoop', "For #{plant_loop.name}, serves #{area_served_ft2.round} ft^2.")
+    OpenStudio.logFree(OpenStudio::Info, 'openstudio.standards.AirLoopHVAC', "For #{plant_loop.name}, serves #{area_served_ft2.round} ft^2.")
 
     return area_served_m2
   end
@@ -720,11 +720,11 @@ class Standard
 
     # Report out the pumping type
     unless pri_control_type.nil?
-      OpenStudio.logFree(OpenStudio::Info, 'openstudio.standards.PlantLoop', "For #{plant_loop.name}, primary pump type is #{pri_control_type}.")
+      OpenStudio.logFree(OpenStudio::Info, 'openstudio.standards.AirLoopHVAC', "For #{plant_loop.name}, primary pump type is #{pri_control_type}.")
     end
 
     unless sec_control_type.nil?
-      OpenStudio.logFree(OpenStudio::Info, 'openstudio.standards.PlantLoop', "For #{plant_loop.name}, secondary pump type is #{sec_control_type}.")
+      OpenStudio.logFree(OpenStudio::Info, 'openstudio.standards.AirLoopHVAC', "For #{plant_loop.name}, secondary pump type is #{sec_control_type}.")
     end
 
     # Modify all the primary pumps
@@ -778,7 +778,7 @@ class Standard
 
     # Report out the pumping type
     unless control_type.nil?
-      OpenStudio.logFree(OpenStudio::Info, 'openstudio.standards.PlantLoop', "For #{plant_loop.name}, pump type is #{control_type}.")
+      OpenStudio.logFree(OpenStudio::Info, 'openstudio.standards.AirLoopHVAC', "For #{plant_loop.name}, pump type is #{control_type}.")
     end
 
     return true
@@ -791,7 +791,7 @@ class Standard
 
     # Report out the pumping type
     unless control_type.nil?
-      OpenStudio.logFree(OpenStudio::Info, 'openstudio.standards.PlantLoop', "For #{plant_loop.name}, pump type is #{control_type}.")
+      OpenStudio.logFree(OpenStudio::Info, 'openstudio.standards.AirLoopHVAC', "For #{plant_loop.name}, pump type is #{control_type}.")
     end
 
     # Modify all primary pumps
@@ -1234,21 +1234,6 @@ class Standard
       end
     end
 
-    # If there is a waterheater on the demand side,
-    # check if the loop connected to that waterheater's
-    # demand side is an swh loop itself
-    plant_loop.demandComponents.each do |comp|
-      if comp.to_WaterHeaterMixed.is_initialized
-        comp = comp.to_WaterHeaterMixed.get
-        if comp.plantLoop.is_initialized
-          if plant_loop_swh_loop?(comp.plantLoop.get)
-            serves_swh = true
-            break
-          end
-        end
-      end
-    end
-
     return serves_swh
   end
 
@@ -1355,21 +1340,4 @@ class Standard
 
     return fuels.uniq.sort, combination_system, storage_capacity, total_heating_capacity
   end # end classify_swh_system_type
-
-  # This method calculates the capacity of a plant loop by multiplying the temp difference across the loop, the maximum flow rate,
-  # the fluid density, and the fluid heat capacity (currently only works with water).  This may be a little more approximate than the
-  # heating and cooling capacity methods described above however is not limited to certain types of equipment and can be used for
-  # condensing plant loops too.
-  def plant_loop_capacity_W_by_maxflow_and_deltaT_forwater (plant_loop)
-    plantloop_maxflowrate = nil
-    if plant_loop.fluidType != "Water"
-      OpenStudio.logFree(OpenStudio::Error, 'openstudio.standards.PlantLoop', "The fluid used in the plant loop named #{plant_loop.name.to_s} is not water.  The current version of this method only calculates the capacity of plant loops that use water.")
-    end
-    plantloop_maxflowrate = plant_loop_find_maximum_loop_flow_rate(plant_loop)
-    plantloop_dt = plant_loop.sizingPlant.loopDesignTemperatureDifference.to_f
-    # Plant loop capacity = temperature difference across plant loop * maximum plant loop flow rate * density of water (1000 kg/m^3) * see next line
-    # Heat capacity of water (4180 J/(kg*K))
-    plantloop_capacity = plantloop_dt*plantloop_maxflowrate*1000*4180
-    return plantloop_capacity
-  end
 end

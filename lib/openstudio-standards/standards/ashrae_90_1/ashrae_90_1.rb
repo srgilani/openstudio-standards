@@ -4,10 +4,6 @@
 # @abstract
 class ASHRAE901 < Standard
   def initialize
-    load_standards_database
-  end
-
-  def load_standards_database(data_directories = [])
-    super([__dir__] + data_directories)
+    super()
   end
 end

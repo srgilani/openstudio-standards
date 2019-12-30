@@ -18,7 +18,8 @@ class TestDOEPrototypesRegression < CreateDOEPrototypeBuildingTest
      'FullServiceRestaurant',
      'MidriseApartment',
      'HighriseApartment',
-     'Warehouse']
+     'Warehouse',
+     'Courthouse']
    @climate_zones = [
 #     'ASHRAE 169-2013-1A',
 #     'ASHRAE 169-2013-1B',

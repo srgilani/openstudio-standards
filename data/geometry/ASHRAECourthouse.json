@@ -2,6 +2,15 @@
   {
     "type": "VAV",
     "name": "VAV_0",
+    "operation_schedule": "Courthouse HVACOperationSched",
+    "oa_damper_schedule": "Courthouse_MinOA_MotorizedDamper_Sched",
+    "chilled_water_design_supply_water_temperature": 44.0,
+    "chilled_water_design_supply_water_temperature_delta": 12.0,
+    "chw_pumping_type": "const_pri_var_sec",
+    "chiller_cooling_type": "WaterCooled",
+    "chiller_condenser_type": null,
+    "chiller_compressor_type": "Centrifugal",
+    "hot_water_design_supply_water_temperature": 180,
     "space_names": [
       "ELEC/MECH_FLR_0", 
       "UTILITY_FLR_0", 
@@ -22,6 +31,15 @@
   {
     "type": "VAV",
     "name": "VAV_1",
+    "operation_schedule": "Courthouse HVACOperationSched",
+    "oa_damper_schedule": "Courthouse_MinOA_MotorizedDamper_Sched",
+    "chilled_water_design_supply_water_temperature": 44.0,
+    "chilled_water_design_supply_water_temperature_delta": 12.0,
+    "chw_pumping_type": "const_pri_var_sec",
+    "chiller_cooling_type": "WaterCooled",
+    "chiller_condenser_type": null,
+    "chiller_compressor_type": "Centrifugal",
+    "hot_water_design_supply_water_temperature": 180,
     "space_names": [
       "SECURITY_SCREENING_FLR_1", 
       "ENTRANCE_LOBBY_FLR_1", 
@@ -48,6 +66,15 @@
   {
     "type": "VAV",
     "name": "VAV_2",
+    "operation_schedule": "Courthouse HVACOperationSched",
+    "oa_damper_schedule": "Courthouse_MinOA_MotorizedDamper_Sched",
+    "chilled_water_design_supply_water_temperature": 44.0,
+    "chilled_water_design_supply_water_temperature_delta": 12.0,
+    "chw_pumping_type": "const_pri_var_sec",
+    "chiller_cooling_type": "WaterCooled",
+    "chiller_condenser_type": null,
+    "chiller_compressor_type": "Centrifugal",
+    "hot_water_design_supply_water_temperature": 180,
     "space_names": [
       "COURTROOM_1_FLR_2", 
       "COURTROOM_2_FLR_2", 

@@ -39,6 +39,18 @@ module College
   end
 
   def model_custom_elevator_tweaks(building_type, climate_zone, prototype_input, model)
+    #     Rated Pump Head CW: 75 ft HW: 60 ft
+    boilers = model.getBoilerHotWaters
+    boilers.each do |boiler|
+      unless boiler.plantLoop.get.nil?
+
+
+    pumps = model.getPumpVariableSpeeds
+    unless pumps.empty?
+      pumps.each do |pump|
+        setSpaceInfiltrationDesignFlowRateend
+      end
+    end
     #"    Peak Motor Power
         #(W/elevator)"		16,055
     #     Heat Gain to Building		Interior

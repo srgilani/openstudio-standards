@@ -1127,7 +1127,7 @@ OS:BuildingStory,
 
 OS:Space,
   {ccf9f6b7-4548-4c43-a4ff-29f83f176a6a}, !- Handle
-  CB_ Lounge_F1,                          !- Name
+  CB_CAFE_STUDY_LOUNGE_F1,                !- Name
   {1e3618f5-24e9-4f84-850a-f401ea2ab563}, !- Space Type Name
   ,                                       !- Default Construction Set Name
   ,                                       !- Default Schedule Set Name
@@ -1262,7 +1262,7 @@ OS:Surface,
 
 OS:Space,
   {94cda0a2-6824-46bd-bc8e-48258d6ec305}, !- Handle
-  CB_ Corridor_F1,                        !- Name
+  CB_CORRIDOR&#10_F1,                     !- Name
   {51bdfc1e-7c26-4cee-a4ca-0297bf0b8ba6}, !- Space Type Name
   ,                                       !- Default Construction Set Name
   ,                                       !- Default Schedule Set Name
@@ -1550,7 +1550,7 @@ OS:Surface,
 
 OS:Space,
   {28d3b0e2-4c00-436f-beb4-2416b6bbf1bf}, !- Handle
-  CB_Stairs_F1_2,                         !- Name
+  CB_MAIN_STAIRS&#10_F1,                  !- Name
   {f4a7791c-d241-41ec-ba73-acb404873502}, !- Space Type Name
   ,                                       !- Default Construction Set Name
   ,                                       !- Default Schedule Set Name
@@ -1668,7 +1668,7 @@ OS:Surface,
 
 OS:Space,
   {008a0ca3-6e9d-4c07-8d4a-a7f6dfa83cce}, !- Handle
-  CB_Storage_F1,                          !- Name
+  CB_STORAGE_F1,                          !- Name
   {17c8416b-d236-4200-a454-0fd63ee517d6}, !- Space Type Name
   ,                                       !- Default Construction Set Name
   ,                                       !- Default Schedule Set Name
@@ -1803,7 +1803,7 @@ OS:Surface,
 
 OS:Space,
   {b5c4c5f5-d5d2-470c-abe5-439952a5612a}, !- Handle
-  CB_Classroom_F1,                        !- Name
+  CB_LECTURE_ROOM_2_F1,                   !- Name
   {463ae76a-c906-48f4-baf1-6f5be27a635d}, !- Space Type Name
   ,                                       !- Default Construction Set Name
   ,                                       !- Default Schedule Set Name
@@ -1938,7 +1938,7 @@ OS:Surface,
 
 OS:Space,
   {169528c9-1bb2-4726-b17e-66f058b8b165}, !- Handle
-  CB_ Utility_F1,                         !- Name
+  CB_UTILITY_F1,                          !- Name
   {5318e190-daf5-40f7-8417-166242834c51}, !- Space Type Name
   ,                                       !- Default Construction Set Name
   ,                                       !- Default Schedule Set Name
@@ -2056,7 +2056,7 @@ OS:Surface,
 
 OS:Space,
   {927f2a53-d672-460c-bb12-528d0edd2c71}, !- Handle
-  CB_Stairs_F1,                           !- Name
+  CB_SECONDARY_STAIRS_1_F1,               !- Name
   {f4a7791c-d241-41ec-ba73-acb404873502}, !- Space Type Name
   ,                                       !- Default Construction Set Name
   ,                                       !- Default Schedule Set Name
@@ -2174,7 +2174,7 @@ OS:Surface,
 
 OS:Space,
   {835cd3a8-4e92-41fc-ae0b-6747a9983a34}, !- Handle
-  CB_Stairs_F1_1,                         !- Name
+  CB_SECONDARY_STAIRS_2_F1,               !- Name
   {f4a7791c-d241-41ec-ba73-acb404873502}, !- Space Type Name
   ,                                       !- Default Construction Set Name
   ,                                       !- Default Schedule Set Name
@@ -2292,7 +2292,7 @@ OS:Surface,
 
 OS:Space,
   {477cb86c-8f97-4613-b1c9-3257ed2071e6}, !- Handle
-  CB_Library_F1,                          !- Name
+  CB_LIBRARY_MEDIA_CENTER_F1,             !- Name
   {8598d30b-ad03-47b1-8138-893c26e847aa}, !- Space Type Name
   ,                                       !- Default Construction Set Name
   ,                                       !- Default Schedule Set Name
@@ -2461,7 +2461,7 @@ OS:Surface,
 
 OS:Space,
   {5a23e925-4fd8-4dd8-942a-e62400695101}, !- Handle
-  CB_ Conference_F1,                      !- Name
+  CB_CONFERENCE_ROOM_F1,                  !- Name
   {d1a43f3e-edef-4bbb-bbea-f264ad6672df}, !- Space Type Name
   ,                                       !- Default Construction Set Name
   ,                                       !- Default Schedule Set Name
@@ -2596,7 +2596,7 @@ OS:Surface,
 
 OS:Space,
   {ba4ee013-86a9-45a1-a08f-64e478dd7d7b}, !- Handle
-  CB_ Office_F1_1,                        !- Name
+  CB_OFFICES_OPEN_F1,                     !- Name
   {ac05b496-a192-44ef-837d-522b42454fc2}, !- Space Type Name
   ,                                       !- Default Construction Set Name
   ,                                       !- Default Schedule Set Name
@@ -2994,7 +2994,7 @@ OS:Surface,
 
 OS:Space,
   {f1408024-c657-49f0-88f8-4686cd840898}, !- Handle
-  CB_ Restroom_F1_1,                      !- Name
+  CB_STAFF_RESTROOMS_2_F1,                !- Name
   {62196221-e91a-47b7-9a7f-37d668e192b2}, !- Space Type Name
   ,                                       !- Default Construction Set Name
   ,                                       !- Default Schedule Set Name
@@ -3112,7 +3112,7 @@ OS:Surface,
 
 OS:Space,
   {48ec82f9-f6b4-4de5-bc78-b03cd6ea702f}, !- Handle
-  CB_ Restroom_F1,                        !- Name
+  CB_STUDENTS_RESTROOMS_1_F1,             !- Name
   {62196221-e91a-47b7-9a7f-37d668e192b2}, !- Space Type Name
   ,                                       !- Default Construction Set Name
   ,                                       !- Default Schedule Set Name
@@ -3247,7 +3247,7 @@ OS:Surface,
 
 OS:Space,
   {8e4bdd95-95a7-47e8-a3e6-c2cc5c44076e}, !- Handle
-  CB_ Restroom_F1_2,                      !- Name
+  CB_STUDENTS_RESTROOMS_2_F1,             !- Name
   {62196221-e91a-47b7-9a7f-37d668e192b2}, !- Space Type Name
   ,                                       !- Default Construction Set Name
   ,                                       !- Default Schedule Set Name
@@ -3365,7 +3365,7 @@ OS:Surface,
 
 OS:Space,
   {712ff61e-5cc1-4ec8-8885-f28bc755f509}, !- Handle
-  CB_Lecture Theater_F1,                  !- Name
+  CB_LECTURE_ROOM_1_F1,                   !- Name
   {a8e17cf0-d489-4346-bbbc-3e3d28ffd4a9}, !- Space Type Name
   ,                                       !- Default Construction Set Name
   ,                                       !- Default Schedule Set Name
@@ -3534,7 +3534,7 @@ OS:Surface,
 
 OS:Space,
   {6707f1d2-c751-4646-a744-0353a40b30fb}, !- Handle
-  CB_ Restroom_F1_3,                      !- Name
+  CB_STAFF_RESTROOMS_1_F1,                !- Name
   {62196221-e91a-47b7-9a7f-37d668e192b2}, !- Space Type Name
   ,                                       !- Default Construction Set Name
   ,                                       !- Default Schedule Set Name
@@ -3669,7 +3669,7 @@ OS:Surface,
 
 OS:Space,
   {a1aa03a2-ccaf-4a98-a2b5-53addb7fd6fd}, !- Handle
-  CB_ Office_F1_4,                        !- Name
+  CB_ OFFICES_ENCLOSED_8_F1,              !- Name
   {ac05b496-a192-44ef-837d-522b42454fc2}, !- Space Type Name
   ,                                       !- Default Construction Set Name
   ,                                       !- Default Schedule Set Name
@@ -3787,7 +3787,7 @@ OS:Surface,
 
 OS:Space,
   {e6aabbc6-8779-49ff-82d3-0b5f93c48c67}, !- Handle
-  CB_ Office_F1_5,                        !- Name
+  CB_ OFFICES_ENCLOSED_7_F1,              !- Name
   {ac05b496-a192-44ef-837d-522b42454fc2}, !- Space Type Name
   ,                                       !- Default Construction Set Name
   ,                                       !- Default Schedule Set Name
@@ -3905,7 +3905,7 @@ OS:Surface,
 
 OS:Space,
   {5e731a0f-2724-41c0-befc-89af23317568}, !- Handle
-  CB_ Office_F1_6,                        !- Name
+  CB_ OFFICES_ENCLOSED_6_F1,              !- Name
   {ac05b496-a192-44ef-837d-522b42454fc2}, !- Space Type Name
   ,                                       !- Default Construction Set Name
   ,                                       !- Default Schedule Set Name
@@ -4023,7 +4023,7 @@ OS:Surface,
 
 OS:Space,
   {bbee8b96-3b88-4e03-aaa7-31124009c59b}, !- Handle
-  CB_ Office_F1_3,                        !- Name
+  CB_ OFFICES_ENCLOSED_5_F1,              !- Name
   {ac05b496-a192-44ef-837d-522b42454fc2}, !- Space Type Name
   ,                                       !- Default Construction Set Name
   ,                                       !- Default Schedule Set Name
@@ -4100,9 +4100,9 @@ OS:Surface,
   WindExposed,                            !- Wind Exposure
   ,                                       !- View Factor to Ground
   ,                                       !- Number of Vertices
-  3.63727412462281e-029, 3.65759999999999, 3.9624, !- X,Y,Z Vertex 1 {m}
-  -2.12174323936331e-029, 3.6576, -1.7953212025382e-029, !- X,Y,Z Vertex 2 {m}
-  -3.3528, 3.6576, 1.7953212025382e-029,  !- X,Y,Z Vertex 3 {m}
+  4.54659265577851e-029, 3.65759999999999, 3.9624, !- X,Y,Z Vertex 1 {m}
+  -6.06212354103804e-030, 3.6576, -5.1294891501091e-030, !- X,Y,Z Vertex 2 {m}
+  -3.3528, 3.6576, 5.1294891501091e-030,  !- X,Y,Z Vertex 3 {m}
   -3.3528, 3.6576, 3.9624;                !- X,Y,Z Vertex 4 {m}
 
 OS:Surface,
@@ -4117,10 +4117,10 @@ OS:Surface,
   NoWind,                                 !- Wind Exposure
   ,                                       !- View Factor to Ground
   ,                                       !- Number of Vertices
-  3.78882721314878e-030, -7.8495251810459e-060, 3.9624, !- X,Y,Z Vertex 1 {m}
-  -3.78882721314877e-030, 7.84952518104582e-060, 7.24571555173461e-060, !- X,Y,Z Vertex 2 {m}
-  3.78882721314878e-030, 3.6576, -7.24571555173467e-060, !- X,Y,Z Vertex 3 {m}
-  1.13664816394463e-029, 3.65759999999999, 3.9624; !- X,Y,Z Vertex 4 {m}
+  9.8509507541868e-030, -5.30627902238699e-059, 3.9624, !- X,Y,Z Vertex 1 {m}
+  -9.85095075418678e-030, 5.30627902238697e-059, 4.8981037129726e-059, !- X,Y,Z Vertex 2 {m}
+  9.85095075418678e-030, 3.6576, -4.8981037129726e-059, !- X,Y,Z Vertex 3 {m}
+  2.95528522625603e-029, 3.65759999999999, 3.9624; !- X,Y,Z Vertex 4 {m}
 
 OS:Surface,
   {cd447809-cb81-4b9d-8389-55c9d2600246}, !- Handle
@@ -4135,13 +4135,13 @@ OS:Surface,
   ,                                       !- View Factor to Ground
   ,                                       !- Number of Vertices
   0, 0, 3.9624,                           !- X,Y,Z Vertex 1 {m}
-  1.51553088525951e-029, 3.65759999999999, 3.9624, !- X,Y,Z Vertex 2 {m}
+  3.94038030167471e-029, 3.65759999999999, 3.9624, !- X,Y,Z Vertex 2 {m}
   -3.3528, 3.6576, 3.9624,                !- X,Y,Z Vertex 3 {m}
   -3.3528, 0, 3.9624;                     !- X,Y,Z Vertex 4 {m}
 
 OS:Space,
   {99d8f43a-0253-46ab-9c61-4d0efd4a4de6}, !- Handle
-  CB_ Office_F1_7,                        !- Name
+  CB_ OFFICES_ENCLOSED_4_F1,              !- Name
   {ac05b496-a192-44ef-837d-522b42454fc2}, !- Space Type Name
   ,                                       !- Default Construction Set Name
   ,                                       !- Default Schedule Set Name
@@ -4259,7 +4259,7 @@ OS:Surface,
 
 OS:Space,
   {1bc58796-699f-480a-b0e0-39a8b886c26a}, !- Handle
-  CB_ Office_F1_8,                        !- Name
+  CB_ OFFICES_ENCLOSED_3_F1,              !- Name
   {ac05b496-a192-44ef-837d-522b42454fc2}, !- Space Type Name
   ,                                       !- Default Construction Set Name
   ,                                       !- Default Schedule Set Name
@@ -4336,9 +4336,9 @@ OS:Surface,
   WindExposed,                            !- Wind Exposure
   ,                                       !- View Factor to Ground
   ,                                       !- Number of Vertices
-  3.63727412462281e-029, 3.65759999999999, 3.9624, !- X,Y,Z Vertex 1 {m}
-  -2.12174323936331e-029, 3.6576, -1.7953212025382e-029, !- X,Y,Z Vertex 2 {m}
-  -3.3528, 3.6576, 1.7953212025382e-029,  !- X,Y,Z Vertex 3 {m}
+  4.54659265577851e-029, 3.65759999999999, 3.9624, !- X,Y,Z Vertex 1 {m}
+  -6.06212354103804e-030, 3.6576, -5.1294891501091e-030, !- X,Y,Z Vertex 2 {m}
+  -3.3528, 3.6576, 5.1294891501091e-030,  !- X,Y,Z Vertex 3 {m}
   -3.3528, 3.6576, 3.9624;                !- X,Y,Z Vertex 4 {m}
 
 OS:Surface,
@@ -4353,10 +4353,10 @@ OS:Surface,
   NoWind,                                 !- Wind Exposure
   ,                                       !- View Factor to Ground
   ,                                       !- Number of Vertices
-  3.78882721314878e-030, -7.8495251810459e-060, 3.9624, !- X,Y,Z Vertex 1 {m}
-  -3.78882721314877e-030, 7.84952518104582e-060, 7.24571555173461e-060, !- X,Y,Z Vertex 2 {m}
-  3.78882721314878e-030, 3.6576, -7.24571555173467e-060, !- X,Y,Z Vertex 3 {m}
-  1.13664816394463e-029, 3.65759999999999, 3.9624; !- X,Y,Z Vertex 4 {m}
+  9.8509507541868e-030, -5.30627902238699e-059, 3.9624, !- X,Y,Z Vertex 1 {m}
+  -9.85095075418678e-030, 5.30627902238697e-059, 4.8981037129726e-059, !- X,Y,Z Vertex 2 {m}
+  9.85095075418678e-030, 3.6576, -4.8981037129726e-059, !- X,Y,Z Vertex 3 {m}
+  2.95528522625603e-029, 3.65759999999999, 3.9624; !- X,Y,Z Vertex 4 {m}
 
 OS:Surface,
   {98a53e1e-7816-4c9b-be12-d9804a8bb254}, !- Handle
@@ -4371,13 +4371,13 @@ OS:Surface,
   ,                                       !- View Factor to Ground
   ,                                       !- Number of Vertices
   0, 0, 3.9624,                           !- X,Y,Z Vertex 1 {m}
-  1.51553088525951e-029, 3.65759999999999, 3.9624, !- X,Y,Z Vertex 2 {m}
+  3.94038030167471e-029, 3.65759999999999, 3.9624, !- X,Y,Z Vertex 2 {m}
   -3.3528, 3.6576, 3.9624,                !- X,Y,Z Vertex 3 {m}
   -3.3528, 0, 3.9624;                     !- X,Y,Z Vertex 4 {m}
 
 OS:Space,
   {4051182c-2af6-4ee9-8296-b4e133a0cad1}, !- Handle
-  CB_ Office_F1_9,                        !- Name
+  CB_ OFFICES_ENCLOSED_2_F1,              !- Name
   {ac05b496-a192-44ef-837d-522b42454fc2}, !- Space Type Name
   ,                                       !- Default Construction Set Name
   ,                                       !- Default Schedule Set Name
@@ -4495,7 +4495,7 @@ OS:Surface,
 
 OS:Space,
   {b5539ce9-e817-4f5b-8aa8-65510fdbc6fb}, !- Handle
-  CB_ Office_F1_2,                        !- Name
+  CB_ OFFICES_ENCLOSED_1_F1,              !- Name
   {ac05b496-a192-44ef-837d-522b42454fc2}, !- Space Type Name
   ,                                       !- Default Construction Set Name
   ,                                       !- Default Schedule Set Name
@@ -4572,9 +4572,9 @@ OS:Surface,
   WindExposed,                            !- Wind Exposure
   ,                                       !- View Factor to Ground
   ,                                       !- Number of Vertices
-  3.63727412462281e-029, 3.65759999999999, 3.9624, !- X,Y,Z Vertex 1 {m}
-  -2.12174323936331e-029, 3.6576, -1.7953212025382e-029, !- X,Y,Z Vertex 2 {m}
-  -3.3528, 3.6576, 1.7953212025382e-029,  !- X,Y,Z Vertex 3 {m}
+  4.54659265577851e-029, 3.65759999999999, 3.9624, !- X,Y,Z Vertex 1 {m}
+  -6.06212354103804e-030, 3.6576, -5.1294891501091e-030, !- X,Y,Z Vertex 2 {m}
+  -3.3528, 3.6576, 5.1294891501091e-030,  !- X,Y,Z Vertex 3 {m}
   -3.3528, 3.6576, 3.9624;                !- X,Y,Z Vertex 4 {m}
 
 OS:Surface,
@@ -4589,10 +4589,10 @@ OS:Surface,
   NoWind,                                 !- Wind Exposure
   ,                                       !- View Factor to Ground
   ,                                       !- Number of Vertices
-  3.78882721314878e-030, -7.8495251810459e-060, 3.9624, !- X,Y,Z Vertex 1 {m}
-  -3.78882721314877e-030, 7.84952518104582e-060, 7.24571555173461e-060, !- X,Y,Z Vertex 2 {m}
-  3.78882721314878e-030, 3.6576, -7.24571555173467e-060, !- X,Y,Z Vertex 3 {m}
-  1.13664816394463e-029, 3.65759999999999, 3.9624; !- X,Y,Z Vertex 4 {m}
+  9.8509507541868e-030, -5.30627902238699e-059, 3.9624, !- X,Y,Z Vertex 1 {m}
+  -9.85095075418678e-030, 5.30627902238697e-059, 4.8981037129726e-059, !- X,Y,Z Vertex 2 {m}
+  9.85095075418678e-030, 3.6576, -4.8981037129726e-059, !- X,Y,Z Vertex 3 {m}
+  2.95528522625603e-029, 3.65759999999999, 3.9624; !- X,Y,Z Vertex 4 {m}
 
 OS:Surface,
   {82a6675d-9ca5-474e-98c1-a71a84961440}, !- Handle
@@ -4607,7 +4607,7 @@ OS:Surface,
   ,                                       !- View Factor to Ground
   ,                                       !- Number of Vertices
   0, 0, 3.9624,                           !- X,Y,Z Vertex 1 {m}
-  1.51553088525951e-029, 3.65759999999999, 3.9624, !- X,Y,Z Vertex 2 {m}
+  3.94038030167471e-029, 3.65759999999999, 3.9624, !- X,Y,Z Vertex 2 {m}
   -3.3528, 3.6576, 3.9624,                !- X,Y,Z Vertex 3 {m}
   -3.3528, 0, 3.9624;                     !- X,Y,Z Vertex 4 {m}
 
@@ -4640,7 +4640,7 @@ OS:BuildingStory,
 
 OS:Space,
   {9d7ede17-bd74-4aee-8b1f-50333ecafa6f}, !- Handle
-  CB_Classroom_F4_2,                      !- Name
+  CB_CLASSROOM_1_F4,                      !- Name
   {463ae76a-c906-48f4-baf1-6f5be27a635d}, !- Space Type Name
   ,                                       !- Default Construction Set Name
   ,                                       !- Default Schedule Set Name
@@ -4775,7 +4775,7 @@ OS:Surface,
 
 OS:Space,
   {6ad3a750-7ae2-491e-a7fd-3c83c1bf01b4}, !- Handle
-  CB_ Corridor_F4,                        !- Name
+  CB_CORRIDOR_F4,                         !- Name
   {51bdfc1e-7c26-4cee-a4ca-0297bf0b8ba6}, !- Space Type Name
   ,                                       !- Default Construction Set Name
   ,                                       !- Default Schedule Set Name
@@ -5239,7 +5239,7 @@ OS:Surface,
 
 OS:Space,
   {7c2a6da1-8571-4281-bc08-9a2b3a8198b2}, !- Handle
-  CB_Classroom_F4,                        !- Name
+  CB_CLASSROOM_2_F4,                      !- Name
   {463ae76a-c906-48f4-baf1-6f5be27a635d}, !- Space Type Name
   ,                                       !- Default Construction Set Name
   ,                                       !- Default Schedule Set Name
@@ -5282,10 +5282,10 @@ OS:Surface,
   NoWind,                                 !- Wind Exposure
   ,                                       !- View Factor to Ground
   ,                                       !- Number of Vertices
-  9.14400000000002, 4.33146851719357e-015, 3.9624, !- X,Y,Z Vertex 1 {m}
-  9.144, 1.44382283906452e-015, -1.05220290258648e-030, !- X,Y,Z Vertex 2 {m}
-  4.55954591120809e-031, -1.44382283906452e-015, 1.05220290258648e-030, !- X,Y,Z Vertex 3 {m}
-  -4.55954591120808e-031, 1.44382283906452e-015, 3.9624; !- X,Y,Z Vertex 4 {m}
+  9.14400000000002, 3.97051280742744e-015, 3.9624, !- X,Y,Z Vertex 1 {m}
+  9.144, 3.60955709766135e-016, -3.28813407058279e-031, !- X,Y,Z Vertex 2 {m}
+  5.41446076955961e-031, -1.80477854883065e-015, 1.38101630964476e-030, !- X,Y,Z Vertex 3 {m}
+  -5.4144607695596e-031, 1.80477854883065e-015, 3.9624; !- X,Y,Z Vertex 4 {m}
 
 OS:Surface,
   {70dd55fc-4da0-4d1e-a28e-6a9f681c03c3}, !- Handle
@@ -5300,9 +5300,9 @@ OS:Surface,
   ,                                       !- View Factor to Ground
   ,                                       !- Number of Vertices
   9.14400000000001, -8.2296, 3.9624,      !- X,Y,Z Vertex 1 {m}
-  9.144, -8.2296, 4.62969277138055e-029,  !- X,Y,Z Vertex 2 {m}
-  9.144, -1.2158789096555e-029, -9.25938554276104e-029, !- X,Y,Z Vertex 3 {m}
-  9.14400000000002, 5.77529135625809e-015, 3.9624; !- X,Y,Z Vertex 4 {m}
+  9.144, -8.2296, 4.62969277138052e-029,  !- X,Y,Z Vertex 2 {m}
+  9.144, -3.03969727413873e-030, -2.31484638569027e-029, !- X,Y,Z Vertex 3 {m}
+  9.14400000000002, 4.33146851719357e-015, 3.9624; !- X,Y,Z Vertex 4 {m}
 
 OS:Surface,
   {51759fc2-cce9-4d2e-98ed-3df7e5f8d91c}, !- Handle
@@ -5333,14 +5333,14 @@ OS:Surface,
   NoWind,                                 !- Wind Exposure
   ,                                       !- View Factor to Ground
   ,                                       !- Number of Vertices
-  0, 0, 3.9624,                           !- X,Y,Z Vertex 1 {m}
-  0, 0, 0,                                !- X,Y,Z Vertex 2 {m}
-  0, -8.2296, 0,                          !- X,Y,Z Vertex 3 {m}
-  0, -8.2296, 3.9624;                     !- X,Y,Z Vertex 4 {m}
+  -2.27977295560404e-031, 1.44382283906452e-015, 3.9624, !- X,Y,Z Vertex 1 {m}
+  2.27977295560405e-031, -1.44382283906452e-015, 1.05220290258648e-030, !- X,Y,Z Vertex 2 {m}
+  2.27977295560404e-031, -8.2296, 2.62334177725802e-062, !- X,Y,Z Vertex 3 {m}
+  -2.27977295560404e-031, -8.2296, 3.9624; !- X,Y,Z Vertex 4 {m}
 
 OS:Space,
   {37098c65-4714-44cb-b831-20680d5ee684}, !- Handle
-  CB_Classroom_F4_3,                      !- Name
+  CB_CLASSROOM_3_F4,                      !- Name
   {463ae76a-c906-48f4-baf1-6f5be27a635d}, !- Space Type Name
   ,                                       !- Default Construction Set Name
   ,                                       !- Default Schedule Set Name
@@ -5475,7 +5475,7 @@ OS:Surface,
 
 OS:Space,
   {3404940d-710b-4bca-8cf7-f35f089ac425}, !- Handle
-  CB_Stairs_F4_1,                         !- Name
+  CB_MAIN_STAIRS_F4,                      !- Name
   {f4a7791c-d241-41ec-ba73-acb404873502}, !- Space Type Name
   ,                                       !- Default Construction Set Name
   ,                                       !- Default Schedule Set Name
@@ -5593,7 +5593,7 @@ OS:Surface,
 
 OS:Space,
   {fb3bfa45-02d7-4ce6-844a-c9278eaeea6b}, !- Handle
-  CB_Classroom_F4_4,                      !- Name
+  CB_CLASSROOM_4_F4,                      !- Name
   {463ae76a-c906-48f4-baf1-6f5be27a635d}, !- Space Type Name
   ,                                       !- Default Construction Set Name
   ,                                       !- Default Schedule Set Name
@@ -5711,7 +5711,7 @@ OS:Surface,
 
 OS:Space,
   {ad5b7792-6b76-4dd6-aaea-53072dce4401}, !- Handle
-  CB_Classroom_F4_1,                      !- Name
+  CB_CLASSROOM_5_F4,                      !- Name
   {463ae76a-c906-48f4-baf1-6f5be27a635d}, !- Space Type Name
   ,                                       !- Default Construction Set Name
   ,                                       !- Default Schedule Set Name
@@ -5829,7 +5829,7 @@ OS:Surface,
 
 OS:Space,
   {8aee804a-7e17-4e4a-802d-85b3109619e7}, !- Handle
-  CB_Classroom_F4_5,                      !- Name
+  CB_CLASSROOM_6_F4,                      !- Name
   {463ae76a-c906-48f4-baf1-6f5be27a635d}, !- Space Type Name
   ,                                       !- Default Construction Set Name
   ,                                       !- Default Schedule Set Name
@@ -5964,7 +5964,7 @@ OS:Surface,
 
 OS:Space,
   {502999a6-9be2-44f9-85c1-b4ec208a0f9e}, !- Handle
-  CB_ Utility_F4,                         !- Name
+  CB_UTILITY_F4,                          !- Name
   {5318e190-daf5-40f7-8417-166242834c51}, !- Space Type Name
   ,                                       !- Default Construction Set Name
   ,                                       !- Default Schedule Set Name
@@ -6082,7 +6082,7 @@ OS:Surface,
 
 OS:Space,
   {ff7c2462-96e5-40c9-b72c-457f88a95287}, !- Handle
-  CB_Stairs_F4,                           !- Name
+  CB_SECONDARY_STAIRS_1_F4,               !- Name
   {f4a7791c-d241-41ec-ba73-acb404873502}, !- Space Type Name
   ,                                       !- Default Construction Set Name
   ,                                       !- Default Schedule Set Name
@@ -6200,7 +6200,7 @@ OS:Surface,
 
 OS:Space,
   {2b1396bc-486d-4763-9032-e4175a908b7f}, !- Handle
-  CB_Stairs_F4_2,                         !- Name
+  CB_SECONDARY_STAIRS_2_F4,               !- Name
   {f4a7791c-d241-41ec-ba73-acb404873502}, !- Space Type Name
   ,                                       !- Default Construction Set Name
   ,                                       !- Default Schedule Set Name
@@ -6318,7 +6318,7 @@ OS:Surface,
 
 OS:Space,
   {265c62e3-192b-4174-a268-ca6d83c9c6eb}, !- Handle
-  CB_Laboratory_F4,                       !- Name
+  CB_LAB_1_F4,                            !- Name
   {8c41482e-4b4b-4ec4-9271-a081abfea8e7}, !- Space Type Name
   ,                                       !- Default Construction Set Name
   ,                                       !- Default Schedule Set Name
@@ -6453,7 +6453,7 @@ OS:Surface,
 
 OS:Space,
   {401fa5ae-7997-4f7e-8d45-9b61b161d57a}, !- Handle
-  CB_Laboratory_F4_1,                     !- Name
+  CB_LAB_2_F4,                            !- Name
   {8c41482e-4b4b-4ec4-9271-a081abfea8e7}, !- Space Type Name
   ,                                       !- Default Construction Set Name
   ,                                       !- Default Schedule Set Name
@@ -6605,7 +6605,7 @@ OS:Surface,
 
 OS:Space,
   {e71f7f7b-1c51-404b-a011-fac3685d4510}, !- Handle
-  CB_ Conference_F4,                      !- Name
+  CB_CONFERENCE_ROOM_F4,                  !- Name
   {d1a43f3e-edef-4bbb-bbea-f264ad6672df}, !- Space Type Name
   ,                                       !- Default Construction Set Name
   ,                                       !- Default Schedule Set Name
@@ -6723,7 +6723,7 @@ OS:Surface,
 
 OS:Space,
   {fc247de6-a2c2-4f29-9fa3-97eac8cc7b3d}, !- Handle
-  CB_ Office_F4_3,                        !- Name
+  CB_OPEN OFFICES_F4,                     !- Name
   {ac05b496-a192-44ef-837d-522b42454fc2}, !- Space Type Name
   ,                                       !- Default Construction Set Name
   ,                                       !- Default Schedule Set Name
@@ -7087,7 +7087,7 @@ OS:Surface,
 
 OS:Space,
   {131f73f5-95fa-4016-b1d9-c0e3d55a1ad4}, !- Handle
-  CB_ Restroom_F4,                        !- Name
+  CB_FACULTY_RESTROOM_2_F4,               !- Name
   {62196221-e91a-47b7-9a7f-37d668e192b2}, !- Space Type Name
   ,                                       !- Default Construction Set Name
   ,                                       !- Default Schedule Set Name
@@ -7205,7 +7205,7 @@ OS:Surface,
 
 OS:Space,
   {f0296b67-c374-4959-95ad-3a37c4016639}, !- Handle
-  CB_ Restroom_F4_2,                      !- Name
+  CB_STUDENTS_RESTROOM_1_F4,              !- Name
   {62196221-e91a-47b7-9a7f-37d668e192b2}, !- Space Type Name
   ,                                       !- Default Construction Set Name
   ,                                       !- Default Schedule Set Name
@@ -7340,7 +7340,7 @@ OS:Surface,
 
 OS:Space,
   {2778f146-4adb-4463-bf43-ec71721681d6}, !- Handle
-  CB_ Restroom_F4_1,                      !- Name
+  CB_STUDENTS_RESTROOM_2_F4,              !- Name
   {62196221-e91a-47b7-9a7f-37d668e192b2}, !- Space Type Name
   ,                                       !- Default Construction Set Name
   ,                                       !- Default Schedule Set Name
@@ -7458,7 +7458,7 @@ OS:Surface,
 
 OS:Space,
   {a3e3dd4e-a41d-4ed9-ade2-cea5604c476e}, !- Handle
-  CB_Laboratory_F4_2,                     !- Name
+  CB_LAB_3_F4,                            !- Name
   {8c41482e-4b4b-4ec4-9271-a081abfea8e7}, !- Space Type Name
   ,                                       !- Default Construction Set Name
   ,                                       !- Default Schedule Set Name
@@ -7610,7 +7610,7 @@ OS:Surface,
 
 OS:Space,
   {42492bdc-30b9-4d94-95e6-3cc049ab363e}, !- Handle
-  CB_Laboratory_F4_3,                     !- Name
+  CB_LAB_4_F4,                            !- Name
   {8c41482e-4b4b-4ec4-9271-a081abfea8e7}, !- Space Type Name
   ,                                       !- Default Construction Set Name
   ,                                       !- Default Schedule Set Name
@@ -7745,7 +7745,7 @@ OS:Surface,
 
 OS:Space,
   {a9a77643-60b7-46cf-b4a6-b32d688f31ff}, !- Handle
-  CB_ Restroom_F4_3,                      !- Name
+  CB_FACULTY_RESTROOM_1_F4,               !- Name
   {62196221-e91a-47b7-9a7f-37d668e192b2}, !- Space Type Name
   ,                                       !- Default Construction Set Name
   ,                                       !- Default Schedule Set Name
@@ -7863,7 +7863,7 @@ OS:Surface,
 
 OS:Space,
   {4cbad09f-04c5-4c95-9656-ee3a4f64e6f9}, !- Handle
-  CB_ Office_F4_2,                        !- Name
+  CB_FACULTY_OFFICE_8_F4,                 !- Name
   {ac05b496-a192-44ef-837d-522b42454fc2}, !- Space Type Name
   ,                                       !- Default Construction Set Name
   ,                                       !- Default Schedule Set Name
@@ -7981,7 +7981,7 @@ OS:Surface,
 
 OS:Space,
   {15cab53b-5739-4e30-a580-e172f398e260}, !- Handle
-  CB_ Office_F4_4,                        !- Name
+  CB_FACULTY_OFFICE_7_F4,                 !- Name
   {ac05b496-a192-44ef-837d-522b42454fc2}, !- Space Type Name
   ,                                       !- Default Construction Set Name
   ,                                       !- Default Schedule Set Name
@@ -8058,9 +8058,9 @@ OS:Surface,
   WindExposed,                            !- Wind Exposure
   ,                                       !- View Factor to Ground
   ,                                       !- Number of Vertices
-  3.94038030167471e-029, 3.65759999999999, 3.9624, !- X,Y,Z Vertex 1 {m}
-  -2.12174323936331e-029, 3.6576, -1.7953212025382e-029, !- X,Y,Z Vertex 2 {m}
-  -3.3528, 3.6576, 1.7953212025382e-029,  !- X,Y,Z Vertex 3 {m}
+  5.45591118693421e-029, 3.65759999999999, 3.9624, !- X,Y,Z Vertex 1 {m}
+  -1.21242470820761e-029, 3.6576, -1.02589783002182e-029, !- X,Y,Z Vertex 2 {m}
+  -3.3528, 3.6576, 1.02589783002182e-029, !- X,Y,Z Vertex 3 {m}
   -3.3528, 3.6576, 3.9624;                !- X,Y,Z Vertex 4 {m}
 
 OS:Surface,
@@ -8075,10 +8075,10 @@ OS:Surface,
   NoWind,                                 !- Wind Exposure
   ,                                       !- View Factor to Ground
   ,                                       !- Number of Vertices
-  4.54659265577855e-030, -1.13033162607061e-059, 3.9624, !- X,Y,Z Vertex 1 {m}
-  -4.54659265577854e-030, 1.1303316260706e-059, 1.04338303944979e-059, !- X,Y,Z Vertex 2 {m}
-  4.54659265577853e-030, 3.6576, -1.04338303944979e-059, !- X,Y,Z Vertex 3 {m}
-  1.36397779673356e-029, 3.65759999999999, 3.9624; !- X,Y,Z Vertex 4 {m}
+  1.06087161968166e-029, -6.15402774193997e-059, 3.9624, !- X,Y,Z Vertex 1 {m}
+  -1.06087161968165e-029, 6.15402774193995e-059, 5.68064099255997e-059, !- X,Y,Z Vertex 2 {m}
+  1.06087161968165e-029, 3.6576, -5.68064099255997e-059, !- X,Y,Z Vertex 3 {m}
+  3.18261485904496e-029, 3.65759999999999, 3.9624; !- X,Y,Z Vertex 4 {m}
 
 OS:Surface,
   {fd76a26b-a462-4849-ae3b-09ee6ae0b242}, !- Handle
@@ -8093,13 +8093,13 @@ OS:Surface,
   ,                                       !- View Factor to Ground
   ,                                       !- Number of Vertices
   0, 0, 3.9624,                           !- X,Y,Z Vertex 1 {m}
-  1.81863706231141e-029, 3.65759999999999, 3.9624, !- X,Y,Z Vertex 2 {m}
+  4.24348647872661e-029, 3.65759999999999, 3.9624, !- X,Y,Z Vertex 2 {m}
   -3.3528, 3.6576, 3.9624,                !- X,Y,Z Vertex 3 {m}
   -3.3528, 0, 3.9624;                     !- X,Y,Z Vertex 4 {m}
 
 OS:Space,
   {14f1c59b-b06b-45c8-a2b5-d49d1544148e}, !- Handle
-  CB_ Office_F4_5,                        !- Name
+  CB_FACULTY_OFFICE_6_F4,                 !- Name
   {ac05b496-a192-44ef-837d-522b42454fc2}, !- Space Type Name
   ,                                       !- Default Construction Set Name
   ,                                       !- Default Schedule Set Name
@@ -8217,7 +8217,7 @@ OS:Surface,
 
 OS:Space,
   {3767db3c-4954-42d2-a671-c6e1d90e633d}, !- Handle
-  CB_ Office_F4,                          !- Name
+  CB_FACULTY_OFFICE_5_F4,                 !- Name
   {ac05b496-a192-44ef-837d-522b42454fc2}, !- Space Type Name
   ,                                       !- Default Construction Set Name
   ,                                       !- Default Schedule Set Name
@@ -8294,9 +8294,9 @@ OS:Surface,
   WindExposed,                            !- Wind Exposure
   ,                                       !- View Factor to Ground
   ,                                       !- Number of Vertices
-  3.94038030167471e-029, 3.65759999999999, 3.9624, !- X,Y,Z Vertex 1 {m}
-  -2.12174323936331e-029, 3.6576, -1.7953212025382e-029, !- X,Y,Z Vertex 2 {m}
-  -3.3528, 3.6576, 1.7953212025382e-029,  !- X,Y,Z Vertex 3 {m}
+  5.45591118693421e-029, 3.65759999999999, 3.9624, !- X,Y,Z Vertex 1 {m}
+  -1.21242470820761e-029, 3.6576, -1.02589783002182e-029, !- X,Y,Z Vertex 2 {m}
+  -3.3528, 3.6576, 1.02589783002182e-029, !- X,Y,Z Vertex 3 {m}
   -3.3528, 3.6576, 3.9624;                !- X,Y,Z Vertex 4 {m}
 
 OS:Surface,
@@ -8311,10 +8311,10 @@ OS:Surface,
   NoWind,                                 !- Wind Exposure
   ,                                       !- View Factor to Ground
   ,                                       !- Number of Vertices
-  4.54659265577855e-030, -1.13033162607061e-059, 3.9624, !- X,Y,Z Vertex 1 {m}
-  -4.54659265577854e-030, 1.1303316260706e-059, 1.04338303944979e-059, !- X,Y,Z Vertex 2 {m}
-  4.54659265577853e-030, 3.6576, -1.04338303944979e-059, !- X,Y,Z Vertex 3 {m}
-  1.36397779673356e-029, 3.65759999999999, 3.9624; !- X,Y,Z Vertex 4 {m}
+  1.06087161968166e-029, -6.15402774193997e-059, 3.9624, !- X,Y,Z Vertex 1 {m}
+  -1.06087161968165e-029, 6.15402774193995e-059, 5.68064099255997e-059, !- X,Y,Z Vertex 2 {m}
+  1.06087161968165e-029, 3.6576, -5.68064099255997e-059, !- X,Y,Z Vertex 3 {m}
+  3.18261485904496e-029, 3.65759999999999, 3.9624; !- X,Y,Z Vertex 4 {m}
 
 OS:Surface,
   {061b4f72-ad3d-4b35-9a2d-fcdfa13a2c5f}, !- Handle
@@ -8329,13 +8329,13 @@ OS:Surface,
   ,                                       !- View Factor to Ground
   ,                                       !- Number of Vertices
   0, 0, 3.9624,                           !- X,Y,Z Vertex 1 {m}
-  1.81863706231141e-029, 3.65759999999999, 3.9624, !- X,Y,Z Vertex 2 {m}
+  4.24348647872661e-029, 3.65759999999999, 3.9624, !- X,Y,Z Vertex 2 {m}
   -3.3528, 3.6576, 3.9624,                !- X,Y,Z Vertex 3 {m}
   -3.3528, 0, 3.9624;                     !- X,Y,Z Vertex 4 {m}
 
 OS:Space,
   {bea7d9bb-5132-4efa-9814-e9473ae2ed39}, !- Handle
-  CB_ Office_F4_6,                        !- Name
+  CB_FACULTY_OFFICE_4_F4,                 !- Name
   {ac05b496-a192-44ef-837d-522b42454fc2}, !- Space Type Name
   ,                                       !- Default Construction Set Name
   ,                                       !- Default Schedule Set Name
@@ -8453,7 +8453,7 @@ OS:Surface,
 
 OS:Space,
   {6952d1e6-970f-47be-bab5-e021d32e01e1}, !- Handle
-  CB_ Office_F4_7,                        !- Name
+  CB_FACULTY_OFFICE_3_F4,                 !- Name
   {ac05b496-a192-44ef-837d-522b42454fc2}, !- Space Type Name
   ,                                       !- Default Construction Set Name
   ,                                       !- Default Schedule Set Name
@@ -8530,9 +8530,9 @@ OS:Surface,
   WindExposed,                            !- Wind Exposure
   ,                                       !- View Factor to Ground
   ,                                       !- Number of Vertices
-  3.94038030167471e-029, 3.65759999999999, 3.9624, !- X,Y,Z Vertex 1 {m}
-  -2.12174323936331e-029, 3.6576, -1.7953212025382e-029, !- X,Y,Z Vertex 2 {m}
-  -3.3528, 3.6576, 1.7953212025382e-029,  !- X,Y,Z Vertex 3 {m}
+  5.45591118693421e-029, 3.65759999999999, 3.9624, !- X,Y,Z Vertex 1 {m}
+  -1.21242470820761e-029, 3.6576, -1.02589783002182e-029, !- X,Y,Z Vertex 2 {m}
+  -3.3528, 3.6576, 1.02589783002182e-029, !- X,Y,Z Vertex 3 {m}
   -3.3528, 3.6576, 3.9624;                !- X,Y,Z Vertex 4 {m}
 
 OS:Surface,
@@ -8547,10 +8547,10 @@ OS:Surface,
   NoWind,                                 !- Wind Exposure
   ,                                       !- View Factor to Ground
   ,                                       !- Number of Vertices
-  4.54659265577855e-030, -1.13033162607061e-059, 3.9624, !- X,Y,Z Vertex 1 {m}
-  -4.54659265577854e-030, 1.1303316260706e-059, 1.04338303944979e-059, !- X,Y,Z Vertex 2 {m}
-  4.54659265577853e-030, 3.6576, -1.04338303944979e-059, !- X,Y,Z Vertex 3 {m}
-  1.36397779673356e-029, 3.65759999999999, 3.9624; !- X,Y,Z Vertex 4 {m}
+  1.06087161968166e-029, -6.15402774193997e-059, 3.9624, !- X,Y,Z Vertex 1 {m}
+  -1.06087161968165e-029, 6.15402774193995e-059, 5.68064099255997e-059, !- X,Y,Z Vertex 2 {m}
+  1.06087161968165e-029, 3.6576, -5.68064099255997e-059, !- X,Y,Z Vertex 3 {m}
+  3.18261485904496e-029, 3.65759999999999, 3.9624; !- X,Y,Z Vertex 4 {m}
 
 OS:Surface,
   {f6ddebdc-baee-4d11-9439-4bfbe213b6b9}, !- Handle
@@ -8565,13 +8565,13 @@ OS:Surface,
   ,                                       !- View Factor to Ground
   ,                                       !- Number of Vertices
   0, 0, 3.9624,                           !- X,Y,Z Vertex 1 {m}
-  1.81863706231141e-029, 3.65759999999999, 3.9624, !- X,Y,Z Vertex 2 {m}
+  4.24348647872661e-029, 3.65759999999999, 3.9624, !- X,Y,Z Vertex 2 {m}
   -3.3528, 3.6576, 3.9624,                !- X,Y,Z Vertex 3 {m}
   -3.3528, 0, 3.9624;                     !- X,Y,Z Vertex 4 {m}
 
 OS:Space,
   {a6816508-437e-4b93-9627-28dcb8fb9569}, !- Handle
-  CB_ Office_F4_8,                        !- Name
+  CB_FACULTY_OFFICE_2_F4,                 !- Name
   {ac05b496-a192-44ef-837d-522b42454fc2}, !- Space Type Name
   ,                                       !- Default Construction Set Name
   ,                                       !- Default Schedule Set Name
@@ -8689,7 +8689,7 @@ OS:Surface,
 
 OS:Space,
   {e142e638-0c1a-4058-95cc-3a0dc018badf}, !- Handle
-  CB_ Office_F4_1,                        !- Name
+  CB_FACULTY_OFFICE_1_F4,                 !- Name
   {ac05b496-a192-44ef-837d-522b42454fc2}, !- Space Type Name
   ,                                       !- Default Construction Set Name
   ,                                       !- Default Schedule Set Name
@@ -8766,9 +8766,9 @@ OS:Surface,
   WindExposed,                            !- Wind Exposure
   ,                                       !- View Factor to Ground
   ,                                       !- Number of Vertices
-  3.94038030167471e-029, 3.65759999999999, 3.9624, !- X,Y,Z Vertex 1 {m}
-  -2.12174323936331e-029, 3.6576, -1.7953212025382e-029, !- X,Y,Z Vertex 2 {m}
-  -3.3528, 3.6576, 1.7953212025382e-029,  !- X,Y,Z Vertex 3 {m}
+  5.15280500988231e-029, 3.65759999999999, 3.9624, !- X,Y,Z Vertex 1 {m}
+  -9.09318531155706e-030, 3.6576, -7.69423372516365e-030, !- X,Y,Z Vertex 2 {m}
+  -3.3528, 3.6576, 7.69423372516365e-030, !- X,Y,Z Vertex 3 {m}
   -3.3528, 3.6576, 3.9624;                !- X,Y,Z Vertex 4 {m}
 
 OS:Surface,
@@ -8783,10 +8783,10 @@ OS:Surface,
   NoWind,                                 !- Wind Exposure
   ,                                       !- View Factor to Ground
   ,                                       !- Number of Vertices
-  4.54659265577855e-030, -1.13033162607061e-059, 3.9624, !- X,Y,Z Vertex 1 {m}
-  -4.54659265577854e-030, 1.1303316260706e-059, 1.04338303944979e-059, !- X,Y,Z Vertex 2 {m}
-  4.54659265577853e-030, 3.6576, -1.04338303944979e-059, !- X,Y,Z Vertex 3 {m}
-  1.36397779673356e-029, 3.65759999999999, 3.9624; !- X,Y,Z Vertex 4 {m}
+  1.06087161968166e-029, -6.15402774193996e-059, 3.9624, !- X,Y,Z Vertex 1 {m}
+  -1.06087161968165e-029, 6.15402774193994e-059, 5.68064099255996e-059, !- X,Y,Z Vertex 2 {m}
+  1.06087161968165e-029, 3.6576, -5.68064099255996e-059, !- X,Y,Z Vertex 3 {m}
+  3.18261485904496e-029, 3.65759999999999, 3.9624; !- X,Y,Z Vertex 4 {m}
 
 OS:Surface,
   {32ed534d-de60-4c89-b861-805131c2c5e4}, !- Handle
@@ -8801,7 +8801,7 @@ OS:Surface,
   ,                                       !- View Factor to Ground
   ,                                       !- Number of Vertices
   0, 0, 3.9624,                           !- X,Y,Z Vertex 1 {m}
-  1.81863706231141e-029, 3.65759999999999, 3.9624, !- X,Y,Z Vertex 2 {m}
+  4.24348647872661e-029, 3.65759999999999, 3.9624, !- X,Y,Z Vertex 2 {m}
   -3.3528, 3.6576, 3.9624,                !- X,Y,Z Vertex 3 {m}
   -3.3528, 0, 3.9624;                     !- X,Y,Z Vertex 4 {m}
 
@@ -8831,7 +8831,7 @@ OS:BuildingStory,
 
 OS:Space,
   {908b02f0-ca13-4389-873d-98667e9eeaa9}, !- Handle
-  CB_Classroom_F2_1,                      !- Name
+  CB_CLASSROOM_8_F2,                      !- Name
   {463ae76a-c906-48f4-baf1-6f5be27a635d}, !- Space Type Name
   ,                                       !- Default Construction Set Name
   ,                                       !- Default Schedule Set Name
@@ -8966,7 +8966,7 @@ OS:Surface,
 
 OS:Space,
   {a5ac6b86-01b8-4360-93fc-016080a561fc}, !- Handle
-  CB_Classroom_F2_7,                      !- Name
+  CB_CLASSROOM_7_F2,                      !- Name
   {463ae76a-c906-48f4-baf1-6f5be27a635d}, !- Space Type Name
   ,                                       !- Default Construction Set Name
   ,                                       !- Default Schedule Set Name
@@ -9067,7 +9067,7 @@ OS:Surface,
 
 OS:Space,
   {17a2ef7b-83ad-48c7-a60b-fb6438d62647}, !- Handle
-  CB_Classroom_F2_3,                      !- Name
+  CB_CLASSROOM_6_F2,                      !- Name
   {463ae76a-c906-48f4-baf1-6f5be27a635d}, !- Space Type Name
   ,                                       !- Default Construction Set Name
   ,                                       !- Default Schedule Set Name
@@ -9202,7 +9202,7 @@ OS:Surface,
 
 OS:Space,
   {80b6333c-b0cc-4645-aac1-5c221d4c3f38}, !- Handle
-  CB_ Corridor_F2,                        !- Name
+  CB_CORRIDOR_F2,                         !- Name
   {51bdfc1e-7c26-4cee-a4ca-0297bf0b8ba6}, !- Space Type Name
   ,                                       !- Default Construction Set Name
   ,                                       !- Default Schedule Set Name
@@ -9564,7 +9564,7 @@ OS:Surface,
 
 OS:Space,
   {a5d32a0e-3f6c-49f4-a827-3e84e5731836}, !- Handle
-  CB_Classroom_F2_2,                      !- Name
+  CB_CLASSROOM_5_F2,                      !- Name
   {463ae76a-c906-48f4-baf1-6f5be27a635d}, !- Space Type Name
   ,                                       !- Default Construction Set Name
   ,                                       !- Default Schedule Set Name
@@ -9699,7 +9699,7 @@ OS:Surface,
 
 OS:Space,
   {65b2dc79-cfd3-46fe-b963-99c135dd5afd}, !- Handle
-  CB_Stairs_F2_1,                         !- Name
+  CB_MAIN_STAIRS_F2,                      !- Name
   {f4a7791c-d241-41ec-ba73-acb404873502}, !- Space Type Name
   ,                                       !- Default Construction Set Name
   ,                                       !- Default Schedule Set Name
@@ -9817,7 +9817,7 @@ OS:Surface,
 
 OS:Space,
   {83765fc2-770e-4e23-adf0-1d0512ff20c4}, !- Handle
-  CB_Classroom_F2_5,                      !- Name
+  CB_CLASSROOM_4_F2,                      !- Name
   {463ae76a-c906-48f4-baf1-6f5be27a635d}, !- Space Type Name
   ,                                       !- Default Construction Set Name
   ,                                       !- Default Schedule Set Name
@@ -9952,7 +9952,7 @@ OS:Surface,
 
 OS:Space,
   {6ff192a0-4268-48c2-9488-94ab08314c35}, !- Handle
-  CB_Classroom_F2_4,                      !- Name
+  CB_CLASSROOM_3_F2,                      !- Name
   {463ae76a-c906-48f4-baf1-6f5be27a635d}, !- Space Type Name
   ,                                       !- Default Construction Set Name
   ,                                       !- Default Schedule Set Name
@@ -10087,7 +10087,7 @@ OS:Surface,
 
 OS:Space,
   {b9df0b79-67fa-4eb3-84b3-e34b1cd4603f}, !- Handle
-  CB_Classroom_F2_6,                      !- Name
+  CB_CLASSROOM_2_F2,                      !- Name
   {463ae76a-c906-48f4-baf1-6f5be27a635d}, !- Space Type Name
   ,                                       !- Default Construction Set Name
   ,                                       !- Default Schedule Set Name
@@ -10205,7 +10205,7 @@ OS:Surface,
 
 OS:Space,
   {794b5c5b-9509-4576-9a46-c9d5d53cdddc}, !- Handle
-  CB_Classroom_F2,                        !- Name
+  CB_CLASSROOM_1_F2,                      !- Name
   {463ae76a-c906-48f4-baf1-6f5be27a635d}, !- Space Type Name
   ,                                       !- Default Construction Set Name
   ,                                       !- Default Schedule Set Name
@@ -10340,7 +10340,7 @@ OS:Surface,
 
 OS:Space,
   {14b527fb-ecb9-4b1a-858d-f027a6c5cc31}, !- Handle
-  CB_ Utility_F2,                         !- Name
+  CB_UTILITY_F2,                          !- Name
   {5318e190-daf5-40f7-8417-166242834c51}, !- Space Type Name
   ,                                       !- Default Construction Set Name
   ,                                       !- Default Schedule Set Name
@@ -10458,7 +10458,7 @@ OS:Surface,
 
 OS:Space,
   {277f762b-9006-4b62-a630-05fc48e88377}, !- Handle
-  CB_Studio_F2,                           !- Name
+  CB_STUDIO_1_F2,                         !- Name
   {2c004efc-2c11-4664-b392-c178abb57ab8}, !- Space Type Name
   ,                                       !- Default Construction Set Name
   ,                                       !- Default Schedule Set Name
@@ -10714,7 +10714,7 @@ OS:Surface,
 
 OS:Space,
   {ada29205-fe26-4833-8b44-ef7cb8a8df65}, !- Handle
-  CB_Stairs_F2,                           !- Name
+  CB_SECONDARY_STAIRS_1_F2,               !- Name
   {f4a7791c-d241-41ec-ba73-acb404873502}, !- Space Type Name
   ,                                       !- Default Construction Set Name
   ,                                       !- Default Schedule Set Name
@@ -10832,7 +10832,7 @@ OS:Surface,
 
 OS:Space,
   {b9e1636e-f878-4b62-b239-0e0869467bfe}, !- Handle
-  CB_Studio_F2_1,                         !- Name
+  CB_STUDIO_2_F2,                         !- Name
   {2c004efc-2c11-4664-b392-c178abb57ab8}, !- Space Type Name
   ,                                       !- Default Construction Set Name
   ,                                       !- Default Schedule Set Name
@@ -11054,7 +11054,7 @@ OS:Surface,
 
 OS:Space,
   {33417fc4-efaa-456f-bf0c-136d50dc881a}, !- Handle
-  CB_Stairs_F2_2,                         !- Name
+  CB_SECONDARY_STAIRS_2_F2,               !- Name
   {f4a7791c-d241-41ec-ba73-acb404873502}, !- Space Type Name
   ,                                       !- Default Construction Set Name
   ,                                       !- Default Schedule Set Name
@@ -11172,7 +11172,7 @@ OS:Surface,
 
 OS:Space,
   {a1b8b503-3e80-414f-bf0b-c6b76b8bec5e}, !- Handle
-  CB_ Office_F2_1,                        !- Name
+  CB_OPEN OFFICES_F2,                     !- Name
   {ac05b496-a192-44ef-837d-522b42454fc2}, !- Space Type Name
   ,                                       !- Default Construction Set Name
   ,                                       !- Default Schedule Set Name
@@ -11536,7 +11536,7 @@ OS:Surface,
 
 OS:Space,
   {fa1c47d5-196c-4cc2-84c1-da7afd34ee43}, !- Handle
-  CB_ Conference_F2,                      !- Name
+  CB_CONFERENCE_ROOM_F2,                  !- Name
   {d1a43f3e-edef-4bbb-bbea-f264ad6672df}, !- Space Type Name
   ,                                       !- Default Construction Set Name
   ,                                       !- Default Schedule Set Name
@@ -11654,7 +11654,7 @@ OS:Surface,
 
 OS:Space,
   {17d980f6-501b-48b1-a35b-50fb00c6fc11}, !- Handle
-  CB_ Restroom_F2_1,                      !- Name
+  CB_FACULTY_RESTROOMS_1_F2,              !- Name
   {62196221-e91a-47b7-9a7f-37d668e192b2}, !- Space Type Name
   ,                                       !- Default Construction Set Name
   ,                                       !- Default Schedule Set Name
@@ -11772,7 +11772,7 @@ OS:Surface,
 
 OS:Space,
   {f0d3bcd1-c538-4572-ab2d-959d352437ae}, !- Handle
-  CB_ Restroom_F2_2,                      !- Name
+  CB_STUDENTS_RESTROOM_1_F2,              !- Name
   {62196221-e91a-47b7-9a7f-37d668e192b2}, !- Space Type Name
   ,                                       !- Default Construction Set Name
   ,                                       !- Default Schedule Set Name
@@ -11907,7 +11907,7 @@ OS:Surface,
 
 OS:Space,
   {d70d9ab3-743f-4668-9cfb-e3df29b88ee0}, !- Handle
-  CB_ Restroom_F2_3,                      !- Name
+  CB_STUDENTS_RESTROOM_2_F2,              !- Name
   {62196221-e91a-47b7-9a7f-37d668e192b2}, !- Space Type Name
   ,                                       !- Default Construction Set Name
   ,                                       !- Default Schedule Set Name
@@ -12025,7 +12025,7 @@ OS:Surface,
 
 OS:Space,
   {b250350e-b63a-4ae7-a2d9-9ee9b6aeb082}, !- Handle
-  CB_ Restroom_F2,                        !- Name
+  CB_FACULTY_RESTROOMS_2_F2,              !- Name
   {62196221-e91a-47b7-9a7f-37d668e192b2}, !- Space Type Name
   ,                                       !- Default Construction Set Name
   ,                                       !- Default Schedule Set Name
@@ -12143,7 +12143,7 @@ OS:Surface,
 
 OS:Space,
   {054541ac-c902-4616-8142-6958780c63c6}, !- Handle
-  CB_ Office_F2_2,                        !- Name
+  CB_FACULTY_OFFICE_8_F2,                 !- Name
   {ac05b496-a192-44ef-837d-522b42454fc2}, !- Space Type Name
   ,                                       !- Default Construction Set Name
   ,                                       !- Default Schedule Set Name
@@ -12278,7 +12278,7 @@ OS:Surface,
 
 OS:Space,
   {6fbc70c2-4734-41c2-9efd-b502d497fd14}, !- Handle
-  CB_ Office_F2_3,                        !- Name
+  CB_FACULTY_OFFICE_7_F2,                 !- Name
   {ac05b496-a192-44ef-837d-522b42454fc2}, !- Space Type Name
   ,                                       !- Default Construction Set Name
   ,                                       !- Default Schedule Set Name
@@ -12355,9 +12355,9 @@ OS:Surface,
   WindExposed,                            !- Wind Exposure
   ,                                       !- View Factor to Ground
   ,                                       !- Number of Vertices
-  4.54659265577851e-029, 3.65759999999999, 3.9624, !- X,Y,Z Vertex 1 {m}
-  -2.12174323936331e-029, 3.6576, -1.7953212025382e-029, !- X,Y,Z Vertex 2 {m}
-  -3.3528, 3.6576, 1.7953212025382e-029,  !- X,Y,Z Vertex 3 {m}
+  5.45591118693421e-029, 3.65759999999999, 3.9624, !- X,Y,Z Vertex 1 {m}
+  -6.06212354103804e-030, 3.6576, -5.1294891501091e-030, !- X,Y,Z Vertex 2 {m}
+  -3.3528, 3.6576, 5.1294891501091e-030,  !- X,Y,Z Vertex 3 {m}
   -3.3528, 3.6576, 3.9624;                !- X,Y,Z Vertex 4 {m}
 
 OS:Surface,
@@ -12372,10 +12372,10 @@ OS:Surface,
   NoWind,                                 !- Wind Exposure
   ,                                       !- View Factor to Ground
   ,                                       !- Number of Vertices
-  6.06212354103806e-030, -2.00947844634774e-059, 3.9624, !- X,Y,Z Vertex 1 {m}
-  -6.06212354103803e-030, 2.00947844634774e-059, 1.85490318124407e-059, !- X,Y,Z Vertex 2 {m}
-  6.06212354103803e-030, 3.6576, -1.85490318124407e-059, !- X,Y,Z Vertex 3 {m}
-  1.81863706231141e-029, 3.65759999999999, 3.9624; !- X,Y,Z Vertex 4 {m}
+  1.21242470820761e-029, -8.03791378539093e-059, 3.9624, !- X,Y,Z Vertex 1 {m}
+  -1.2124247082076e-029, 8.0379137853909e-059, 7.41961272497623e-059, !- X,Y,Z Vertex 2 {m}
+  1.2124247082076e-029, 3.6576, -7.41961272497623e-059, !- X,Y,Z Vertex 3 {m}
+  3.6372741246228e-029, 3.65759999999999, 3.9624; !- X,Y,Z Vertex 4 {m}
 
 OS:Surface,
   {88552f0c-fc66-47f1-91c3-fd807b323e4f}, !- Handle
@@ -12390,13 +12390,13 @@ OS:Surface,
   ,                                       !- View Factor to Ground
   ,                                       !- Number of Vertices
   0, 0, 3.9624,                           !- X,Y,Z Vertex 1 {m}
-  2.42484941641521e-029, 3.65759999999999, 3.9624, !- X,Y,Z Vertex 2 {m}
+  4.84969883283041e-029, 3.65759999999999, 3.9624, !- X,Y,Z Vertex 2 {m}
   -3.3528, 3.6576, 3.9624,                !- X,Y,Z Vertex 3 {m}
   -3.3528, 0, 3.9624;                     !- X,Y,Z Vertex 4 {m}
 
 OS:Space,
   {b3d881d2-7cf7-4aea-90c5-d3b01522c480}, !- Handle
-  CB_ Office_F2_4,                        !- Name
+  CB_FACULTY_OFFICE_6_F2,                 !- Name
   {ac05b496-a192-44ef-837d-522b42454fc2}, !- Space Type Name
   ,                                       !- Default Construction Set Name
   ,                                       !- Default Schedule Set Name
@@ -12514,7 +12514,7 @@ OS:Surface,
 
 OS:Space,
   {449da338-9226-4f37-9e15-5c8504d74612}, !- Handle
-  CB_ Office_F2_5,                        !- Name
+  CB_FACULTY_OFFICE_5_F2,                 !- Name
   {ac05b496-a192-44ef-837d-522b42454fc2}, !- Space Type Name
   ,                                       !- Default Construction Set Name
   ,                                       !- Default Schedule Set Name
@@ -12591,9 +12591,9 @@ OS:Surface,
   WindExposed,                            !- Wind Exposure
   ,                                       !- View Factor to Ground
   ,                                       !- Number of Vertices
-  4.54659265577851e-029, 3.65759999999999, 3.9624, !- X,Y,Z Vertex 1 {m}
-  -2.12174323936331e-029, 3.6576, -1.7953212025382e-029, !- X,Y,Z Vertex 2 {m}
-  -3.3528, 3.6576, 1.7953212025382e-029,  !- X,Y,Z Vertex 3 {m}
+  5.45591118693421e-029, 3.65759999999999, 3.9624, !- X,Y,Z Vertex 1 {m}
+  -6.06212354103804e-030, 3.6576, -5.1294891501091e-030, !- X,Y,Z Vertex 2 {m}
+  -3.3528, 3.6576, 5.1294891501091e-030,  !- X,Y,Z Vertex 3 {m}
   -3.3528, 3.6576, 3.9624;                !- X,Y,Z Vertex 4 {m}
 
 OS:Surface,
@@ -12608,10 +12608,10 @@ OS:Surface,
   NoWind,                                 !- Wind Exposure
   ,                                       !- View Factor to Ground
   ,                                       !- Number of Vertices
-  6.06212354103806e-030, -2.00947844634774e-059, 3.9624, !- X,Y,Z Vertex 1 {m}
-  -6.06212354103803e-030, 2.00947844634774e-059, 1.85490318124407e-059, !- X,Y,Z Vertex 2 {m}
-  6.06212354103803e-030, 3.6576, -1.85490318124407e-059, !- X,Y,Z Vertex 3 {m}
-  1.81863706231141e-029, 3.65759999999999, 3.9624; !- X,Y,Z Vertex 4 {m}
+  1.21242470820761e-029, -8.03791378539093e-059, 3.9624, !- X,Y,Z Vertex 1 {m}
+  -1.2124247082076e-029, 8.0379137853909e-059, 7.41961272497623e-059, !- X,Y,Z Vertex 2 {m}
+  1.2124247082076e-029, 3.6576, -7.41961272497623e-059, !- X,Y,Z Vertex 3 {m}
+  3.6372741246228e-029, 3.65759999999999, 3.9624; !- X,Y,Z Vertex 4 {m}
 
 OS:Surface,
   {aa9bae02-6a23-4761-bd8f-6094b4bb7123}, !- Handle
@@ -12626,13 +12626,13 @@ OS:Surface,
   ,                                       !- View Factor to Ground
   ,                                       !- Number of Vertices
   0, 0, 3.9624,                           !- X,Y,Z Vertex 1 {m}
-  2.42484941641521e-029, 3.65759999999999, 3.9624, !- X,Y,Z Vertex 2 {m}
+  4.84969883283041e-029, 3.65759999999999, 3.9624, !- X,Y,Z Vertex 2 {m}
   -3.3528, 3.6576, 3.9624,                !- X,Y,Z Vertex 3 {m}
   -3.3528, 0, 3.9624;                     !- X,Y,Z Vertex 4 {m}
 
 OS:Space,
   {762f2e3a-a6ac-4c0b-b6f1-39f7cf0bf6b7}, !- Handle
-  CB_ Office_F2_6,                        !- Name
+  CB_FACULTY_OFFICE_4_F2,                 !- Name
   {ac05b496-a192-44ef-837d-522b42454fc2}, !- Space Type Name
   ,                                       !- Default Construction Set Name
   ,                                       !- Default Schedule Set Name
@@ -12750,7 +12750,7 @@ OS:Surface,
 
 OS:Space,
   {557af9f1-e83e-4aa4-9438-19dd86341bf0}, !- Handle
-  CB_ Office_F2_7,                        !- Name
+  CB_FACULTY_OFFICE_3_F2,                 !- Name
   {ac05b496-a192-44ef-837d-522b42454fc2}, !- Space Type Name
   ,                                       !- Default Construction Set Name
   ,                                       !- Default Schedule Set Name
@@ -12868,7 +12868,7 @@ OS:Surface,
 
 OS:Space,
   {9ee06114-07ee-432c-8a43-c7a6047dad80}, !- Handle
-  CB_ Office_F2_8,                        !- Name
+  CB_FACULTY_OFFICE_2_F2,                 !- Name
   {ac05b496-a192-44ef-837d-522b42454fc2}, !- Space Type Name
   ,                                       !- Default Construction Set Name
   ,                                       !- Default Schedule Set Name
@@ -12986,7 +12986,7 @@ OS:Surface,
 
 OS:Space,
   {88eacaea-436f-4bdc-9e07-ead28059ef9f}, !- Handle
-  CB_ Office_F2,                          !- Name
+  CB_FACULTY_OFFICE_1_F2,                 !- Name
   {ac05b496-a192-44ef-837d-522b42454fc2}, !- Space Type Name
   ,                                       !- Default Construction Set Name
   ,                                       !- Default Schedule Set Name
@@ -13063,9 +13063,9 @@ OS:Surface,
   WindExposed,                            !- Wind Exposure
   ,                                       !- View Factor to Ground
   ,                                       !- Number of Vertices
-  4.54659265577851e-029, 3.65759999999999, 3.9624, !- X,Y,Z Vertex 1 {m}
-  -2.12174323936331e-029, 3.6576, -1.7953212025382e-029, !- X,Y,Z Vertex 2 {m}
-  -3.3528, 3.6576, 1.7953212025382e-029,  !- X,Y,Z Vertex 3 {m}
+  5.45591118693421e-029, 3.65759999999999, 3.9624, !- X,Y,Z Vertex 1 {m}
+  -6.06212354103804e-030, 3.6576, -5.1294891501091e-030, !- X,Y,Z Vertex 2 {m}
+  -3.3528, 3.6576, 5.1294891501091e-030,  !- X,Y,Z Vertex 3 {m}
   -3.3528, 3.6576, 3.9624;                !- X,Y,Z Vertex 4 {m}
 
 OS:Surface,
@@ -13080,10 +13080,10 @@ OS:Surface,
   NoWind,                                 !- Wind Exposure
   ,                                       !- View Factor to Ground
   ,                                       !- Number of Vertices
-  6.06212354103806e-030, -2.00947844634774e-059, 3.9624, !- X,Y,Z Vertex 1 {m}
-  -6.06212354103803e-030, 2.00947844634774e-059, 1.85490318124407e-059, !- X,Y,Z Vertex 2 {m}
-  6.06212354103803e-030, 3.6576, -1.85490318124407e-059, !- X,Y,Z Vertex 3 {m}
-  1.81863706231141e-029, 3.65759999999999, 3.9624; !- X,Y,Z Vertex 4 {m}
+  1.21242470820761e-029, -8.03791378539093e-059, 3.9624, !- X,Y,Z Vertex 1 {m}
+  -1.2124247082076e-029, 8.0379137853909e-059, 7.41961272497623e-059, !- X,Y,Z Vertex 2 {m}
+  1.2124247082076e-029, 3.6576, -7.41961272497623e-059, !- X,Y,Z Vertex 3 {m}
+  3.6372741246228e-029, 3.65759999999999, 3.9624; !- X,Y,Z Vertex 4 {m}
 
 OS:Surface,
   {96e25409-687e-4d60-8818-c1c8721388e1}, !- Handle
@@ -13098,7 +13098,7 @@ OS:Surface,
   ,                                       !- View Factor to Ground
   ,                                       !- Number of Vertices
   0, 0, 3.9624,                           !- X,Y,Z Vertex 1 {m}
-  2.42484941641521e-029, 3.65759999999999, 3.9624, !- X,Y,Z Vertex 2 {m}
+  4.84969883283041e-029, 3.65759999999999, 3.9624, !- X,Y,Z Vertex 2 {m}
   -3.3528, 3.6576, 3.9624,                !- X,Y,Z Vertex 3 {m}
   -3.3528, 0, 3.9624;                     !- X,Y,Z Vertex 4 {m}
 
@@ -13111,7 +13111,7 @@ OS:Rendering:Color,
 
 OS:Space,
   {4f04ad36-7f5e-4e34-8cad-86d45ce06f24}, !- Handle
-  CB_ Elevator Shaft_F1,                  !- Name
+  CB_ PUBLIC_ELEVATORS_F1,                !- Name
   {6e5c5762-d2d0-48e1-b3f0-dc85148ed47b}, !- Space Type Name
   ,                                       !- Default Construction Set Name
   ,                                       !- Default Schedule Set Name
@@ -13212,7 +13212,7 @@ OS:Surface,
 
 OS:Space,
   {e8175c0c-59ad-4e94-905e-e9b6b2e81ded}, !- Handle
-  CB_ Elevator Shaft_F4_1,                !- Name
+  CB_PUBLIC_ELEVATORS_F4,                 !- Name
   {6e5c5762-d2d0-48e1-b3f0-dc85148ed47b}, !- Space Type Name
   ,                                       !- Default Construction Set Name
   ,                                       !- Default Schedule Set Name
@@ -13296,7 +13296,7 @@ OS:Surface,
 
 OS:Space,
   {0b866007-7637-4cc9-ac58-81cfde8e41ca}, !- Handle
-  CB_ Elevator Shaft_F2,                  !- Name
+  CB_PUBLIC_ELEVATORS_F2,                 !- Name
   {6e5c5762-d2d0-48e1-b3f0-dc85148ed47b}, !- Space Type Name
   ,                                       !- Default Construction Set Name
   ,                                       !- Default Schedule Set Name
@@ -13544,8 +13544,8 @@ OS:Surface,
   ,                                       !- View Factor to Ground
   ,                                       !- Number of Vertices
   9.14400000000001, -8.2296, 3.9624,      !- X,Y,Z Vertex 1 {m}
-  9.14400000000002, 5.77529135625809e-015, 3.9624, !- X,Y,Z Vertex 2 {m}
-  0, 0, 3.9624,                           !- X,Y,Z Vertex 3 {m}
+  9.14400000000002, 4.33146851719357e-015, 3.9624, !- X,Y,Z Vertex 2 {m}
+  -4.55954591120808e-031, 1.44382283906452e-015, 3.9624, !- X,Y,Z Vertex 3 {m}
   0, -8.2296, 3.9624;                     !- X,Y,Z Vertex 4 {m}
 
 OS:Surface,
@@ -15289,7 +15289,7 @@ OS:BuildingStory,
 
 OS:Space,
   {8fe5ce56-47e9-451b-95d8-dd049b4cdacd}, !- Handle
-  CB_Classroom_F3,                        !- Name
+  CB_CLASSROOM_8_F3,                      !- Name
   {463ae76a-c906-48f4-baf1-6f5be27a635d}, !- Space Type Name
   ,                                       !- Default Construction Set Name
   ,                                       !- Default Schedule Set Name
@@ -15424,7 +15424,7 @@ OS:Surface,
 
 OS:Space,
   {1e546b8f-c579-47a3-8707-e546b14d5dd8}, !- Handle
-  CB_Classroom_F3_1,                      !- Name
+  CB_CLASSROOM_7_F3,                      !- Name
   {463ae76a-c906-48f4-baf1-6f5be27a635d}, !- Space Type Name
   ,                                       !- Default Construction Set Name
   ,                                       !- Default Schedule Set Name
@@ -15542,7 +15542,7 @@ OS:Surface,
 
 OS:Space,
   {010a74ae-40c3-46ed-bee0-d2afca675b76}, !- Handle
-  CB_Classroom_F3_2,                      !- Name
+  CB_CLASSROOM_6_F3,                      !- Name
   {463ae76a-c906-48f4-baf1-6f5be27a635d}, !- Space Type Name
   ,                                       !- Default Construction Set Name
   ,                                       !- Default Schedule Set Name
@@ -15677,7 +15677,7 @@ OS:Surface,
 
 OS:Space,
   {8dd05cba-5804-4534-942b-42ecd0be413a}, !- Handle
-  CB_Classroom_F3_3,                      !- Name
+  CB_CLASSROOM_5_F3,                      !- Name
   {463ae76a-c906-48f4-baf1-6f5be27a635d}, !- Space Type Name
   ,                                       !- Default Construction Set Name
   ,                                       !- Default Schedule Set Name
@@ -15812,7 +15812,7 @@ OS:Surface,
 
 OS:Space,
   {8d3dffda-77bb-47ab-9013-09fc9d3fd504}, !- Handle
-  CB_Stairs_F3_1,                         !- Name
+  CB_MAIN_STAIRS_F3,                      !- Name
   {f4a7791c-d241-41ec-ba73-acb404873502}, !- Space Type Name
   ,                                       !- Default Construction Set Name
   ,                                       !- Default Schedule Set Name
@@ -15856,9 +15856,9 @@ OS:Surface,
   ,                                       !- View Factor to Ground
   ,                                       !- Number of Vertices
   -3.04800000000001, -5.77529135625809e-015, 3.9624, !- X,Y,Z Vertex 1 {m}
-  -3.04800000000001, -5.77529135625809e-015, 0, !- X,Y,Z Vertex 2 {m}
-  2.42981416918014e-045, -1.28237228752728e-030, 0, !- X,Y,Z Vertex 3 {m}
-  2.42981416918014e-045, -1.28237228752728e-030, 3.9624; !- X,Y,Z Vertex 4 {m}
+  -3.04800000000001, -5.77529135625809e-015, 9.68654883776283e-062, !- X,Y,Z Vertex 2 {m}
+  1.87687568837315e-045, -9.90550388763057e-031, -1.12145678093536e-061, !- X,Y,Z Vertex 3 {m}
+  2.3752991076921e-045, -1.25360111440968e-030, 3.9624; !- X,Y,Z Vertex 4 {m}
 
 OS:Surface,
   {24ce41a9-f533-40fc-a935-fb00dfcf5b26}, !- Handle
@@ -15906,10 +15906,10 @@ OS:Surface,
   NoWind,                                 !- Wind Exposure
   ,                                       !- View Factor to Ground
   ,                                       !- Number of Vertices
-  0, 0, 3.9624,                           !- X,Y,Z Vertex 1 {m}
-  0, 0, 0,                                !- X,Y,Z Vertex 2 {m}
-  0, 6.09599999999999, 0,                 !- X,Y,Z Vertex 3 {m}
-  0, 6.09599999999999, 3.9624;            !- X,Y,Z Vertex 4 {m}
+  1.8223606268851e-045, -1.28237228752728e-030, 3.9624, !- X,Y,Z Vertex 1 {m}
+  6.07453542295033e-046, 1.21062928493039e-091, -1.8625065922006e-091, !- X,Y,Z Vertex 2 {m}
+  -6.07453542295032e-046, 6.09599999999999, 1.8625065922006e-091, !- X,Y,Z Vertex 3 {m}
+  6.07453542295033e-046, 6.09599999999999, 3.9624; !- X,Y,Z Vertex 4 {m}
 
 OS:Surface,
   {d27c3dc3-af4a-406f-84bf-28e706ad7cf7}, !- Handle
@@ -15923,14 +15923,14 @@ OS:Surface,
   NoWind,                                 !- Wind Exposure
   ,                                       !- View Factor to Ground
   ,                                       !- Number of Vertices
-  0, 0, 3.9624,                           !- X,Y,Z Vertex 1 {m}
+  2.42981416918013e-045, -1.28237228752728e-030, 3.9624, !- X,Y,Z Vertex 1 {m}
   0, 6.09599999999999, 3.9624,            !- X,Y,Z Vertex 2 {m}
   -3.04800000000001, 6.09599999999999, 3.9624, !- X,Y,Z Vertex 3 {m}
   -3.04800000000001, -5.77529135625809e-015, 3.9624; !- X,Y,Z Vertex 4 {m}
 
 OS:Space,
   {028b4065-9198-4f60-bf67-9469f636d762}, !- Handle
-  CB_ Corridor_F3_1,                      !- Name
+  CB_CORRIDOR_1_F3,                       !- Name
   {51bdfc1e-7c26-4cee-a4ca-0297bf0b8ba6}, !- Space Type Name
   ,                                       !- Default Construction Set Name
   ,                                       !- Default Schedule Set Name
@@ -16077,8 +16077,8 @@ OS:Surface,
   NoWind,                                 !- Wind Exposure
   ,                                       !- View Factor to Ground
   ,                                       !- Number of Vertices
-  -1.28237228752728e-030, 1.51863385573761e-045, 3.9624, !- X,Y,Z Vertex 1 {m}
-  -1.28237228752728e-030, 1.51863385573761e-045, 0, !- X,Y,Z Vertex 2 {m}
+  -9.61779215645457e-031, 1.13897539180321e-045, 3.9624, !- X,Y,Z Vertex 1 {m}
+  -9.61779215645457e-031, 1.13897539180321e-045, 0, !- X,Y,Z Vertex 2 {m}
   5.77529135625809e-015, 4.87679999999999, 0, !- X,Y,Z Vertex 3 {m}
   5.77529135625809e-015, 4.87679999999999, 3.9624; !- X,Y,Z Vertex 4 {m}
 
@@ -16103,7 +16103,7 @@ OS:Surface,
 
 OS:Space,
   {9a57bc48-2ef9-4c3f-8df2-4c12757d527b}, !- Handle
-  CB_Classroom_F3_4,                      !- Name
+  CB_CLASSROOM_4_F3,                      !- Name
   {463ae76a-c906-48f4-baf1-6f5be27a635d}, !- Space Type Name
   ,                                       !- Default Construction Set Name
   ,                                       !- Default Schedule Set Name
@@ -16170,7 +16170,7 @@ OS:Surface,
 
 OS:Space,
   {1e5d0e28-7c6a-4732-a6a4-138861099dd6}, !- Handle
-  CB_Classroom_F3_5,                      !- Name
+  CB_CLASSROOM_3_F3,                      !- Name
   {463ae76a-c906-48f4-baf1-6f5be27a635d}, !- Space Type Name
   ,                                       !- Default Construction Set Name
   ,                                       !- Default Schedule Set Name
@@ -16305,7 +16305,7 @@ OS:Surface,
 
 OS:Space,
   {2b3d8f9e-be32-46ee-ab50-dda28d10324b}, !- Handle
-  CB_Classroom_F3_6,                      !- Name
+  CB_CLASSROOM_2_F3,                      !- Name
   {463ae76a-c906-48f4-baf1-6f5be27a635d}, !- Space Type Name
   ,                                       !- Default Construction Set Name
   ,                                       !- Default Schedule Set Name
@@ -16423,7 +16423,7 @@ OS:Surface,
 
 OS:Space,
   {9a261abc-c184-4e58-a963-748985938a49}, !- Handle
-  CB_Classroom_F3_7,                      !- Name
+  CB_CLASSROOM_1_F3,                      !- Name
   {463ae76a-c906-48f4-baf1-6f5be27a635d}, !- Space Type Name
   ,                                       !- Default Construction Set Name
   ,                                       !- Default Schedule Set Name
@@ -16558,7 +16558,7 @@ OS:Surface,
 
 OS:Space,
   {0e341e1c-db07-4288-b0d5-5394cf39343e}, !- Handle
-  CB_Stairs_F3,                           !- Name
+  CB_SECONDARY_STAIRS_1_F3,               !- Name
   {f4a7791c-d241-41ec-ba73-acb404873502}, !- Space Type Name
   ,                                       !- Default Construction Set Name
   ,                                       !- Default Schedule Set Name
@@ -16676,7 +16676,7 @@ OS:Surface,
 
 OS:Space,
   {55b9d7cd-10b8-4be0-ba43-16cbc7218d72}, !- Handle
-  CB_Studio_F3,                           !- Name
+  CB_STUDIO_2_F3,                         !- Name
   {2c004efc-2c11-4664-b392-c178abb57ab8}, !- Space Type Name
   ,                                       !- Default Construction Set Name
   ,                                       !- Default Schedule Set Name
@@ -16740,8 +16740,8 @@ OS:Surface,
   ,                                       !- Number of Vertices
   -4.57200000000001, -2.286, 3.9624,      !- X,Y,Z Vertex 1 {m}
   -4.57200000000001, -2.286, 0,           !- X,Y,Z Vertex 2 {m}
-  -6.1553869801309e-030, -2.28600000000001, 0, !- X,Y,Z Vertex 3 {m}
-  -6.1553869801309e-030, -2.28600000000001, 3.9624; !- X,Y,Z Vertex 4 {m}
+  -1.53884674503273e-030, -2.28600000000001, 0, !- X,Y,Z Vertex 3 {m}
+  -1.53884674503273e-030, -2.28600000000001, 3.9624; !- X,Y,Z Vertex 4 {m}
 
 OS:Surface,
   {bdeebfb6-8ffa-4e40-b9ef-4af5d3eb7aa8}, !- Handle
@@ -16891,8 +16891,8 @@ OS:Surface,
   NoWind,                                 !- Wind Exposure
   ,                                       !- View Factor to Ground
   ,                                       !- Number of Vertices
-  -6.41186143763638e-031, -7.36307323993995e-046, 3.9624, !- X,Y,Z Vertex 1 {m}
-  -6.41186143763638e-031, -7.36307323993995e-046, 0, !- X,Y,Z Vertex 2 {m}
+  -4.80889607822729e-031, -5.52230492995496e-046, 3.9624, !- X,Y,Z Vertex 1 {m}
+  -4.80889607822729e-031, -5.52230492995496e-046, 0, !- X,Y,Z Vertex 2 {m}
   -5.77529135625809e-015, 5.0292, 0,      !- X,Y,Z Vertex 3 {m}
   -5.77529135625809e-015, 5.0292, 3.9624; !- X,Y,Z Vertex 4 {m}
 
@@ -16915,7 +16915,7 @@ OS:Surface,
 
 OS:Space,
   {bf808b2e-53ab-40f2-8f1e-f978ef603329}, !- Handle
-  CB_ Corridor_F3,                        !- Name
+  CB_CORRIDOR_2_F3,                       !- Name
   {51bdfc1e-7c26-4cee-a4ca-0297bf0b8ba6}, !- Space Type Name
   ,                                       !- Default Construction Set Name
   ,                                       !- Default Schedule Set Name
@@ -17096,8 +17096,8 @@ OS:Surface,
   ,                                       !- Number of Vertices
   -11.5824, 0, 3.9624,                    !- X,Y,Z Vertex 1 {m}
   -11.5824, 0, 0,                         !- X,Y,Z Vertex 2 {m}
-  -20.7264, 2.56474457505455e-030, 0,     !- X,Y,Z Vertex 3 {m}
-  -20.7264, 2.56474457505455e-030, 3.9624; !- X,Y,Z Vertex 4 {m}
+  -20.7264, 5.1294891501091e-030, 0,      !- X,Y,Z Vertex 3 {m}
+  -20.7264, 5.1294891501091e-030, 3.9624; !- X,Y,Z Vertex 4 {m}
 
 OS:Surface,
   {69d25e99-1707-42ca-aad1-6b12547a53c6}, !- Handle
@@ -17169,7 +17169,7 @@ OS:Surface,
 
 OS:Space,
   {cb1bd60f-11da-42bf-930d-3b5769fa8ae4}, !- Handle
-  CB_Studio_F3_1,                         !- Name
+  CB_STUDIO_1_F3,                         !- Name
   {2c004efc-2c11-4664-b392-c178abb57ab8}, !- Space Type Name
   ,                                       !- Default Construction Set Name
   ,                                       !- Default Schedule Set Name
@@ -17367,10 +17367,10 @@ OS:Surface,
   NoWind,                                 !- Wind Exposure
   ,                                       !- View Factor to Ground
   ,                                       !- Number of Vertices
-  0, -3.65760000000001, 3.9624,           !- X,Y,Z Vertex 1 {m}
-  0, -3.65760000000001, 0,                !- X,Y,Z Vertex 2 {m}
-  0, -9.7536, 0,                          !- X,Y,Z Vertex 3 {m}
-  0, -9.7536, 3.9624;                     !- X,Y,Z Vertex 4 {m}
+  -2.84743847950802e-046, -3.65760000000001, 3.9624, !- X,Y,Z Vertex 1 {m}
+  -2.84743847950802e-046, -3.65760000000001, 0, !- X,Y,Z Vertex 2 {m}
+  -1.28237228752727e-030, -9.7536, 0,     !- X,Y,Z Vertex 3 {m}
+  -1.28237228752727e-030, -9.7536, 3.9624; !- X,Y,Z Vertex 4 {m}
 
 OS:Surface,
   {c1b61755-4381-49b4-b0a0-aa6d8359db9a}, !- Handle
@@ -17408,7 +17408,7 @@ OS:Surface,
 
 OS:Space,
   {8017400d-1a2e-44f8-97e0-4275628970e7}, !- Handle
-  CB_Stairs_F3_2,                         !- Name
+  CB_SECONDARY_STAIRS_2_F3,               !- Name
   {f4a7791c-d241-41ec-ba73-acb404873502}, !- Space Type Name
   ,                                       !- Default Construction Set Name
   ,                                       !- Default Schedule Set Name
@@ -17526,7 +17526,7 @@ OS:Surface,
 
 OS:Space,
   {26d49636-830c-428c-b4ac-fd89bd7945a8}, !- Handle
-  CB_ Conference_F3,                      !- Name
+  CB_CONFERENCE_ROOM_F3,                  !- Name
   {d1a43f3e-edef-4bbb-bbea-f264ad6672df}, !- Space Type Name
   ,                                       !- Default Construction Set Name
   ,                                       !- Default Schedule Set Name
@@ -17552,10 +17552,10 @@ OS:Surface,
   NoWind,                                 !- Wind Exposure
   ,                                       !- View Factor to Ground
   ,                                       !- Number of Vertices
-  -5.77529135625809e-015, 5.02919999999999, 0, !- X,Y,Z Vertex 1 {m}
-  2.24415150317273e-030, 2.57707563397898e-045, 0, !- X,Y,Z Vertex 2 {m}
-  -6.096, -5.77529135625809e-015, 0,      !- X,Y,Z Vertex 3 {m}
-  -6.09600000000001, 5.02919999999999, 0; !- X,Y,Z Vertex 4 {m}
+  -5.77529135625809e-015, 5.02919999999999, 1.88273766142435e-062, !- X,Y,Z Vertex 1 {m}
+  2.40444803911364e-030, 2.76115246497747e-045, 5.18435008218359e-063, !- X,Y,Z Vertex 2 {m}
+  -6.096, -5.77529135625809e-015, -6.82151326602995e-063, !- X,Y,Z Vertex 3 {m}
+  -6.09600000000001, 5.02919999999999, 6.82151326602995e-063; !- X,Y,Z Vertex 4 {m}
 
 OS:Surface,
   {59de0f60-c043-436c-9d82-68389d66dc3e}, !- Handle
@@ -17571,7 +17571,7 @@ OS:Surface,
   ,                                       !- Number of Vertices
   -6.096, -5.77529135625809e-015, 3.9624, !- X,Y,Z Vertex 1 {m}
   -6.096, -5.77529135625809e-015, 0,      !- X,Y,Z Vertex 2 {m}
-  2.24415150317273e-030, 2.12608739803266e-045, 0, !- X,Y,Z Vertex 3 {m}
+  2.40444803911364e-030, 2.27795078360642e-045, -1.63716318384637e-063, !- X,Y,Z Vertex 3 {m}
   0, 0, 3.9624;                           !- X,Y,Z Vertex 4 {m}
 
 OS:Surface,
@@ -17604,7 +17604,7 @@ OS:Surface,
   ,                                       !- View Factor to Ground
   ,                                       !- Number of Vertices
   -5.77529135625809e-015, 5.02919999999999, 3.9624, !- X,Y,Z Vertex 1 {m}
-  -5.77529135625809e-015, 5.02919999999999, 0, !- X,Y,Z Vertex 2 {m}
+  -5.77529135625809e-015, 5.02919999999999, 2.56488898802734e-062, !- X,Y,Z Vertex 2 {m}
   -6.09600000000001, 5.02919999999999, 0, !- X,Y,Z Vertex 3 {m}
   -6.09600000000001, 5.02919999999999, 3.9624; !- X,Y,Z Vertex 4 {m}
 
@@ -17620,9 +17620,9 @@ OS:Surface,
   NoWind,                                 !- Wind Exposure
   ,                                       !- View Factor to Ground
   ,                                       !- Number of Vertices
-  2.40444803911364e-030, 2.76115246497749e-045, 3.9624, !- X,Y,Z Vertex 1 {m}
-  2.40444803911364e-030, 2.76115246497747e-045, -1.63716318384637e-063, !- X,Y,Z Vertex 2 {m}
-  -5.77529135625809e-015, 5.02919999999999, 2.56488898802734e-062, !- X,Y,Z Vertex 3 {m}
+  1.8208042415852e-030, 2.09092400339321e-045, 3.9624, !- X,Y,Z Vertex 1 {m}
+  2.34690569287845e-030, 2.69507360256775e-045, -4.58405691477211e-062, !- X,Y,Z Vertex 2 {m}
+  -5.77529135625809e-015, 5.02919999999999, 5.12977797605468e-062, !- X,Y,Z Vertex 3 {m}
   -5.77529135625809e-015, 5.02919999999999, 3.9624; !- X,Y,Z Vertex 4 {m}
 
 OS:Surface,
@@ -17644,7 +17644,7 @@ OS:Surface,
 
 OS:Space,
   {8741c201-4869-4a1c-aaab-8f566dcb801c}, !- Handle
-  CB_ Office_F3_3,                        !- Name
+  CB_OPEN OFFICES_F3_3,                   !- Name
   {ac05b496-a192-44ef-837d-522b42454fc2}, !- Space Type Name
   ,                                       !- Default Construction Set Name
   ,                                       !- Default Schedule Set Name
@@ -17670,14 +17670,14 @@ OS:Surface,
   NoWind,                                 !- Wind Exposure
   ,                                       !- View Factor to Ground
   ,                                       !- Number of Vertices
-  26.8224, 6.09599999999999, 7.30526299373219e-095, !- X,Y,Z Vertex 1 {m}
-  26.8224, 1.09096581164642e-190, 8.12390026978669e-095, !- X,Y,Z Vertex 2 {m}
-  15.24, 2.39956883311404e-191, 1.78684406812785e-095, !- X,Y,Z Vertex 3 {m}
-  15.24, -5.02919999999999, 2.46221982087281e-095, !- X,Y,Z Vertex 4 {m}
-  6.09600000000001, -5.02919999999999, -2.54071928569996e-095, !- X,Y,Z Vertex 5 {m}
-  6.096, 3.79658463934407e-047, -3.21609503844492e-095, !- X,Y,Z Vertex 6 {m}
-  4.72902064425961e-094, -3.79658463934407e-047, -6.5513877761601e-095, !- X,Y,Z Vertex 7 {m}
-  -2.88764567812905e-015, 6.09599999999999, -7.3700250522146e-095; !- X,Y,Z Vertex 8 {m}
+  26.8224, 6.09599999999999, 1.09578944905983e-094, !- X,Y,Z Vertex 1 {m}
+  26.8224, 2.45467307620444e-190, 1.218585040468e-094, !- X,Y,Z Vertex 2 {m}
+  15.24, 5.39902987450659e-191, 2.68026610219177e-095, !- X,Y,Z Vertex 3 {m}
+  15.24, -5.02919999999999, 3.69332973130921e-095, !- X,Y,Z Vertex 4 {m}
+  6.09600000000001, -5.02919999999999, -3.81107892854993e-095, !- X,Y,Z Vertex 5 {m}
+  6.096, 5.69487695901609e-047, -4.82414255766737e-095, !- X,Y,Z Vertex 6 {m}
+  8.27578612745428e-094, -5.69487695901609e-047, -9.82708166424014e-095, !- X,Y,Z Vertex 7 {m}
+  -2.88764567812905e-015, 6.09599999999999, -1.10550375783219e-094; !- X,Y,Z Vertex 8 {m}
 
 OS:Surface,
   {55c63e5b-45e3-4f3a-b415-e1b7ef7bb4a6}, !- Handle
@@ -17693,8 +17693,8 @@ OS:Surface,
   ,                                       !- Number of Vertices
   -2.88764567812905e-015, 6.09599999999999, 3.9624, !- X,Y,Z Vertex 1 {m}
   -2.88764567812905e-015, 6.09599999999999, 1.01640547663849e-062, !- X,Y,Z Vertex 2 {m}
-  -6.41186143763638e-031, -3.41692617540965e-046, -1.11190666236292e-062, !- X,Y,Z Vertex 3 {m}
-  -6.41186143763638e-031, -3.03726771147524e-046, 3.9624; !- X,Y,Z Vertex 4 {m}
+  -4.80889607822729e-031, -2.84743847950804e-046, -1.11190666236292e-062, !- X,Y,Z Vertex 3 {m}
+  -4.80889607822729e-031, -2.27795078360643e-046, 3.9624; !- X,Y,Z Vertex 4 {m}
 
 OS:Surface,
   {b1d49a01-58c0-45e4-bd8b-b30ae0c71ec5}, !- Handle
@@ -17964,7 +17964,7 @@ OS:Surface,
   ,                                       !- View Factor to Ground
   ,                                       !- Number of Vertices
   6.096, 0, 3.9624,                       !- X,Y,Z Vertex 1 {m}
-  6.096, 3.79658463934407e-047, 7.275416375784e-094, !- X,Y,Z Vertex 2 {m}
+  6.096, 5.69487695901609e-047, 1.0913124563676e-093, !- X,Y,Z Vertex 2 {m}
   6.09600000000001, -5.02919999999999, 0, !- X,Y,Z Vertex 3 {m}
   6.09600000000001, -5.02919999999999, 3.9624; !- X,Y,Z Vertex 4 {m}
 
@@ -17980,10 +17980,10 @@ OS:Surface,
   NoWind,                                 !- Wind Exposure
   ,                                       !- View Factor to Ground
   ,                                       !- Number of Vertices
-  -3.20593071881819e-031, -1.32880462377042e-046, 3.9624, !- X,Y,Z Vertex 1 {m}
-  8.27578612745428e-094, -5.69487695901609e-047, -1.0913124563676e-093, !- X,Y,Z Vertex 2 {m}
-  6.096, 5.69487695901609e-047, 1.0913124563676e-093, !- X,Y,Z Vertex 3 {m}
-  6.096, -1.89829231967202e-047, 3.9624;  !- X,Y,Z Vertex 4 {m}
+  -3.20593071881819e-031, -1.42371923975402e-046, 3.9624, !- X,Y,Z Vertex 1 {m}
+  1.03447326593178e-093, -6.6440231188521e-047, -1.2731978657622e-093, !- X,Y,Z Vertex 2 {m}
+  6.096, 6.6440231188521e-047, 1.2731978657622e-093, !- X,Y,Z Vertex 3 {m}
+  6.096, -9.49146159836003e-048, 3.9624;  !- X,Y,Z Vertex 4 {m}
 
 OS:Surface,
   {77b222cd-7362-45f0-a499-a803530b1474}, !- Handle
@@ -18008,7 +18008,7 @@ OS:Surface,
 
 OS:Space,
   {95fdce12-0bcb-4e50-8e10-a1872bcf6f8f}, !- Handle
-  CB_ Restroom_F3,                        !- Name
+  CB_FACULTY_RESTROOM_1_F3,               !- Name
   {62196221-e91a-47b7-9a7f-37d668e192b2}, !- Space Type Name
   ,                                       !- Default Construction Set Name
   ,                                       !- Default Schedule Set Name
@@ -18126,7 +18126,7 @@ OS:Surface,
 
 OS:Space,
   {19738529-2bed-4bc6-ad77-cf0e0b4897d4}, !- Handle
-  CB_ Restroom_F3_1,                      !- Name
+  CB_STUDENTS_RESTROOM_1_F3,              !- Name
   {62196221-e91a-47b7-9a7f-37d668e192b2}, !- Space Type Name
   ,                                       !- Default Construction Set Name
   ,                                       !- Default Schedule Set Name
@@ -18261,7 +18261,7 @@ OS:Surface,
 
 OS:Space,
   {92aa0c1d-066a-472b-8a78-92d95d617d0b}, !- Handle
-  CB_ Restroom_F3_2,                      !- Name
+  CB_STUDENTS_RESTROOM_2_F3,              !- Name
   {62196221-e91a-47b7-9a7f-37d668e192b2}, !- Space Type Name
   ,                                       !- Default Construction Set Name
   ,                                       !- Default Schedule Set Name
@@ -18379,7 +18379,7 @@ OS:Surface,
 
 OS:Space,
   {0ade4f95-287a-4a07-a472-4ce8e88bb918}, !- Handle
-  CB_ Restroom_F3_3,                      !- Name
+  CB_FACULTY_RESTROOM_2_F3,               !- Name
   {62196221-e91a-47b7-9a7f-37d668e192b2}, !- Space Type Name
   ,                                       !- Default Construction Set Name
   ,                                       !- Default Schedule Set Name
@@ -18497,7 +18497,7 @@ OS:Surface,
 
 OS:Space,
   {5c9e01a9-a6c6-40a3-855c-2d898a2512cb}, !- Handle
-  CB_ Office_F3_2,                        !- Name
+  CB_ FACULTY_OFFICES_8_F3,               !- Name
   {ac05b496-a192-44ef-837d-522b42454fc2}, !- Space Type Name
   ,                                       !- Default Construction Set Name
   ,                                       !- Default Schedule Set Name
@@ -18615,7 +18615,7 @@ OS:Surface,
 
 OS:Space,
   {43e6045f-5c82-4cb3-89ca-d1ff46d9754b}, !- Handle
-  CB_ Office_F3_4,                        !- Name
+  CB_ FACULTY_OFFICES_7_F3,               !- Name
   {ac05b496-a192-44ef-837d-522b42454fc2}, !- Space Type Name
   ,                                       !- Default Construction Set Name
   ,                                       !- Default Schedule Set Name
@@ -18733,7 +18733,7 @@ OS:Surface,
 
 OS:Space,
   {43a9280d-9339-497a-96a0-d52d4fabf651}, !- Handle
-  CB_ Office_F3_5,                        !- Name
+  CB_ FACULTY_OFFICES_6_F3,               !- Name
   {ac05b496-a192-44ef-837d-522b42454fc2}, !- Space Type Name
   ,                                       !- Default Construction Set Name
   ,                                       !- Default Schedule Set Name
@@ -18761,7 +18761,7 @@ OS:Surface,
   ,                                       !- Number of Vertices
   3.3528, 0, 0,                           !- X,Y,Z Vertex 1 {m}
   3.3528, -3.65760000000001, 0,           !- X,Y,Z Vertex 2 {m}
-  0, -3.65759999999999, 0,                !- X,Y,Z Vertex 3 {m}
+  3.35748380734415e-029, -3.65759999999999, 0, !- X,Y,Z Vertex 3 {m}
   0, 0, 0;                                !- X,Y,Z Vertex 4 {m}
 
 OS:Surface,
@@ -18810,8 +18810,8 @@ OS:Surface,
   NoWind,                                 !- Wind Exposure
   ,                                       !- View Factor to Ground
   ,                                       !- Number of Vertices
-  2.93779833142613e-029, -3.65759999999999, 3.9624, !- X,Y,Z Vertex 1 {m}
-  2.93779833142613e-029, -3.65759999999999, 0, !- X,Y,Z Vertex 2 {m}
+  4.19685475918019e-029, -3.65759999999999, 3.9624, !- X,Y,Z Vertex 1 {m}
+  4.19685475918019e-029, -3.65759999999999, 0, !- X,Y,Z Vertex 2 {m}
   3.3528, -3.65760000000001, 0,           !- X,Y,Z Vertex 3 {m}
   3.3528, -3.65760000000001, 3.9624;      !- X,Y,Z Vertex 4 {m}
 
@@ -18829,8 +18829,8 @@ OS:Surface,
   ,                                       !- Number of Vertices
   0, 0, 3.9624,                           !- X,Y,Z Vertex 1 {m}
   0, 0, 0,                                !- X,Y,Z Vertex 2 {m}
-  0, -3.65759999999999, 0,                !- X,Y,Z Vertex 3 {m}
-  0, -3.65759999999999, 3.9624;           !- X,Y,Z Vertex 4 {m}
+  3.35748380734415e-029, -3.65759999999999, 0, !- X,Y,Z Vertex 3 {m}
+  3.35748380734415e-029, -3.65759999999999, 3.9624; !- X,Y,Z Vertex 4 {m}
 
 OS:Surface,
   {460a20fd-76e9-4b4d-a563-9ea473138a38}, !- Handle
@@ -18847,11 +18847,11 @@ OS:Surface,
   3.3528, -3.65760000000001, 3.9624,      !- X,Y,Z Vertex 1 {m}
   3.3528, 0, 3.9624,                      !- X,Y,Z Vertex 2 {m}
   0, 0, 3.9624,                           !- X,Y,Z Vertex 3 {m}
-  0, -3.65759999999999, 3.9624;           !- X,Y,Z Vertex 4 {m}
+  3.35748380734415e-029, -3.65759999999999, 3.9624; !- X,Y,Z Vertex 4 {m}
 
 OS:Space,
   {0338d866-251a-4a13-bab5-e8b5def93d29}, !- Handle
-  CB_ Office_F3_6,                        !- Name
+  CB_ FACULTY_OFFICES_5_F3,               !- Name
   {ac05b496-a192-44ef-837d-522b42454fc2}, !- Space Type Name
   ,                                       !- Default Construction Set Name
   ,                                       !- Default Schedule Set Name
@@ -18969,7 +18969,7 @@ OS:Surface,
 
 OS:Space,
   {79f7d10d-9270-4dcd-9f7d-704a064e602e}, !- Handle
-  CB_ Office_F3_7,                        !- Name
+  CB_ FACULTY_OFFICES_4_F3,               !- Name
   {ac05b496-a192-44ef-837d-522b42454fc2}, !- Space Type Name
   ,                                       !- Default Construction Set Name
   ,                                       !- Default Schedule Set Name
@@ -19046,8 +19046,8 @@ OS:Surface,
   NoWind,                                 !- Wind Exposure
   ,                                       !- View Factor to Ground
   ,                                       !- Number of Vertices
-  -1.41449549290888e-029, -3.65759999999999, 3.9624, !- X,Y,Z Vertex 1 {m}
-  -1.41449549290888e-029, -3.65759999999999, 0, !- X,Y,Z Vertex 2 {m}
+  -2.02070784701269e-029, -3.65759999999999, 3.9624, !- X,Y,Z Vertex 1 {m}
+  -4.04141569402536e-030, -3.65759999999999, 0, !- X,Y,Z Vertex 2 {m}
   3.3528, -3.6576, 0,                     !- X,Y,Z Vertex 3 {m}
   3.3528, -3.6576, 3.9624;                !- X,Y,Z Vertex 4 {m}
 
@@ -19063,10 +19063,10 @@ OS:Surface,
   NoWind,                                 !- Wind Exposure
   ,                                       !- View Factor to Ground
   ,                                       !- Number of Vertices
-  0, 0, 3.9624,                           !- X,Y,Z Vertex 1 {m}
-  0, 0, 0,                                !- X,Y,Z Vertex 2 {m}
-  0, -3.65759999999999, 0,                !- X,Y,Z Vertex 3 {m}
-  0, -3.65759999999999, 3.9624;           !- X,Y,Z Vertex 4 {m}
+  -4.04141569402537e-030, 8.93101531710117e-060, 3.9624, !- X,Y,Z Vertex 1 {m}
+  4.04141569402536e-030, -8.93101531710117e-060, 8.2440141388626e-060, !- X,Y,Z Vertex 2 {m}
+  -4.04141569402537e-030, -3.65759999999999, -8.2440141388626e-060, !- X,Y,Z Vertex 3 {m}
+  -1.21242470820761e-029, -3.65759999999999, 3.9624; !- X,Y,Z Vertex 4 {m}
 
 OS:Surface,
   {a8ec914c-38b9-4d4a-98ff-3e741dc4036d}, !- Handle
@@ -19083,11 +19083,11 @@ OS:Surface,
   3.3528, -3.6576, 3.9624,                !- X,Y,Z Vertex 1 {m}
   3.35280000000001, 0, 3.9624,            !- X,Y,Z Vertex 2 {m}
   0, 0, 3.9624,                           !- X,Y,Z Vertex 3 {m}
-  0, -3.65759999999999, 3.9624;           !- X,Y,Z Vertex 4 {m}
+  -1.61656627761015e-029, -3.65759999999999, 3.9624; !- X,Y,Z Vertex 4 {m}
 
 OS:Space,
   {801094b0-eb5e-4f78-8450-6f85a109e640}, !- Handle
-  CB_ Office_F3_1,                        !- Name
+  CB_ FACULTY_OFFICES_3_F3,               !- Name
   {ac05b496-a192-44ef-837d-522b42454fc2}, !- Space Type Name
   ,                                       !- Default Construction Set Name
   ,                                       !- Default Schedule Set Name
@@ -19181,8 +19181,8 @@ OS:Surface,
   NoWind,                                 !- Wind Exposure
   ,                                       !- View Factor to Ground
   ,                                       !- Number of Vertices
-  6.41186143763638e-031, -1.01242257049174e-045, 3.9624, !- X,Y,Z Vertex 1 {m}
-  6.41186143763638e-031, -1.01242257049174e-045, 0, !- X,Y,Z Vertex 2 {m}
+  4.80889607822729e-031, -7.59316927868807e-046, 3.9624, !- X,Y,Z Vertex 1 {m}
+  4.80889607822729e-031, -7.59316927868807e-046, 0, !- X,Y,Z Vertex 2 {m}
   -5.77529135625809e-015, -3.6576, 0,     !- X,Y,Z Vertex 3 {m}
   -5.77529135625809e-015, -3.6576, 3.9624; !- X,Y,Z Vertex 4 {m}
 
@@ -19205,7 +19205,7 @@ OS:Surface,
 
 OS:Space,
   {44aaf03a-0ea6-467c-8c3d-6e74839eaa05}, !- Handle
-  CB_ Office_F3_8,                        !- Name
+  CB_ FACULTY_OFFICES_2_F3,               !- Name
   {ac05b496-a192-44ef-837d-522b42454fc2}, !- Space Type Name
   ,                                       !- Default Construction Set Name
   ,                                       !- Default Schedule Set Name
@@ -19234,7 +19234,7 @@ OS:Surface,
   3.3528, 0, 0,                           !- X,Y,Z Vertex 1 {m}
   3.35279999999999, -3.65759999999999, 0, !- X,Y,Z Vertex 2 {m}
   -5.77529135625809e-015, -3.65760000000001, 0, !- X,Y,Z Vertex 3 {m}
-  0, 0, 0;                                !- X,Y,Z Vertex 4 {m}
+  -3.52652379070001e-030, 5.56832413770458e-045, 0; !- X,Y,Z Vertex 4 {m}
 
 OS:Surface,
   {0a281376-d5e5-4d32-9f95-99e6560db921}, !- Handle
@@ -19248,10 +19248,10 @@ OS:Surface,
   WindExposed,                            !- Wind Exposure
   ,                                       !- View Factor to Ground
   ,                                       !- Number of Vertices
-  3.3528, 0, 3.9624,                      !- X,Y,Z Vertex 1 {m}
-  3.3528, 0, 0,                           !- X,Y,Z Vertex 2 {m}
-  0, 0, 0,                                !- X,Y,Z Vertex 3 {m}
-  0, 0, 3.9624;                           !- X,Y,Z Vertex 4 {m}
+  3.3528, -1.39208103442615e-045, 3.9624, !- X,Y,Z Vertex 1 {m}
+  3.3528, 1.39208103442614e-045, 9.78139312744279e-091, !- X,Y,Z Vertex 2 {m}
+  -3.52652379070001e-030, 4.17624310327843e-045, -9.78139312744279e-091, !- X,Y,Z Vertex 3 {m}
+  1.15598282415233e-090, 1.39208103442614e-045, 3.9624; !- X,Y,Z Vertex 4 {m}
 
 OS:Surface,
   {9b73bb7a-e0f3-4de9-aa04-2331b228be1e}, !- Handle
@@ -19299,9 +19299,9 @@ OS:Surface,
   NoWind,                                 !- Wind Exposure
   ,                                       !- View Factor to Ground
   ,                                       !- Number of Vertices
-  -3.3662272547591e-030, 5.31521849508164e-045, 3.9624, !- X,Y,Z Vertex 1 {m}
-  -3.3662272547591e-030, 5.31521849508164e-045, 0, !- X,Y,Z Vertex 2 {m}
-  -5.77529135625809e-015, -3.65760000000001, 0, !- X,Y,Z Vertex 3 {m}
+  -2.65105809440735e-030, 4.185977935687e-045, 3.9624, !- X,Y,Z Vertex 1 {m}
+  -3.44021027134721e-030, 5.43203648398453e-045, -1.13237120216101e-061, !- X,Y,Z Vertex 2 {m}
+  -5.77529135625809e-015, -3.65760000000001, 1.97823884714875e-061, !- X,Y,Z Vertex 3 {m}
   -5.77529135625809e-015, -3.65760000000001, 3.9624; !- X,Y,Z Vertex 4 {m}
 
 OS:Surface,
@@ -19323,7 +19323,7 @@ OS:Surface,
 
 OS:Space,
   {e59d5ae0-1f6a-45e7-ba72-d490252b927f}, !- Handle
-  CB_ Office_F3,                          !- Name
+  CB_ FACULTY_OFFICES_1_F3,               !- Name
   {ac05b496-a192-44ef-837d-522b42454fc2}, !- Space Type Name
   ,                                       !- Default Construction Set Name
   ,                                       !- Default Schedule Set Name
@@ -19499,7 +19499,7 @@ OS:Surface,
 
 OS:Space,
   {9b4e4cdc-36b7-47c8-b78e-2bf622f94660}, !- Handle
-  CB_ Elevator Shaft_F4_2,                !- Name
+  CB_PUBLIC_ELEVATORS_F3,                 !- Name
   {6e5c5762-d2d0-48e1-b3f0-dc85148ed47b}, !- Space Type Name
   ,                                       !- Default Construction Set Name
   ,                                       !- Default Schedule Set Name
@@ -19507,7 +19507,7 @@ OS:Space,
   33.9377480437979,                       !- X Origin {m}
   34.4424,                                !- Y Origin {m}
   7.9248,                                 !- Z Origin {m}
-  {d065c6ef-03af-4930-933a-4df328226870}, !- Building Story Name
+  {e6716d82-a813-4c55-9194-a15c73148190}, !- Building Story Name
   {4e4eedab-19fe-484a-9f39-3e7d1ff67d62}, !- Thermal Zone Name
   ,                                       !- Part of Total Floor Area
   ,                                       !- Design Specification Outdoor Air Object Name
@@ -19858,10 +19858,10 @@ OS:Surface,
   NoWind,                                 !- Wind Exposure
   ,                                       !- View Factor to Ground
   ,                                       !- Number of Vertices
-  4.572, 0, 0,                            !- X,Y,Z Vertex 1 {m}
-  4.572, -8.2296, 0,                      !- X,Y,Z Vertex 2 {m}
-  0, -8.2296, 0,                          !- X,Y,Z Vertex 3 {m}
-  0, 0, 0;                                !- X,Y,Z Vertex 4 {m}
+  4.572, -1.68162934439616e-062, 2.6305072564662e-031, !- X,Y,Z Vertex 1 {m}
+  4.572, -8.2296, -2.6305072564662e-031,  !- X,Y,Z Vertex 2 {m}
+  3.0269328199131e-062, -8.2296, 2.6305072564662e-031, !- X,Y,Z Vertex 3 {m}
+  4.55954591120809e-031, -1.44382283906452e-015, 7.8915217693986e-031; !- X,Y,Z Vertex 4 {m}
 
 OS:Surface,
   {7bb2a850-0dc1-4e66-8a3f-ec5ae7c38d0a}, !- Handle
@@ -20548,7 +20548,7 @@ OS:Surface,
 
 OS:Space,
   {0f6112ed-7d45-43f6-aec9-5c75fbd595d6}, !- Handle
-  CB_ Utility_F3,                         !- Name
+  CB_UTILITY_F3,                          !- Name
   {5318e190-daf5-40f7-8417-166242834c51}, !- Space Type Name
   ,                                       !- Default Construction Set Name
   ,                                       !- Default Schedule Set Name
@@ -20677,8 +20677,8 @@ OS:Surface,
   ,                                       !- View Factor to Ground
   ,                                       !- Number of Vertices
   9.144, 6.096, 3.9624,                   !- X,Y,Z Vertex 1 {m}
-  9.14399999999999, 6.096, 4.23511668291059e-029, !- X,Y,Z Vertex 2 {m}
-  9.144, 8.22959999999999, -1.10481304771581e-029, !- X,Y,Z Vertex 3 {m}
+  9.14399999999999, 6.096, 1.86766015209101e-029, !- X,Y,Z Vertex 2 {m}
+  9.144, 8.22959999999999, -2.20962609543162e-029, !- X,Y,Z Vertex 3 {m}
   9.14400000000001, 8.22959999999999, 3.9624; !- X,Y,Z Vertex 4 {m}
 
 OS:Surface,
@@ -20695,7 +20695,7 @@ OS:Surface,
   ,                                       !- Number of Vertices
   0, 8.2296, 3.9624,                      !- X,Y,Z Vertex 1 {m}
   0, 8.2296, 0,                           !- X,Y,Z Vertex 2 {m}
-  9.144, 8.22959999999999, 0,             !- X,Y,Z Vertex 3 {m}
+  9.144, 8.22959999999999, -1.10481304771581e-029, !- X,Y,Z Vertex 3 {m}
   9.14400000000002, 8.22959999999999, 3.9624; !- X,Y,Z Vertex 4 {m}
 
 OS:Surface,
@@ -20710,16 +20710,16 @@ OS:Surface,
   NoWind,                                 !- Wind Exposure
   ,                                       !- View Factor to Ground
   ,                                       !- Number of Vertices
-  39.624, 10.5156, 0,                     !- X,Y,Z Vertex 1 {m}
-  39.624, 8.2296, 0,                      !- X,Y,Z Vertex 2 {m}
-  15.24, 8.2296, 0,                       !- X,Y,Z Vertex 3 {m}
-  15.24, 0, 0,                            !- X,Y,Z Vertex 4 {m}
-  12.192, 0, 0,                           !- X,Y,Z Vertex 5 {m}
-  12.192, 6.096, 0,                       !- X,Y,Z Vertex 6 {m}
-  9.144, 6.096, 0,                        !- X,Y,Z Vertex 7 {m}
-  9.144, 8.22959999999999, 0,             !- X,Y,Z Vertex 8 {m}
-  0, 8.2296, 0,                           !- X,Y,Z Vertex 9 {m}
-  0, 10.5156, 0;                          !- X,Y,Z Vertex 10 {m}
+  39.624, 10.5156, -6.45785018508206e-031, !- X,Y,Z Vertex 1 {m}
+  39.624, 8.2296, -2.7749032893143e-031,  !- X,Y,Z Vertex 2 {m}
+  15.24, 8.2296, -1.36507462835007e-030,  !- X,Y,Z Vertex 3 {m}
+  15.24, -6.31767907422901e-063, -3.92137458736746e-032, !- X,Y,Z Vertex 4 {m}
+  12.192, -2.82201026275405e-062, -1.75161783301004e-031, !- X,Y,Z Vertex 5 {m}
+  12.192, 6.096, -1.15728095550574e-030,  !- X,Y,Z Vertex 6 {m}
+  9.144, 6.096, -1.29322899293307e-030,   !- X,Y,Z Vertex 7 {m}
+  9.144, 8.22959999999999, -1.63697070320472e-030, !- X,Y,Z Vertex 8 {m}
+  9.12035961508349e-062, 8.2296, -2.04481481548671e-030, !- X,Y,Z Vertex 9 {m}
+  1.07630413815818e-061, 10.5156, -2.41310950506349e-030; !- X,Y,Z Vertex 10 {m}
 
 OS:Surface,
   {bfaad5d6-4b43-4d6e-ba57-5f5c0f3bb1a2}, !- Handle
@@ -20740,7 +20740,7 @@ OS:Surface,
 
 OS:Space,
   {1cba28fb-384c-42f5-b49a-7ec5b31fe96b}, !- Handle
-  CB_ Entrance Lobby_F0,                  !- Name
+  CB_ENTRANCE_LOBBY&#10_F1,               !- Name
   {c0193709-ce79-421c-b497-2b66adf8fbff}, !- Space Type Name
   ,                                       !- Default Construction Set Name
   ,                                       !- Default Schedule Set Name
@@ -20748,7 +20748,7 @@ OS:Space,
   18.288,                                 !- X Origin {m}
   29.5656,                                !- Y Origin {m}
   0,                                      !- Z Origin {m}
-  ,                                       !- Building Story Name
+  {f44517e4-6e99-4739-994b-ef5108639c9a}, !- Building Story Name
   {058dfd21-d745-4e15-839f-4d4a0cc5b514}, !- Thermal Zone Name
   ,                                       !- Part of Total Floor Area
   ,                                       !- Design Specification Outdoor Air Object Name
@@ -20951,7 +20951,7 @@ OS:Surface,
 
 OS:ThermalZone,
   {00a8fdc1-f805-4d1c-b2a8-a5bd609f0d8c}, !- Handle
-  TZ_CB_ Office_F4,                       !- Name
+  CB_FACULTY_OFFICE_5_F4,                 !- Name
   ,                                       !- Multiplier
   ,                                       !- Ceiling Height {m}
   ,                                       !- Volume {m3}
@@ -21038,7 +21038,7 @@ OS:ZoneHVAC:EquipmentList,
 
 OS:ThermalZone,
   {c4ce9171-9ba1-450a-9e88-7e5721926dcf}, !- Handle
-  TZ_CB_ Restroom_F1,                     !- Name
+  CB_STUDENTS_RESTROOMS_1_F1,             !- Name
   ,                                       !- Multiplier
   ,                                       !- Ceiling Height {m}
   ,                                       !- Volume {m3}
@@ -21125,7 +21125,7 @@ OS:ZoneHVAC:EquipmentList,
 
 OS:ThermalZone,
   {6379cd55-5ab8-4bd8-a128-a88848e9152e}, !- Handle
-  TZ_CB_Library_F1,                       !- Name
+  CB_LIBRARY_MEDIA_CENTER_F1,             !- Name
   ,                                       !- Multiplier
   ,                                       !- Ceiling Height {m}
   ,                                       !- Volume {m3}
@@ -21212,7 +21212,7 @@ OS:ZoneHVAC:EquipmentList,
 
 OS:ThermalZone,
   {232b0e90-d000-4dea-b6ab-c92470fa09c2}, !- Handle
-  TZ_CB_Laboratory_F4,                    !- Name
+  CB_LAB_1_F4,                            !- Name
   ,                                       !- Multiplier
   ,                                       !- Ceiling Height {m}
   ,                                       !- Volume {m3}
@@ -21299,7 +21299,7 @@ OS:ZoneHVAC:EquipmentList,
 
 OS:ThermalZone,
   {591010d8-a912-44bb-afe1-281f249f26a1}, !- Handle
-  TZ_CB_Stairs_F2,                        !- Name
+  CB_SECONDARY_STAIRS_1_F2,               !- Name
   ,                                       !- Multiplier
   ,                                       !- Ceiling Height {m}
   ,                                       !- Volume {m3}
@@ -21386,7 +21386,7 @@ OS:ZoneHVAC:EquipmentList,
 
 OS:ThermalZone,
   {74d1db39-6cf7-4a8f-afbc-1c99a4ec5ecb}, !- Handle
-  TZ_CB_ Office_F1,                       !- Name
+  CB_ OFFICES_ENCLOSED_2_F1,              !- Name
   ,                                       !- Multiplier
   ,                                       !- Ceiling Height {m}
   ,                                       !- Volume {m3}
@@ -21473,7 +21473,7 @@ OS:ZoneHVAC:EquipmentList,
 
 OS:ThermalZone,
   {8fd373d8-fed6-4ac2-83f8-9eb549022ea5}, !- Handle
-  TZ_CB_Stairs_F1,                        !- Name
+  CB_SECONDARY_STAIRS_1_F1,               !- Name
   ,                                       !- Multiplier
   ,                                       !- Ceiling Height {m}
   ,                                       !- Volume {m3}
@@ -21560,7 +21560,7 @@ OS:ZoneHVAC:EquipmentList,
 
 OS:ThermalZone,
   {21f24fde-40a0-4892-97b3-4238ab45aac9}, !- Handle
-  TZ_CB_Classroom_F1,                     !- Name
+  CB_LECTURE_ROOM_2_F1,                   !- Name
   ,                                       !- Multiplier
   ,                                       !- Ceiling Height {m}
   ,                                       !- Volume {m3}
@@ -21647,7 +21647,7 @@ OS:ZoneHVAC:EquipmentList,
 
 OS:ThermalZone,
   {3dbf9cec-f9a0-4a5e-82eb-22f3264e04bf}, !- Handle
-  TZ_CB_ Corridor_F1,                     !- Name
+  CB_CORRIDOR&#10_F1,                     !- Name
   ,                                       !- Multiplier
   ,                                       !- Ceiling Height {m}
   ,                                       !- Volume {m3}
@@ -21734,7 +21734,7 @@ OS:ZoneHVAC:EquipmentList,
 
 OS:ThermalZone,
   {bbee2bbe-afe4-4cb1-b206-ff0032505c2c}, !- Handle
-  TZ_CB_Classroom_F4,                     !- Name
+  CB_CLASSROOM_2_F4,                      !- Name
   ,                                       !- Multiplier
   ,                                       !- Ceiling Height {m}
   ,                                       !- Volume {m3}
@@ -21821,7 +21821,7 @@ OS:ZoneHVAC:EquipmentList,
 
 OS:ThermalZone,
   {a5e720df-293f-4af2-867a-be65acd38b7f}, !- Handle
-  TZ_CB_ Lounge_F1,                       !- Name
+  CB_CAFE_STUDY_LOUNGE_F1,                !- Name
   ,                                       !- Multiplier
   ,                                       !- Ceiling Height {m}
   ,                                       !- Volume {m3}
@@ -21908,7 +21908,7 @@ OS:ZoneHVAC:EquipmentList,
 
 OS:ThermalZone,
   {785fa8d1-cfe7-4b08-a7b9-b2b5515c5df7}, !- Handle
-  TZ_CB_Stairs_F1_1,                      !- Name
+  CB_SECONDARY_STAIRS_2_F1,               !- Name
   ,                                       !- Multiplier
   ,                                       !- Ceiling Height {m}
   ,                                       !- Volume {m3}
@@ -21995,7 +21995,7 @@ OS:ZoneHVAC:EquipmentList,
 
 OS:ThermalZone,
   {6ebd23c6-7bea-40ac-b2c7-d9db1495f6ed}, !- Handle
-  TZ_CB_Classroom_F2,                     !- Name
+  CB_CLASSROOM_1_F2,                      !- Name
   ,                                       !- Multiplier
   ,                                       !- Ceiling Height {m}
   ,                                       !- Volume {m3}
@@ -22082,7 +22082,7 @@ OS:ZoneHVAC:EquipmentList,
 
 OS:ThermalZone,
   {2640333a-f81b-4114-87df-53bf074c9a17}, !- Handle
-  TZ_CB_Stairs_F1_2,                      !- Name
+  CB_MAIN_STAIRS&#10_F1,                  !- Name
   ,                                       !- Multiplier
   ,                                       !- Ceiling Height {m}
   ,                                       !- Volume {m3}
@@ -22169,7 +22169,7 @@ OS:ZoneHVAC:EquipmentList,
 
 OS:ThermalZone,
   {08137d0a-da1d-4bf8-8d0d-68a957a3f7b1}, !- Handle
-  TZ_CB_Storage_F1,                       !- Name
+  CB_STORAGE_F1,                          !- Name
   ,                                       !- Multiplier
   ,                                       !- Ceiling Height {m}
   ,                                       !- Volume {m3}
@@ -22256,7 +22256,7 @@ OS:ZoneHVAC:EquipmentList,
 
 OS:ThermalZone,
   {e8e196af-d1df-46ac-ab7c-440b49c8daae}, !- Handle
-  TZ_CB_Studio_F2,                        !- Name
+  CB_STUDIO_1_F2,                         !- Name
   ,                                       !- Multiplier
   ,                                       !- Ceiling Height {m}
   ,                                       !- Volume {m3}
@@ -22343,7 +22343,7 @@ OS:ZoneHVAC:EquipmentList,
 
 OS:ThermalZone,
   {00dd73da-0fc8-4818-8ca3-bd916881210a}, !- Handle
-  TZ_CB_Classroom_F2_1,                   !- Name
+  CB_CLASSROOM_8_F2,                      !- Name
   ,                                       !- Multiplier
   ,                                       !- Ceiling Height {m}
   ,                                       !- Volume {m3}
@@ -22430,7 +22430,7 @@ OS:ZoneHVAC:EquipmentList,
 
 OS:ThermalZone,
   {65db1e22-ea3f-4b97-8e70-acab3e214e07}, !- Handle
-  TZ_CB_Stairs_F2_1,                      !- Name
+  CB_MAIN_STAIRS_F2_1,                    !- Name
   ,                                       !- Multiplier
   ,                                       !- Ceiling Height {m}
   ,                                       !- Volume {m3}
@@ -22517,7 +22517,7 @@ OS:ZoneHVAC:EquipmentList,
 
 OS:ThermalZone,
   {eff97f1f-7612-44dc-9115-10b6f52c37b1}, !- Handle
-  TZ_CB_ Restroom_F4,                     !- Name
+  CB_FACULTY_RESTROOM_2_F4,               !- Name
   ,                                       !- Multiplier
   ,                                       !- Ceiling Height {m}
   ,                                       !- Volume {m3}
@@ -22604,7 +22604,7 @@ OS:ZoneHVAC:EquipmentList,
 
 OS:ThermalZone,
   {922d2a18-2cc9-43b0-9adb-2267fa142275}, !- Handle
-  TZ_CB_ Utility_F1,                      !- Name
+  CB_UTILITY_F1,                          !- Name
   ,                                       !- Multiplier
   ,                                       !- Ceiling Height {m}
   ,                                       !- Volume {m3}
@@ -22691,7 +22691,7 @@ OS:ZoneHVAC:EquipmentList,
 
 OS:ThermalZone,
   {40aa963d-a078-4f51-9087-16a7946dd0c6}, !- Handle
-  TZ_CB_ Conference_F1,                   !- Name
+  CB_CONFERENCE_ROOM_F1,                  !- Name
   ,                                       !- Multiplier
   ,                                       !- Ceiling Height {m}
   ,                                       !- Volume {m3}
@@ -22778,7 +22778,7 @@ OS:ZoneHVAC:EquipmentList,
 
 OS:ThermalZone,
   {55279167-d6ef-4443-b206-cca6b51404f0}, !- Handle
-  TZ_CB_ Office_F1_1,                     !- Name
+  CB_OFFICES_OPEN_F1,                     !- Name
   ,                                       !- Multiplier
   ,                                       !- Ceiling Height {m}
   ,                                       !- Volume {m3}
@@ -22865,7 +22865,7 @@ OS:ZoneHVAC:EquipmentList,
 
 OS:ThermalZone,
   {bf7a3a1b-a947-4ea2-9e36-5dc9cf6920b0}, !- Handle
-  TZ_CB_ Office_F4_1,                     !- Name
+  CB_FACULTY_OFFICE_1_F4,                 !- Name
   ,                                       !- Multiplier
   ,                                       !- Ceiling Height {m}
   ,                                       !- Volume {m3}
@@ -22952,7 +22952,7 @@ OS:ZoneHVAC:EquipmentList,
 
 OS:ThermalZone,
   {1b042aed-4fd2-4b13-9550-615da87fab07}, !- Handle
-  TZ_CB_ Restroom_F1_1,                   !- Name
+  CB_STAFF_RESTROOMS_2_F1,                !- Name
   ,                                       !- Multiplier
   ,                                       !- Ceiling Height {m}
   ,                                       !- Volume {m3}
@@ -23039,7 +23039,7 @@ OS:ZoneHVAC:EquipmentList,
 
 OS:ThermalZone,
   {d90ca898-e2ff-43f6-a56c-36428be95f22}, !- Handle
-  TZ_CB_ Restroom_F1_2,                   !- Name
+  CB_STUDENTS_RESTROOMS_2_F1,             !- Name
   ,                                       !- Multiplier
   ,                                       !- Ceiling Height {m}
   ,                                       !- Volume {m3}
@@ -23126,7 +23126,7 @@ OS:ZoneHVAC:EquipmentList,
 
 OS:ThermalZone,
   {c5950394-e4fd-4a2e-9ef1-3ad198da69e6}, !- Handle
-  TZ_CB_ Elevator Shaft_F2,               !- Name
+  CB_PUBLIC_ELEVATORS_F2,                 !- Name
   ,                                       !- Multiplier
   ,                                       !- Ceiling Height {m}
   ,                                       !- Volume {m3}
@@ -23213,7 +23213,7 @@ OS:ZoneHVAC:EquipmentList,
 
 OS:ThermalZone,
   {d636c304-772b-4b7d-9c7e-5c99aff52482}, !- Handle
-  TZ_CB_Lecture Theater_F1,               !- Name
+  CB_LECTURE_ROOM_1_F1,                   !- Name
   ,                                       !- Multiplier
   ,                                       !- Ceiling Height {m}
   ,                                       !- Volume {m3}
@@ -23300,7 +23300,7 @@ OS:ZoneHVAC:EquipmentList,
 
 OS:ThermalZone,
   {9d4111c8-4f30-4622-807e-1cf774ba7c3d}, !- Handle
-  TZ_CB_Classroom_F4_1,                   !- Name
+  CB_CLASSROOM_5_F4,                      !- Name
   ,                                       !- Multiplier
   ,                                       !- Ceiling Height {m}
   ,                                       !- Volume {m3}
@@ -23387,7 +23387,7 @@ OS:ZoneHVAC:EquipmentList,
 
 OS:ThermalZone,
   {8405f149-bbc5-4f8a-b9fe-79166b8cff56}, !- Handle
-  TZ_CB_ Office_F3,                       !- Name
+  CB_ FACULTY_OFFICES_1_F3,               !- Name
   ,                                       !- Multiplier
   ,                                       !- Ceiling Height {m}
   ,                                       !- Volume {m3}
@@ -23474,7 +23474,7 @@ OS:ZoneHVAC:EquipmentList,
 
 OS:ThermalZone,
   {a72add5a-0a19-4bc5-be50-e02efe2c3469}, !- Handle
-  TZ_CB_ Office_F1_2,                     !- Name
+  CB_ OFFICES_ENCLOSED_1_F1,              !- Name
   ,                                       !- Multiplier
   ,                                       !- Ceiling Height {m}
   ,                                       !- Volume {m3}
@@ -23561,7 +23561,7 @@ OS:ZoneHVAC:EquipmentList,
 
 OS:ThermalZone,
   {4ea2f559-90da-4161-9510-73f206d70c59}, !- Handle
-  TZ_CB_ Office_F1_3,                     !- Name
+  CB_ OFFICES_ENCLOSED_5_F1,              !- Name
   ,                                       !- Multiplier
   ,                                       !- Ceiling Height {m}
   ,                                       !- Volume {m3}
@@ -23649,7 +23649,7 @@ OS:ZoneHVAC:EquipmentList,
 
 OS:ThermalZone,
   {447f8b60-9853-4540-a194-f36bde9500ed}, !- Handle
-  TZ_CB_ Restroom_F1_3,                   !- Name
+  CB_STAFF_RESTROOMS_1_F1,                !- Name
   ,                                       !- Multiplier
   ,                                       !- Ceiling Height {m}
   ,                                       !- Volume {m3}
@@ -23736,7 +23736,7 @@ OS:ZoneHVAC:EquipmentList,
 
 OS:ThermalZone,
   {fe4e8b43-9959-479d-8eba-fbc87a3541ac}, !- Handle
-  TZ_CB_ Office_F1_4,                     !- Name
+  CB_ OFFICES_ENCLOSED_8_F1,              !- Name
   ,                                       !- Multiplier
   ,                                       !- Ceiling Height {m}
   ,                                       !- Volume {m3}
@@ -23823,7 +23823,7 @@ OS:ZoneHVAC:EquipmentList,
 
 OS:ThermalZone,
   {debc9026-3ba2-4f13-aa27-3c092e5c5dda}, !- Handle
-  TZ_CB_Stairs_F3,                        !- Name
+  CB_SECONDARY_STAIRS_1_F3,               !- Name
   ,                                       !- Multiplier
   ,                                       !- Ceiling Height {m}
   ,                                       !- Volume {m3}
@@ -23910,7 +23910,7 @@ OS:ZoneHVAC:EquipmentList,
 
 OS:ThermalZone,
   {11ea8cf6-3973-4100-8752-aa9f087496fb}, !- Handle
-  TZ_CB_ Office_F1_5,                     !- Name
+  CB_ OFFICES_ENCLOSED_7_F1,              !- Name
   ,                                       !- Multiplier
   ,                                       !- Ceiling Height {m}
   ,                                       !- Volume {m3}
@@ -23997,7 +23997,7 @@ OS:ZoneHVAC:EquipmentList,
 
 OS:ThermalZone,
   {932a98e6-a94e-4ee3-b212-06e1d9c9b9b1}, !- Handle
-  TZ_CB_ Office_F1_6,                     !- Name
+  CB_ OFFICES_ENCLOSED_6_F1,              !- Name
   ,                                       !- Multiplier
   ,                                       !- Ceiling Height {m}
   ,                                       !- Volume {m3}
@@ -24084,7 +24084,7 @@ OS:ZoneHVAC:EquipmentList,
 
 OS:ThermalZone,
   {bb17fc66-4852-4ea8-99d4-5c646c736796}, !- Handle
-  TZ_CB_ Office_F1_7,                     !- Name
+  CB_ OFFICES_ENCLOSED_4_F1,              !- Name
   ,                                       !- Multiplier
   ,                                       !- Ceiling Height {m}
   ,                                       !- Volume {m3}
@@ -24171,7 +24171,7 @@ OS:ZoneHVAC:EquipmentList,
 
 OS:ThermalZone,
   {890e2754-53ba-407f-a0d8-6c4dc0c1d249}, !- Handle
-  TZ_CB_ Restroom_F4_1,                   !- Name
+  CB_STUDENTS_RESTROOM_1_F4 1,            !- Name
   ,                                       !- Multiplier
   ,                                       !- Ceiling Height {m}
   ,                                       !- Volume {m3}
@@ -24258,7 +24258,7 @@ OS:ZoneHVAC:EquipmentList,
 
 OS:ThermalZone,
   {24f4800a-7e54-46fd-8478-b7e9d79de45c}, !- Handle
-  TZ_CB_Laboratory_F4_1,                  !- Name
+  CB_LAB_2_F4,                            !- Name
   ,                                       !- Multiplier
   ,                                       !- Ceiling Height {m}
   ,                                       !- Volume {m3}
@@ -24345,7 +24345,7 @@ OS:ZoneHVAC:EquipmentList,
 
 OS:ThermalZone,
   {f157b3bc-30b5-42d8-be25-60c52e7392d5}, !- Handle
-  TZ_CB_Classroom_F2_2,                   !- Name
+  CB_CLASSROOM_5_F2,                      !- Name
   ,                                       !- Multiplier
   ,                                       !- Ceiling Height {m}
   ,                                       !- Volume {m3}
@@ -24432,7 +24432,7 @@ OS:ZoneHVAC:EquipmentList,
 
 OS:ThermalZone,
   {5e462c8e-8137-4082-8e38-58c7b563f62b}, !- Handle
-  TZ_CB_Classroom_F2_3,                   !- Name
+  CB_CLASSROOM_6_F2,                      !- Name
   ,                                       !- Multiplier
   ,                                       !- Ceiling Height {m}
   ,                                       !- Volume {m3}
@@ -24519,7 +24519,7 @@ OS:ZoneHVAC:EquipmentList,
 
 OS:ThermalZone,
   {e5f54042-36a1-4ccd-a7fb-3af35cc08e86}, !- Handle
-  TZ_CB_ Office_F1_8,                     !- Name
+  CB_ OFFICES_ENCLOSED_3_F1,              !- Name
   ,                                       !- Multiplier
   ,                                       !- Ceiling Height {m}
   ,                                       !- Volume {m3}
@@ -24606,7 +24606,7 @@ OS:ZoneHVAC:EquipmentList,
 
 OS:ThermalZone,
   {a07dc915-4736-4594-a99b-cc6de63ea89d}, !- Handle
-  TZ_CB_ Office_F2,                       !- Name
+  CB_FACULTY_OFFICE_1_F2,                 !- Name
   ,                                       !- Multiplier
   ,                                       !- Ceiling Height {m}
   ,                                       !- Volume {m3}
@@ -24693,7 +24693,7 @@ OS:ZoneHVAC:EquipmentList,
 
 OS:ThermalZone,
   {c7f52b53-42ac-49d6-9915-f4ff3b72a2a4}, !- Handle
-  TZ_CB_Stairs_F4,                        !- Name
+  CB_SECONDARY_STAIRS_1_F4,               !- Name
   ,                                       !- Multiplier
   ,                                       !- Ceiling Height {m}
   ,                                       !- Volume {m3}
@@ -24780,7 +24780,7 @@ OS:ZoneHVAC:EquipmentList,
 
 OS:ThermalZone,
   {b2eee6ef-111f-49fe-82e0-bc9b8a44771f}, !- Handle
-  TZ_CB_Classroom_F4_2,                   !- Name
+  CB_CLASSROOM_1_F4,                      !- Name
   ,                                       !- Multiplier
   ,                                       !- Ceiling Height {m}
   ,                                       !- Volume {m3}
@@ -24867,7 +24867,7 @@ OS:ZoneHVAC:EquipmentList,
 
 OS:ThermalZone,
   {c1f49f58-0f42-4319-8423-d566d15943de}, !- Handle
-  TZ_CB_ Office_F4_2,                     !- Name
+  CB_FACULTY_OFFICE_8_F4,                 !- Name
   ,                                       !- Multiplier
   ,                                       !- Ceiling Height {m}
   ,                                       !- Volume {m3}
@@ -24954,7 +24954,7 @@ OS:ZoneHVAC:EquipmentList,
 
 OS:ThermalZone,
   {c162d587-f351-4b63-948d-19ccf10573de}, !- Handle
-  TZ_CB_ Corridor_F4,                     !- Name
+  CB_CORRIDOR_F4,                         !- Name
   ,                                       !- Multiplier
   ,                                       !- Ceiling Height {m}
   ,                                       !- Volume {m3}
@@ -25041,7 +25041,7 @@ OS:ZoneHVAC:EquipmentList,
 
 OS:ThermalZone,
   {951c9b34-88cc-4aa3-a083-c208e5e979f9}, !- Handle
-  TZ_CB_Classroom_F4_3,                   !- Name
+  CB_CLASSROOM_3_F4,                      !- Name
   ,                                       !- Multiplier
   ,                                       !- Ceiling Height {m}
   ,                                       !- Volume {m3}
@@ -25128,7 +25128,7 @@ OS:ZoneHVAC:EquipmentList,
 
 OS:ThermalZone,
   {4f098590-f56d-4357-91e6-01f81030eb9c}, !- Handle
-  TZ_CB_Laboratory_F4_2,                  !- Name
+  CB_LAB_3_F4,                            !- Name
   ,                                       !- Multiplier
   ,                                       !- Ceiling Height {m}
   ,                                       !- Volume {m3}
@@ -25215,7 +25215,7 @@ OS:ZoneHVAC:EquipmentList,
 
 OS:ThermalZone,
   {03ef2228-75f1-46c6-b6a8-a53d0539c39f}, !- Handle
-  TZ_CB_Stairs_F4_1,                      !- Name
+  CB_MAIN_STAIRS_F4,                      !- Name
   ,                                       !- Multiplier
   ,                                       !- Ceiling Height {m}
   ,                                       !- Volume {m3}
@@ -25302,7 +25302,7 @@ OS:ZoneHVAC:EquipmentList,
 
 OS:ThermalZone,
   {4c2ba0fc-3d76-42a4-95ed-4c48d3641cb6}, !- Handle
-  TZ_CB_Classroom_F4_4,                   !- Name
+  CB_CLASSROOM_4_F4,                      !- Name
   ,                                       !- Multiplier
   ,                                       !- Ceiling Height {m}
   ,                                       !- Volume {m3}
@@ -25389,7 +25389,7 @@ OS:ZoneHVAC:EquipmentList,
 
 OS:ThermalZone,
   {baf27bde-477a-42cd-92fe-781342f9bf51}, !- Handle
-  TZ_CB_Classroom_F2_4,                   !- Name
+  CB_CLASSROOM_3_F2,                      !- Name
   ,                                       !- Multiplier
   ,                                       !- Ceiling Height {m}
   ,                                       !- Volume {m3}
@@ -25476,7 +25476,7 @@ OS:ZoneHVAC:EquipmentList,
 
 OS:ThermalZone,
   {cf28c649-e51a-460f-9f31-37c97989d8bb}, !- Handle
-  TZ_CB_Classroom_F2_5,                   !- Name
+  CB_CLASSROOM_4_F2,                      !- Name
   ,                                       !- Multiplier
   ,                                       !- Ceiling Height {m}
   ,                                       !- Volume {m3}
@@ -25563,7 +25563,7 @@ OS:ZoneHVAC:EquipmentList,
 
 OS:ThermalZone,
   {3e5a7b9e-629c-47ed-b66a-742c51e0aba1}, !- Handle
-  TZ_CB_Classroom_F4_5,                   !- Name
+  CB_CLASSROOM_6_F4,                      !- Name
   ,                                       !- Multiplier
   ,                                       !- Ceiling Height {m}
   ,                                       !- Volume {m3}
@@ -25650,7 +25650,7 @@ OS:ZoneHVAC:EquipmentList,
 
 OS:ThermalZone,
   {c64638dd-6aae-48b2-88d4-24c6ab7055a6}, !- Handle
-  TZ_CB_ Utility_F4,                      !- Name
+  CB_UTILITY_F4,                          !- Name
   ,                                       !- Multiplier
   ,                                       !- Ceiling Height {m}
   ,                                       !- Volume {m3}
@@ -25737,7 +25737,7 @@ OS:ZoneHVAC:EquipmentList,
 
 OS:ThermalZone,
   {63b9deff-33d0-4985-8b89-23fa64f4f8a0}, !- Handle
-  TZ_CB_Stairs_F4_2,                      !- Name
+  CB_SECONDARY_STAIRS_2_F4,               !- Name
   ,                                       !- Multiplier
   ,                                       !- Ceiling Height {m}
   ,                                       !- Volume {m3}
@@ -25824,7 +25824,7 @@ OS:ZoneHVAC:EquipmentList,
 
 OS:ThermalZone,
   {4135e4a7-b604-4299-a4e8-ee62d04dc3d2}, !- Handle
-  TZ_CB_ Office_F3_1,                     !- Name
+  CB_ FACULTY_OFFICES_3_F3,               !- Name
   ,                                       !- Multiplier
   ,                                       !- Ceiling Height {m}
   ,                                       !- Volume {m3}
@@ -25911,7 +25911,7 @@ OS:ZoneHVAC:EquipmentList,
 
 OS:ThermalZone,
   {9ad31ee9-71c5-45fc-ba9b-23e874f29c34}, !- Handle
-  TZ_CB_ Conference_F4,                   !- Name
+  CB_CONFERENCE_ROOM_F4,                  !- Name
   ,                                       !- Multiplier
   ,                                       !- Ceiling Height {m}
   ,                                       !- Volume {m3}
@@ -25998,7 +25998,7 @@ OS:ZoneHVAC:EquipmentList,
 
 OS:ThermalZone,
   {33f07c10-b852-47f9-b5b6-57ea5c533b72}, !- Handle
-  TZ_CB_ Office_F4_3,                     !- Name
+  CB_OPEN OFFICES_F4,                     !- Name
   ,                                       !- Multiplier
   ,                                       !- Ceiling Height {m}
   ,                                       !- Volume {m3}
@@ -26085,7 +26085,7 @@ OS:ZoneHVAC:EquipmentList,
 
 OS:ThermalZone,
   {4e4eedab-19fe-484a-9f39-3e7d1ff67d62}, !- Handle
-  TZ_CB_ Elevator Shaft_F4,               !- Name
+  CB_PUBLIC_ELEVATORS_F3,                 !- Name
   ,                                       !- Multiplier
   ,                                       !- Ceiling Height {m}
   ,                                       !- Volume {m3}
@@ -26172,7 +26172,7 @@ OS:ZoneHVAC:EquipmentList,
 
 OS:ThermalZone,
   {47871e18-6ad3-48a8-bb4c-b9543cb9c31d}, !- Handle
-  TZ_CB_ Office_F3_2,                     !- Name
+  CB_ FACULTY_OFFICES_8_F3,               !- Name
   ,                                       !- Multiplier
   ,                                       !- Ceiling Height {m}
   ,                                       !- Volume {m3}
@@ -26259,7 +26259,7 @@ OS:ZoneHVAC:EquipmentList,
 
 OS:ThermalZone,
   {b4b04584-6007-4a11-a250-d77529ef5b68}, !- Handle
-  TZ_CB_ Corridor_F2,                     !- Name
+  CB_CORRIDOR_F2,                         !- Name
   ,                                       !- Multiplier
   ,                                       !- Ceiling Height {m}
   ,                                       !- Volume {m3}
@@ -26346,7 +26346,7 @@ OS:ZoneHVAC:EquipmentList,
 
 OS:ThermalZone,
   {cbc44e83-8251-4b0b-9c98-5d0193669e57}, !- Handle
-  TZ_CB_ Restroom_F4_2,                   !- Name
+  CB_STUDENTS_RESTROOM_1_F4,              !- Name
   ,                                       !- Multiplier
   ,                                       !- Ceiling Height {m}
   ,                                       !- Volume {m3}
@@ -26433,7 +26433,7 @@ OS:ZoneHVAC:EquipmentList,
 
 OS:ThermalZone,
   {f57a4576-a249-4a91-8f10-3866827aa8bb}, !- Handle
-  TZ_CB_Laboratory_F4_3,                  !- Name
+  CB_LAB_4_F4,                            !- Name
   ,                                       !- Multiplier
   ,                                       !- Ceiling Height {m}
   ,                                       !- Volume {m3}
@@ -26520,7 +26520,7 @@ OS:ZoneHVAC:EquipmentList,
 
 OS:ThermalZone,
   {09556710-2003-47eb-8079-24c1d43503df}, !- Handle
-  TZ_CB_ Restroom_F4_3,                   !- Name
+  CB_FACULTY_RESTROOM_1_F4,               !- Name
   ,                                       !- Multiplier
   ,                                       !- Ceiling Height {m}
   ,                                       !- Volume {m3}
@@ -26607,7 +26607,7 @@ OS:ZoneHVAC:EquipmentList,
 
 OS:ThermalZone,
   {09d20715-c46b-4d99-b7c4-9a53b1038dfc}, !- Handle
-  TZ_CB_ Office_F4_4,                     !- Name
+  CB_FACULTY_OFFICE_7_F4,                 !- Name
   ,                                       !- Multiplier
   ,                                       !- Ceiling Height {m}
   ,                                       !- Volume {m3}
@@ -26694,7 +26694,7 @@ OS:ZoneHVAC:EquipmentList,
 
 OS:ThermalZone,
   {b391ee37-70c1-41ac-a65d-b1f61e3f0e12}, !- Handle
-  TZ_CB_ Office_F4_5,                     !- Name
+  CB_FACULTY_OFFICE_6_F4,                 !- Name
   ,                                       !- Multiplier
   ,                                       !- Ceiling Height {m}
   ,                                       !- Volume {m3}
@@ -26781,7 +26781,7 @@ OS:ZoneHVAC:EquipmentList,
 
 OS:ThermalZone,
   {664ddd74-3d45-4d5b-a631-a9803a4bbd71}, !- Handle
-  TZ_CB_ Office_F4_6,                     !- Name
+  CB_FACULTY_OFFICE_4_F4,                 !- Name
   ,                                       !- Multiplier
   ,                                       !- Ceiling Height {m}
   ,                                       !- Volume {m3}
@@ -26868,7 +26868,7 @@ OS:ZoneHVAC:EquipmentList,
 
 OS:ThermalZone,
   {355c75fb-621b-4e6b-9da4-652d7a84129d}, !- Handle
-  TZ_CB_ Office_F4_7,                     !- Name
+  CB_FACULTY_OFFICE_3_F4,                 !- Name
   ,                                       !- Multiplier
   ,                                       !- Ceiling Height {m}
   ,                                       !- Volume {m3}
@@ -26955,7 +26955,7 @@ OS:ZoneHVAC:EquipmentList,
 
 OS:ThermalZone,
   {450fd762-a3d1-4d35-8028-543d6673b476}, !- Handle
-  TZ_CB_ Office_F4_8,                     !- Name
+  CB_FACULTY_OFFICE_2_F4,                 !- Name
   ,                                       !- Multiplier
   ,                                       !- Ceiling Height {m}
   ,                                       !- Volume {m3}
@@ -27042,7 +27042,7 @@ OS:ZoneHVAC:EquipmentList,
 
 OS:ThermalZone,
   {d7e7e6ed-0cf6-46f3-b52f-71d6981ee14a}, !- Handle
-  TZ_CB_Classroom_F2_6,                   !- Name
+  CB_CLASSROOM_2_F2,                      !- Name
   ,                                       !- Multiplier
   ,                                       !- Ceiling Height {m}
   ,                                       !- Volume {m3}
@@ -27129,7 +27129,7 @@ OS:ZoneHVAC:EquipmentList,
 
 OS:ThermalZone,
   {91803cfa-6350-4e16-90e0-af4b3075f899}, !- Handle
-  TZ_CB_Classroom_F2_7,                   !- Name
+  CB_CLASSROOM_7_F2,                      !- Name
   ,                                       !- Multiplier
   ,                                       !- Ceiling Height {m}
   ,                                       !- Volume {m3}
@@ -27216,7 +27216,7 @@ OS:ZoneHVAC:EquipmentList,
 
 OS:ThermalZone,
   {f41c5c6a-c310-43a2-8f8f-0aa3cbbf3f47}, !- Handle
-  TZ_CB_ Restroom_F2,                     !- Name
+  CB_FACULTY_RESTROOMS_1_F2,              !- Name
   ,                                       !- Multiplier
   ,                                       !- Ceiling Height {m}
   ,                                       !- Volume {m3}
@@ -27303,7 +27303,7 @@ OS:ZoneHVAC:EquipmentList,
 
 OS:ThermalZone,
   {40fed0a5-c6a5-4023-bf48-1447b8542ec0}, !- Handle
-  TZ_CB_ Utility_F2,                      !- Name
+  CB_UTILITY_F2,                          !- Name
   ,                                       !- Multiplier
   ,                                       !- Ceiling Height {m}
   ,                                       !- Volume {m3}
@@ -27390,7 +27390,7 @@ OS:ZoneHVAC:EquipmentList,
 
 OS:ThermalZone,
   {3a08b6a3-017f-4fbe-9b07-e136730af3fc}, !- Handle
-  TZ_CB_Studio_F2_1,                      !- Name
+  CB_STUDIO_2_F2,                         !- Name
   ,                                       !- Multiplier
   ,                                       !- Ceiling Height {m}
   ,                                       !- Volume {m3}
@@ -27477,7 +27477,7 @@ OS:ZoneHVAC:EquipmentList,
 
 OS:ThermalZone,
   {6a13e661-a008-4383-bdfb-af1ca3d4fb62}, !- Handle
-  TZ_CB_Stairs_F2_2,                      !- Name
+  CB_SECONDARY_STAIRS_2_F2,               !- Name
   ,                                       !- Multiplier
   ,                                       !- Ceiling Height {m}
   ,                                       !- Volume {m3}
@@ -27564,7 +27564,7 @@ OS:ZoneHVAC:EquipmentList,
 
 OS:ThermalZone,
   {2145154a-df5e-48f9-a9c6-e2073a9cd8e8}, !- Handle
-  TZ_CB_ Office_F2_1,                     !- Name
+  CB_OPEN OFFICES_F2_1,                   !- Name
   ,                                       !- Multiplier
   ,                                       !- Ceiling Height {m}
   ,                                       !- Volume {m3}
@@ -27651,7 +27651,7 @@ OS:ZoneHVAC:EquipmentList,
 
 OS:ThermalZone,
   {e83ea763-2c7a-442f-8aa0-99528850d30e}, !- Handle
-  TZ_CB_ Conference_F2,                   !- Name
+  CB_CONFERENCE_ROOM_F2,                  !- Name
   ,                                       !- Multiplier
   ,                                       !- Ceiling Height {m}
   ,                                       !- Volume {m3}
@@ -27738,7 +27738,7 @@ OS:ZoneHVAC:EquipmentList,
 
 OS:ThermalZone,
   {a658e1a7-c6bb-4980-acfd-c624bae2168a}, !- Handle
-  TZ_CB_ Restroom_F2_1,                   !- Name
+  CB_FACULTY_RESTROOMS_1_F2 1,            !- Name
   ,                                       !- Multiplier
   ,                                       !- Ceiling Height {m}
   ,                                       !- Volume {m3}
@@ -27825,7 +27825,7 @@ OS:ZoneHVAC:EquipmentList,
 
 OS:ThermalZone,
   {036a1970-6b8c-46d0-a0ae-a2fcd69a3f4b}, !- Handle
-  TZ_CB_ Restroom_F2_2,                   !- Name
+  CB_STUDENTS_RESTROOM_1_F2,              !- Name
   ,                                       !- Multiplier
   ,                                       !- Ceiling Height {m}
   ,                                       !- Volume {m3}
@@ -27912,7 +27912,7 @@ OS:ZoneHVAC:EquipmentList,
 
 OS:ThermalZone,
   {42558a07-96bf-4388-bdcc-dc1ae740f023}, !- Handle
-  TZ_CB_ Restroom_F2_3,                   !- Name
+  CB_STUDENTS_RESTROOM_2_F2,              !- Name
   ,                                       !- Multiplier
   ,                                       !- Ceiling Height {m}
   ,                                       !- Volume {m3}
@@ -27999,7 +27999,7 @@ OS:ZoneHVAC:EquipmentList,
 
 OS:ThermalZone,
   {a09bf8f6-3afa-42d2-9346-23f536018d58}, !- Handle
-  TZ_CB_ Office_F2_2,                     !- Name
+  CB_FACULTY_OFFICE_8_F2,                 !- Name
   ,                                       !- Multiplier
   ,                                       !- Ceiling Height {m}
   ,                                       !- Volume {m3}
@@ -28086,7 +28086,7 @@ OS:ZoneHVAC:EquipmentList,
 
 OS:ThermalZone,
   {ea691aa5-425c-4cff-bc7b-72ce11a8386d}, !- Handle
-  TZ_CB_ Office_F2_3,                     !- Name
+  CB_FACULTY_OFFICE_7_F2,                 !- Name
   ,                                       !- Multiplier
   ,                                       !- Ceiling Height {m}
   ,                                       !- Volume {m3}
@@ -28173,7 +28173,7 @@ OS:ZoneHVAC:EquipmentList,
 
 OS:ThermalZone,
   {adb0ef64-9631-4a12-b255-312e8d7767c9}, !- Handle
-  TZ_CB_ Office_F2_4,                     !- Name
+  CB_FACULTY_OFFICE_6_F2,                 !- Name
   ,                                       !- Multiplier
   ,                                       !- Ceiling Height {m}
   ,                                       !- Volume {m3}
@@ -28260,7 +28260,7 @@ OS:ZoneHVAC:EquipmentList,
 
 OS:ThermalZone,
   {89e1160b-aea9-49c2-999e-386256e1ad29}, !- Handle
-  TZ_CB_ Office_F2_5,                     !- Name
+  CB_FACULTY_OFFICE_5_F2,                 !- Name
   ,                                       !- Multiplier
   ,                                       !- Ceiling Height {m}
   ,                                       !- Volume {m3}
@@ -28347,7 +28347,7 @@ OS:ZoneHVAC:EquipmentList,
 
 OS:ThermalZone,
   {4fab9615-07a4-46c4-8857-6e716f02d25a}, !- Handle
-  TZ_CB_ Office_F2_6,                     !- Name
+  CB_FACULTY_OFFICE_4_F2,                 !- Name
   ,                                       !- Multiplier
   ,                                       !- Ceiling Height {m}
   ,                                       !- Volume {m3}
@@ -28434,7 +28434,7 @@ OS:ZoneHVAC:EquipmentList,
 
 OS:ThermalZone,
   {54496fb3-4f9e-4a28-836e-8e74f335cfa8}, !- Handle
-  TZ_CB_ Office_F2_7,                     !- Name
+  CB_FACULTY_OFFICE_3_F2,                 !- Name
   ,                                       !- Multiplier
   ,                                       !- Ceiling Height {m}
   ,                                       !- Volume {m3}
@@ -28521,7 +28521,7 @@ OS:ZoneHVAC:EquipmentList,
 
 OS:ThermalZone,
   {f878ce30-44dc-415a-8188-e2b83648c7fc}, !- Handle
-  TZ_CB_ Office_F2_8,                     !- Name
+  CB_FACULTY_OFFICE_2_F2,                 !- Name
   ,                                       !- Multiplier
   ,                                       !- Ceiling Height {m}
   ,                                       !- Volume {m3}
@@ -28608,7 +28608,7 @@ OS:ZoneHVAC:EquipmentList,
 
 OS:ThermalZone,
   {bb99d809-1889-4db3-9236-004b9452bfda}, !- Handle
-  TZ_CB_ Elevator Shaft_F1,               !- Name
+  CB_ PUBLIC_ELEVATORS_F1,                !- Name
   ,                                       !- Multiplier
   ,                                       !- Ceiling Height {m}
   ,                                       !- Volume {m3}
@@ -28695,7 +28695,7 @@ OS:ZoneHVAC:EquipmentList,
 
 OS:ThermalZone,
   {bc0c1c1c-e1ef-4d87-80b4-91b81d2c0d7d}, !- Handle
-  TZ_CB_ Elevator Shaft_F4_1,             !- Name
+  CB_PUBLIC_ELEVATORS_F4,                 !- Name
   ,                                       !- Multiplier
   ,                                       !- Ceiling Height {m}
   ,                                       !- Volume {m3}
@@ -28782,7 +28782,7 @@ OS:ZoneHVAC:EquipmentList,
 
 OS:ThermalZone,
   {058dfd21-d745-4e15-839f-4d4a0cc5b514}, !- Handle
-  TZ_CB_ Entrance Lobby_F0,               !- Name
+  CB_ENTRANCE_LOBBY&#10_F1,               !- Name
   ,                                       !- Multiplier
   ,                                       !- Ceiling Height {m}
   ,                                       !- Volume {m3}
@@ -28869,7 +28869,7 @@ OS:ZoneHVAC:EquipmentList,
 
 OS:ThermalZone,
   {8b084ad1-be5b-4742-bc7a-48bd0869351a}, !- Handle
-  TZ_CB_Classroom_F3,                     !- Name
+  CB_CLASSROOM_8_F3,                      !- Name
   ,                                       !- Multiplier
   ,                                       !- Ceiling Height {m}
   ,                                       !- Volume {m3}
@@ -28956,7 +28956,7 @@ OS:ZoneHVAC:EquipmentList,
 
 OS:ThermalZone,
   {680b567c-a053-46e1-a798-197c73862f42}, !- Handle
-  TZ_CB_Classroom_F3_1,                   !- Name
+  CB_CLASSROOM_7_F3,                      !- Name
   ,                                       !- Multiplier
   ,                                       !- Ceiling Height {m}
   ,                                       !- Volume {m3}
@@ -29043,7 +29043,7 @@ OS:ZoneHVAC:EquipmentList,
 
 OS:ThermalZone,
   {432bd4fb-2e08-4989-ada9-410076b8f31e}, !- Handle
-  TZ_CB_Classroom_F3_2,                   !- Name
+  CB_CLASSROOM_6_F3,                      !- Name
   ,                                       !- Multiplier
   ,                                       !- Ceiling Height {m}
   ,                                       !- Volume {m3}
@@ -29130,7 +29130,7 @@ OS:ZoneHVAC:EquipmentList,
 
 OS:ThermalZone,
   {b9b265af-5585-4bd3-9044-eca9725a5a25}, !- Handle
-  TZ_CB_ Corridor_F3,                     !- Name
+  CB_CORRIDOR_2_F3,                       !- Name
   ,                                       !- Multiplier
   ,                                       !- Ceiling Height {m}
   ,                                       !- Volume {m3}
@@ -29217,7 +29217,7 @@ OS:ZoneHVAC:EquipmentList,
 
 OS:ThermalZone,
   {d85a35be-f098-40b9-b35c-8c684bdbb6b6}, !- Handle
-  TZ_CB_Classroom_F3_3,                   !- Name
+  CB_CLASSROOM_5_F3,                      !- Name
   ,                                       !- Multiplier
   ,                                       !- Ceiling Height {m}
   ,                                       !- Volume {m3}
@@ -29304,7 +29304,7 @@ OS:ZoneHVAC:EquipmentList,
 
 OS:ThermalZone,
   {1df75991-46d9-426b-a2e8-65e06a538a82}, !- Handle
-  TZ_CB_Stairs_F3_1,                      !- Name
+  CB_MAIN_STAIRS_F3,                      !- Name
   ,                                       !- Multiplier
   ,                                       !- Ceiling Height {m}
   ,                                       !- Volume {m3}
@@ -29391,7 +29391,7 @@ OS:ZoneHVAC:EquipmentList,
 
 OS:ThermalZone,
   {06cd7f7e-d09d-4ae9-a720-e4d372e26d89}, !- Handle
-  TZ_CB_ Corridor_F3_1,                   !- Name
+  CB_CORRIDOR_1_F3,                       !- Name
   ,                                       !- Multiplier
   ,                                       !- Ceiling Height {m}
   ,                                       !- Volume {m3}
@@ -29478,7 +29478,7 @@ OS:ZoneHVAC:EquipmentList,
 
 OS:ThermalZone,
   {82b9e596-79af-47de-99dd-a1f8156ee4af}, !- Handle
-  TZ_CB_Classroom_F3_4,                   !- Name
+  CB_CLASSROOM_4_F3,                      !- Name
   ,                                       !- Multiplier
   ,                                       !- Ceiling Height {m}
   ,                                       !- Volume {m3}
@@ -29565,7 +29565,7 @@ OS:ZoneHVAC:EquipmentList,
 
 OS:ThermalZone,
   {1a5b330a-1c2d-408c-a83f-6584dcbec588}, !- Handle
-  TZ_CB_Classroom_F3_5,                   !- Name
+  CB_CLASSROOM_3_F3,                      !- Name
   ,                                       !- Multiplier
   ,                                       !- Ceiling Height {m}
   ,                                       !- Volume {m3}
@@ -29652,7 +29652,7 @@ OS:ZoneHVAC:EquipmentList,
 
 OS:ThermalZone,
   {57de476c-86e2-4c82-9519-8e7808e75d77}, !- Handle
-  TZ_CB_Classroom_F3_6,                   !- Name
+  CB_CLASSROOM_2_F3,                      !- Name
   ,                                       !- Multiplier
   ,                                       !- Ceiling Height {m}
   ,                                       !- Volume {m3}
@@ -29739,7 +29739,7 @@ OS:ZoneHVAC:EquipmentList,
 
 OS:ThermalZone,
   {273b4cb0-67ca-46f9-926c-4dea5ea7f58f}, !- Handle
-  TZ_CB_Classroom_F3_7,                   !- Name
+  CB_CLASSROOM_1_F3,                      !- Name
   ,                                       !- Multiplier
   ,                                       !- Ceiling Height {m}
   ,                                       !- Volume {m3}
@@ -29826,7 +29826,7 @@ OS:ZoneHVAC:EquipmentList,
 
 OS:ThermalZone,
   {a856cbd2-9da3-4222-8671-6294f12b9c82}, !- Handle
-  TZ_CB_Studio_F3,                        !- Name
+  CB_STUDIO_2_F3,                         !- Name
   ,                                       !- Multiplier
   ,                                       !- Ceiling Height {m}
   ,                                       !- Volume {m3}
@@ -29913,7 +29913,7 @@ OS:ZoneHVAC:EquipmentList,
 
 OS:ThermalZone,
   {d09d1d16-3d09-4b16-a136-f155a185b5ca}, !- Handle
-  TZ_CB_Studio_F3_1,                      !- Name
+  CB_STUDIO_1_F3,                         !- Name
   ,                                       !- Multiplier
   ,                                       !- Ceiling Height {m}
   ,                                       !- Volume {m3}
@@ -30000,7 +30000,7 @@ OS:ZoneHVAC:EquipmentList,
 
 OS:ThermalZone,
   {119272fc-021a-476b-85c1-577347e01048}, !- Handle
-  TZ_CB_Stairs_F3_2,                      !- Name
+  CB_SECONDARY_STAIRS_1_F3 1,             !- Name
   ,                                       !- Multiplier
   ,                                       !- Ceiling Height {m}
   ,                                       !- Volume {m3}
@@ -30087,7 +30087,7 @@ OS:ZoneHVAC:EquipmentList,
 
 OS:ThermalZone,
   {7c0432de-74f9-42c3-8bb8-11e2dfd4b52d}, !- Handle
-  TZ_CB_ Conference_F3,                   !- Name
+  CB_CONFERENCE_ROOM_F3,                  !- Name
   ,                                       !- Multiplier
   ,                                       !- Ceiling Height {m}
   ,                                       !- Volume {m3}
@@ -30174,7 +30174,7 @@ OS:ZoneHVAC:EquipmentList,
 
 OS:ThermalZone,
   {117add80-9a52-4ad9-8107-2990c5754c2d}, !- Handle
-  TZ_CB_ Office_F3_3,                     !- Name
+  CB_OPEN OFFICES_F3_3,                   !- Name
   ,                                       !- Multiplier
   ,                                       !- Ceiling Height {m}
   ,                                       !- Volume {m3}
@@ -30261,7 +30261,7 @@ OS:ZoneHVAC:EquipmentList,
 
 OS:ThermalZone,
   {d49057f1-8d7c-4f47-b78b-a9240ddbfaef}, !- Handle
-  TZ_CB_ Restroom_F3,                     !- Name
+  CB_FACULTY_RESTROOM_1_F3,               !- Name
   ,                                       !- Multiplier
   ,                                       !- Ceiling Height {m}
   ,                                       !- Volume {m3}
@@ -30348,7 +30348,7 @@ OS:ZoneHVAC:EquipmentList,
 
 OS:ThermalZone,
   {6f3be1e2-7361-4d00-91f1-88361c1c2228}, !- Handle
-  TZ_CB_ Restroom_F3_1,                   !- Name
+  CB_STUDENTS_RESTROOM_1_F3,              !- Name
   ,                                       !- Multiplier
   ,                                       !- Ceiling Height {m}
   ,                                       !- Volume {m3}
@@ -30435,7 +30435,7 @@ OS:ZoneHVAC:EquipmentList,
 
 OS:ThermalZone,
   {3986191c-93a1-4789-b7f7-f5a44ee028f5}, !- Handle
-  TZ_CB_ Restroom_F3_2,                   !- Name
+  CB_STUDENTS_RESTROOM_2_F3,              !- Name
   ,                                       !- Multiplier
   ,                                       !- Ceiling Height {m}
   ,                                       !- Volume {m3}
@@ -30522,7 +30522,7 @@ OS:ZoneHVAC:EquipmentList,
 
 OS:ThermalZone,
   {248cb63b-0c8f-4b25-ba1f-8b91b1d719f5}, !- Handle
-  TZ_CB_ Restroom_F3_3,                   !- Name
+  CB_FACULTY_RESTROOM_1_F3 1,             !- Name
   ,                                       !- Multiplier
   ,                                       !- Ceiling Height {m}
   ,                                       !- Volume {m3}
@@ -30609,7 +30609,7 @@ OS:ZoneHVAC:EquipmentList,
 
 OS:ThermalZone,
   {25a7e6f2-ed70-4bf1-9939-4c01052fc260}, !- Handle
-  TZ_CB_ Office_F3_4,                     !- Name
+  CB_ FACULTY_OFFICES_7_F3,               !- Name
   ,                                       !- Multiplier
   ,                                       !- Ceiling Height {m}
   ,                                       !- Volume {m3}
@@ -30696,7 +30696,7 @@ OS:ZoneHVAC:EquipmentList,
 
 OS:ThermalZone,
   {2e97ffbe-a8ff-4a8b-b305-81153f2e4d39}, !- Handle
-  TZ_CB_ Office_F3_5,                     !- Name
+  CB_ FACULTY_OFFICES_6_F3,               !- Name
   ,                                       !- Multiplier
   ,                                       !- Ceiling Height {m}
   ,                                       !- Volume {m3}
@@ -30783,7 +30783,7 @@ OS:ZoneHVAC:EquipmentList,
 
 OS:ThermalZone,
   {c6f29f48-3263-4f2a-888d-23dec9b619d9}, !- Handle
-  TZ_CB_ Office_F3_6,                     !- Name
+  CB_ FACULTY_OFFICES_5_F3,               !- Name
   ,                                       !- Multiplier
   ,                                       !- Ceiling Height {m}
   ,                                       !- Volume {m3}
@@ -30870,7 +30870,7 @@ OS:ZoneHVAC:EquipmentList,
 
 OS:ThermalZone,
   {6526d647-1cbd-4e22-8e11-6d4175e9adbb}, !- Handle
-  TZ_CB_ Office_F3_7,                     !- Name
+  CB_ FACULTY_OFFICES_4_F3,               !- Name
   ,                                       !- Multiplier
   ,                                       !- Ceiling Height {m}
   ,                                       !- Volume {m3}
@@ -30957,7 +30957,7 @@ OS:ZoneHVAC:EquipmentList,
 
 OS:ThermalZone,
   {857bbaa6-0459-4ff3-b50a-549a8db1d972}, !- Handle
-  TZ_CB_ Office_F3_8,                     !- Name
+  CB_ FACULTY_OFFICES_2_F3,               !- Name
   ,                                       !- Multiplier
   ,                                       !- Ceiling Height {m}
   ,                                       !- Volume {m3}
@@ -31044,7 +31044,7 @@ OS:ZoneHVAC:EquipmentList,
 
 OS:ThermalZone,
   {4632850e-371e-402e-aa37-c794d94075bc}, !- Handle
-  TZ_CB_ Utility_F3,                      !- Name
+  CB_UTILITY_F3,                          !- Name
   ,                                       !- Multiplier
   ,                                       !- Ceiling Height {m}
   ,                                       !- Volume {m3}

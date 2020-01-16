@@ -1262,7 +1262,7 @@ OS:Surface,
 
 OS:Space,
   {94cda0a2-6824-46bd-bc8e-48258d6ec305}, !- Handle
-  CB_CORRIDOR&#10_F1,                     !- Name
+  CB_CORRIDOR_F1,                         !- Name
   {51bdfc1e-7c26-4cee-a4ca-0297bf0b8ba6}, !- Space Type Name
   ,                                       !- Default Construction Set Name
   ,                                       !- Default Schedule Set Name
@@ -1550,7 +1550,7 @@ OS:Surface,
 
 OS:Space,
   {28d3b0e2-4c00-436f-beb4-2416b6bbf1bf}, !- Handle
-  CB_MAIN_STAIRS&#10_F1,                  !- Name
+  CB_MAIN_STAIRS_F1,                      !- Name
   {f4a7791c-d241-41ec-ba73-acb404873502}, !- Space Type Name
   ,                                       !- Default Construction Set Name
   ,                                       !- Default Schedule Set Name
@@ -3669,7 +3669,7 @@ OS:Surface,
 
 OS:Space,
   {a1aa03a2-ccaf-4a98-a2b5-53addb7fd6fd}, !- Handle
-  CB_ OFFICES_ENCLOSED_8_F1,              !- Name
+  CB_OFFICES_ENCLOSED_8_F1,               !- Name
   {ac05b496-a192-44ef-837d-522b42454fc2}, !- Space Type Name
   ,                                       !- Default Construction Set Name
   ,                                       !- Default Schedule Set Name
@@ -3787,7 +3787,7 @@ OS:Surface,
 
 OS:Space,
   {e6aabbc6-8779-49ff-82d3-0b5f93c48c67}, !- Handle
-  CB_ OFFICES_ENCLOSED_7_F1,              !- Name
+  CB_OFFICES_ENCLOSED_7_F1,               !- Name
   {ac05b496-a192-44ef-837d-522b42454fc2}, !- Space Type Name
   ,                                       !- Default Construction Set Name
   ,                                       !- Default Schedule Set Name
@@ -3905,7 +3905,7 @@ OS:Surface,
 
 OS:Space,
   {5e731a0f-2724-41c0-befc-89af23317568}, !- Handle
-  CB_ OFFICES_ENCLOSED_6_F1,              !- Name
+  CB_OFFICES_ENCLOSED_6_F1,               !- Name
   {ac05b496-a192-44ef-837d-522b42454fc2}, !- Space Type Name
   ,                                       !- Default Construction Set Name
   ,                                       !- Default Schedule Set Name
@@ -4023,7 +4023,7 @@ OS:Surface,
 
 OS:Space,
   {bbee8b96-3b88-4e03-aaa7-31124009c59b}, !- Handle
-  CB_ OFFICES_ENCLOSED_5_F1,              !- Name
+  CB_OFFICES_ENCLOSED_5_F1,               !- Name
   {ac05b496-a192-44ef-837d-522b42454fc2}, !- Space Type Name
   ,                                       !- Default Construction Set Name
   ,                                       !- Default Schedule Set Name
@@ -4141,7 +4141,7 @@ OS:Surface,
 
 OS:Space,
   {99d8f43a-0253-46ab-9c61-4d0efd4a4de6}, !- Handle
-  CB_ OFFICES_ENCLOSED_4_F1,              !- Name
+  CB_OFFICES_ENCLOSED_4_F1,               !- Name
   {ac05b496-a192-44ef-837d-522b42454fc2}, !- Space Type Name
   ,                                       !- Default Construction Set Name
   ,                                       !- Default Schedule Set Name
@@ -4259,7 +4259,7 @@ OS:Surface,
 
 OS:Space,
   {1bc58796-699f-480a-b0e0-39a8b886c26a}, !- Handle
-  CB_ OFFICES_ENCLOSED_3_F1,              !- Name
+  CB_OFFICES_ENCLOSED_3_F1,               !- Name
   {ac05b496-a192-44ef-837d-522b42454fc2}, !- Space Type Name
   ,                                       !- Default Construction Set Name
   ,                                       !- Default Schedule Set Name
@@ -4377,7 +4377,7 @@ OS:Surface,
 
 OS:Space,
   {4051182c-2af6-4ee9-8296-b4e133a0cad1}, !- Handle
-  CB_ OFFICES_ENCLOSED_2_F1,              !- Name
+  CB_OFFICES_ENCLOSED_2_F1,               !- Name
   {ac05b496-a192-44ef-837d-522b42454fc2}, !- Space Type Name
   ,                                       !- Default Construction Set Name
   ,                                       !- Default Schedule Set Name
@@ -4495,7 +4495,7 @@ OS:Surface,
 
 OS:Space,
   {b5539ce9-e817-4f5b-8aa8-65510fdbc6fb}, !- Handle
-  CB_ OFFICES_ENCLOSED_1_F1,              !- Name
+  CB_OFFICES_ENCLOSED_1_F1,               !- Name
   {ac05b496-a192-44ef-837d-522b42454fc2}, !- Space Type Name
   ,                                       !- Default Construction Set Name
   ,                                       !- Default Schedule Set Name
@@ -20740,7 +20740,7 @@ OS:Surface,
 
 OS:Space,
   {1cba28fb-384c-42f5-b49a-7ec5b31fe96b}, !- Handle
-  CB_ENTRANCE_LOBBY&#10_F1,               !- Name
+  CB_ENTRANCE_LOBBY_F1,                   !- Name
   {c0193709-ce79-421c-b497-2b66adf8fbff}, !- Space Type Name
   ,                                       !- Default Construction Set Name
   ,                                       !- Default Schedule Set Name

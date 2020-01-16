@@ -40,15 +40,20 @@ module College
 
   def model_custom_elevator_tweaks(building_type, climate_zone, prototype_input, model)
     #     Rated Pump Head CW: 75 ft HW: 60 ft
-    boilers = model.getBoilerHotWaters
-    boilers.each do |boiler|
-      unless boiler.plantLoop.get.nil?
 
 
     pumps = model.getPumpVariableSpeeds
     unless pumps.empty?
       pumps.each do |pump|
-        setSpaceInfiltrationDesignFlowRateend
+        unless pump.plantLoop.get.nil?
+          plant_loop = pump.plantLoop.get # distinguish different loops by loop temperature
+          if plant_loop.maximumLoopTemperature > 80 # hot water loop: 180F/82C
+            pump.setRatedPumpHead(224180.0175) # 75ft-head to Pa
+          elsif plant_loop.minimumLoopTemperature < 10 # chilled water loop: 44F/6.7C
+            pump.setRatedPumpHead(179344.014) # 60ft-head to Pa
+          end
+
+        end
       end
     end
     #"    Peak Motor Power

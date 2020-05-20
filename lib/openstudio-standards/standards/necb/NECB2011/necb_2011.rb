@@ -191,13 +191,14 @@ class NECB2011 < Standard
   def model_apply_standard(model:,
                            epw_file:,
                            sizing_run_dir: Dir.pwd,
-                           primary_heating_fuel: 'DefaultFuel')
+                           primary_heating_fuel: 'DefaultFuel',
+                           dcv_type: "Occupancy-based DCV")
     apply_weather_data(model: model, epw_file: epw_file)
     apply_loads(model: model)
     apply_envelope(model: model)
     apply_fdwr_srr_daylighting(model: model)
     apply_auto_zoning(model: model, sizing_run_dir: sizing_run_dir)
-    apply_systems(model: model, primary_heating_fuel: primary_heating_fuel, sizing_run_dir: sizing_run_dir)
+    apply_systems(model: model, primary_heating_fuel: primary_heating_fuel, sizing_run_dir: sizing_run_dir, dcv_type: dcv_type)
     apply_standard_efficiencies(model: model, sizing_run_dir: sizing_run_dir)
     model = apply_loop_pump_power(model: model, sizing_run_dir: sizing_run_dir)
     return model
@@ -517,5 +518,115 @@ class NECB2011 < Standard
     end
   end
 
+
+  def model_enable_demand_controlled_ventilation(model, dcv_type = "Occupancy-based DCV") # Note: Values for dcv_type are: "Occupancy-based DCV", "CO2-based DCV", "No DCV"
+
+    if dcv_type == "Occupancy-based DCV" || dcv_type == "CO2-based DCV"
+      #TODO: IMPORTANT: (upon other BTAP tasks) Set a value for the "Outdoor Air Flow per Person" field of the "OS:DesignSpecification:OutdoorAir" object
+      # Note: The "Outdoor Air Flow per Person" field is required for occupancy-based DCV.
+      # Note: The "Outdoor Air Flow per Person" values should be based on ASHRAE 62.1: Article 6.2.2.1.
+      # Note: The "Outdoor Air Flow per Person" should be entered for "ventilation_per_person" in "lib/openstudio-standards/standards/necb/NECB2011/data/space_types.json"
+
+      ##### Define ScheduleTypeLimits for Any_Number_ppm
+      ##### TODO: (upon other BTAP tasks) This function can be added to btap/schedules.rb > module StandardScheduleTypeLimits
+      def self.get_any_number_ppm(model)
+        name = "Any_Number_ppm"
+        any_number_ppm_schedule_type_limits = model.getScheduleTypeLimitsByName(name)
+        if any_number_ppm_schedule_type_limits.empty?
+          any_number_ppm_schedule_type_limits = OpenStudio::Model::ScheduleTypeLimits.new(model)
+          any_number_ppm_schedule_type_limits.setName(name)
+          any_number_ppm_schedule_type_limits.setNumericType("CONTINUOUS")
+          any_number_ppm_schedule_type_limits.setUnitType("Dimensionless")
+          any_number_ppm_schedule_type_limits.setLowerLimitValue(400.0)
+          any_number_ppm_schedule_type_limits.setUpperLimitValue(1000.0)
+          return any_number_ppm_schedule_type_limits
+        else
+          return any_number_ppm_schedule_type_limits.get
+        end
+      end
+
+      ##### Define indoor CO2 availability schedule (required for CO2-based DCV)
+      ##### Note: the defined schedule here is redundant as the schedule says it is always on AND
+      ##### the "ZoneControl:ContaminantController" object says that "If this field is left blank, the schedule has a value of 1 for all time periods".
+      indoor_co2_availability_schedule = OpenStudio::Model::ScheduleCompact.new(model)
+      indoor_co2_availability_schedule.setName("indoor_co2_availability_schedule")
+      indoor_co2_availability_schedule.setScheduleTypeLimits(BTAP::Resources::Schedules::StandardScheduleTypeLimits::get_fraction(model))
+      indoor_co2_availability_schedule.setToConstantValue(1)
+
+      ##### Define indoor CO2 setpoint schedule (required for CO2-based DCV)
+      indoor_co2_setpoint_schedule = OpenStudio::Model::ScheduleCompact.new(model)
+      indoor_co2_setpoint_schedule.setName("indoor_co2_setpoint_schedule")
+      indoor_co2_setpoint_schedule.setScheduleTypeLimits(get_any_number_ppm(model))
+      indoor_co2_setpoint_schedule.setToConstantValue(1000.0) #1000 ppm
+
+      ##### Define outdoor CO2 schedule (required for CO2-based DCV)
+      outdoor_co2_schedule = OpenStudio::Model::ScheduleCompact.new(model)
+      outdoor_co2_schedule.setName("outdoor_co2_schedule")
+      outdoor_co2_schedule.setScheduleTypeLimits(get_any_number_ppm(model))
+      outdoor_co2_schedule.setToConstantValue(400.0) #400 ppm
+
+      ##### Define ZoneAirContaminantBalance (required for CO2-based DCV)
+      zone_air_contaminant_balance = model.getZoneAirContaminantBalance()
+      zone_air_contaminant_balance.setCarbonDioxideConcentration(true)
+      zone_air_contaminant_balance.setOutdoorCarbonDioxideSchedule(outdoor_co2_schedule)
+
+      ##### Set CO2 controller in each space (required for CO2-based DCV)
+      model.getSpaces.sort.each do |space|
+        puts space.name.to_s
+        zone = space.thermalZone
+        if !zone.empty?
+          zone = space.thermalZone.get
+        end
+        zone_control_co2 = OpenStudio::Model::ZoneControlContaminantController.new(zone.model)
+        zone_control_co2.setName("#{space.name.to_s} Zone Control Contaminant Controller")
+        zone_control_co2.setCarbonDioxideControlAvailabilitySchedule(indoor_co2_availability_schedule)
+        zone_control_co2.setCarbonDioxideSetpointSchedule(indoor_co2_setpoint_schedule)
+        zone.setZoneControlContaminantController(zone_control_co2)
+      end
+
+    end #if dcv_type == "Occupancy-based DCV" || dcv_type == "CO2-based DCV"
+
+    ##### Loop through AirLoopHVACs
+    model.getAirLoopHVACs.each do |air_loop|
+      ##### Loop through AirLoopHVAC's supply nodes to:
+      ##### (1) Find its AirLoopHVAC:OutdoorAirSystem using the supply node;
+      ##### (2) Find Controller:OutdoorAir using AirLoopHVAC:OutdoorAirSystem;
+      ##### (3) Get "Controller Mechanical Ventilation" from Controller:OutdoorAir.
+      air_loop.supplyComponents.each do |supply_component|
+        ##### Find AirLoopHVAC:OutdoorAirSystem of AirLoopHVAC using the supply node.
+        hvac_component = supply_component.to_AirLoopHVACOutdoorAirSystem
+
+        if !hvac_component.empty?
+          ##### Find Controller:OutdoorAir using AirLoopHVAC:OutdoorAirSystem.
+          hvac_component = hvac_component.get
+          controller_oa = hvac_component.getControllerOutdoorAir
+
+          ##### Get "Controller Mechanical Ventilation" from Controller:OutdoorAir.
+          controller_mv = controller_oa.controllerMechanicalVentilation
+
+          ##### Set "Demand Controlled Ventilation" to "Yes" or "No" in Controller:MechanicalVentilation depending on dcv_type.
+          if dcv_type == "Occupancy-based DCV" || dcv_type == "CO2-based DCV"
+            if controller_mv.demandControlledVentilation != true
+              controller_mv.setDemandControlledVentilation(true)
+            end
+          elsif dcv_type == "No DCV"
+            if controller_mv.demandControlledVentilation != false
+              controller_mv.setDemandControlledVentilation(false)
+            end
+          end
+
+          ##### Set the "System Outdoor Air Method" field based on dcv_type in the Controller:MechanicalVentilation object
+          if dcv_type == "Occupancy-based DCV"
+            controller_mv.setSystemOutdoorAirMethod("ZoneSum")
+          elsif dcv_type == "CO2-based DCV"
+            controller_mv.setSystemOutdoorAirMethod("IndoorAirQualityProcedure")
+          end
+        end #if !hvac_component.empty?
+
+      end #air_loop.supplyComponents.each do |supply_component|
+    end #model.getAirLoopHVACs.each do |air_loop|
+
+
+  end #def model_enable_demand_controlled_ventilation
 
 end

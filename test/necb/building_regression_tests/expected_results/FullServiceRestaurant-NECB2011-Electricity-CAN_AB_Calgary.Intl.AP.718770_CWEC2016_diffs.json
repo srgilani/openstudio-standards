@@ -1,0 +1,13 @@
+[
+  "A OS:Schedule:Compact called 'indoor_co2_availability_schedule' was found only in the after model",
+  "A OS:Schedule:Compact called 'indoor_co2_setpoint_schedule' was found only in the after model",
+  "A OS:Schedule:Compact called 'outdoor_co2_schedule' was found only in the after model",
+  "A OS:ScheduleTypeLimits called 'Any_Number_ppm' was found only in the after model",
+  "A OS:ScheduleTypeLimits called 'FRACTION' was found only in the after model",
+  "A OS:ZoneControl:ContaminantController called 'attic Zone Control Contaminant Controller' was found only in the after model",
+  "A OS:ZoneControl:ContaminantController called 'Dining Zone Control Contaminant Controller' was found only in the after model",
+  "A OS:ZoneControl:ContaminantController called 'Kitchen Zone Control Contaminant Controller' was found only in the after model",
+  "For OS:Controller:MechanicalVentilation called 'Controller Mechanical Ventilation 1' field 'Demand Controlled Ventilation': before model = -, after model = Yes",
+  "For OS:Controller:MechanicalVentilation called 'Controller Mechanical Ventilation 2' field 'Demand Controlled Ventilation': before model = -, after model = Yes",
+  "For OS:Controller:OutdoorAir called 'Controller Outdoor Air 2' field 'Minimum Outdoor Air Schedule Name': before model = Sys_3_PSZ ALL_ST=Food preparation_FL=Building Story 1_SCH=B Occ Sch, after model = Always On Discrete"
+]

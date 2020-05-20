@@ -95,7 +95,7 @@ class NECB2011
 
   # Organizes Zones and assigns them to appropriate systems according to NECB 2011-17 systems spacetype rules in Sec 8.
   # requires requires fuel type to be assigned for each system aspect. Defaults to gas hydronic.
-  def apply_systems(model:, primary_heating_fuel:, sizing_run_dir:)
+  def apply_systems(model:, primary_heating_fuel:, sizing_run_dir:, dcv_type: "Occupancy-based DCV")
     raise('validation of model failed.') unless validate_initial_model(model)
     # Check to see if model is using another vintage of spacetypes. If so overwrite the @standards for the object with the
     # other spacetype data. This is required for correct system mapping.
@@ -193,6 +193,9 @@ class NECB2011
     # set a larger tolerance for unmet hours from default 0.2 to 1.0C
     model.getOutputControlReportingTolerances.setToleranceforTimeHeatingSetpointNotMet(1.0)
     model.getOutputControlReportingTolerances.setToleranceforTimeCoolingSetpointNotMet(1.0)
+
+    model_enable_demand_controlled_ventilation(model, dcv_type)
+
   end
 
   # Method to store space sizing loads. This is needed because later when the zones are destroyed this information will be lost.

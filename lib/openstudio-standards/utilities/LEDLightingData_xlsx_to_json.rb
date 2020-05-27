@@ -3,53 +3,53 @@
 require 'csv'
 require 'json'
 require 'rubyXL'
+require 'roo'
 
 begin
 
   csv_file = "#{File.dirname(__FILE__)}/../btap/csvFile1.csv"
-
-  input_file = "#{File.dirname(__FILE__)}/../btap/LEDLightingData.xlsx" #LEDLightingData #WeatherData1
+  input_file = "#{File.dirname(__FILE__)}/../btap/LEDLightingData.xlsx" #LEDLightingData #WeatherData1 #LEDLightingData_test1
 
   CSV.open(csv_file, "wb") do |csv|
-    workbook = RubyXL::Parser.parse input_file
-    worksheet = workbook[0]
-
-    worksheet.each_with_index do |row, row_idx|
-      row_data = []
-      (0...row.size).each do |col_idx|
-        begin
-          cell = row[col_idx]
-          val = cell.value
-          row_data << val
-        rescue NoMethodError
-          row_data << ""
+    workbook = Roo::Spreadsheet.open input_file
+    worksheets = workbook.sheets
+    # puts "Found #{worksheets.count} worksheets"
+    worksheets.each do |worksheet|
+      # puts worksheet
+      workbook.sheet(worksheet).each_row_streaming do |row|
+        # puts row
+        # row_cells = row.map { |cell| cell.value }row_data = []
+        row_data = []
+        (0...row.size).each do |col_idx|
+          begin
+            cell = row[col_idx]
+            val = cell.value
+            row_data << val
+          rescue NoMethodError
+            row_data << ""
+          end
         end
+        # puts row_data
+        csv << row_data
+        # puts csv
       end
-      csv << row_data
     end
   end
 
 rescue;
 end
 
+
 data_json_hash = CSV.open(csv_file, :headers => true).map { |x| x.to_h }.to_json
 
 File.write("#{File.dirname(__FILE__)}/../btap/csvToJsonUpdate.json",data_json_hash)
 
 data_hash = JSON.parse(File.read("#{File.dirname(__FILE__)}/../btap/csvToJsonUpdate.json"))
-puts data_hash
+# puts data_hash
 
-# data_hash.each do |info|
-#   info['hdd18'] = info['hdd18'].to_i
-#   info['hdd15'] = info['hdd15'].to_i
-#   info['cdd18'] = info['cdd18'].to_i
-#   info['latitude'] = info['latitude'].to_f
-#   info['longitude'] = info['longitude'].to_f
-#   info['elevation'] = info['elevation'].to_i
-#   info['deltadb'] = info['deltadb'].to_f
-#   info['mau_type'] = true
-#
-# end
+data_hash.each do |info|
+  info['w_per_m2'] = info['w_per_m2'].to_f
+end
 
 pretty_output = JSON.pretty_generate(data_hash)
 puts pretty_output
@@ -58,4 +58,4 @@ File.delete("#{File.dirname(__FILE__)}/../btap/csvToJsonUpdate.json")
 
 File.delete("#{File.dirname(__FILE__)}/../btap/csvFile1.csv")
 
-# File.write("#{File.dirname(__FILE__)}/../btap/LEDLightingData.json", pretty_output)
+File.write("#{File.dirname(__FILE__)}/../btap/LEDLightingData.json", pretty_output)

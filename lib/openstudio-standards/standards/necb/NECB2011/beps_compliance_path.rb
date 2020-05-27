@@ -163,7 +163,7 @@ class NECB2011
     end
 
     # Lights
-    apply_standard_lights(set_lights, space_type, space_type_properties, lights_type: lights_type) #Sara added lights_type: lights_type
+    apply_standard_lights(set_lights, space_type, space_type_properties, lights_type: lights_type, scale: 1.0) #Sara added lights_type: lights_type
 
     # Electric Equipment
     elec_equip_have_info = false

@@ -1,5 +1,5 @@
 class NECB2011
-  def apply_standard_lights(set_lights, space_type, space_type_properties)
+  def apply_standard_lights(set_lights, space_type, space_type_properties,lights_type: "LED") #Sara
     lights_have_info = false
     lighting_per_area = space_type_properties['lighting_per_area'].to_f
     lighting_per_person = space_type_properties['lighting_per_person'].to_f
@@ -10,13 +10,23 @@ class NECB2011
     lights_have_info = true unless lighting_per_area.zero?
     lights_have_info = true unless lighting_per_person.zero?
 
+    lighting_per_area_led_lighting = space_type_properties['lighting_per_area'].to_f #Sara added for LED lighting assuming later there would be values for lighting_per_area_led_lighting in space_types.json. NOTE: For now, for testing purposes, the values of lighting_per_area_led are used for LED.
+    #TODO: Change the above line to lighting_per_area_led_lighting = space_type_properties['XXXX'].to_f ONCE we have LED data in space_types.json
+    lights_frac_to_return_air_led_lighting = space_type_properties['lighting_fraction_to_return_air'].to_f #Sara #TODO: Change to lights_frac_to_return_air_led_lighting = space_type_properties['YYYY'].to_f ONCE we have LED data in space_types.json
+    lights_frac_radiant_led_lighting = space_type_properties['lighting_fraction_radiant'].to_f #Sara #TODO: Change to lights_frac_radiant_led_lighting = space_type_properties['ZZZZ'].to_f ONCE we have LED data in space_types.json
+    lights_frac_visible_led_lighting = space_type_properties['lighting_fraction_visible'].to_f #Sara #TODO: Change to lights_frac_visible_led_lighting = space_type_properties['XYZ'].to_f ONCE we have LED data in space_types.json
+
     if set_lights && lights_have_info
 
       # Remove all but the first instance
       instances = space_type.lights.sort
       if instances.size.zero?
         definition = OpenStudio::Model::LightsDefinition.new(space_type.model)
-        definition.setName("#{space_type.name} Lights Definition")
+        if lights_type == "CFL" #Sara added
+          definition.setName("#{space_type.name} Lights Definition")
+        elsif lights_type == "LED" #Sara added
+          definition.setName("#{space_type.name} Lights Definition - LED lighting") #Sara added
+        end #Sara added
         instance = OpenStudio::Model::Lights.new(definition)
         instance.setName("#{space_type.name} Lights")
         instance.setSpaceType(space_type)
@@ -34,20 +44,36 @@ class NECB2011
       space_type.lights.sort.each do |inst|
         definition = inst.lightsDefinition
         unless lighting_per_area.zero?
+          if lights_type == "CFL" #Sara added this if clause regarding high performance (led) lighting. Note: the set_lighting_per_area function was there.
           set_lighting_per_area(space_type, definition, lighting_per_area)
+          elsif lights_type == "LED" #Sara
+            set_lighting_per_area_led_lighting(space_type, definition, lighting_per_area_led_lighting) #Sara added
+          end #Sara added
         end
         unless lighting_per_person.zero?
           definition.setWattsperPerson(OpenStudio.convert(lighting_per_person.to_f, 'W/person', 'W/person').get)
           OpenStudio.logFree(OpenStudio::Info, 'openstudio.standards.SpaceType', "#{space_type.name} set lighting to #{lighting_per_person} W/person.")
         end
         unless lights_frac_to_return_air.zero?
-          definition.setReturnAirFraction(lights_frac_to_return_air)
+          if lights_type == "CFL" #Sara added
+            definition.setReturnAirFraction(lights_frac_to_return_air)
+          elsif lights_type == "LED" #Sara added
+            definition.setReturnAirFraction(lights_frac_to_return_air_led_lighting) #Sara added
+          end #Sara added
         end
         unless lights_frac_radiant.zero?
-          definition.setFractionRadiant(lights_frac_radiant)
+          if lights_type == "CFL" #Sara added
+            definition.setFractionRadiant(lights_frac_radiant)
+          elsif lights_type == "LED" #Sara added
+            definition.setFractionRadiant(lights_frac_radiant_led_lighting) #Sara added
+          end #Sara added
         end
         unless lights_frac_visible.zero?
-          definition.setFractionVisible(lights_frac_visible)
+          if lights_type == "CFL" #Sara added
+            definition.setFractionVisible(lights_frac_visible)
+          elsif lights_type == "LED" #Sara added
+            definition.setFractionVisible(lights_frac_visible_led_lighting) #Sara added
+          end #Sara added
         end
         # unless lights_frac_replaceable.zero?
         #  definition.setFractionReplaceable(lights_frac_replaceable)

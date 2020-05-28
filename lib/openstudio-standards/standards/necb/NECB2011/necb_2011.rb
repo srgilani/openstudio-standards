@@ -200,6 +200,8 @@ class NECB2011 < Standard
     apply_systems(model: model, primary_heating_fuel: primary_heating_fuel, sizing_run_dir: sizing_run_dir)
     apply_standard_efficiencies(model: model, sizing_run_dir: sizing_run_dir)
     model = apply_loop_pump_power(model: model, sizing_run_dir: sizing_run_dir)
+    model_add_daylighting_controls(model)
+    # puts model
     return model
   end
 
@@ -254,7 +256,7 @@ class NECB2011 < Standard
   def apply_fdwr_srr_daylighting(model:, fdwr_set: -1.0, srr_set: -1.0)
     apply_standard_window_to_wall_ratio(model: model, fdwr_set: fdwr_set)
     apply_standard_skylight_to_roof_ratio(model: model, srr_set: srr_set)
-    model_add_daylighting_controls(model) # to be removed after refactor.
+    # model_add_daylighting_controls(model) # to be removed after refactor.
   end
 
   def apply_standard_efficiencies(model:, sizing_run_dir:)
@@ -517,5 +519,511 @@ class NECB2011 < Standard
     end
   end
 
+
+  def model_add_daylighting_controls(model)
+
+    ##### Ask user's inputs for daylighting controls illuminance setpoint and number of stepped control steps.
+    ##### Note that the minimum number of stepped control steps is two steps as per NECB2011.
+    def daylighting_controls_settings(illuminance_setpoint: 500.0,
+                                      number_of_stepped_control_steps: 2)
+      return illuminance_setpoint, number_of_stepped_control_steps
+    end
+
+    ##### Find spaces with exterior fenestration including fixed window, operable window, and skylight.
+    daylight_spaces = []
+    model.getSpaces.sort.each do |space|
+      space.surfaces.each do |surface|
+        surface.subSurfaces.each do |subsurface|
+          if subsurface.outsideBoundaryCondition == "Outdoors" &&
+              (subsurface.subSurfaceType == "FixedWindow" ||
+                  subsurface.subSurfaceType == "OperableWindow" ||
+                  subsurface.subSurfaceType == "Skylight")
+            daylight_spaces << space
+          end #subsurface.outsideBoundaryCondition == "Outdoors" && (subsurface.subSurfaceType == "FixedWindow" || "OperableWindow")
+        end #surface.subSurfaces.each do |subsurface|
+      end #space.surfaces.each do |surface|
+    end #model.getSpaces.sort.each do |space|
+
+    ##### Remove duplicate spaces from the "daylight_spaces" array, as a daylighted space may have various fenestration types.
+    daylight_spaces = daylight_spaces.uniq
+    # puts daylight_spaces
+
+    ##### Create hashes for "Primary Sidelighted Areas", "Sidelighting Effective Aperture", "Daylighted Area Under Skylights",
+    ##### and "Skylight Effective Aperture" for the whole model.
+    ##### Each of these hashes will be used later in this function (i.e. model_add_daylighting_controls)
+    ##### to provide a dictionary of daylighted space names and the associated value (i.e. daylighted area or effective aperture).
+    primary_sidelighted_area_hash = {}
+    sidelighting_effective_aperture_hash = {}
+    daylighted_area_under_skylights_hash = {}
+    skylight_effective_aperture_hash = {}
+
+    ##### Calculate "Primary Sidelighted Areas" AND "Sidelighting Effective Aperture" as per NECB2011. #TODO: consider removing overlapped sidelighted area
+    daylight_spaces.each do |daylight_space|
+      # puts daylight_space.name.to_s
+      primary_sidelighted_area = 0.0
+      area_weighted_vt_handle = 0.0
+      area_weighted_vt = 0.0
+      window_area_sum = 0.0
+
+      ##### Calculate floor area of the daylight_space and get floor vertices of the daylight_space (to be used for the calculation of daylight_space depth)
+      floor_surface = nil
+      floor_area = []
+      floor_vertices = []
+      daylight_space.surfaces.each do |surface|
+        if surface.surfaceType == "Floor"
+          floor_surface = surface
+          floor_area << surface.netArea
+          floor_vertices << surface.vertices
+        end
+      end
+
+      ##### Loop through the surfaces of each daylight_space to calculate primary_sidelighted_area and
+      ##### area-weighted visible transmittance and window_area_sum which are used to calculate sidelighting_effective_aperture
+      daylight_space.surfaces.each do |surface|
+
+        ##### Get the vertices of each exterior wall of the daylight_space on the floor
+        ##### (these vertices will be used to calculate daylight_space depth in relation to the exterior wall, and
+        ##### the distance of the window to vertical walls on each side of the window)
+        if surface.outsideBoundaryCondition == "Outdoors" && surface.surfaceType == "Wall"
+          wall_vertices_x_on_floor = []
+          wall_vertices_y_on_floor = []
+          surface_z_min = [surface.vertices[0].z, surface.vertices[1].z, surface.vertices[2].z, surface.vertices[3].z].min
+          surface.vertices.each do |vertex|
+            # puts vertex.z
+            if vertex.z == surface_z_min && surface_z_min == floor_vertices[0][0].z
+              wall_vertices_x_on_floor << vertex.x
+              wall_vertices_y_on_floor << vertex.y
+            end
+          end
+        end
+
+        if surface.outsideBoundaryCondition == "Outdoors" && surface.surfaceType == "Wall" && surface_z_min == floor_vertices[0][0].z
+
+          ##### Calculate the daylight_space depth in relation to the considered exterior wall.
+          ##### To calculate daylight_space depth, first get the floor vertices which are on the opposite side of the considered exterior wall.
+          floor_vertices_x_wall_opposite = []
+          floor_vertices_y_wall_opposite = []
+          floor_vertices[0].each do |floor_vertex|
+            if (floor_vertex.x != wall_vertices_x_on_floor[0] && floor_vertex.y != wall_vertices_y_on_floor[0]) || (floor_vertex.x != wall_vertices_x_on_floor[1] && floor_vertex.y != wall_vertices_y_on_floor[1])
+              floor_vertices_x_wall_opposite << floor_vertex.x
+              floor_vertices_y_wall_opposite << floor_vertex.y
+            end
+          end
+
+          ##### To calculate daylight_space depth, second calculate floor length on both sides: (1) exterior wall side, (2) on the opposite side of the exterior wall
+          floor_width_wall_side = Math.sqrt((wall_vertices_x_on_floor[0] - wall_vertices_x_on_floor[1]) ** 2 + (wall_vertices_y_on_floor[0] - wall_vertices_y_on_floor[1]) ** 2)
+          floor_width_wall_opposite = Math.sqrt((floor_vertices_x_wall_opposite[0] - floor_vertices_x_wall_opposite[1]) ** 2 + (floor_vertices_y_wall_opposite[0] - floor_vertices_y_wall_opposite[1]) ** 2)
+
+          ##### Now, daylight_space depth can be calculated using the floor area and two lengths of the floor (note that these two lengths are in parallel to each other).
+          daylight_space_depth = 2 * floor_area[0] / (floor_width_wall_side + floor_width_wall_opposite)
+
+          ##### Loop through the windows (including fixed and operable ones) to get window specification (width, height, area, visible transmittance (VT)), and area-weighted VT
+          surface.subSurfaces.each do |subsurface|
+            # puts subsurface.name.to_s
+            if subsurface.subSurfaceType == "FixedWindow" || subsurface.subSurfaceType == "OperableWindow"
+              window_vt = subsurface.visibleTransmittance
+              window_vt = window_vt.get
+              window_area = subsurface.netArea
+              window_area_sum += window_area
+              area_weighted_vt_handle += window_area * window_vt
+              window_vertices = subsurface.vertices
+              if window_vertices[0].z.round(2) == window_vertices[1].z.round(2)
+                window_width = Math.sqrt((window_vertices[0].x - window_vertices[1].x) ** 2.0 + (window_vertices[0].y - window_vertices[1].y) ** 2.0)
+              else
+                window_width = Math.sqrt((window_vertices[1].x - window_vertices[2].x) ** 2.0 + (window_vertices[1].y - window_vertices[2].y) ** 2.0)
+              end
+              window_head_height = [window_vertices[0].z, window_vertices[1].z, window_vertices[2].z, window_vertices[3].z].max.round(2)
+              primary_sidelighted_area_depth = [window_head_height, daylight_space_depth].min #as per NECB2011: 4.2.2.9.
+
+              ##### Calculate the  distance of the window to vertical walls on each side of the window (this is used to determine the sidelighted area's width).
+              window_vertices_on_floor = []
+              window_vertices.each do |vertex|
+                window_vertices_on_floor << floor_surface.plane.project(vertex)
+              end
+              window_wall_distance_side1 = [Math.sqrt((wall_vertices_x_on_floor[0] - window_vertices_on_floor[0].x) ** 2.0 + (wall_vertices_y_on_floor[0] - window_vertices_on_floor[0].y) ** 2.0),
+                                            Math.sqrt((wall_vertices_x_on_floor[0] - window_vertices_on_floor[2].x) ** 2.0 + (wall_vertices_y_on_floor[0] - window_vertices_on_floor[2].y) ** 2.0),
+                                            0.6].min # 0.6 m as per NECB2011: 4.2.2.9.
+              window_wall_distance_side2 = [Math.sqrt((wall_vertices_x_on_floor[1] - window_vertices_on_floor[0].x) ** 2.0 + (wall_vertices_y_on_floor[1] - window_vertices_on_floor[0].y) ** 2.0),
+                                            Math.sqrt((wall_vertices_x_on_floor[1] - window_vertices_on_floor[2].x) ** 2.0 + (wall_vertices_y_on_floor[1] - window_vertices_on_floor[2].y) ** 2.0),
+                                            0.6].min # 0.6 m as per NECB2011: 4.2.2.9.
+              primary_sidelighted_area_width = window_wall_distance_side1 + window_width + window_wall_distance_side2
+              primary_sidelighted_area = primary_sidelighted_area + primary_sidelighted_area_depth * primary_sidelighted_area_width
+            end #if subsurface.subSurfaceType == "FixedWindow" || subsurface.subSurfaceType == "OperableWindow"
+          end #surface.subSurfaces.each do |subsurface|
+        end #if surface.outsideBoundaryCondition == "Outdoors" && surface.surfaceType == "Wall" && surface_z_min == floor_vertices[0][0].z
+      end #daylight_space.surfaces.each do |surface|
+
+      primary_sidelighted_area_hash[daylight_space.name.to_s] = primary_sidelighted_area
+
+      ##### Calculate area-weighted VT of glazing (this is used to calculate sidelighting effective aperture; see NECB2011: 4.2.2.10.).
+      area_weighted_vt = area_weighted_vt_handle / window_area_sum
+      sidelighting_effective_aperture_hash[daylight_space.name.to_s] = window_area_sum * area_weighted_vt / primary_sidelighted_area
+
+    end #daylight_spaces.each do |daylight_space|
+
+
+    ##### Calculate "Daylighted Area Under Skylights" AND "Skylight Effective Aperture"
+    daylight_spaces.each do |daylight_space|
+      # puts daylight_space.name.to_s
+      skylight_area = 0.0
+      skylight_area_weighted_vt_handle = 0.0
+      skylight_area_weighted_vt = 0.0
+      skylight_area_sum = 0.0
+
+      ##### Loop through the surfaces of each daylight_space to calculate daylighted_area_under_skylights and skylight_effective_aperture for each daylight_space
+      daylight_space.surfaces.each do |surface|
+        ##### Get roof vertices
+        if surface.outsideBoundaryCondition == "Outdoors" && surface.surfaceType == "RoofCeiling"
+          roof_vertices = surface.vertices
+        end
+
+        ##### Loop through each subsurafce to calculate daylighted_area_under_skylights and skylight_effective_aperture for each daylight_space
+        surface.subSurfaces.each do |subsurface|
+          if subsurface.subSurfaceType == "Skylight"
+            skylight_vt = subsurface.visibleTransmittance
+            skylight_vt = skylight_vt.get
+            skylight_area = subsurface.netArea
+            skylight_area_sum += skylight_area
+            skylight_area_weighted_vt_handle += skylight_area * skylight_vt
+
+            ##### Get skylight vertices
+            skylight_vertices = subsurface.vertices
+
+            ##### Calculate skylight width and height
+            skylight_width = Math.sqrt((skylight_vertices[0].x - skylight_vertices[1].x) ** 2.0 + (skylight_vertices[0].y - skylight_vertices[1].y) ** 2.0)
+            skylight_length = Math.sqrt((skylight_vertices[0].x - skylight_vertices[3].x) ** 2.0 + (skylight_vertices[0].y - skylight_vertices[3].y) ** 2.0)
+
+            ##### Get ceiling height assuming the skylight is flush with the ceiling
+            ceiling_height = skylight_vertices[0].z
+
+            ##### Calculate roof lengths
+            ##### (Note: used OpenStudio BCL measure called "assign_ashrae_9012010_daylighting_controls" with some changes/correcctions)
+            roof_length_0 = Math.sqrt((roof_vertices[0].x - roof_vertices[1].x) ** 2.0 + (roof_vertices[0].y - roof_vertices[1].y) ** 2.0)
+            roof_length_1 = Math.sqrt((roof_vertices[1].x - roof_vertices[2].x) ** 2.0 + (roof_vertices[1].y - roof_vertices[2].y) ** 2.0)
+            roof_length_2 = Math.sqrt((roof_vertices[2].x - roof_vertices[3].x) ** 2.0 + (roof_vertices[2].y - roof_vertices[3].y) ** 2.0)
+            roof_length_3 = Math.sqrt((roof_vertices[3].x - roof_vertices[0].x) ** 2.0 + (roof_vertices[3].y - roof_vertices[0].y) ** 2.0)
+
+            ##### Find the skylight point that is the closest one to roof_vertex_0
+            ##### (Note: used OpenStudio BCL measure called "assign_ashrae_9012010_daylighting_controls" with some changes/correcctions)
+            roof_vertex_0_skylight_vertex_0 = Math.sqrt((roof_vertices[0].x - skylight_vertices[0].x) ** 2.0 + (roof_vertices[0].y - skylight_vertices[0].y) ** 2.0)
+            roof_vertex_0_skylight_vertex_1 = Math.sqrt((roof_vertices[0].x - skylight_vertices[1].x) ** 2.0 + (roof_vertices[0].y - skylight_vertices[1].y) ** 2.0)
+            roof_vertex_0_skylight_vertex_2 = Math.sqrt((roof_vertices[0].x - skylight_vertices[2].x) ** 2.0 + (roof_vertices[0].y - skylight_vertices[2].y) ** 2.0)
+            roof_vertex_0_skylight_vertex_3 = Math.sqrt((roof_vertices[0].x - skylight_vertices[3].x) ** 2.0 + (roof_vertices[0].y - skylight_vertices[3].y) ** 2.0)
+            roof_vertex_0_closest_distance = [roof_vertex_0_skylight_vertex_0, roof_vertex_0_skylight_vertex_1, roof_vertex_0_skylight_vertex_2, roof_vertex_0_skylight_vertex_3].min
+            if roof_vertex_0_closest_distance == roof_vertex_0_skylight_vertex_0
+              roof_vertex_0_closest_point = skylight_vertices[0]
+            elsif roof_vertex_0_closest_distance == roof_vertex_0_skylight_vertex_1
+              roof_vertex_0_closest_point = skylight_vertices[1]
+            elsif roof_vertex_0_closest_distance == roof_vertex_0_skylight_vertex_2
+              roof_vertex_0_closest_point = skylight_vertices[2]
+            elsif roof_vertex_0_closest_distance == roof_vertex_0_skylight_vertex_3
+              roof_vertex_0_closest_point = skylight_vertices[3]
+            end
+
+            ##### Find the skylight point that is the closest one to roof_vertex_2
+            ##### (Note: used OpenStudio BCL measure called "assign_ashrae_9012010_daylighting_controls" with some changes/correcctions)
+            roof_vertex_2_skylight_vertex_0 = Math.sqrt((roof_vertices[2].x - skylight_vertices[0].x) ** 2.0 + (roof_vertices[2].y - skylight_vertices[0].y) ** 2.0)
+            roof_vertex_2_skylight_vertex_1 = Math.sqrt((roof_vertices[2].x - skylight_vertices[1].x) ** 2.0 + (roof_vertices[2].y - skylight_vertices[1].y) ** 2.0)
+            roof_vertex_2_skylight_vertex_2 = Math.sqrt((roof_vertices[2].x - skylight_vertices[2].x) ** 2.0 + (roof_vertices[2].y - skylight_vertices[2].y) ** 2.0)
+            roof_vertex_2_skylight_vertex_3 = Math.sqrt((roof_vertices[2].x - skylight_vertices[3].x) ** 2.0 + (roof_vertices[2].y - skylight_vertices[3].y) ** 2.0)
+            roof_vertex_2_closest_distance = [roof_vertex_2_skylight_vertex_0, roof_vertex_2_skylight_vertex_1, roof_vertex_2_skylight_vertex_2, roof_vertex_2_skylight_vertex_3].min
+            if roof_vertex_2_closest_distance == roof_vertex_2_skylight_vertex_0
+              roof_vertex_2_closest_point = skylight_vertices[0]
+            elsif roof_vertex_2_closest_distance == roof_vertex_2_skylight_vertex_1
+              roof_vertex_2_closest_point = skylight_vertices[1]
+            elsif roof_vertex_2_closest_distance == roof_vertex_2_skylight_vertex_2
+              roof_vertex_2_closest_point = skylight_vertices[2]
+            elsif roof_vertex_2_closest_distance == roof_vertex_2_skylight_vertex_3
+              roof_vertex_2_closest_point = skylight_vertices[3]
+            end
+
+            ##### Calculate the vertical distance from the closest skylight points (projection onto the roof) to the wall (projection onto the roof) for roof_vertex_0 and roof_vertex_2
+            ##### (Note: used OpenStudio BCL measure called "assign_ashrae_9012010_daylighting_controls" with some changes/correcctions)
+            ##### For the calculation of each vertical distance: (1) first the area of the triangle is calculated knowing the cooridantes of its three corners;
+            ##### (2) the vertical distance (i.e. triangle height) is calculated knowing the triangle area and the associated roof length.
+            rv_0_triangle_0_area = 0.5 * (((roof_vertex_0_closest_point.x - roof_vertices[1].x) * (roof_vertex_0_closest_point.y - roof_vertices[0].y)) -
+                ((roof_vertex_0_closest_point.x - roof_vertices[0].x) * (roof_vertex_0_closest_point.y - roof_vertices[1].y))).abs
+            rv_0_distance_0 = (2.0 * rv_0_triangle_0_area) / roof_length_0
+            rv_0_triangle_3_area = 0.5 * (((roof_vertex_0_closest_point.x - roof_vertices[3].x) * (roof_vertex_0_closest_point.y - roof_vertices[0].y)) -
+                ((roof_vertex_0_closest_point.x - roof_vertices[0].x) * (roof_vertex_0_closest_point.y - roof_vertices[3].y))).abs
+            rv_0_distance_3 = (2.0 * rv_0_triangle_3_area) / roof_length_3
+
+            rv_2_triangle_1_area = 0.5 * (((roof_vertex_2_closest_point.x - roof_vertices[1].x) * (roof_vertex_2_closest_point.y - roof_vertices[2].y)) -
+                ((roof_vertex_2_closest_point.x - roof_vertices[2].x) * (roof_vertex_2_closest_point.y - roof_vertices[1].y))).abs
+            rv_2_distance_1 = (2.0 * rv_2_triangle_1_area) / roof_length_1
+            rv_2_triangle_2_area = 0.5 * (((roof_vertex_2_closest_point.x - roof_vertices[3].x) * (roof_vertex_2_closest_point.y - roof_vertices[2].y)) -
+                ((roof_vertex_2_closest_point.x - roof_vertices[2].x) * (roof_vertex_2_closest_point.y - roof_vertices[3].y))).abs
+            rv_2_distance_2 = (2.0 * rv_2_triangle_2_area) / roof_length_2
+
+            ##### Set the vertical distances from the closest skylight points (projection onto the roof) to the wall (projection onto the roof) for roof_vertex_0 and roof_vertex_2
+            distance_1 = rv_0_distance_0
+            distance_2 = rv_0_distance_3
+            distance_3 = rv_2_distance_1
+            distance_4 = rv_2_distance_2
+
+            ##### Calculate the width and length of the daylighted area under the skylight as per NECB2011: 4.2.2.5.
+            ##### Note: In the below loops, if any exterior walls has window(s), the width and length of the daylighted area under the skylight are re-calculated as per NECB2011: 4.2.2.5.
+            daylighted_under_skylight_width = skylight_width + [0.7 * ceiling_height, distance_1].min + [0.7 * ceiling_height, distance_4].min
+            daylighted_under_skylight_length = skylight_length + [0.7 * ceiling_height, distance_2].min + [0.7 * ceiling_height, distance_3].min
+
+            ##### As noted above, the width and length of the daylighted area under the skylight are re-calculated (as per NECB2011: 4.2.2.5.), if any exterior walls has window(s).
+            ##### To this end, the window_head_height should be calculated, as below:
+            daylight_space.surfaces.each do |surface|
+              if surface.outsideBoundaryCondition == "Outdoors" && surface.surfaceType == "Wall"
+                wall_vertices_on_floor_x = []
+                wall_vertices_on_floor_y = []
+                wall_vertices = surface.vertices
+                if wall_vertices[0].z == wall_vertices[1].z
+                  wall_vertices_on_floor_x << wall_vertices[0].x
+                  wall_vertices_on_floor_x << wall_vertices[1].x
+                  wall_vertices_on_floor_y << wall_vertices[0].y
+                  wall_vertices_on_floor_y << wall_vertices[1].y
+                elsif wall_vertices[0].z == wall_vertices[3].z
+                  wall_vertices_on_floor_x << wall_vertices[0].x
+                  wall_vertices_on_floor_x << wall_vertices[3].x
+                  wall_vertices_on_floor_y << wall_vertices[0].y
+                  wall_vertices_on_floor_y << wall_vertices[3].y
+                end
+                window_vertices = subsurface.vertices
+                window_head_height = [window_vertices[0].z, window_vertices[1].z, window_vertices[2].z, window_vertices[3].z].max.round(2)
+
+                ##### Calculate the exterior wall length (on the floor)
+                exterior_wall_length = Math.sqrt((wall_vertices_on_floor_x[0] - wall_vertices_on_floor_x[1]) ** 2.0 + (wall_vertices_on_floor_y[0] - wall_vertices_on_floor_y[1]) ** 2.0)
+
+                ##### Calculate the vertical distance of skylight_vertices[0] projection onto the roof/floor to the exterior wall
+                skylight_vertex_0_triangle_area = 0.5 * (((wall_vertices_on_floor_x[0] - wall_vertices_on_floor_x[1]) * (wall_vertices_on_floor_y[0] - skylight_vertices[0].y)) -
+                    ((wall_vertices_on_floor_x[0] - skylight_vertices[0].x) * (wall_vertices_on_floor_y[0] - wall_vertices_on_floor_y[1]))).abs
+                skylight_vertex_0_distance = (2.0 * skylight_vertex_0_triangle_area) / exterior_wall_length
+
+                ##### Calculate the vertical distance of skylight_vertices[1] projection onto the roof/floor to the exterior wall
+                skylight_vertex_1_triangle_area = 0.5 * (((wall_vertices_on_floor_x[0] - wall_vertices_on_floor_x[1]) * (wall_vertices_on_floor_y[0] - skylight_vertices[1].y)) -
+                    ((wall_vertices_on_floor_x[0] - skylight_vertices[1].x) * (wall_vertices_on_floor_y[0] - wall_vertices_on_floor_y[1]))).abs
+                skylight_vertex_1_distance = (2.0 * skylight_vertex_1_triangle_area) / exterior_wall_length
+
+                ##### Calculate the vertical distance of skylight_vertices[3] projection onto the roof/floor to the exterior wall
+                skylight_vertex_3_triangle_area = 0.5 * (((wall_vertices_on_floor_x[0] - wall_vertices_on_floor_x[1]) * (wall_vertices_on_floor_y[0] - skylight_vertices[3].y)) -
+                    ((wall_vertices_on_floor_x[0] - skylight_vertices[3].x) * (wall_vertices_on_floor_y[0] - wall_vertices_on_floor_y[1]))).abs
+                skylight_vertex_3_distance = (2.0 * skylight_vertex_3_triangle_area) / exterior_wall_length
+
+                ##### Loop through the subsurfaces that has exterior windows to re-calculate the width and length of the daylighted area under the skylight
+                surface.subSurfaces.each do |subsurface|
+                  if subsurface.subSurfaceType == "FixedWindow" || subsurface.subSurfaceType == "OperableWindow"
+
+                    if skylight_vertex_0_distance == skylight_vertex_1_distance #skylight_01 is in parellel to the exterior wall
+                      if skylight_vertex_0_distance.round(2) == distance_2.round(2)
+                        daylighted_under_skylight_length = skylight_length + [0.7 * ceiling_height, distance_2, distance_2 - window_head_height].min + [0.7 * ceiling_height, distance_3].min
+                      elsif skylight_vertex_0_distance.round(2) == distance_3.round(2)
+                        daylighted_under_skylight_length = skylight_length + [0.7 * ceiling_height, distance_2].min + [0.7 * ceiling_height, distance_3, distance_3 - window_head_height].min
+                      end
+                    elsif skylight_vertex_0_distance == skylight_vertex_3_distance #skylight_03 is in parellel to the exterior wall
+                      if skylight_vertex_0_distance.round(2) == distance_1.round(2)
+                        daylighted_under_skylight_width = skylight_width + [0.7 * ceiling_height, distance_1, distance_1 - window_head_height].min + [0.7 * ceiling_height, distance_4].min
+                      elsif skylight_vertex_0_distance.round(2) == distance_4.round(2)
+                        daylighted_under_skylight_width = skylight_width + [0.7 * ceiling_height, distance_1].min + [0.7 * ceiling_height, distance_4, distance_4 - window_head_height].min
+                      end
+                    end #if skylight_vertex_0_distance == skylight_vertex_1_distance
+
+                  end #if subsurface.subSurfaceType == "FixedWindow" || subsurface.subSurfaceType == "OperableWindow"
+                end #surface.subSurfaces.each do |subsurface|
+              end #if surface.outsideBoundaryCondition == "Outdoors" && surface.surfaceType == "Wall"
+            end #daylight_space.surfaces.each do |surface|
+
+            skylight_area_weighted_vt = skylight_area_weighted_vt_handle / skylight_area_sum
+            daylighted_area_under_skylights_hash[daylight_space.name.to_s] = daylighted_under_skylight_length * daylighted_under_skylight_width
+
+            ##### Calculate skylight_effective_aperture as per NECB2011: 4.2.2.7.
+            ##### Note that it was assumed that the skylight is flush with the ceiling. Therefore, area-weighted average well factor (WF) was set to 0.9 in the below Equation.
+            skylight_effective_aperture_hash[daylight_space.name.to_s] = 0.85 * skylight_area_sum * skylight_area_weighted_vt * 0.9 / (daylighted_under_skylight_length * daylighted_under_skylight_width)
+
+          end #if subsurface.subSurfaceType == "Skylight"
+        end #surface.subSurfaces.each do |subsurface|
+      end #daylight_space.surfaces.each do |surface|
+
+    end #daylight_spaces.each do |daylight_space|
+
+    # puts primary_sidelighted_area_hash
+    # puts sidelighting_effective_aperture_hash
+    # puts daylighted_area_under_skylights_hash
+    # puts skylight_effective_aperture_hash
+
+    ##### Find office spaces >= 25m2 among daylight_spaces
+    offices_larger_25m2 = []
+    daylight_spaces.each do |daylight_space|
+      office_area = nil
+      daylight_space.surfaces.each do |surface|
+        if surface.surfaceType == "Floor"
+          office_area = surface.netArea
+        end
+      end
+      if daylight_space.spaceType.get.standardsSpaceType.get.to_s == "Office - enclosed" && office_area >= 25.0
+        offices_larger_25m2 << daylight_space.name.to_s
+      end
+    end
+
+    ##### find daylight_spaces which do not need daylight sensor controls based on the primary_sidelighted_area as per NECB2011: 4.2.2.8.
+    ##### Note: Office spaces >= 25m2 are excluded (i.e. they should have daylighting controls even if their primary_sidelighted_area <= 100m2), as per NECB2011: 4.2.2.2.
+    daylight_spaces_exception = []
+    primary_sidelighted_area_hash.each do |key_daylight_space_name, value_primary_sidelighted_area|
+      if value_primary_sidelighted_area <= 100.0 && [key_daylight_space_name].any? {|word| offices_larger_25m2.include?(word)} == false
+        daylight_spaces_exception << key_daylight_space_name
+      end
+    end
+
+    ##### find daylight_spaces which do not need daylight sensor controls based on the sidelighting_effective_aperture as per NECB2011: 4.2.2.8.
+    ##### Note: Office spaces >= 25m2 are excluded (i.e. they should have daylighting controls even if their sidelighting_effective_aperture <= 10%), as per NECB2011: 4.2.2.2.
+    sidelighting_effective_aperture_hash.each do |key_daylight_space_name, value_sidelighting_effective_aperture|
+      if value_sidelighting_effective_aperture <= 0.1 && [key_daylight_space_name].any? {|word| offices_larger_25m2.include?(word)} == false
+        daylight_spaces_exception << key_daylight_space_name
+      end
+    end
+
+    ##### find daylight_spaces which do not need daylight sensor controls based on the daylighted_area_under_skylights as per NECB2011: 4.2.2.4.
+    ##### Note: Office spaces >= 25m2 are excluded (i.e. they should have daylighting controls even if their daylighted_area_under_skylights <= 400m2), as per NECB2011: 4.2.2.2.
+    daylighted_area_under_skylights_hash.each do |key_daylight_space_name, value_daylighted_area_under_skylights|
+      if value_daylighted_area_under_skylights <= 400.0 && [key_daylight_space_name].any? {|word| offices_larger_25m2.include?(word)} == false
+        daylight_spaces_exception << key_daylight_space_name
+      end
+    end
+
+    ##### find daylight_spaces which do not need daylight sensor controls based on the skylight_effective_aperture criterion as per NECB2011: 4.2.2.4.
+    ##### Note: Office spaces >= 25m2 are excluded (i.e. they should have daylighting controls even if their skylight_effective_aperture <= 0.6%), as per NECB2011: 4.2.2.2.
+    skylight_effective_aperture_hash.each do |key_daylight_space_name, value_skylight_effective_aperture|
+      if value_skylight_effective_aperture <= 0.006 && [key_daylight_space_name].any? {|word| offices_larger_25m2.include?(word)} == false
+        daylight_spaces_exception << key_daylight_space_name
+      end
+    end
+    # puts daylight_spaces_exception
+
+    ##### Loop through the daylight_spaces and exclude the daylight_spaces that do not meet the criteria (see above) as per NECB2011: 4.2.2.4. and 4.2.2.8.
+    daylight_spaces_exception.each do |daylight_space_exception|
+      daylight_spaces.each do |daylight_space|
+        if daylight_space.name.to_s == daylight_space_exception
+          daylight_spaces.delete(daylight_space)
+        end
+      end
+    end
+    # puts daylight_spaces
+
+    ##### Create one daylighting sensor and put it at the center of each daylight_space if the space area < 250m2;
+    ##### otherwise, create two daylight sensors, divide the space into two parts and put each of the daylight sensors at the center of each part of the space.
+    daylight_spaces.each do |daylight_space|
+
+      ##### Calculate the area of the daylight_space
+      daylight_space_area = nil
+      daylight_space.surfaces.each do |surface|
+        if surface.surfaceType == "Floor"
+          daylight_space_area = surface.netArea
+        end
+      end
+
+      ##### Get the thermal zone of daylight_space (this is used later to assign daylighting sensor)
+      zone = daylight_space.thermalZone
+      if zone.empty?
+        OpenStudio.logFree(OpenStudio::Error, 'openstudio.model.Space', "Space #{daylight_space.name}, cannot determine daylighted areas.")
+        return false
+      else
+        zone = daylight_space.thermalZone.get
+      end
+
+      ##### Get the floor of the daylight_space
+      floors = []
+      daylight_space.surfaces.each do |surface|
+        if surface.surfaceType == "Floor"
+          floors << surface
+        end
+      end
+
+      ##### Get user's input for daylighting controls illuminance setpoint and number of stepped control steps
+      illuminance_setpoint, number_of_stepped_control_steps = daylighting_controls_settings(illuminance_setpoint: 500.0, number_of_stepped_control_steps: 2)
+
+      ##### Create daylighting sensor control(s)
+      if daylight_space_area <= 250.0
+        boundingBox = OpenStudio::BoundingBox.new
+        floors.each do |floor|
+          boundingBox.addPoints(floor.vertices)
+        end
+        xmin = boundingBox.minX.get
+        ymin = boundingBox.minY.get
+        zmin = boundingBox.minZ.get
+        xmax = boundingBox.maxX.get
+        ymax = boundingBox.maxY.get
+        sensor = OpenStudio::Model::DaylightingControl.new(daylight_space.model)
+        sensor.setName("#{daylight_space.name.to_s} daylighting control")
+        sensor.setSpace(daylight_space)
+        sensor.setIlluminanceSetpoint(illuminance_setpoint)
+        sensor.setLightingControlType('Stepped')
+        sensor.setNumberofSteppedControlSteps(number_of_stepped_control_steps)
+        x_pos = (xmin + xmax) / 2.0
+        y_pos = (ymin + ymax) / 2.0
+        z_pos = zmin + 0.8 #put it 0.8 meter above the floor
+        sensor_vertex = OpenStudio::Point3d.new(x_pos, y_pos, z_pos)
+        sensor.setPosition(sensor_vertex)
+        zone.setPrimaryDaylightingControl(sensor)
+        zone.setFractionofZoneControlledbyPrimaryDaylightingControl(1.0)
+      else
+        floor_vertices = []
+        floors.each do |floor|
+          floor_vertices = floor.vertices
+        end
+
+        ##### Create daylighting sensor control #1 and put it at the center of each daylight_space.
+        boundingBox = OpenStudio::BoundingBox.new
+        vertex_0 = OpenStudio::Point3d.new(floor_vertices[0].x, floor_vertices[0].y, floor_vertices[0].z)
+        vertex_1 = OpenStudio::Point3d.new(floor_vertices[1].x, floor_vertices[1].y, floor_vertices[1].z)
+        # Find the mean point of the side connecting vertices 1 and 2.
+        vertex_2 = OpenStudio::Point3d.new(floor_vertices[1].x - (floor_vertices[1].x - floor_vertices[2].x) / 2.0, floor_vertices[1].y + (floor_vertices[2].y - floor_vertices[1].y) / 2.0, floor_vertices[0].z)
+        # Find the mean point of the side connecting vertices 0 and 3.
+        vertex_3 = OpenStudio::Point3d.new(floor_vertices[3].x + (floor_vertices[0].x - floor_vertices[3].x) / 2.0, floor_vertices[0].y + (floor_vertices[3].y - floor_vertices[0].y) / 2.0, floor_vertices[0].z)
+        boundingBox.addPoints([vertex_0, vertex_1, vertex_2, vertex_3])
+        xmin = boundingBox.minX.get
+        ymin = boundingBox.minY.get
+        zmin = boundingBox.minZ.get
+        xmax = boundingBox.maxX.get
+        ymax = boundingBox.maxY.get
+        sensor_1 = OpenStudio::Model::DaylightingControl.new(daylight_space.model)
+        sensor_1.setName("#{daylight_space.name.to_s} daylighting control 1")
+        sensor_1.setSpace(daylight_space)
+        sensor_1.setIlluminanceSetpoint(illuminance_setpoint)
+        sensor_1.setLightingControlType('Stepped')
+        sensor_1.setNumberofSteppedControlSteps(number_of_stepped_control_steps)
+        x_pos = (xmin + xmax) / 2.0
+        y_pos = (ymin + ymax) / 2.0
+        z_pos = zmin + 0.8 #put the sensor 0.8 meter above the floor
+        sensor_vertex = OpenStudio::Point3d.new(x_pos, y_pos, z_pos)
+        sensor_1.setPosition(sensor_vertex)
+        zone.setPrimaryDaylightingControl(sensor_1)
+        zone.setFractionofZoneControlledbyPrimaryDaylightingControl(0.5)
+
+        ##### Create daylighting sensor control #2. Divide the space into two parts. Put each of the daylight sensors at the center of each part of the space.
+        boundingBox = OpenStudio::BoundingBox.new
+        vertex_0 = OpenStudio::Point3d.new(floor_vertices[2].x, floor_vertices[2].y, floor_vertices[2].z)
+        vertex_1 = OpenStudio::Point3d.new(floor_vertices[3].x, floor_vertices[3].y, floor_vertices[3].z)
+        vertex_2 = OpenStudio::Point3d.new(floor_vertices[3].x + (floor_vertices[0].x - floor_vertices[3].x) / 2, floor_vertices[0].y + (floor_vertices[3].y - floor_vertices[0].y) / 2, floor_vertices[0].z)
+        vertex_3 = OpenStudio::Point3d.new(floor_vertices[1].x - (floor_vertices[1].x - floor_vertices[2].x) / 2, floor_vertices[1].y + (floor_vertices[2].y - floor_vertices[1].y) / 2, floor_vertices[0].z)
+        boundingBox.addPoints([vertex_0, vertex_1, vertex_2, vertex_3])
+        xmin = boundingBox.minX.get
+        ymin = boundingBox.minY.get
+        zmin = boundingBox.minZ.get
+        xmax = boundingBox.maxX.get
+        ymax = boundingBox.maxY.get
+        sensor_2 = OpenStudio::Model::DaylightingControl.new(daylight_space.model)
+        sensor_2.setName("#{daylight_space.name.to_s} daylighting control 2")
+        sensor_2.setSpace(daylight_space)
+        sensor_2.setIlluminanceSetpoint(illuminance_setpoint)
+        sensor_2.setLightingControlType('Stepped')
+        sensor_2.setNumberofSteppedControlSteps(number_of_stepped_control_steps)
+        x_pos = (xmin + xmax) / 2.0
+        y_pos = (ymin + ymax) / 2.0
+        z_pos = zmin + 0.8 #put the sensor 0.8 meter above the floor
+        sensor_vertex = OpenStudio::Point3d.new(x_pos, y_pos, z_pos)
+        sensor_2.setPosition(sensor_vertex)
+        zone.setSecondaryDaylightingControl(sensor_2)
+        zone.setFractionofZoneControlledbySecondaryDaylightingControl(0.5)
+      end
+
+    end #daylight_spaces.each do |daylight_space|
+
+
+  end #model_add_daylighting_controls
 
 end

@@ -65,5 +65,6 @@ The warehouse archetype has both sidelighting and skylights. One space out of th
 ## Files Added/Modified
  * Files have been modified:
    * **necb_2011.rb**
+ * Files have been added:
    * **daylighting_control.md**
    * **Warehouse_daylightingSensor.png**

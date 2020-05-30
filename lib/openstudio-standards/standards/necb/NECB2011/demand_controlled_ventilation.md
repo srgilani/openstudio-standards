@@ -23,7 +23,7 @@ This measure has defined simple schedules for indoor CO<sub>2</sub> availability
 However, more detailed schedules can be defined in the future.
 
 # Testing Plan
-* This measure has been called in the **apply_systems** function.
+* This measure has been called in the **apply_systems** function (in autozone.rb).
 * This measure was tested for NECB 2011 full service restaurant archetype.
 Note that since setting the outdoor airflow rate per person is upon another BTAP task, 
 the outdoor airflow rate per person values were set manually for each space that was served by an air-based HVAC system using OpenStudio.
@@ -37,3 +37,8 @@ except for storage garages.
     * Note #2: Regaridng ventilation of storage garages, see NBC-2010, Division B, Article 6.2.2.3. which says "provide, during operating hours, a continuous supply of outdoor air at a rate of not less than 3.9 L/s for each square metre of floor area."
 2. This measure created a function called **get_any_number_ppm** as a ScheduleTypeLimits to input CO<sub>2</sub> concentration levels.
 This function can be added to "btap/schedules.rb > module StandardScheduleTypeLimits".
+
+# Files Added/Modified
+* Files have been modified:
+  * **necb_2011.rb**
+  * **autozone.rb**

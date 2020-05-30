@@ -198,7 +198,7 @@ class NECB2011 < Standard
     apply_envelope(model: model)
     apply_fdwr_srr_daylighting(model: model)
     apply_auto_zoning(model: model, sizing_run_dir: sizing_run_dir)
-    apply_systems(model: model, primary_heating_fuel: primary_heating_fuel, sizing_run_dir: sizing_run_dir, dcv_type: dcv_type)
+    apply_systems(model: model, primary_heating_fuel: primary_heating_fuel, sizing_run_dir: sizing_run_dir, dcv_type: dcv_type) #Sara added dcv_type: dcv_type
     apply_standard_efficiencies(model: model, sizing_run_dir: sizing_run_dir)
     model = apply_loop_pump_power(model: model, sizing_run_dir: sizing_run_dir)
     return model

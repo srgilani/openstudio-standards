@@ -1,4 +1,4 @@
-#converts the LEDLightingData.xlsx spreadsheet into a ruby hash using the rubyXL gem
+#converts the led_lighting_data_necb2011.xlsx spreadsheet into a ruby hash using the rubyXL gem
 
 require 'csv'
 require 'json'
@@ -8,7 +8,7 @@ require 'roo'
 begin
 
   csv_file = "#{File.dirname(__FILE__)}/../btap/csvFile1.csv"
-  input_file = "#{File.dirname(__FILE__)}/../btap/LEDLightingData.xlsx" #LEDLightingData #WeatherData1 #LEDLightingData_test1
+  input_file = "#{File.dirname(__FILE__)}/../btap/led_lighting_data_necb2011.xlsx" #led_lighting_data_necb2011  led_lighting_data_necb2015  led_lighting_data_necb2017
 
   CSV.open(csv_file, "wb") do |csv|
     workbook = Roo::Spreadsheet.open input_file
@@ -48,7 +48,11 @@ data_hash = JSON.parse(File.read("#{File.dirname(__FILE__)}/../btap/csvToJsonUpd
 # puts data_hash
 
 data_hash.each do |info|
-  info['w_per_m2'] = info['w_per_m2'].to_f
+  info['lighting_per_area_w_per_m2'] = info['lighting_per_area_w_per_m2'].to_f
+  info['lighting_per_area'] = info['lighting_per_area'].to_f
+  info['lighting_fraction_to_return_air'] = info['lighting_fraction_to_return_air'].to_f
+  info['lighting_fraction_radiant'] = info['lighting_fraction_radiant'].to_f
+  info['lighting_fraction_visible'] = info['lighting_fraction_visible'].to_f
 end
 
 pretty_output = JSON.pretty_generate(data_hash)
@@ -58,4 +62,4 @@ File.delete("#{File.dirname(__FILE__)}/../btap/csvToJsonUpdate.json")
 
 File.delete("#{File.dirname(__FILE__)}/../btap/csvFile1.csv")
 
-File.write("#{File.dirname(__FILE__)}/../btap/LEDLightingData.json", pretty_output)
+File.write("#{File.dirname(__FILE__)}/../btap/led_lighting_data.json", pretty_output)

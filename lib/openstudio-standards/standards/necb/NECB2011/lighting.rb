@@ -11,15 +11,14 @@ class NECB2011
     lights_have_info = true unless lighting_per_person.zero?
 
 
-    led_spacetype_data = @standards_data['tables']['led_lighting_data']['table']
-    standards_building_type = space_type.standardsBuildingType.is_initialized ? space_type.standardsBuildingType.get : nil
-    standards_space_type = space_type.standardsSpaceType.is_initialized ? space_type.standardsSpaceType.get : nil
+    led_spacetype_data = @standards_data['tables']['led_lighting_data']['table'] #Sara
+    standards_building_type = space_type.standardsBuildingType.is_initialized ? space_type.standardsBuildingType.get : nil #Sara
+    standards_space_type = space_type.standardsSpaceType.is_initialized ? space_type.standardsSpaceType.get : nil #Sara
     led_space_type_properties = led_spacetype_data.detect { |s| (s['building_type'] == standards_building_type) && (s['space_type'] == standards_space_type) }
-    lighting_per_area_led_lighting = led_space_type_properties['lighting_per_area'].to_f * scale #Sara added for LED lighting assuming later there would be values for lighting_per_area_led_lighting in space_types.json. NOTE: For now, for testing purposes, the values of lighting_per_area_led are used for LED.
-    #TODO: Change the above line to lighting_per_area_led_lighting = space_type_properties['XXXX'].to_f ONCE we have LED data in space_types.json
-    lights_frac_to_return_air_led_lighting = space_type_properties['lighting_fraction_to_return_air'].to_f #Sara #TODO: Change to lights_frac_to_return_air_led_lighting = space_type_properties['YYYY'].to_f ONCE we have LED data in space_types.json
-    lights_frac_radiant_led_lighting = space_type_properties['lighting_fraction_radiant'].to_f #Sara #TODO: Change to lights_frac_radiant_led_lighting = space_type_properties['ZZZZ'].to_f ONCE we have LED data in space_types.json
-    lights_frac_visible_led_lighting = space_type_properties['lighting_fraction_visible'].to_f #Sara #TODO: Change to lights_frac_visible_led_lighting = space_type_properties['XYZ'].to_f ONCE we have LED data in space_types.json
+    lighting_per_area_led_lighting = led_space_type_properties['lighting_per_area'].to_f * scale #Sara
+    lights_frac_to_return_air_led_lighting = led_space_type_properties['lighting_fraction_to_return_air'].to_f #Sara
+    lights_frac_radiant_led_lighting = led_space_type_properties['lighting_fraction_radiant'].to_f #Sara
+    lights_frac_visible_led_lighting = led_space_type_properties['lighting_fraction_visible'].to_f #Sara
 
     if set_lights && lights_have_info
 

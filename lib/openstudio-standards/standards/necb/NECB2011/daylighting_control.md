@@ -54,7 +54,16 @@ This measure has some assumptions and limitations:
 8. It does not consider this clause from NECB-2011: 4.2.2.4.: "enclosed space > 800 m<sup>2</sup> in buildings located above the 55˚N latitude" regarding toplighting.
   
 ## Testing Plan
-This measure was tested for two NECB 2011 archetypes: (1) full service restaurant, (2) warehouse. <br> 
+* This measure has been called in the **model_apply_standard** function after the **apply_loop_pump_power** function (in necb_2011.rb).
+  * Note that since the **apply_auto_zoning** function removes any assigned thermal zones (hence, removes daylighting sensors), 
+the **model_add_daylighting_controls** function was removed from the **apply_fdwr_srr_daylighting** function.
+* This measure was tested for two NECB 2011 archetypes: (1) full service restaurant, (2) warehouse. <br> 
 The full service restaurant archetype has sidelighting. Since none of spaces of this archetype met the NECB-2011's requirements to have daylighting sensor control(s), daylighting sensor controls were created for none of the spaces of this archetype. <br>
 The warehouse archetype has both sidelighting and skylights. One space out of three daylighted spaces met the NECB-2011's requirements to have daylighting sensor control(s). One of the two other daylighted spaces is an office space larger than 25 m<sup>2</sup>; hence, a daylighting sensor control was created for this space although it did not meet the NECB-2011's requirements.
-![Warehouse](/home/osdev/openstudio-standards/lib/openstudio-standards/standards/necb/NECB2011/Warehouse_daylightingSensor.PNG)
+![Warehouse](/home/osdev/openstudio-standards/lib/openstudio-standards/standards/necb/NECB2011/Warehouse_daylightingSensor.png)
+
+## Files Added/Modified
+ * Files have been modified:
+   * **necb_2011.rb**
+   * **daylighting_control.md**
+   * **Warehouse_daylightingSensor.png**

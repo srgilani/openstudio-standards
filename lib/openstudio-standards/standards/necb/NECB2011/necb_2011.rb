@@ -200,7 +200,7 @@ class NECB2011 < Standard
     apply_systems(model: model, primary_heating_fuel: primary_heating_fuel, sizing_run_dir: sizing_run_dir)
     apply_standard_efficiencies(model: model, sizing_run_dir: sizing_run_dir)
     model = apply_loop_pump_power(model: model, sizing_run_dir: sizing_run_dir)
-    model_add_daylighting_controls(model)
+    model_add_daylighting_controls(model) #Sara
     # puts model
     return model
   end
@@ -256,7 +256,7 @@ class NECB2011 < Standard
   def apply_fdwr_srr_daylighting(model:, fdwr_set: -1.0, srr_set: -1.0)
     apply_standard_window_to_wall_ratio(model: model, fdwr_set: fdwr_set)
     apply_standard_skylight_to_roof_ratio(model: model, srr_set: srr_set)
-    # model_add_daylighting_controls(model) # to be removed after refactor.
+    # model_add_daylighting_controls(model) # to be removed after refactor. #Sara removed this function from here
   end
 
   def apply_standard_efficiencies(model:, sizing_run_dir:)

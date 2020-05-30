@@ -42,6 +42,7 @@ openstudio-standards/lib/openstudio-standards/standards/necb/NECB2011/**data/led
   * **beps_compliance_path.rb**
   * **lighting.rb**
 * Files have been added: 
+  * **led_lighting.md**
   * openstudio-standards/lib/openstudio-standards/utilities/**LEDLightingData_xlsx_to_json.rb**
   * openstudio-standards/lib/openstudio-standards/btap/**led_lighting_data_necb2011.xlsx**
   * openstudio-standards/lib/openstudio-standards/btap/**led_lighting_data_necb2015.xlsx**

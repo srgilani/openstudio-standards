@@ -42,4 +42,5 @@ This function can be added to "btap/schedules.rb > module StandardScheduleTypeLi
 * Files have been modified:
   * **necb_2011.rb**
   * **autozone.rb**
+* Files have been added: 
   * **demand_controlled_ventilation.md**

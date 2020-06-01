@@ -28,7 +28,7 @@ class NECB2011
       led_lights_have_info = true unless lighting_per_area_led_lighting.zero? #Sara
     end
 
-    if set_lights && lights_have_info #&& led_lights_have_info #Sara added led_lights_have_info
+    if set_lights && lights_have_info
 
       # Remove all but the first instance
       instances = space_type.lights.sort

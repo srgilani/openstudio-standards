@@ -1,7 +1,7 @@
 class NECB2011
-  def apply_standard_lights(set_lights, space_type, space_type_properties,lights_type: "LED", scale: 1.0) #Sara added lights_type: "LED", scale: 1.0
+  def apply_standard_lights(set_lights, space_type, space_type_properties, lights_type: "CFL", scale: 1.0) #Sara added lights_type: "LED", scale: 1.0
     lights_have_info = false
-    lighting_per_area = space_type_properties['lighting_per_area'].to_f * scale
+    lighting_per_area = space_type_properties['lighting_per_area'].to_f * scale #Sara added scale
     lighting_per_person = space_type_properties['lighting_per_person'].to_f
     lights_frac_to_return_air = space_type_properties['lighting_fraction_to_return_air'].to_f
     lights_frac_radiant = space_type_properties['lighting_fraction_radiant'].to_f
@@ -10,17 +10,21 @@ class NECB2011
     lights_have_info = true unless lighting_per_area.zero?
     lights_have_info = true unless lighting_per_person.zero?
 
-
+    led_lights_have_info = false #Sara
     led_spacetype_data = @standards_data['tables']['led_lighting_data']['table'] #Sara
+    # puts led_spacetype_data
     standards_building_type = space_type.standardsBuildingType.is_initialized ? space_type.standardsBuildingType.get : nil #Sara
     standards_space_type = space_type.standardsSpaceType.is_initialized ? space_type.standardsSpaceType.get : nil #Sara
     led_space_type_properties = led_spacetype_data.detect { |s| (s['building_type'] == standards_building_type) && (s['space_type'] == standards_space_type) }
+    # puts led_space_type_properties['lighting_per_area'].to_f
     lighting_per_area_led_lighting = led_space_type_properties['lighting_per_area'].to_f * scale #Sara
     lights_frac_to_return_air_led_lighting = led_space_type_properties['lighting_fraction_to_return_air'].to_f #Sara
     lights_frac_radiant_led_lighting = led_space_type_properties['lighting_fraction_radiant'].to_f #Sara
     lights_frac_visible_led_lighting = led_space_type_properties['lighting_fraction_visible'].to_f #Sara
+    led_lights_have_info = true unless lighting_per_area_led_lighting.zero? #Sara
+    led_lights_have_info = true unless lighting_per_person.zero? #Sara
 
-    if set_lights && lights_have_info
+    if set_lights && lights_have_info && led_lights_have_info #Sara added led_lights_have_info
 
       # Remove all but the first instance
       instances = space_type.lights.sort
@@ -49,7 +53,7 @@ class NECB2011
         definition = inst.lightsDefinition
         unless lighting_per_area.zero?
           if lights_type == "CFL" #Sara added this if clause regarding high performance (led) lighting. Note: the set_lighting_per_area function was there.
-          set_lighting_per_area(space_type, definition, lighting_per_area)
+            set_lighting_per_area(space_type, definition, lighting_per_area)
           elsif lights_type == "LED" #Sara
             set_lighting_per_area_led_lighting(space_type, definition, lighting_per_area_led_lighting) #Sara added
           end #Sara added

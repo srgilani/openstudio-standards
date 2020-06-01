@@ -8,7 +8,9 @@ require 'roo'
 begin
 
   csv_file = "#{File.dirname(__FILE__)}/../btap/csvFile1.csv"
-  input_file = "#{File.dirname(__FILE__)}/../btap/led_lighting_data_necb2011.xlsx" #led_lighting_data_necb2011  led_lighting_data_necb2015  led_lighting_data_necb2017
+  # input_file = "#{File.dirname(__FILE__)}/../btap/led_lighting_data_necb2011.xlsx" #led_lighting_data_necb2011  led_lighting_data_necb2015  led_lighting_data_necb2017
+  # input_file = "#{File.dirname(__FILE__)}/../btap/led_lighting_data_necb2015.xlsx"
+  input_file = "#{File.dirname(__FILE__)}/../btap/led_lighting_data_necb2017.xlsx"
 
   CSV.open(csv_file, "wb") do |csv|
     workbook = Roo::Spreadsheet.open input_file
@@ -62,4 +64,6 @@ File.delete("#{File.dirname(__FILE__)}/../btap/csvToJsonUpdate.json")
 
 File.delete("#{File.dirname(__FILE__)}/../btap/csvFile1.csv")
 
-File.write("#{File.dirname(__FILE__)}/../btap/led_lighting_data.json", pretty_output)
+# File.write("#{File.dirname(__FILE__)}/../btap/led_lighting_data_necb2011.json", pretty_output)
+# File.write("#{File.dirname(__FILE__)}/../btap/led_lighting_data_necb2015.json", pretty_output)
+File.write("#{File.dirname(__FILE__)}/../btap/led_lighting_data_necb2017.json", pretty_output)

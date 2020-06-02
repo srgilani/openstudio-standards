@@ -192,7 +192,7 @@ class NECB2011 < Standard
                            epw_file:,
                            sizing_run_dir: Dir.pwd,
                            primary_heating_fuel: 'DefaultFuel',
-                           dcv_type: "Occupancy-based DCV")
+                           dcv_type: "No DCV")
     apply_weather_data(model: model, epw_file: epw_file)
     apply_loads(model: model)
     apply_envelope(model: model)
@@ -519,7 +519,7 @@ class NECB2011 < Standard
   end
 
 
-  def model_enable_demand_controlled_ventilation(model, dcv_type = "Occupancy-based DCV") # Note: Values for dcv_type are: "Occupancy-based DCV", "CO2-based DCV", "No DCV"
+  def model_enable_demand_controlled_ventilation(model, dcv_type = "No DCV") # Note: Values for dcv_type are: "Occupancy-based DCV", "CO2-based DCV", "No DCV"
 
     if dcv_type == "Occupancy-based DCV" || dcv_type == "CO2-based DCV"
       #TODO: IMPORTANT: (upon other BTAP tasks) Set a value for the "Outdoor Air Flow per Person" field of the "OS:DesignSpecification:OutdoorAir" object

@@ -1155,6 +1155,33 @@ class NECB2011 < Standard
     OpenStudio.logFree(OpenStudio::Info, 'openstudio.standards.SpaceType', "#{space_type.name} set LPD to #{lighting_per_area_led_lighting} W/ft^2.")
   end
 
+  # Adds the loads and associated schedules for each space type
+  # as defined in the OpenStudio_Standards_space_types.json file.
+  # This includes lights, plug loads, occupants, ventilation rate requirements,
+  # infiltration, gas equipment (for kitchens, etc.) and typical schedules for each.
+  # Some loads are governed by the standard, others are typical values
+  # pulled from sources such as the DOE Reference and DOE Prototype Buildings.
+  #
+  # @return [Bool] returns true if successful, false if not
+  def model_add_loads(model, lights_type = "NECB_Default", lights_scale = 1.0)
+    OpenStudio.logFree(OpenStudio::Info, 'openstudio.model.Model', 'Started applying space types (loads)')
 
+    # Loop through all the space types currently in the model,
+    # which are placeholders, and give them appropriate loads and schedules
+    model.getSpaceTypes.sort.each do |space_type|
+      # Rendering color
+      space_type_apply_rendering_color(space_type)
+
+      # Loads
+      space_type_apply_internal_loads(space_type, true, true, true, true, true, true, lights_type, lights_scale)
+
+      # Schedules
+      space_type_apply_internal_load_schedules(space_type, true, true, true, true, true, true, true)
+    end
+
+    OpenStudio.logFree(OpenStudio::Info, 'openstudio.model.Model', 'Finished applying space types (loads)')
+
+    return true
+  end
 
 end

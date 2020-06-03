@@ -1,5 +1,5 @@
 class NECB2011
-  def apply_standard_lights(set_lights, space_type, space_type_properties, lights_type: "NECB_Default", scale: 1.0)
+  def apply_standard_lights(set_lights, space_type, space_type_properties, lights_type: 'NECB_Default', scale: 1.0)
     lights_have_info = false
     lighting_per_area = space_type_properties['lighting_per_area'].to_f
     lighting_per_person = space_type_properties['lighting_per_person'].to_f
@@ -10,16 +10,19 @@ class NECB2011
     lights_have_info = true unless lighting_per_area.zero?
     lights_have_info = true unless lighting_per_person.zero?
 
-    if lights_type == "LED"
+    if lights_type == 'LED'
       led_lights_have_info = false #Sara
       led_spacetype_data = @standards_data['tables']['led_lighting_data']['table'] #Sara
-      # puts space_type_properties
-      # puts led_spacetype_data
-      # raise("led_spacetype_data is good")
+      puts space_type_properties
+      puts led_spacetype_data
+      #raise("led_spacetype_data is good")
       standards_building_type = space_type.standardsBuildingType.is_initialized ? space_type.standardsBuildingType.get : nil #Sara
       standards_space_type = space_type.standardsSpaceType.is_initialized ? space_type.standardsSpaceType.get : nil #Sara
-      led_space_type_properties = led_spacetype_data.detect {|s| (s['building_type'] == standards_building_type) && (s['space_type'] == standards_space_type)}
-      # puts led_space_type_properties['lighting_per_area'].to_f
+      led_space_type_properties = led_spacetype_data.detect {|s| (s['building_type'] == standards_building_type) && (s['space_type'] == standards_space_type) }
+      if led_space_type_properties.nil?
+        raise("#{standards_building_type} for #{standards_space_type} was not found please verify the led lighting database names match the space type names.")
+      end
+
       # raise("led_space_type_properties is good")
       lighting_per_area_led_lighting = led_space_type_properties['lighting_per_area'].to_f * scale #Sara
       lights_frac_to_return_air_led_lighting = led_space_type_properties['lighting_fraction_to_return_air'].to_f #Sara

@@ -258,7 +258,7 @@
         },
         {
           "lighting_standard": "NECB2011",
-          "building_type": "Post Office",
+          "building_type": "Post office",
           "space_type": "WholeBuilding",
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
@@ -409,7 +409,7 @@
         {
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
-          "space_type": "Classroom/Lecture/Training",
+          "space_type": "Classroom/lecture/training",
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
@@ -2079,7 +2079,7 @@
         {
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
-          "space_type": "Transp. - seating",
+          "space_type": "Transp. seating",
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,

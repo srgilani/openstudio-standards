@@ -1,5 +1,5 @@
 class NECB2011
-  def apply_standard_lights(set_lights, space_type, space_type_properties)
+  def apply_standard_lights(set_lights, space_type, space_type_properties, lights_type: "NECB_Default", scale: 1.0)
     lights_have_info = false
     lighting_per_area = space_type_properties['lighting_per_area'].to_f
     lighting_per_person = space_type_properties['lighting_per_person'].to_f
@@ -10,13 +10,35 @@ class NECB2011
     lights_have_info = true unless lighting_per_area.zero?
     lights_have_info = true unless lighting_per_person.zero?
 
+    if lights_type == "LED"
+      led_lights_have_info = false #Sara
+      led_spacetype_data = @standards_data['tables']['led_lighting_data']['table'] #Sara
+      # puts space_type_properties
+      # puts led_spacetype_data
+      # raise("led_spacetype_data is good")
+      standards_building_type = space_type.standardsBuildingType.is_initialized ? space_type.standardsBuildingType.get : nil #Sara
+      standards_space_type = space_type.standardsSpaceType.is_initialized ? space_type.standardsSpaceType.get : nil #Sara
+      led_space_type_properties = led_spacetype_data.detect {|s| (s['building_type'] == standards_building_type) && (s['space_type'] == standards_space_type)}
+      # puts led_space_type_properties['lighting_per_area'].to_f
+      # raise("led_space_type_properties is good")
+      lighting_per_area_led_lighting = led_space_type_properties['lighting_per_area'].to_f * scale #Sara
+      lights_frac_to_return_air_led_lighting = led_space_type_properties['lighting_fraction_to_return_air'].to_f #Sara
+      lights_frac_radiant_led_lighting = led_space_type_properties['lighting_fraction_radiant'].to_f #Sara
+      lights_frac_visible_led_lighting = led_space_type_properties['lighting_fraction_visible'].to_f #Sara
+      led_lights_have_info = true unless lighting_per_area_led_lighting.zero? #Sara
+    end
+
     if set_lights && lights_have_info
 
       # Remove all but the first instance
       instances = space_type.lights.sort
       if instances.size.zero?
         definition = OpenStudio::Model::LightsDefinition.new(space_type.model)
-        definition.setName("#{space_type.name} Lights Definition")
+        if lights_type == "NECB_Default"
+          definition.setName("#{space_type.name} Lights Definition")
+        elsif lights_type == "LED"
+          definition.setName("#{space_type.name} Lights Definition - LED lighting")
+        end
         instance = OpenStudio::Model::Lights.new(definition)
         instance.setName("#{space_type.name} Lights")
         instance.setSpaceType(space_type)
@@ -34,20 +56,36 @@ class NECB2011
       space_type.lights.sort.each do |inst|
         definition = inst.lightsDefinition
         unless lighting_per_area.zero?
-          set_lighting_per_area(space_type, definition, lighting_per_area)
+          if lights_type == "NECB_Default"
+            set_lighting_per_area(space_type, definition, lighting_per_area)
+          elsif lights_type == "LED"
+            set_lighting_per_area_led_lighting(space_type, definition, lighting_per_area_led_lighting)
+          end
         end
         unless lighting_per_person.zero?
           definition.setWattsperPerson(OpenStudio.convert(lighting_per_person.to_f, 'W/person', 'W/person').get)
           OpenStudio.logFree(OpenStudio::Info, 'openstudio.standards.SpaceType', "#{space_type.name} set lighting to #{lighting_per_person} W/person.")
         end
         unless lights_frac_to_return_air.zero?
-          definition.setReturnAirFraction(lights_frac_to_return_air)
+          if lights_type == "NECB_Default"
+            definition.setReturnAirFraction(lights_frac_to_return_air)
+          elsif lights_type == "LED"
+            definition.setReturnAirFraction(lights_frac_to_return_air_led_lighting)
+          end
         end
         unless lights_frac_radiant.zero?
-          definition.setFractionRadiant(lights_frac_radiant)
+          if lights_type == "NECB_Default"
+            definition.setFractionRadiant(lights_frac_radiant)
+          elsif lights_type == "LED"
+            definition.setFractionRadiant(lights_frac_radiant_led_lighting)
+          end
         end
         unless lights_frac_visible.zero?
-          definition.setFractionVisible(lights_frac_visible)
+          if lights_type == "NECB_Default"
+            definition.setFractionVisible(lights_frac_visible)
+          elsif lights_type == "LED"
+            definition.setFractionVisible(lights_frac_visible_led_lighting)
+          end
         end
         # unless lights_frac_replaceable.zero?
         #  definition.setFractionReplaceable(lights_frac_replaceable)

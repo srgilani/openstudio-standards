@@ -258,7 +258,7 @@
         },
         {
           "lighting_standard": "NECB2015",
-          "building_type": "Religious building ",
+          "building_type": "Religious building",
           "space_type": "WholeBuilding",
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,

@@ -1,0 +1,18 @@
+[
+  {
+    "template": "NECB2011",
+    "epw_file": "CAN_AB_Banff.CS.711220_CWEC2016.epw",
+    "building_type": "FullServiceRestaurant",
+    "primary_heating_fuel": "DefaultFuel",
+    "dcv_type": "No DCV",
+    "dcv_value_to_validate": 123456
+  },
+  {
+    "template": "NECB2015",
+    "epw_file": "CAN_AB_Banff.CS.711220_CWEC2016.epw",
+    "building_type": "FullServiceRestaurant",
+    "primary_heating_fuel": "DefaultFuel",
+    "dcv_type": "No DCV",
+    "dcv_value_to_validate": 123456
+  }
+]

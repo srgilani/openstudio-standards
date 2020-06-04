@@ -192,7 +192,7 @@ class NECB2011 < Standard
                            epw_file:,
                            sizing_run_dir: Dir.pwd,
                            primary_heating_fuel: 'DefaultFuel',
-                           dcv_type: "No DCV")
+                           dcv_type: 'No DCV')
     apply_weather_data(model: model, epw_file: epw_file)
     apply_loads(model: model)
     apply_envelope(model: model)
@@ -1026,9 +1026,9 @@ class NECB2011 < Standard
 
 
 
-  def model_enable_demand_controlled_ventilation(model, dcv_type = "No DCV") # Note: Values for dcv_type are: "Occupancy-based DCV", "CO2-based DCV", "No DCV"
+  def model_enable_demand_controlled_ventilation(model, dcv_type = 'No DCV') # Note: Values for dcv_type are: "Occupancy-based DCV", "CO2-based DCV", "No DCV"
 
-    if dcv_type == "Occupancy-based DCV" || dcv_type == "CO2-based DCV"
+    if dcv_type == 'Occupancy-based DCV' || dcv_type == 'CO2-based DCV'
       #TODO: IMPORTANT: (upon other BTAP tasks) Set a value for the "Outdoor Air Flow per Person" field of the "OS:DesignSpecification:OutdoorAir" object
       # Note: The "Outdoor Air Flow per Person" field is required for occupancy-based DCV.
       # Note: The "Outdoor Air Flow per Person" values should be based on ASHRAE 62.1: Article 6.2.2.1.
@@ -1037,13 +1037,13 @@ class NECB2011 < Standard
       ##### Define ScheduleTypeLimits for Any_Number_ppm
       ##### TODO: (upon other BTAP tasks) This function can be added to btap/schedules.rb > module StandardScheduleTypeLimits
       def self.get_any_number_ppm(model)
-        name = "Any_Number_ppm"
+        name = 'Any_Number_ppm'
         any_number_ppm_schedule_type_limits = model.getScheduleTypeLimitsByName(name)
         if any_number_ppm_schedule_type_limits.empty?
           any_number_ppm_schedule_type_limits = OpenStudio::Model::ScheduleTypeLimits.new(model)
           any_number_ppm_schedule_type_limits.setName(name)
-          any_number_ppm_schedule_type_limits.setNumericType("CONTINUOUS")
-          any_number_ppm_schedule_type_limits.setUnitType("Dimensionless")
+          any_number_ppm_schedule_type_limits.setNumericType('CONTINUOUS')
+          any_number_ppm_schedule_type_limits.setUnitType('Dimensionless')
           any_number_ppm_schedule_type_limits.setLowerLimitValue(400.0)
           any_number_ppm_schedule_type_limits.setUpperLimitValue(1000.0)
           return any_number_ppm_schedule_type_limits
@@ -1056,19 +1056,19 @@ class NECB2011 < Standard
       ##### Note: the defined schedule here is redundant as the schedule says it is always on AND
       ##### the "ZoneControl:ContaminantController" object says that "If this field is left blank, the schedule has a value of 1 for all time periods".
       indoor_co2_availability_schedule = OpenStudio::Model::ScheduleCompact.new(model)
-      indoor_co2_availability_schedule.setName("indoor_co2_availability_schedule")
+      indoor_co2_availability_schedule.setName('indoor_co2_availability_schedule')
       indoor_co2_availability_schedule.setScheduleTypeLimits(BTAP::Resources::Schedules::StandardScheduleTypeLimits::get_fraction(model))
       indoor_co2_availability_schedule.setToConstantValue(1)
 
       ##### Define indoor CO2 setpoint schedule (required for CO2-based DCV)
       indoor_co2_setpoint_schedule = OpenStudio::Model::ScheduleCompact.new(model)
-      indoor_co2_setpoint_schedule.setName("indoor_co2_setpoint_schedule")
+      indoor_co2_setpoint_schedule.setName('indoor_co2_setpoint_schedule')
       indoor_co2_setpoint_schedule.setScheduleTypeLimits(get_any_number_ppm(model))
       indoor_co2_setpoint_schedule.setToConstantValue(1000.0) #1000 ppm
 
       ##### Define outdoor CO2 schedule (required for CO2-based DCV)
       outdoor_co2_schedule = OpenStudio::Model::ScheduleCompact.new(model)
-      outdoor_co2_schedule.setName("outdoor_co2_schedule")
+      outdoor_co2_schedule.setName('outdoor_co2_schedule')
       outdoor_co2_schedule.setScheduleTypeLimits(get_any_number_ppm(model))
       outdoor_co2_schedule.setToConstantValue(400.0) #400 ppm
 
@@ -1112,21 +1112,21 @@ class NECB2011 < Standard
           controller_mv = controller_oa.controllerMechanicalVentilation
 
           ##### Set "Demand Controlled Ventilation" to "Yes" or "No" in Controller:MechanicalVentilation depending on dcv_type.
-          if dcv_type == "Occupancy-based DCV" || dcv_type == "CO2-based DCV"
+          if dcv_type == 'Occupancy-based DCV' || dcv_type == 'CO2-based DCV'
             if controller_mv.demandControlledVentilation != true
               controller_mv.setDemandControlledVentilation(true)
             end
-          elsif dcv_type == "No DCV"
+          elsif dcv_type == 'No DCV'
             if controller_mv.demandControlledVentilation != false
               controller_mv.setDemandControlledVentilation(false)
             end
           end
 
           ##### Set the "System Outdoor Air Method" field based on dcv_type in the Controller:MechanicalVentilation object
-          if dcv_type == "Occupancy-based DCV"
-            controller_mv.setSystemOutdoorAirMethod("ZoneSum")
-          elsif dcv_type == "CO2-based DCV"
-            controller_mv.setSystemOutdoorAirMethod("IndoorAirQualityProcedure")
+          if dcv_type == 'Occupancy-based DCV'
+            controller_mv.setSystemOutdoorAirMethod('ZoneSum')
+          elsif dcv_type == 'CO2-based DCV'
+            controller_mv.setSystemOutdoorAirMethod('IndoorAirQualityProcedure')
           end
         end #if !hvac_component.empty?
 
@@ -1163,7 +1163,7 @@ class NECB2011 < Standard
   # pulled from sources such as the DOE Reference and DOE Prototype Buildings.
   #
   # @return [Bool] returns true if successful, false if not
-  def model_add_loads(model, lights_type = "NECB_Default", lights_scale = 1.0)
+  def model_add_loads(model, lights_type = 'NECB_Default', lights_scale = 1.0)
     OpenStudio.logFree(OpenStudio::Info, 'openstudio.model.Model', 'Started applying space types (loads)')
 
     # Loop through all the space types currently in the model,

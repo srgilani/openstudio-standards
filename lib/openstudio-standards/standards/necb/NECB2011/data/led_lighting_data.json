@@ -13,8 +13,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -23,8 +22,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -33,8 +31,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -43,8 +40,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -53,8 +49,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -63,8 +58,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -73,8 +67,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -83,8 +76,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -93,8 +85,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -103,8 +94,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -113,8 +103,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -123,8 +112,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -133,8 +121,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -143,8 +130,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -153,8 +139,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -163,8 +148,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -173,8 +157,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -183,8 +166,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -193,8 +175,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -203,8 +184,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -213,8 +193,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -223,8 +202,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -233,8 +211,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -243,8 +220,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -253,8 +229,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -263,8 +238,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -273,8 +247,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -283,8 +256,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -293,8 +265,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -303,8 +274,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -313,8 +283,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -323,8 +292,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -333,8 +301,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -343,8 +310,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -353,8 +319,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -363,8 +328,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -373,8 +337,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -383,8 +346,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -393,8 +355,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -403,8 +364,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -413,8 +373,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -423,8 +382,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -433,8 +391,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -443,8 +400,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -453,8 +409,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -463,8 +418,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -473,8 +427,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -483,8 +436,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -493,8 +445,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -503,8 +454,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -513,8 +463,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -523,8 +472,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -533,8 +481,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -543,8 +490,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -553,8 +499,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -563,8 +508,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -573,8 +517,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -583,8 +526,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -593,8 +535,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -603,8 +544,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -613,8 +553,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -623,8 +562,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -633,8 +571,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -643,8 +580,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -653,8 +589,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -663,8 +598,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -673,8 +607,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -683,8 +616,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -693,8 +625,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -703,8 +634,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -713,8 +643,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -723,8 +652,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -733,8 +661,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -743,8 +670,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -753,8 +679,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -763,8 +688,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -773,8 +697,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -783,8 +706,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -793,8 +715,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -803,8 +724,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -813,8 +733,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -823,8 +742,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -833,8 +751,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -843,8 +760,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -853,8 +769,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -863,8 +778,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -873,8 +787,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -883,8 +796,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -893,8 +805,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -903,8 +814,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -913,8 +823,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -923,8 +832,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -933,8 +841,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -943,8 +850,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -953,8 +859,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -963,8 +868,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -973,8 +877,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -983,8 +886,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -993,8 +895,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -1003,8 +904,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -1013,8 +913,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -1023,8 +922,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -1033,8 +931,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -1043,8 +940,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -1053,8 +949,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -1063,8 +958,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -1073,8 +967,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -1083,8 +976,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -1093,8 +985,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -1103,8 +994,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -1113,8 +1003,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -1123,8 +1012,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -1133,8 +1021,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -1143,8 +1030,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -1153,8 +1039,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -1163,8 +1048,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -1173,8 +1057,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -1183,8 +1066,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -1193,8 +1075,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -1203,8 +1084,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -1213,8 +1093,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -1223,8 +1102,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -1233,8 +1111,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -1243,8 +1120,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -1253,8 +1129,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -1263,8 +1138,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -1273,8 +1147,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -1283,8 +1156,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -1293,8 +1165,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -1303,8 +1174,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -1313,8 +1183,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -1323,8 +1192,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -1333,8 +1201,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -1343,8 +1210,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -1353,8 +1219,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -1363,8 +1228,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -1373,8 +1237,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -1383,8 +1246,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -1393,8 +1255,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -1403,8 +1264,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -1413,8 +1273,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -1423,8 +1282,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -1433,8 +1291,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -1443,8 +1300,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -1453,8 +1309,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -1463,8 +1318,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -1473,8 +1327,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -1483,8 +1336,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -1493,8 +1345,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -1503,8 +1354,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -1513,8 +1363,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -1523,8 +1372,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -1533,8 +1381,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -1543,8 +1390,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -1553,8 +1399,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -1563,8 +1408,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -1573,8 +1417,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -1583,8 +1426,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -1593,8 +1435,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -1603,8 +1444,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -1613,8 +1453,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -1623,8 +1462,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -1633,8 +1471,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -1643,8 +1480,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -1653,8 +1489,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -1663,8 +1498,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -1673,8 +1507,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -1683,8 +1516,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -1693,8 +1525,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -1703,8 +1534,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -1713,8 +1543,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -1723,8 +1552,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -1733,8 +1561,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -1743,8 +1570,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -1753,8 +1579,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -1763,8 +1588,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -1773,8 +1597,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -1783,8 +1606,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -1793,8 +1615,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -1803,8 +1624,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -1813,8 +1633,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -1823,8 +1642,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -1833,8 +1651,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -1843,8 +1660,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -1853,8 +1669,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -1863,8 +1678,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -1873,8 +1687,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -1883,8 +1696,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -1893,8 +1705,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -1903,8 +1714,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -1913,8 +1723,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -1923,8 +1732,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -1933,8 +1741,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -1943,8 +1750,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -1953,8 +1759,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -1963,8 +1768,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -1973,8 +1777,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -1983,8 +1786,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -1993,8 +1795,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -2003,8 +1804,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -2013,8 +1813,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -2023,8 +1822,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -2033,8 +1831,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -2043,8 +1840,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -2053,8 +1849,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -2063,8 +1858,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -2073,8 +1867,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -2083,8 +1876,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -2093,8 +1885,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -2103,8 +1894,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -2113,8 +1903,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -2123,8 +1912,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -2133,8 +1921,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -2143,8 +1930,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -2153,8 +1939,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -2163,8 +1948,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -2173,8 +1957,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -2183,8 +1966,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -2193,8 +1975,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -2203,8 +1984,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -2213,8 +1993,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -2223,8 +2002,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -2233,8 +2011,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         },
         {
           "lighting_standard": "NECB2011",
@@ -2243,8 +2020,7 @@
           "lighting_per_area": 0.92903,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
-          "lighting_fraction_visible": 0.6,
-          "lighting_per_area_w_per_m2": 0.0
+          "lighting_fraction_visible": 0.6
         }
       ]
     }

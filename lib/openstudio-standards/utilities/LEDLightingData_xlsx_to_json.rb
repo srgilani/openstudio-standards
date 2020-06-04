@@ -50,7 +50,6 @@ data_hash = JSON.parse(File.read("#{File.dirname(__FILE__)}/../btap/csvToJsonUpd
 # puts data_hash
 
 data_hash.each do |info|
-  info['lighting_per_area_w_per_m2'] = info['lighting_per_area_w_per_m2'].to_f
   info['lighting_per_area'] = info['lighting_per_area'].to_f
   info['lighting_fraction_to_return_air'] = info['lighting_fraction_to_return_air'].to_f
   info['lighting_fraction_radiant'] = info['lighting_fraction_radiant'].to_f

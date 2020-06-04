@@ -13,8 +13,8 @@ class NECB2011
     if lights_type == 'LED'
       led_lights_have_info = false #Sara
       led_spacetype_data = @standards_data['tables']['led_lighting_data']['table'] #Sara
-      puts space_type_properties
-      puts led_spacetype_data
+      # puts space_type_properties
+      # puts led_spacetype_data
       #raise("led_spacetype_data is good")
       standards_building_type = space_type.standardsBuildingType.is_initialized ? space_type.standardsBuildingType.get : nil #Sara
       standards_space_type = space_type.standardsSpaceType.is_initialized ? space_type.standardsSpaceType.get : nil #Sara
@@ -22,7 +22,6 @@ class NECB2011
       if led_space_type_properties.nil?
         raise("#{standards_building_type} for #{standards_space_type} was not found please verify the led lighting database names match the space type names.")
       end
-
       # raise("led_space_type_properties is good")
       lighting_per_area_led_lighting = led_space_type_properties['lighting_per_area'].to_f * scale #Sara
       lights_frac_to_return_air_led_lighting = led_space_type_properties['lighting_fraction_to_return_air'].to_f #Sara

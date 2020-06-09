@@ -8,6 +8,8 @@ class YourTestName_Test < Minitest::Test
 
     # File paths.
     @output_folder = File.join(__dir__, 'output/test_daylight_sensor')
+    puts @output_folder
+    # raise('check output folder location')
     @expected_results_file = File.join(__dir__, '../expected_results/daylighting_expected_results.json')
     @test_results_file = File.join(__dir__, '../expected_results/daylighting_test_results.json')
     @sizing_run_dir = File.join(@output_folder, 'sizing_folder')
@@ -17,7 +19,8 @@ class YourTestName_Test < Minitest::Test
 
     #Range of test options.
     @templates = ['NECB2011']
-    @building_types = ['Warehouse', 'FullServiceRestaurant']
+    # @building_types = ['Outpatient','Hospital']
+    @building_types = ['FullServiceRestaurant','HighriseApartment','Hospital','LargeHotel','LargeOffice','MediumOffice','MidriseApartment','Outpatient','PrimarySchool','QuickServiceRestaurant','RetailStandalone','SecondarySchool','SmallHotel','Warehouse']
     @epw_files = ['CAN_AB_Banff.CS.711220_CWEC2016.epw']
     @primary_heating_fuels = ['DefaultFuel']
     @dcv_types = ['No DCV']
@@ -46,26 +49,26 @@ class YourTestName_Test < Minitest::Test
               #loads osm geometry and spactypes from library.
               model = standard.load_building_type_from_library(building_type: building_type)
 
-              # this runs the step in the model. You can remove steps after what you want to test if you wish to make the test run faster.
+              # this runs the step in the model. You can remove steps after what'FullServiceRestaurant', you want to test if you wish to make the test run faster.
               standard.apply_weather_data(model: model, epw_file: epw_file)
               standard.apply_loads(model: model)
               standard.apply_envelope(model: model)
               standard.apply_fdwr_srr_daylighting(model: model)
-              standard.apply_auto_zoning(model: model, sizing_run_dir: @sizing_run_dir)
-              standard.apply_systems(model: model, primary_heating_fuel: primary_heating_fuel, sizing_run_dir: @sizing_run_dir, dcv_type: dcv_type)
-              standard.apply_standard_efficiencies(model: model, sizing_run_dir: @sizing_run_dir)
-              model = standard.apply_loop_pump_power(model: model, sizing_run_dir: @sizing_run_dir)
+              # standard.apply_auto_zoning(model: model, sizing_run_dir: @sizing_run_dir)
+              # standard.apply_systems(model: model, primary_heating_fuel: primary_heating_fuel, sizing_run_dir: @sizing_run_dir, dcv_type: dcv_type)
+              # standard.apply_standard_efficiencies(model: model, sizing_run_dir: @sizing_run_dir)
+              # model = standard.apply_loop_pump_power(model: model, sizing_run_dir: @sizing_run_dir)
               standard.model_add_daylighting_controls(model)
+
+              # # comment out for regular tests
+              # BTAP::FileIO.save_osm(model, File.join(@output_folder,"#{template}-#{building_type}.osm"))
+              # puts File.join(@output_folder,"#{template}-#{building_type}.osm")
 
               # gather daylighting sensor controls once this measure is applied to the model
               # First: Find which spaces should have daylighting sensor
               # Second: Check if those spaces have daylighting sensor(s) in the model once the "model_add_daylighting_controls" function has been applied to the model.
               ##### Ask user's inputs for daylighting controls illuminance setpoint and number of stepped control steps.
               ##### Note that the minimum number of stepped control steps is two steps as per NECB2011.
-              def daylighting_controls_settings(illuminance_setpoint: 500.0,
-                                                number_of_stepped_control_steps: 2)
-                return illuminance_setpoint, number_of_stepped_control_steps
-              end
 
               ##### Find spaces with exterior fenestration including fixed window, operable window, and skylight.
               daylight_spaces = []
@@ -450,7 +453,7 @@ class YourTestName_Test < Minitest::Test
                 ##### Calculate the area of the daylight_space
                 daylight_space_area = nil
                 daylight_space.surfaces.each do |surface|
-                  if surface.surfaceType == "Floor"
+                  if surface.surfaceType == 'Floor'
                     daylight_space_area = surface.netArea
                   end
                 end
@@ -464,17 +467,6 @@ class YourTestName_Test < Minitest::Test
                   zone = daylight_space.thermalZone.get
                 end
 
-                ##### Get the floor of the daylight_space
-                floors = []
-                daylight_space.surfaces.each do |surface|
-                  if surface.surfaceType == "Floor"
-                    floors << surface
-                  end
-                end
-
-                ##### Get user's input for daylighting controls illuminance setpoint and number of stepped control steps
-                illuminance_setpoint, number_of_stepped_control_steps = daylighting_controls_settings(illuminance_setpoint: 500.0, number_of_stepped_control_steps: 2)
-
                 ##### Check daylighting sensor control(s)
                 # puts daylight_space
                 # puts daylight_space.name()
@@ -487,6 +479,9 @@ class YourTestName_Test < Minitest::Test
                   primary_daylighting_control_illuminance_setpoint = zone_daylighting_control_primary.illuminanceSetpoint()
                   primary_daylighting_control_lighting_control_type = zone_daylighting_control_primary.lightingControlType()
                   primary_daylighting_control_number_of_stepped_control_steps = zone_daylighting_control_primary.numberofSteppedControlSteps()
+                  primary_daylighting_x_pos = zone_daylighting_control_primary.positionXCoordinate()
+                  primary_daylighting_y_pos = zone_daylighting_control_primary.positionYCoordinate()
+                  primary_daylighting_z_pos = zone_daylighting_control_primary.positionZCoordinate()
                 else
                   number_daylight_sensor = 2
                   zone_daylighting_control_primary = zone.primaryDaylightingControl.get
@@ -494,12 +489,18 @@ class YourTestName_Test < Minitest::Test
                   primary_daylighting_control_illuminance_setpoint = zone_daylighting_control_primary.illuminanceSetpoint()
                   primary_daylighting_control_lighting_control_type = zone_daylighting_control_primary.lightingControlType()
                   primary_daylighting_control_number_of_stepped_control_steps = zone_daylighting_control_primary.numberofSteppedControlSteps()
+                  primary_daylighting_x_pos = zone_daylighting_control_primary.positionXCoordinate()
+                  primary_daylighting_y_pos = zone_daylighting_control_primary.positionYCoordinate()
+                  primary_daylighting_z_pos = zone_daylighting_control_primary.positionZCoordinate()
 
                   zone_daylighting_control_secondary = zone.secondaryDaylightingControl.get
                   secondary_daylighting_control_fraction_of_zone_controlled = zone.fractionofZoneControlledbySecondaryDaylightingControl()
                   secondary_daylighting_control_illuminance_setpoint = zone_daylighting_control_secondary.illuminanceSetpoint()
                   secondary_daylighting_control_lighting_control_type = zone_daylighting_control_secondary.lightingControlType()
                   secondary_daylighting_control_number_of_stepped_control_steps = zone_daylighting_control_secondary.numberofSteppedControlSteps()
+                  secondary_daylighting_x_pos = zone_daylighting_control_secondary.positionXCoordinate()
+                  secondary_daylighting_y_pos = zone_daylighting_control_secondary.positionYCoordinate()
+                  secondary_daylighting_z_pos = zone_daylighting_control_secondary.positionZCoordinate()
                 end
 
                 # gather results from this iteration and store it into the test_result_array.
@@ -512,16 +513,25 @@ class YourTestName_Test < Minitest::Test
                   result["#{daylight_space.name.to_s} - primary_daylighting_control_illuminance_setpoint"] = primary_daylighting_control_illuminance_setpoint
                   result["#{daylight_space.name.to_s} - primary_daylighting_control_lighting_control_type"] = primary_daylighting_control_lighting_control_type
                   result["#{daylight_space.name.to_s} - primary_daylighting_control_number_of_stepped_control_steps"] = primary_daylighting_control_number_of_stepped_control_steps
+                  result["#{daylight_space.name.to_s} - primary_daylighting_x_pos"] = primary_daylighting_x_pos
+                  result["#{daylight_space.name.to_s} - primary_daylighting_y_pos"] = primary_daylighting_y_pos
+                  result["#{daylight_space.name.to_s} - primary_daylighting_z_pos"] = primary_daylighting_z_pos
                 elsif number_daylight_sensor == 2
                   result["#{daylight_space.name.to_s} - primary_daylighting_control_fraction_of_zone_controlled"] = primary_daylighting_control_fraction_of_zone_controlled
                   result["#{daylight_space.name.to_s} - primary_daylighting_control_illuminance_setpoint"] = primary_daylighting_control_illuminance_setpoint
                   result["#{daylight_space.name.to_s} - primary_daylighting_control_lighting_control_type"] = primary_daylighting_control_lighting_control_type
                   result["#{daylight_space.name.to_s} - primary_daylighting_control_number_of_stepped_control_steps"] = primary_daylighting_control_number_of_stepped_control_steps
+                  result["#{daylight_space.name.to_s} - primary_daylighting_x_pos"] = primary_daylighting_x_pos
+                  result["#{daylight_space.name.to_s} - primary_daylighting_y_pos"] = primary_daylighting_y_pos
+                  result["#{daylight_space.name.to_s} - primary_daylighting_z_pos"] = primary_daylighting_z_pos
 
                   result["#{daylight_space.name.to_s} - secondary_daylighting_control_fraction_of_zone_controlled"] = secondary_daylighting_control_fraction_of_zone_controlled
                   result["#{daylight_space.name.to_s} - secondary_daylighting_control_illuminance_setpoint"] = secondary_daylighting_control_illuminance_setpoint
                   result["#{daylight_space.name.to_s} - secondary_daylighting_control_lighting_control_type"] = secondary_daylighting_control_lighting_control_type
                   result["#{daylight_space.name.to_s} - secondary_daylighting_control_number_of_stepped_control_steps"] = secondary_daylighting_control_number_of_stepped_control_steps
+                  result["#{daylight_space.name.to_s} - secondary_daylighting_x_pos"] = secondary_daylighting_x_pos
+                  result["#{daylight_space.name.to_s} - secondary_daylighting_y_pos"] = secondary_daylighting_y_pos
+                  result["#{daylight_space.name.to_s} - secondary_daylighting_z_pos"] = secondary_daylighting_z_pos
                 end
 
 

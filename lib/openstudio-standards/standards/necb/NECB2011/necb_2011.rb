@@ -532,8 +532,8 @@ class NECB2011 < Standard
     ##### Find spaces with exterior fenestration including fixed window, operable window, and skylight.
     daylight_spaces = []
     model.getSpaces.sort.each do |space|
-      space.surfaces.each do |surface|
-        surface.subSurfaces.each do |subsurface|
+      space.surfaces.sort.each do |surface|
+        surface.subSurfaces.sort.each do |subsurface|
           if subsurface.outsideBoundaryCondition == "Outdoors" &&
               (subsurface.subSurfaceType == "FixedWindow" ||
                   subsurface.subSurfaceType == "OperableWindow" ||
@@ -558,7 +558,7 @@ class NECB2011 < Standard
     skylight_effective_aperture_hash = {}
 
     ##### Calculate "Primary Sidelighted Areas" AND "Sidelighting Effective Aperture" as per NECB2011. #TODO: consider removing overlapped sidelighted area
-    daylight_spaces.each do |daylight_space|
+    daylight_spaces.sort.each do |daylight_space|
       # puts daylight_space.name.to_s
       primary_sidelighted_area = 0.0
       area_weighted_vt_handle = 0.0
@@ -569,7 +569,7 @@ class NECB2011 < Standard
       floor_surface = nil
       floor_area = []
       floor_vertices = []
-      daylight_space.surfaces.each do |surface|
+      daylight_space.surfaces.sort.each do |surface|
         if surface.surfaceType == "Floor"
           floor_surface = surface
           floor_area << surface.netArea
@@ -579,7 +579,7 @@ class NECB2011 < Standard
 
       ##### Loop through the surfaces of each daylight_space to calculate primary_sidelighted_area and
       ##### area-weighted visible transmittance and window_area_sum which are used to calculate sidelighting_effective_aperture
-      daylight_space.surfaces.each do |surface|
+      daylight_space.surfaces.sort.each do |surface|
 
         ##### Get the vertices of each exterior wall of the daylight_space on the floor
         ##### (these vertices will be used to calculate daylight_space depth in relation to the exterior wall, and
@@ -618,7 +618,7 @@ class NECB2011 < Standard
           daylight_space_depth = 2 * floor_area[0] / (floor_width_wall_side + floor_width_wall_opposite)
 
           ##### Loop through the windows (including fixed and operable ones) to get window specification (width, height, area, visible transmittance (VT)), and area-weighted VT
-          surface.subSurfaces.each do |subsurface|
+          surface.subSurfaces.sort.each do |subsurface|
             # puts subsurface.name.to_s
             if subsurface.subSurfaceType == "FixedWindow" || subsurface.subSurfaceType == "OperableWindow"
               window_vt = subsurface.visibleTransmittance
@@ -663,7 +663,7 @@ class NECB2011 < Standard
 
 
     ##### Calculate "Daylighted Area Under Skylights" AND "Skylight Effective Aperture"
-    daylight_spaces.each do |daylight_space|
+    daylight_spaces.sort.each do |daylight_space|
       # puts daylight_space.name.to_s
       skylight_area = 0.0
       skylight_area_weighted_vt_handle = 0.0
@@ -671,14 +671,14 @@ class NECB2011 < Standard
       skylight_area_sum = 0.0
 
       ##### Loop through the surfaces of each daylight_space to calculate daylighted_area_under_skylights and skylight_effective_aperture for each daylight_space
-      daylight_space.surfaces.each do |surface|
+      daylight_space.surfaces.sort.each do |surface|
         ##### Get roof vertices
         if surface.outsideBoundaryCondition == "Outdoors" && surface.surfaceType == "RoofCeiling"
           roof_vertices = surface.vertices
         end
 
         ##### Loop through each subsurafce to calculate daylighted_area_under_skylights and skylight_effective_aperture for each daylight_space
-        surface.subSurfaces.each do |subsurface|
+        surface.subSurfaces.sort.each do |subsurface|
           if subsurface.subSurfaceType == "Skylight"
             skylight_vt = subsurface.visibleTransmittance
             skylight_vt = skylight_vt.get
@@ -768,7 +768,7 @@ class NECB2011 < Standard
 
             ##### As noted above, the width and length of the daylighted area under the skylight are re-calculated (as per NECB2011: 4.2.2.5.), if any exterior walls has window(s).
             ##### To this end, the window_head_height should be calculated, as below:
-            daylight_space.surfaces.each do |surface|
+            daylight_space.surfaces.sort.each do |surface|
               if surface.outsideBoundaryCondition == "Outdoors" && surface.surfaceType == "Wall"
                 wall_vertices_on_floor_x = []
                 wall_vertices_on_floor_y = []
@@ -806,7 +806,7 @@ class NECB2011 < Standard
                 skylight_vertex_3_distance = (2.0 * skylight_vertex_3_triangle_area) / exterior_wall_length
 
                 ##### Loop through the subsurfaces that has exterior windows to re-calculate the width and length of the daylighted area under the skylight
-                surface.subSurfaces.each do |subsurface|
+                surface.subSurfaces.sort.each do |subsurface|
                   if subsurface.subSurfaceType == "FixedWindow" || subsurface.subSurfaceType == "OperableWindow"
 
                     if skylight_vertex_0_distance == skylight_vertex_1_distance #skylight_01 is in parellel to the exterior wall
@@ -841,6 +841,18 @@ class NECB2011 < Standard
 
     end #daylight_spaces.each do |daylight_space|
 
+    ##### for checking daylight spaces areas
+    # daylight_spaces.sort.each do |daylight_space|
+    #   puts daylight_space.name.to_s
+    #   daylight_space_area = []
+    #   zone = daylight_space.thermalZone
+    #   if !zone.empty?
+    #     zone = daylight_space.thermalZone.get
+    #     daylight_space_area = zone.floorArea()
+    #   end
+    #   puts daylight_space_area
+    # end
+
     # puts primary_sidelighted_area_hash
     # puts sidelighting_effective_aperture_hash
     # puts daylighted_area_under_skylights_hash
@@ -848,9 +860,9 @@ class NECB2011 < Standard
 
     ##### Find office spaces >= 25m2 among daylight_spaces
     offices_larger_25m2 = []
-    daylight_spaces.each do |daylight_space|
+    daylight_spaces.sort.each do |daylight_space|
       office_area = nil
-      daylight_space.surfaces.each do |surface|
+      daylight_space.surfaces.sort.each do |surface|
         if surface.surfaceType == "Floor"
           office_area = surface.netArea
         end
@@ -863,7 +875,7 @@ class NECB2011 < Standard
     ##### find daylight_spaces which do not need daylight sensor controls based on the primary_sidelighted_area as per NECB2011: 4.2.2.8.
     ##### Note: Office spaces >= 25m2 are excluded (i.e. they should have daylighting controls even if their primary_sidelighted_area <= 100m2), as per NECB2011: 4.2.2.2.
     daylight_spaces_exception = []
-    primary_sidelighted_area_hash.each do |key_daylight_space_name, value_primary_sidelighted_area|
+    primary_sidelighted_area_hash.sort.each do |key_daylight_space_name, value_primary_sidelighted_area|
       if value_primary_sidelighted_area <= 100.0 && [key_daylight_space_name].any? {|word| offices_larger_25m2.include?(word)} == false
         daylight_spaces_exception << key_daylight_space_name
       end
@@ -871,7 +883,7 @@ class NECB2011 < Standard
 
     ##### find daylight_spaces which do not need daylight sensor controls based on the sidelighting_effective_aperture as per NECB2011: 4.2.2.8.
     ##### Note: Office spaces >= 25m2 are excluded (i.e. they should have daylighting controls even if their sidelighting_effective_aperture <= 10%), as per NECB2011: 4.2.2.2.
-    sidelighting_effective_aperture_hash.each do |key_daylight_space_name, value_sidelighting_effective_aperture|
+    sidelighting_effective_aperture_hash.sort.each do |key_daylight_space_name, value_sidelighting_effective_aperture|
       if value_sidelighting_effective_aperture <= 0.1 && [key_daylight_space_name].any? {|word| offices_larger_25m2.include?(word)} == false
         daylight_spaces_exception << key_daylight_space_name
       end
@@ -879,7 +891,7 @@ class NECB2011 < Standard
 
     ##### find daylight_spaces which do not need daylight sensor controls based on the daylighted_area_under_skylights as per NECB2011: 4.2.2.4.
     ##### Note: Office spaces >= 25m2 are excluded (i.e. they should have daylighting controls even if their daylighted_area_under_skylights <= 400m2), as per NECB2011: 4.2.2.2.
-    daylighted_area_under_skylights_hash.each do |key_daylight_space_name, value_daylighted_area_under_skylights|
+    daylighted_area_under_skylights_hash.sort.each do |key_daylight_space_name, value_daylighted_area_under_skylights|
       if value_daylighted_area_under_skylights <= 400.0 && [key_daylight_space_name].any? {|word| offices_larger_25m2.include?(word)} == false
         daylight_spaces_exception << key_daylight_space_name
       end
@@ -887,7 +899,7 @@ class NECB2011 < Standard
 
     ##### find daylight_spaces which do not need daylight sensor controls based on the skylight_effective_aperture criterion as per NECB2011: 4.2.2.4.
     ##### Note: Office spaces >= 25m2 are excluded (i.e. they should have daylighting controls even if their skylight_effective_aperture <= 0.6%), as per NECB2011: 4.2.2.2.
-    skylight_effective_aperture_hash.each do |key_daylight_space_name, value_skylight_effective_aperture|
+    skylight_effective_aperture_hash.sort.each do |key_daylight_space_name, value_skylight_effective_aperture|
       if value_skylight_effective_aperture <= 0.006 && [key_daylight_space_name].any? {|word| offices_larger_25m2.include?(word)} == false
         daylight_spaces_exception << key_daylight_space_name
       end
@@ -895,8 +907,8 @@ class NECB2011 < Standard
     # puts daylight_spaces_exception
 
     ##### Loop through the daylight_spaces and exclude the daylight_spaces that do not meet the criteria (see above) as per NECB2011: 4.2.2.4. and 4.2.2.8.
-    daylight_spaces_exception.each do |daylight_space_exception|
-      daylight_spaces.each do |daylight_space|
+    daylight_spaces_exception.sort.each do |daylight_space_exception|
+      daylight_spaces.sort.each do |daylight_space|
         if daylight_space.name.to_s == daylight_space_exception
           daylight_spaces.delete(daylight_space)
         end
@@ -906,119 +918,196 @@ class NECB2011 < Standard
 
     ##### Create one daylighting sensor and put it at the center of each daylight_space if the space area < 250m2;
     ##### otherwise, create two daylight sensors, divide the space into two parts and put each of the daylight sensors at the center of each part of the space.
-    daylight_spaces.each do |daylight_space|
-
-      ##### Calculate the area of the daylight_space
-      daylight_space_area = nil
-      daylight_space.surfaces.each do |surface|
-        if surface.surfaceType == "Floor"
-          daylight_space_area = surface.netArea
-        end
-      end
+    daylight_spaces.sort.each do |daylight_space|
 
       ##### Get the thermal zone of daylight_space (this is used later to assign daylighting sensor)
       zone = daylight_space.thermalZone
-      if zone.empty?
-        OpenStudio.logFree(OpenStudio::Error, 'openstudio.model.Space', "Space #{daylight_space.name}, cannot determine daylighted areas.")
-        return false
-      else
+      daylight_space_area = nil
+      if !zone.empty?
         zone = daylight_space.thermalZone.get
-      end
-
-      ##### Get the floor of the daylight_space
-      floors = []
-      daylight_space.surfaces.each do |surface|
-        if surface.surfaceType == "Floor"
-          floors << surface
-        end
-      end
-
-      ##### Get user's input for daylighting controls illuminance setpoint and number of stepped control steps
-      illuminance_setpoint, number_of_stepped_control_steps = daylighting_controls_settings(illuminance_setpoint: 500.0, number_of_stepped_control_steps: 2)
-
-      ##### Create daylighting sensor control(s)
-      if daylight_space_area <= 250.0
-        boundingBox = OpenStudio::BoundingBox.new
-        floors.each do |floor|
-          boundingBox.addPoints(floor.vertices)
-        end
-        xmin = boundingBox.minX.get
-        ymin = boundingBox.minY.get
-        zmin = boundingBox.minZ.get
-        xmax = boundingBox.maxX.get
-        ymax = boundingBox.maxY.get
-        sensor = OpenStudio::Model::DaylightingControl.new(daylight_space.model)
-        sensor.setName("#{daylight_space.name.to_s} daylighting control")
-        sensor.setSpace(daylight_space)
-        sensor.setIlluminanceSetpoint(illuminance_setpoint)
-        sensor.setLightingControlType('Stepped')
-        sensor.setNumberofSteppedControlSteps(number_of_stepped_control_steps)
-        x_pos = (xmin + xmax) / 2.0
-        y_pos = (ymin + ymax) / 2.0
-        z_pos = zmin + 0.8 #put it 0.8 meter above the floor
-        sensor_vertex = OpenStudio::Point3d.new(x_pos, y_pos, z_pos)
-        sensor.setPosition(sensor_vertex)
-        zone.setPrimaryDaylightingControl(sensor)
-        zone.setFractionofZoneControlledbyPrimaryDaylightingControl(1.0)
-      else
-        floor_vertices = []
-        floors.each do |floor|
-          floor_vertices = floor.vertices
+        daylight_space_area = zone.floorArea()
+        # puts daylight_space_area
+        ##### Get the floor of the daylight_space
+        floors = []
+        daylight_space.surfaces.sort.each do |surface|
+          if surface.surfaceType == "Floor"
+            floors << surface
+          end
         end
 
-        ##### Create daylighting sensor control #1 and put it at the center of each daylight_space.
-        boundingBox = OpenStudio::BoundingBox.new
-        vertex_0 = OpenStudio::Point3d.new(floor_vertices[0].x, floor_vertices[0].y, floor_vertices[0].z)
-        vertex_1 = OpenStudio::Point3d.new(floor_vertices[1].x, floor_vertices[1].y, floor_vertices[1].z)
-        # Find the mean point of the side connecting vertices 1 and 2.
-        vertex_2 = OpenStudio::Point3d.new(floor_vertices[1].x - (floor_vertices[1].x - floor_vertices[2].x) / 2.0, floor_vertices[1].y + (floor_vertices[2].y - floor_vertices[1].y) / 2.0, floor_vertices[0].z)
-        # Find the mean point of the side connecting vertices 0 and 3.
-        vertex_3 = OpenStudio::Point3d.new(floor_vertices[3].x + (floor_vertices[0].x - floor_vertices[3].x) / 2.0, floor_vertices[0].y + (floor_vertices[3].y - floor_vertices[0].y) / 2.0, floor_vertices[0].z)
-        boundingBox.addPoints([vertex_0, vertex_1, vertex_2, vertex_3])
-        xmin = boundingBox.minX.get
-        ymin = boundingBox.minY.get
-        zmin = boundingBox.minZ.get
-        xmax = boundingBox.maxX.get
-        ymax = boundingBox.maxY.get
-        sensor_1 = OpenStudio::Model::DaylightingControl.new(daylight_space.model)
-        sensor_1.setName("#{daylight_space.name.to_s} daylighting control 1")
-        sensor_1.setSpace(daylight_space)
-        sensor_1.setIlluminanceSetpoint(illuminance_setpoint)
-        sensor_1.setLightingControlType('Stepped')
-        sensor_1.setNumberofSteppedControlSteps(number_of_stepped_control_steps)
-        x_pos = (xmin + xmax) / 2.0
-        y_pos = (ymin + ymax) / 2.0
-        z_pos = zmin + 0.8 #put the sensor 0.8 meter above the floor
-        sensor_vertex = OpenStudio::Point3d.new(x_pos, y_pos, z_pos)
-        sensor_1.setPosition(sensor_vertex)
-        zone.setPrimaryDaylightingControl(sensor_1)
-        zone.setFractionofZoneControlledbyPrimaryDaylightingControl(0.5)
+        ##### Get user's input for daylighting controls illuminance setpoint and number of stepped control steps
+        illuminance_setpoint, number_of_stepped_control_steps = daylighting_controls_settings(illuminance_setpoint: 500.0, number_of_stepped_control_steps: 2)
 
-        ##### Create daylighting sensor control #2. Divide the space into two parts. Put each of the daylight sensors at the center of each part of the space.
-        boundingBox = OpenStudio::BoundingBox.new
-        vertex_0 = OpenStudio::Point3d.new(floor_vertices[2].x, floor_vertices[2].y, floor_vertices[2].z)
-        vertex_1 = OpenStudio::Point3d.new(floor_vertices[3].x, floor_vertices[3].y, floor_vertices[3].z)
-        vertex_2 = OpenStudio::Point3d.new(floor_vertices[3].x + (floor_vertices[0].x - floor_vertices[3].x) / 2, floor_vertices[0].y + (floor_vertices[3].y - floor_vertices[0].y) / 2, floor_vertices[0].z)
-        vertex_3 = OpenStudio::Point3d.new(floor_vertices[1].x - (floor_vertices[1].x - floor_vertices[2].x) / 2, floor_vertices[1].y + (floor_vertices[2].y - floor_vertices[1].y) / 2, floor_vertices[0].z)
-        boundingBox.addPoints([vertex_0, vertex_1, vertex_2, vertex_3])
-        xmin = boundingBox.minX.get
-        ymin = boundingBox.minY.get
-        zmin = boundingBox.minZ.get
-        xmax = boundingBox.maxX.get
-        ymax = boundingBox.maxY.get
-        sensor_2 = OpenStudio::Model::DaylightingControl.new(daylight_space.model)
-        sensor_2.setName("#{daylight_space.name.to_s} daylighting control 2")
-        sensor_2.setSpace(daylight_space)
-        sensor_2.setIlluminanceSetpoint(illuminance_setpoint)
-        sensor_2.setLightingControlType('Stepped')
-        sensor_2.setNumberofSteppedControlSteps(number_of_stepped_control_steps)
-        x_pos = (xmin + xmax) / 2.0
-        y_pos = (ymin + ymax) / 2.0
-        z_pos = zmin + 0.8 #put the sensor 0.8 meter above the floor
-        sensor_vertex = OpenStudio::Point3d.new(x_pos, y_pos, z_pos)
-        sensor_2.setPosition(sensor_vertex)
-        zone.setSecondaryDaylightingControl(sensor_2)
-        zone.setFractionofZoneControlledbySecondaryDaylightingControl(0.5)
+        ##### Create daylighting sensor control(s)
+        if daylight_space_area <= 250.0
+          boundingBox = OpenStudio::BoundingBox.new
+
+          ##### This is because a thermal zone may have more than one floor, such as warehouse>'zone2 fine storage'.
+          ##### So, first find the lowest floor in the thermal zone to put the sensor at desk level of the lowest floor.
+          n = 1
+          xmin = []
+          ymin = []
+          zmin = []
+          xmax = []
+          ymax = []
+          floors.sort.each do |floor|
+            boundingBox.addPoints(floor.vertices)
+            if n == 1
+              xmin = boundingBox.minX.get
+              ymin = boundingBox.minY.get
+              zmin = boundingBox.minZ.get
+              xmax = boundingBox.maxX.get
+              ymax = boundingBox.maxY.get
+              # puts xmin
+            elsif n > 1
+              if zmin > boundingBox.minZ.get
+                xmin = boundingBox.minX.get
+                ymin = boundingBox.minY.get
+                zmin = boundingBox.minZ.get
+                xmax = boundingBox.maxX.get
+                ymax = boundingBox.maxY.get
+              else zmin <= boundingBox.minZ.get
+                xmin = xmin
+                ymin = ymin
+                zmin = zmin
+                xmax = xmax
+                ymax = ymax
+              end
+            end
+            n += 1
+          end
+          sensor = OpenStudio::Model::DaylightingControl.new(daylight_space.model)
+          sensor.setName("#{daylight_space.name.to_s} daylighting control")
+          sensor.setSpace(daylight_space)
+          sensor.setIlluminanceSetpoint(illuminance_setpoint)
+          sensor.setLightingControlType('Stepped')
+          sensor.setNumberofSteppedControlSteps(number_of_stepped_control_steps)
+          x_pos = (xmin + xmax) / 2.0
+          y_pos = (ymin + ymax) / 2.0
+          z_pos = zmin + 0.8 #put it 0.8 meter above the floor
+          sensor_vertex = OpenStudio::Point3d.new(x_pos, y_pos, z_pos)
+          sensor.setPosition(sensor_vertex)
+          zone.setPrimaryDaylightingControl(sensor)
+          zone.setFractionofZoneControlledbyPrimaryDaylightingControl(1.0)
+        else #i.e. elsif daylight_space_area > 250.0
+          boundingBox = OpenStudio::BoundingBox.new
+          number_floor = 1
+          floors.sort.each do |floor|
+            number_floor += 1
+          end
+          puts daylight_space.name.to_s
+          puts daylight_space_area
+          puts number_floor
+
+          ##### to simplify, put one sensor even if the daylight_space needs more than one sensor if number_floors > 2
+          ##### why number_floor > 2? because there are two floor surfaces for Warehouse floor and roof reversed
+          if number_floor > 2 ## to simplify, put one sensor even if the daylight_space needs more than one sensor if number_floors > 2
+            n = 1
+            xmin = []
+            ymin = []
+            zmin = []
+            xmax = []
+            ymax = []
+            floors.sort.each do |floor|
+              boundingBox.addPoints(floor.vertices)
+              if n == 1
+                xmin = boundingBox.minX.get
+                ymin = boundingBox.minY.get
+                zmin = boundingBox.minZ.get
+                xmax = boundingBox.maxX.get
+                ymax = boundingBox.maxY.get
+                # puts xmin
+              elsif n > 1
+                if zmin > boundingBox.minZ.get
+                  xmin = boundingBox.minX.get
+                  ymin = boundingBox.minY.get
+                  zmin = boundingBox.minZ.get
+                  xmax = boundingBox.maxX.get
+                  ymax = boundingBox.maxY.get
+                else zmin <= boundingBox.minZ.get
+                xmin = xmin
+                ymin = ymin
+                zmin = zmin
+                xmax = xmax
+                ymax = ymax
+                end
+              end
+              n += 1
+            end
+            sensor = OpenStudio::Model::DaylightingControl.new(daylight_space.model)
+            sensor.setName("#{daylight_space.name.to_s} daylighting control")
+            sensor.setSpace(daylight_space)
+            sensor.setIlluminanceSetpoint(illuminance_setpoint)
+            sensor.setLightingControlType('Stepped')
+            sensor.setNumberofSteppedControlSteps(number_of_stepped_control_steps)
+            x_pos = (xmin + xmax) / 2.0
+            y_pos = (ymin + ymax) / 2.0
+            z_pos = zmin + 0.8 #put it 0.8 meter above the floor
+            sensor_vertex = OpenStudio::Point3d.new(x_pos, y_pos, z_pos)
+            sensor.setPosition(sensor_vertex)
+            zone.setPrimaryDaylightingControl(sensor)
+            zone.setFractionofZoneControlledbyPrimaryDaylightingControl(1.0)
+          else #i.e. elsif number_floor < 2
+            floor_vertices = []
+            floors.sort.each do |floor|
+              floor_vertices = floor.vertices
+            end
+
+            ##### Create daylighting sensor control #1 and put it at the center of each daylight_space.
+            boundingBox = OpenStudio::BoundingBox.new
+            vertex_0 = OpenStudio::Point3d.new(floor_vertices[0].x, floor_vertices[0].y, floor_vertices[0].z)
+            vertex_1 = OpenStudio::Point3d.new(floor_vertices[1].x, floor_vertices[1].y, floor_vertices[1].z)
+            # Find the mean point of the side connecting vertices 1 and 2.
+            vertex_2 = OpenStudio::Point3d.new(floor_vertices[1].x - (floor_vertices[1].x - floor_vertices[2].x) / 2.0, floor_vertices[1].y + (floor_vertices[2].y - floor_vertices[1].y) / 2.0, floor_vertices[0].z)
+            # Find the mean point of the side connecting vertices 0 and 3.
+            vertex_3 = OpenStudio::Point3d.new(floor_vertices[3].x + (floor_vertices[0].x - floor_vertices[3].x) / 2.0, floor_vertices[0].y + (floor_vertices[3].y - floor_vertices[0].y) / 2.0, floor_vertices[0].z)
+            boundingBox.addPoints([vertex_0, vertex_1, vertex_2, vertex_3])
+            xmin = boundingBox.minX.get
+            ymin = boundingBox.minY.get
+            zmin = boundingBox.minZ.get
+            xmax = boundingBox.maxX.get
+            ymax = boundingBox.maxY.get
+            sensor_1 = OpenStudio::Model::DaylightingControl.new(daylight_space.model)
+            sensor_1.setName("#{daylight_space.name.to_s} daylighting control 1")
+            sensor_1.setSpace(daylight_space)
+            sensor_1.setIlluminanceSetpoint(illuminance_setpoint)
+            sensor_1.setLightingControlType('Stepped')
+            sensor_1.setNumberofSteppedControlSteps(number_of_stepped_control_steps)
+            x_pos = (xmin + xmax) / 2.0
+            y_pos = (ymin + ymax) / 2.0
+            z_pos = zmin + 0.8 #put the sensor 0.8 meter above the floor
+            sensor_vertex = OpenStudio::Point3d.new(x_pos, y_pos, z_pos)
+            sensor_1.setPosition(sensor_vertex)
+            zone.setPrimaryDaylightingControl(sensor_1)
+            zone.setFractionofZoneControlledbyPrimaryDaylightingControl(0.5)
+
+            ##### Create daylighting sensor control #2. Divide the space into two parts. Put each of the daylight sensors at the center of each part of the space.
+            boundingBox = OpenStudio::BoundingBox.new
+            vertex_0 = OpenStudio::Point3d.new(floor_vertices[2].x, floor_vertices[2].y, floor_vertices[2].z)
+            vertex_1 = OpenStudio::Point3d.new(floor_vertices[3].x, floor_vertices[3].y, floor_vertices[3].z)
+            vertex_2 = OpenStudio::Point3d.new(floor_vertices[3].x + (floor_vertices[0].x - floor_vertices[3].x) / 2, floor_vertices[0].y + (floor_vertices[3].y - floor_vertices[0].y) / 2, floor_vertices[0].z)
+            vertex_3 = OpenStudio::Point3d.new(floor_vertices[1].x - (floor_vertices[1].x - floor_vertices[2].x) / 2, floor_vertices[1].y + (floor_vertices[2].y - floor_vertices[1].y) / 2, floor_vertices[0].z)
+            boundingBox.addPoints([vertex_0, vertex_1, vertex_2, vertex_3])
+            xmin = boundingBox.minX.get
+            ymin = boundingBox.minY.get
+            zmin = boundingBox.minZ.get
+            xmax = boundingBox.maxX.get
+            ymax = boundingBox.maxY.get
+            sensor_2 = OpenStudio::Model::DaylightingControl.new(daylight_space.model)
+            sensor_2.setName("#{daylight_space.name.to_s} daylighting control 2")
+            sensor_2.setSpace(daylight_space)
+            sensor_2.setIlluminanceSetpoint(illuminance_setpoint)
+            sensor_2.setLightingControlType('Stepped')
+            sensor_2.setNumberofSteppedControlSteps(number_of_stepped_control_steps)
+            x_pos = (xmin + xmax) / 2.0
+            y_pos = (ymin + ymax) / 2.0
+            z_pos = zmin + 0.8 #put the sensor 0.8 meter above the floor
+            sensor_vertex = OpenStudio::Point3d.new(x_pos, y_pos, z_pos)
+            sensor_2.setPosition(sensor_vertex)
+            zone.setSecondaryDaylightingControl(sensor_2)
+            zone.setFractionofZoneControlledbySecondaryDaylightingControl(0.5)
+          end
+        end
       end
 
     end #daylight_spaces.each do |daylight_space|
@@ -1026,7 +1115,7 @@ class NECB2011 < Standard
 
 
 
-  def model_enable_demand_controlled_ventilation(model, dcv_type = 'No DCV') # Note: Values for dcv_type are: "Occupancy-based DCV", "CO2-based DCV", "No DCV"
+  def model_enable_demand_controlled_ventilation(model, dcv_type = 'No DCV') # Note: Values for dcv_type are: 'Occupancy-based DCV', 'CO2-based DCV', 'No DCV'
 
     if dcv_type == 'Occupancy-based DCV' || dcv_type == 'CO2-based DCV'
       #TODO: IMPORTANT: (upon other BTAP tasks) Set a value for the "Outdoor Air Flow per Person" field of the "OS:DesignSpecification:OutdoorAir" object
@@ -1079,7 +1168,7 @@ class NECB2011 < Standard
 
       ##### Set CO2 controller in each space (required for CO2-based DCV)
       model.getSpaces.sort.each do |space|
-        puts space.name.to_s
+        # puts space.name.to_s
         zone = space.thermalZone
         if !zone.empty?
           zone = space.thermalZone.get

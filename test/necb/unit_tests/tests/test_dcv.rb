@@ -16,8 +16,8 @@ class YourTestName_Test < Minitest::Test
     @test_passed = true
     #Range of test options.
     @templates = ['NECB2011']
-    # @building_types = ['FullServiceRestaurant']
-    @building_types = ['FullServiceRestaurant','HighriseApartment','Hospital','LargeHotel','LargeOffice','MediumOffice','MidriseApartment','Outpatient','PrimarySchool','QuickServiceRestaurant','RetailStandalone','SecondarySchool','SmallHotel','Warehouse']
+    @building_types = ['FullServiceRestaurant']
+    # @building_types = ['FullServiceRestaurant','HighriseApartment','Hospital','LargeHotel','LargeOffice','MediumOffice','MidriseApartment','Outpatient','PrimarySchool','QuickServiceRestaurant','RetailStandalone','SecondarySchool','SmallHotel','Warehouse']
     @epw_files = ['CAN_AB_Banff.CS.711220_CWEC2016.epw']
     @primary_heating_fuels = ['DefaultFuel']
     @dcv_types = ['Occupancy-based DCV','CO2-based DCV']
@@ -63,10 +63,13 @@ class YourTestName_Test < Minitest::Test
 
               # puts dcv_type
               zone_air_contaminant_balance = model.getZoneAirContaminantBalance()
-              # puts zone_air_contaminant_balance
-              zone_air_contaminant_balance.carbonDioxideConcentration()
+              carbonDioxideConcentration_status = zone_air_contaminant_balance.carbonDioxideConcentration()
               outdoor_co2_schedule_name = zone_air_contaminant_balance.outdoorCarbonDioxideSchedule.get.name()
-              # puts outdoor_co2_schedule_name
+              outdoor_co2_schedule_ppm = zone_air_contaminant_balance.outdoorCarbonDioxideSchedule.get.constantValue() #TODO: correct this
+              puts carbonDioxideConcentration_status
+              puts outdoor_co2_schedule_name
+              puts outdoor_co2_schedule_ppm
+              raise('check outdoor co2')
 
               ##### Set CO2 controller in each space (required for CO2-based DCV)
               model.getSpaces.sort.each do |space|

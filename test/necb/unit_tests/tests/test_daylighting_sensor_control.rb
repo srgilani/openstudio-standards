@@ -17,8 +17,8 @@ class YourTestName_Test < Minitest::Test
 
     #Range of test options.
     @templates = ['NECB2011']
-    # @building_types = ['Warehouse'] #'Outpatient','Hospital','LargeOffice','Warehouse'
-    @building_types = ['FullServiceRestaurant','HighriseApartment','Hospital','LargeHotel','LargeOffice','MediumOffice','MidriseApartment','Outpatient','PrimarySchool','QuickServiceRestaurant','RetailStandalone','SecondarySchool','SmallHotel','Warehouse']
+    @building_types = ['Warehouse'] #'Outpatient','Hospital','LargeOffice','Warehouse'
+    # @building_types = ['FullServiceRestaurant','HighriseApartment','Hospital','LargeHotel','LargeOffice','MediumOffice','MidriseApartment','Outpatient','PrimarySchool','QuickServiceRestaurant','RetailStandalone','SecondarySchool','SmallHotel','Warehouse']
     @epw_files = ['CAN_AB_Banff.CS.711220_CWEC2016.epw']
     @primary_heating_fuels = ['DefaultFuel']
     @dcv_types = ['No DCV']

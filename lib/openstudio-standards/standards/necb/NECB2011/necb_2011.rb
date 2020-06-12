@@ -845,12 +845,8 @@ class NECB2011 < Standard
     # daylight_spaces.sort.each do |daylight_space|
     #   puts daylight_space.name.to_s
     #   daylight_space_area = []
-    #   zone = daylight_space.thermalZone
-    #   if !zone.empty?
-    #     zone = daylight_space.thermalZone.get
-    #     daylight_space_area = zone.floorArea()
-    #   end
-    #   puts daylight_space_area
+        #TODO
+      # puts daylight_space_area
     # end
 
     # puts primary_sidelighted_area_hash
@@ -858,7 +854,7 @@ class NECB2011 < Standard
     # puts daylighted_area_under_skylights_hash
     # puts skylight_effective_aperture_hash
 
-    ##### Find office spaces >= 25m2 among daylight_spaces
+    ##### Find office spaces >= 25m2 among daylight_spaces #TODO: should I correct daylight_spac area here as well regarding multi floors
     offices_larger_25m2 = []
     daylight_spaces.sort.each do |daylight_space|
       office_area = nil
@@ -919,14 +915,104 @@ class NECB2011 < Standard
     ##### Create one daylighting sensor and put it at the center of each daylight_space if the space area < 250m2;
     ##### otherwise, create two daylight sensors, divide the space into two parts and put each of the daylight sensors at the center of each part of the space.
     daylight_spaces.sort.each do |daylight_space|
+      # puts daylight_space.name.to_s
+      ##### Calculate daylight_space area
+      floor_area = []
+      floor_vertices = []
+      number_floor = 0
+      daylight_space.surfaces.sort.each do |surface|
+        if surface.surfaceType == 'Floor'
+          floor_vertices << surface.vertices
+          number_floor += 1
+        end
+      end
+
+      # puts daylight_space.name.to_s
+      lowest_floor_z = []
+      i = 0
+      while i < number_floor
+        if i == 0
+          lowest_floor_z = floor_vertices[i][0].z
+        else
+          if lowest_floor_z > floor_vertices[i][0].z
+            lowest_floor_z = floor_vertices[i][0].z
+          else
+            lowest_floor_z = lowest_floor_z
+          end
+        end
+        i += 1
+      end
+      # puts lowest_floor_z
+
+      lowest_floors_area = 0
+      lowest_floors_vertices = []
+      floor_vertices = []
+      daylight_space.surfaces.sort.each do |surface|
+        if surface.surfaceType == 'Floor'
+          floor_vertices = surface.vertices
+          if floor_vertices[0].z == lowest_floor_z
+            lowest_floors_vertices << floor_vertices
+            lowest_floors_area = lowest_floors_area + surface.netArea
+          end
+        end
+      end
+      # puts daylight_space.name.to_s
+      # puts lowest_floors_area
+      # puts lowest_floors_vertices
+
+      xmin = []
+      ymin = []
+      zmin = lowest_floor_z
+      xmax = []
+      ymax = []
+      i = 0
+      while i < lowest_floors_vertices.length
+        if i == 0
+          # while #TODO
+          #
+          # end
+          xmin = [lowest_floors_vertices[i][0].x, lowest_floors_vertices[i][1].x, lowest_floors_vertices[i][2].x, lowest_floors_vertices[i][3].x].min
+          ymin = [lowest_floors_vertices[i][0].y, lowest_floors_vertices[i][1].y, lowest_floors_vertices[i][2].y, lowest_floors_vertices[i][3].y].min
+          xmax = [lowest_floors_vertices[i][0].x, lowest_floors_vertices[i][1].x, lowest_floors_vertices[i][2].x, lowest_floors_vertices[i][3].x].max
+          ymax = [lowest_floors_vertices[i][0].y, lowest_floors_vertices[i][1].y, lowest_floors_vertices[i][2].y, lowest_floors_vertices[i][3].y].max
+        else
+          if xmin > [lowest_floors_vertices[i][0].x, lowest_floors_vertices[i][1].x, lowest_floors_vertices[i][2].x, lowest_floors_vertices[i][3].x].min
+            xmin = [lowest_floors_vertices[i][0].x, lowest_floors_vertices[i][1].x, lowest_floors_vertices[i][2].x, lowest_floors_vertices[i][3].x].min
+          else
+            xmin = xmin
+          end
+          if ymin > [lowest_floors_vertices[i][0].y, lowest_floors_vertices[i][1].y, lowest_floors_vertices[i][2].y, lowest_floors_vertices[i][3].y].min
+            ymin = [lowest_floors_vertices[i][0].y, lowest_floors_vertices[i][1].y, lowest_floors_vertices[i][2].y, lowest_floors_vertices[i][3].y].min
+          else
+            ymin = ymin
+          end
+
+          if xmax < [lowest_floors_vertices[i][0].x, lowest_floors_vertices[i][1].x, lowest_floors_vertices[i][2].x, lowest_floors_vertices[i][3].x].max
+            xmax = [lowest_floors_vertices[i][0].x, lowest_floors_vertices[i][1].x, lowest_floors_vertices[i][2].x, lowest_floors_vertices[i][3].x].max
+          else
+            xmax = xmax
+          end
+          if ymax < [lowest_floors_vertices[i][0].y, lowest_floors_vertices[i][1].y, lowest_floors_vertices[i][2].y, lowest_floors_vertices[i][3].y].max
+            ymax = [lowest_floors_vertices[i][0].y, lowest_floors_vertices[i][1].y, lowest_floors_vertices[i][2].y, lowest_floors_vertices[i][3].y].max
+          else
+            ymax = ymax
+          end
+        end
+        i += 1
+      end
+      puts daylight_space.name.to_s
+      puts [xmin, xmax, ymin, ymax, zmin]
+
+
+
+      # puts daylight_space_area
 
       ##### Get the thermal zone of daylight_space (this is used later to assign daylighting sensor)
       zone = daylight_space.thermalZone
       daylight_space_area = nil
       if !zone.empty?
         zone = daylight_space.thermalZone.get
-        daylight_space_area = zone.floorArea()
-        # puts daylight_space_area
+        daylight_space_area = zone.floorArea() #TODO correct daylight_space_area
         ##### Get the floor of the daylight_space
         floors = []
         daylight_space.surfaces.sort.each do |surface|
@@ -995,9 +1081,9 @@ class NECB2011 < Standard
           floors.sort.each do |floor|
             number_floor += 1
           end
-          puts daylight_space.name.to_s
-          puts daylight_space_area
-          puts number_floor
+          # puts daylight_space.name.to_s
+          # puts daylight_space_area
+          # puts number_floor
 
           ##### to simplify, put one sensor even if the daylight_space needs more than one sensor if number_floors > 2
           ##### why number_floor > 2? because there are two floor surfaces for Warehouse floor and roof reversed

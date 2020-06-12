@@ -17,8 +17,8 @@ class YourTestName_Test < Minitest::Test
 
     #Range of test options.
     @templates = ['NECB2011']
-    @building_types = ['Warehouse'] #'Outpatient','Hospital','LargeOffice','Warehouse'
-    # @building_types = ['FullServiceRestaurant','HighriseApartment','Hospital','LargeHotel','LargeOffice','MediumOffice','MidriseApartment','Outpatient','PrimarySchool','QuickServiceRestaurant','RetailStandalone','SecondarySchool','SmallHotel','Warehouse']
+    # @building_types = ['Warehouse'] #'Outpatient','Hospital','LargeOffice','Warehouse'
+    @building_types = ['FullServiceRestaurant','HighriseApartment','Hospital','LargeHotel','LargeOffice','MediumOffice','MidriseApartment','Outpatient','PrimarySchool','QuickServiceRestaurant','RetailStandalone','SecondarySchool','SmallHotel','Warehouse']
     @epw_files = ['CAN_AB_Banff.CS.711220_CWEC2016.epw']
     @primary_heating_fuels = ['DefaultFuel']
     @dcv_types = ['No DCV']
@@ -93,7 +93,6 @@ class YourTestName_Test < Minitest::Test
 
               ##### Calculate "Primary Sidelighted Areas" AND "Sidelighting Effective Aperture" as per NECB2011. #TODO: consider removing overlapped sidelighted area
               daylight_spaces.sort.each do |daylight_space|
-                # puts daylight_space.name.to_s
                 primary_sidelighted_area = 0.0
                 area_weighted_vt_handle = 0.0
                 area_weighted_vt = 0.0
@@ -123,7 +122,6 @@ class YourTestName_Test < Minitest::Test
                     wall_vertices_y_on_floor = []
                     surface_z_min = [surface.vertices[0].z, surface.vertices[1].z, surface.vertices[2].z, surface.vertices[3].z].min
                     surface.vertices.each do |vertex|
-                      # puts vertex.z
                       if vertex.z == surface_z_min && surface_z_min == floor_vertices[0][0].z
                         wall_vertices_x_on_floor << vertex.x
                         wall_vertices_y_on_floor << vertex.y
@@ -153,7 +151,6 @@ class YourTestName_Test < Minitest::Test
 
                     ##### Loop through the windows (including fixed and operable ones) to get window specification (width, height, area, visible transmittance (VT)), and area-weighted VT
                     surface.subSurfaces.sort.each do |subsurface|
-                      # puts subsurface.name.to_s
                       if subsurface.subSurfaceType == "FixedWindow" || subsurface.subSurfaceType == "OperableWindow"
                         window_vt = subsurface.visibleTransmittance
                         window_vt = window_vt.get
@@ -198,7 +195,6 @@ class YourTestName_Test < Minitest::Test
 
               ##### Calculate "Daylighted Area Under Skylights" AND "Skylight Effective Aperture"
               daylight_spaces.sort.each do |daylight_space|
-                # puts daylight_space.name.to_s
                 skylight_area = 0.0
                 skylight_area_weighted_vt_handle = 0.0
                 skylight_area_weighted_vt = 0.0
@@ -375,10 +371,6 @@ class YourTestName_Test < Minitest::Test
 
               end #daylight_spaces.each do |daylight_space|
 
-              # puts primary_sidelighted_area_hash
-              # puts sidelighting_effective_aperture_hash
-              # puts daylighted_area_under_skylights_hash
-              # puts skylight_effective_aperture_hash
 
               ##### Find office spaces >= 25m2 among daylight_spaces
               offices_larger_25m2 = []
@@ -426,7 +418,6 @@ class YourTestName_Test < Minitest::Test
                   daylight_spaces_exception << key_daylight_space_name
                 end
               end
-              # puts daylight_spaces_exception
 
               ##### Loop through the daylight_spaces and exclude the daylight_spaces that do not meet the criteria (see above) as per NECB2011: 4.2.2.4. and 4.2.2.8.
               daylight_spaces_exception.sort.each do |daylight_space_exception|
@@ -439,20 +430,117 @@ class YourTestName_Test < Minitest::Test
 
               ##### Gather daylighting sensors specifications in the model for the daylight_spaces that should have daylighting sensor
               daylight_spaces.sort.each do |daylight_space|
+                ##### 1. Calculate number of floors of each daylight_space
+                ##### 2. Find the lowest z among all floors of each daylight_space
+                ##### 3. Find lowest floors of each daylight_space (these floors are at the same level)
+                ##### 4. Calculate 'daylight_space_area' as sum of area of all the lowest floors of each daylight_space, and gather the vertices of all the lowest floors of each daylight_space
+                ##### 5. Find min and max of x and y among vertices of all the lowest floors of each daylight_space (these vertices are required for boundingBox to find the location of daylighting sensor(s))
+
+                ##### Calculate number of floors of daylight_space
+                floor_vertices = []
+                number_floor = 0
+                daylight_space.surfaces.sort.each do |surface|
+                  if surface.surfaceType == 'Floor'
+                    floor_vertices << surface.vertices
+                    number_floor += 1
+                  end
+                end
+
+                ##### Loop through all floors of daylight_space, and find the lowest z among all floors of daylight_space
+                lowest_floor_z = []
+                highest_floor_z = []
+                for i in 0..number_floor - 1
+                  if i == 0
+                    lowest_floor_z = floor_vertices[i][0].z
+                    highest_floor_z = floor_vertices[i][0].z
+                  else
+                    if lowest_floor_z > floor_vertices[i][0].z
+                      lowest_floor_z = floor_vertices[i][0].z
+                    else
+                      lowest_floor_z = lowest_floor_z
+                    end
+                    if highest_floor_z < floor_vertices[i][0].z
+                      highest_floor_z = floor_vertices[i][0].z
+                    else
+                      highest_floor_z = highest_floor_z
+                    end
+                  end
+                end
+
+                ##### Loop through all floors of daylight_space, and calculate the sum of area of all the lowest floors of daylight_space,
+                ##### and gather the vertices of all the lowest floors of daylight_space
+                daylight_space_area = 0
+                lowest_floors_vertices = []
+                floor_vertices = []
+                daylight_space.surfaces.sort.each do |surface|
+                  if surface.surfaceType == 'Floor'
+                    floor_vertices = surface.vertices
+                    if floor_vertices[0].z == lowest_floor_z
+                      lowest_floors_vertices << floor_vertices
+                      daylight_space_area = daylight_space_area + surface.netArea
+                    end
+                  end
+                end
+
+                ##### Loop through all lowest floors of daylight_space and find the min and max of x and y among their vertices (these vertices are required for boundingBox)
+                xmin = []
+                ymin = []
+                xmax = []
+                ymax = []
+                zmin = lowest_floor_z
+                for i in 0..lowest_floors_vertices.count - 1 #this loops through each of the lowers floors of daylight_space
+                  for j in 0..lowest_floors_vertices[i].count - 1 #this loops through each of vertices of each of the lowers floors of daylight_space
+
+                    ### xmin
+                    if i == 0 && j == 0
+                      virtual_floor_vertex_0 = OpenStudio::Point3d.new(lowest_floors_vertices[i][j].x, lowest_floors_vertices[i][j].y, zmin)
+                    else
+                      if lowest_floors_vertices[i][j].x < virtual_floor_vertex_0.x
+                        virtual_floor_vertex_0 = OpenStudio::Point3d.new(lowest_floors_vertices[i][j].x, lowest_floors_vertices[i][j].y, zmin)
+                      else
+                        virtual_floor_vertex_0 = OpenStudio::Point3d.new(virtual_floor_vertex_0.x, virtual_floor_vertex_0.y, zmin)
+                      end
+                    end
+
+                    ### ymin
+                    if i == 0 && j == 0
+                      virtual_floor_vertex_1 = OpenStudio::Point3d.new(lowest_floors_vertices[i][j].x, lowest_floors_vertices[i][j].y, zmin)
+                    else
+                      if lowest_floors_vertices[i][j].y < virtual_floor_vertex_0.y
+                        virtual_floor_vertex_1 = OpenStudio::Point3d.new(lowest_floors_vertices[i][j].x, lowest_floors_vertices[i][j].y, zmin)
+                      else
+                        virtual_floor_vertex_1 = OpenStudio::Point3d.new(virtual_floor_vertex_1.x, virtual_floor_vertex_1.y, zmin)
+                      end
+                    end
+
+                    ### xmax
+                    if i == 0 && j == 0
+                      virtual_floor_vertex_2 = OpenStudio::Point3d.new(lowest_floors_vertices[i][j].x, lowest_floors_vertices[i][j].y, zmin)
+                    else
+                      if lowest_floors_vertices[i][j].x > virtual_floor_vertex_0.x
+                        virtual_floor_vertex_2 = OpenStudio::Point3d.new(lowest_floors_vertices[i][j].x, lowest_floors_vertices[i][j].y, zmin)
+                      else
+                        virtual_floor_vertex_2 = OpenStudio::Point3d.new(virtual_floor_vertex_2.x, virtual_floor_vertex_2.y, zmin)
+                      end
+                    end
+
+                    ### ymax
+                    if i == 0 && j == 0
+                      virtual_floor_vertex_3 = OpenStudio::Point3d.new(lowest_floors_vertices[i][j].x, lowest_floors_vertices[i][j].y, zmin)
+                    else
+                      if lowest_floors_vertices[i][j].y > virtual_floor_vertex_0.y
+                        virtual_floor_vertex_3 = OpenStudio::Point3d.new(lowest_floors_vertices[i][j].x, lowest_floors_vertices[i][j].y, zmin)
+                      else
+                        virtual_floor_vertex_3 = OpenStudio::Point3d.new(virtual_floor_vertex_3.x, virtual_floor_vertex_3.y, zmin)
+                      end
+                    end
+                  end
+                end
 
                 ##### Get the thermal zone of daylight_space (this is used later to assign daylighting sensor)
                 zone = daylight_space.thermalZone
-                daylight_space_area = nil
                 if !zone.empty?
                   zone = daylight_space.thermalZone.get
-                  daylight_space_area = zone.floorArea()
-
-                  floors = []
-                  daylight_space.surfaces.sort.each do |surface|
-                    if surface.surfaceType == 'Floor'
-                      floors << surface
-                    end
-                  end
 
                   if daylight_space_area <= 250.0
                     number_daylight_sensor = 1
@@ -465,11 +553,8 @@ class YourTestName_Test < Minitest::Test
                     primary_daylighting_y_pos = zone_daylighting_control_primary.positionYCoordinate()
                     primary_daylighting_z_pos = zone_daylighting_control_primary.positionZCoordinate()
                   else
-                    number_floor = 1
-                    floors.sort.each do |floor|
-                      number_floor += 1
-                    end
-                    if number_floor > 2
+
+                    if lowest_floor_z.round(2) != highest_floor_z.round(2)
                       number_daylight_sensor = 1
                       zone_daylighting_control_primary = zone.primaryDaylightingControl.get
                       primary_daylighting_control_fraction_of_zone_controlled = zone.fractionofZoneControlledbyPrimaryDaylightingControl()

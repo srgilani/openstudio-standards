@@ -841,20 +841,12 @@ class NECB2011 < Standard
 
     end #daylight_spaces.each do |daylight_space|
 
-    ##### for checking daylight spaces areas
-    # daylight_spaces.sort.each do |daylight_space|
-    #   puts daylight_space.name.to_s
-    #   daylight_space_area = []
-        #TODO
-      # puts daylight_space_area
-    # end
-
     # puts primary_sidelighted_area_hash
     # puts sidelighting_effective_aperture_hash
     # puts daylighted_area_under_skylights_hash
     # puts skylight_effective_aperture_hash
 
-    ##### Find office spaces >= 25m2 among daylight_spaces #TODO: should I correct daylight_spac area here as well regarding multi floors
+    ##### Find office spaces >= 25m2 among daylight_spaces #TODO: Just as a NOTE: here, it has been assumed that office spaces have only one floor. So, the area of one floor is calculated.
     offices_larger_25m2 = []
     daylight_spaces.sort.each do |daylight_space|
       office_area = nil
@@ -916,8 +908,13 @@ class NECB2011 < Standard
     ##### otherwise, create two daylight sensors, divide the space into two parts and put each of the daylight sensors at the center of each part of the space.
     daylight_spaces.sort.each do |daylight_space|
       # puts daylight_space.name.to_s
-      ##### Calculate daylight_space area
-      floor_area = []
+      ##### 1. Calculate number of floors of each daylight_space
+      ##### 2. Find the lowest z among all floors of each daylight_space
+      ##### 3. Find lowest floors of each daylight_space (these floors are at the same level)
+      ##### 4. Calculate 'daylight_space_area' as sum of area of all the lowest floors of each daylight_space, and gather the vertices of all the lowest floors of each daylight_space
+      ##### 5. Find min and max of x and y among vertices of all the lowest floors of each daylight_space (these vertices are required for boundingBox to find the location of daylighting sensor(s))
+
+      ##### Calculate number of floors of daylight_space
       floor_vertices = []
       number_floor = 0
       daylight_space.surfaces.sort.each do |surface|
@@ -927,24 +924,31 @@ class NECB2011 < Standard
         end
       end
 
-      # puts daylight_space.name.to_s
+      ##### Loop through all floors of daylight_space, and find the lowest z among all floors of daylight_space
       lowest_floor_z = []
-      i = 0
-      while i < number_floor
+      highest_floor_z = []
+      for i in 0..number_floor - 1
         if i == 0
           lowest_floor_z = floor_vertices[i][0].z
+          highest_floor_z = floor_vertices[i][0].z
         else
           if lowest_floor_z > floor_vertices[i][0].z
             lowest_floor_z = floor_vertices[i][0].z
           else
             lowest_floor_z = lowest_floor_z
           end
+          if highest_floor_z < floor_vertices[i][0].z
+            highest_floor_z = floor_vertices[i][0].z
+          else
+            highest_floor_z = highest_floor_z
+          end
         end
-        i += 1
       end
       # puts lowest_floor_z
 
-      lowest_floors_area = 0
+      ##### Loop through all floors of daylight_space, and calculate the sum of area of all the lowest floors of daylight_space,
+      ##### and gather the vertices of all the lowest floors of daylight_space
+      daylight_space_area = 0
       lowest_floors_vertices = []
       floor_vertices = []
       daylight_space.surfaces.sort.each do |surface|
@@ -952,67 +956,79 @@ class NECB2011 < Standard
           floor_vertices = surface.vertices
           if floor_vertices[0].z == lowest_floor_z
             lowest_floors_vertices << floor_vertices
-            lowest_floors_area = lowest_floors_area + surface.netArea
+            daylight_space_area = daylight_space_area + surface.netArea
           end
         end
       end
       # puts daylight_space.name.to_s
-      # puts lowest_floors_area
-      # puts lowest_floors_vertices
+      # puts number_floor
+      # puts daylight_space_area
 
+      ##### Loop through all lowest floors of daylight_space and find the min and max of x and y among their vertices (these vertices are required for boundingBox)
       xmin = []
       ymin = []
-      zmin = lowest_floor_z
       xmax = []
       ymax = []
-      i = 0
-      while i < lowest_floors_vertices.length
-        if i == 0
-          # while #TODO
-          #
-          # end
-          xmin = [lowest_floors_vertices[i][0].x, lowest_floors_vertices[i][1].x, lowest_floors_vertices[i][2].x, lowest_floors_vertices[i][3].x].min
-          ymin = [lowest_floors_vertices[i][0].y, lowest_floors_vertices[i][1].y, lowest_floors_vertices[i][2].y, lowest_floors_vertices[i][3].y].min
-          xmax = [lowest_floors_vertices[i][0].x, lowest_floors_vertices[i][1].x, lowest_floors_vertices[i][2].x, lowest_floors_vertices[i][3].x].max
-          ymax = [lowest_floors_vertices[i][0].y, lowest_floors_vertices[i][1].y, lowest_floors_vertices[i][2].y, lowest_floors_vertices[i][3].y].max
-        else
-          if xmin > [lowest_floors_vertices[i][0].x, lowest_floors_vertices[i][1].x, lowest_floors_vertices[i][2].x, lowest_floors_vertices[i][3].x].min
-            xmin = [lowest_floors_vertices[i][0].x, lowest_floors_vertices[i][1].x, lowest_floors_vertices[i][2].x, lowest_floors_vertices[i][3].x].min
+      zmin = lowest_floor_z
+      for i in 0..lowest_floors_vertices.count - 1 #this loops through each of the lowers floors of daylight_space
+        for j in 0..lowest_floors_vertices[i].count - 1 #this loops through each of vertices of each of the lowers floors of daylight_space
+
+          ### xmin
+          if i == 0 && j == 0
+            virtual_floor_vertex_0 = OpenStudio::Point3d.new(lowest_floors_vertices[i][j].x, lowest_floors_vertices[i][j].y, zmin)
           else
-            xmin = xmin
-          end
-          if ymin > [lowest_floors_vertices[i][0].y, lowest_floors_vertices[i][1].y, lowest_floors_vertices[i][2].y, lowest_floors_vertices[i][3].y].min
-            ymin = [lowest_floors_vertices[i][0].y, lowest_floors_vertices[i][1].y, lowest_floors_vertices[i][2].y, lowest_floors_vertices[i][3].y].min
-          else
-            ymin = ymin
+            if lowest_floors_vertices[i][j].x < virtual_floor_vertex_0.x
+              virtual_floor_vertex_0 = OpenStudio::Point3d.new(lowest_floors_vertices[i][j].x, lowest_floors_vertices[i][j].y, zmin)
+            else
+              virtual_floor_vertex_0 = OpenStudio::Point3d.new(virtual_floor_vertex_0.x, virtual_floor_vertex_0.y, zmin)
+            end
           end
 
-          if xmax < [lowest_floors_vertices[i][0].x, lowest_floors_vertices[i][1].x, lowest_floors_vertices[i][2].x, lowest_floors_vertices[i][3].x].max
-            xmax = [lowest_floors_vertices[i][0].x, lowest_floors_vertices[i][1].x, lowest_floors_vertices[i][2].x, lowest_floors_vertices[i][3].x].max
+          ### ymin
+          if i == 0 && j == 0
+            virtual_floor_vertex_1 = OpenStudio::Point3d.new(lowest_floors_vertices[i][j].x, lowest_floors_vertices[i][j].y, zmin)
           else
-            xmax = xmax
+            if lowest_floors_vertices[i][j].y < virtual_floor_vertex_0.y
+              virtual_floor_vertex_1 = OpenStudio::Point3d.new(lowest_floors_vertices[i][j].x, lowest_floors_vertices[i][j].y, zmin)
+            else
+              virtual_floor_vertex_1 = OpenStudio::Point3d.new(virtual_floor_vertex_1.x, virtual_floor_vertex_1.y, zmin)
+            end
           end
-          if ymax < [lowest_floors_vertices[i][0].y, lowest_floors_vertices[i][1].y, lowest_floors_vertices[i][2].y, lowest_floors_vertices[i][3].y].max
-            ymax = [lowest_floors_vertices[i][0].y, lowest_floors_vertices[i][1].y, lowest_floors_vertices[i][2].y, lowest_floors_vertices[i][3].y].max
+
+          ### xmax
+          if i == 0 && j == 0
+            virtual_floor_vertex_2 = OpenStudio::Point3d.new(lowest_floors_vertices[i][j].x, lowest_floors_vertices[i][j].y, zmin)
           else
-            ymax = ymax
+            if lowest_floors_vertices[i][j].x > virtual_floor_vertex_0.x
+              virtual_floor_vertex_2 = OpenStudio::Point3d.new(lowest_floors_vertices[i][j].x, lowest_floors_vertices[i][j].y, zmin)
+            else
+              virtual_floor_vertex_2 = OpenStudio::Point3d.new(virtual_floor_vertex_2.x, virtual_floor_vertex_2.y, zmin)
+            end
+          end
+
+          ### ymax
+          if i == 0 && j == 0
+            virtual_floor_vertex_3 = OpenStudio::Point3d.new(lowest_floors_vertices[i][j].x, lowest_floors_vertices[i][j].y, zmin)
+          else
+            if lowest_floors_vertices[i][j].y > virtual_floor_vertex_0.y
+              virtual_floor_vertex_3 = OpenStudio::Point3d.new(lowest_floors_vertices[i][j].x, lowest_floors_vertices[i][j].y, zmin)
+            else
+              virtual_floor_vertex_3 = OpenStudio::Point3d.new(virtual_floor_vertex_3.x, virtual_floor_vertex_3.y, zmin)
+            end
           end
         end
-        i += 1
       end
-      puts daylight_space.name.to_s
-      puts [xmin, xmax, ymin, ymax, zmin]
+      # puts daylight_space.name.to_s
+      # puts virtual_floor_vertex_0
+      # puts virtual_floor_vertex_1
+      # puts virtual_floor_vertex_2
+      # puts virtual_floor_vertex_3
 
-
-
-      # puts daylight_space_area
 
       ##### Get the thermal zone of daylight_space (this is used later to assign daylighting sensor)
       zone = daylight_space.thermalZone
-      daylight_space_area = nil
       if !zone.empty?
         zone = daylight_space.thermalZone.get
-        daylight_space_area = zone.floorArea() #TODO correct daylight_space_area
         ##### Get the floor of the daylight_space
         floors = []
         daylight_space.surfaces.sort.each do |surface|
@@ -1027,41 +1043,12 @@ class NECB2011 < Standard
         ##### Create daylighting sensor control(s)
         if daylight_space_area <= 250.0
           boundingBox = OpenStudio::BoundingBox.new
-
-          ##### This is because a thermal zone may have more than one floor, such as warehouse>'zone2 fine storage'.
-          ##### So, first find the lowest floor in the thermal zone to put the sensor at desk level of the lowest floor.
-          n = 1
-          xmin = []
-          ymin = []
-          zmin = []
-          xmax = []
-          ymax = []
-          floors.sort.each do |floor|
-            boundingBox.addPoints(floor.vertices)
-            if n == 1
-              xmin = boundingBox.minX.get
-              ymin = boundingBox.minY.get
-              zmin = boundingBox.minZ.get
-              xmax = boundingBox.maxX.get
-              ymax = boundingBox.maxY.get
-              # puts xmin
-            elsif n > 1
-              if zmin > boundingBox.minZ.get
-                xmin = boundingBox.minX.get
-                ymin = boundingBox.minY.get
-                zmin = boundingBox.minZ.get
-                xmax = boundingBox.maxX.get
-                ymax = boundingBox.maxY.get
-              else zmin <= boundingBox.minZ.get
-                xmin = xmin
-                ymin = ymin
-                zmin = zmin
-                xmax = xmax
-                ymax = ymax
-              end
-            end
-            n += 1
-          end
+          boundingBox.addPoints([virtual_floor_vertex_0, virtual_floor_vertex_1, virtual_floor_vertex_2, virtual_floor_vertex_3])
+          xmin = boundingBox.minX.get
+          ymin = boundingBox.minY.get
+          zmin = boundingBox.minZ.get
+          xmax = boundingBox.maxX.get
+          ymax = boundingBox.maxY.get
           sensor = OpenStudio::Model::DaylightingControl.new(daylight_space.model)
           sensor.setName("#{daylight_space.name.to_s} daylighting control")
           sensor.setSpace(daylight_space)
@@ -1076,50 +1063,17 @@ class NECB2011 < Standard
           zone.setPrimaryDaylightingControl(sensor)
           zone.setFractionofZoneControlledbyPrimaryDaylightingControl(1.0)
         else #i.e. elsif daylight_space_area > 250.0
-          boundingBox = OpenStudio::BoundingBox.new
-          number_floor = 1
-          floors.sort.each do |floor|
-            number_floor += 1
-          end
-          # puts daylight_space.name.to_s
-          # puts daylight_space_area
-          # puts number_floor
-
-          ##### to simplify, put one sensor even if the daylight_space needs more than one sensor if number_floors > 2
-          ##### why number_floor > 2? because there are two floor surfaces for Warehouse floor and roof reversed
-          if number_floor > 2 ## to simplify, put one sensor even if the daylight_space needs more than one sensor if number_floors > 2
-            n = 1
-            xmin = []
-            ymin = []
-            zmin = []
-            xmax = []
-            ymax = []
-            floors.sort.each do |floor|
-              boundingBox.addPoints(floor.vertices)
-              if n == 1
-                xmin = boundingBox.minX.get
-                ymin = boundingBox.minY.get
-                zmin = boundingBox.minZ.get
-                xmax = boundingBox.maxX.get
-                ymax = boundingBox.maxY.get
-                # puts xmin
-              elsif n > 1
-                if zmin > boundingBox.minZ.get
-                  xmin = boundingBox.minX.get
-                  ymin = boundingBox.minY.get
-                  zmin = boundingBox.minZ.get
-                  xmax = boundingBox.maxX.get
-                  ymax = boundingBox.maxY.get
-                else zmin <= boundingBox.minZ.get
-                xmin = xmin
-                ymin = ymin
-                zmin = zmin
-                xmax = xmax
-                ymax = ymax
-                end
-              end
-              n += 1
-            end
+          ##### to simplify, put one sensor even if the daylight_space needs more than one sensor if daylight_space has floors at different levels
+          if lowest_floor_z.round(2) != highest_floor_z.round(2)
+            #TODO: Add a command line instead of the below put statement to show the message to users
+            puts "#{daylight_space.name.to_s} - NOTE: to simplify, since #{daylight_space.name.to_s} has multiple floors at different levels, only one sensor has been put in this space although its area is larger than 250 m2 and it needs more than one sensor."
+            boundingBox = OpenStudio::BoundingBox.new
+            boundingBox.addPoints([virtual_floor_vertex_0, virtual_floor_vertex_1, virtual_floor_vertex_2, virtual_floor_vertex_3])
+            xmin = boundingBox.minX.get
+            ymin = boundingBox.minY.get
+            zmin = boundingBox.minZ.get
+            xmax = boundingBox.maxX.get
+            ymax = boundingBox.maxY.get
             sensor = OpenStudio::Model::DaylightingControl.new(daylight_space.model)
             sensor.setName("#{daylight_space.name.to_s} daylighting control")
             sensor.setSpace(daylight_space)
@@ -1133,20 +1087,17 @@ class NECB2011 < Standard
             sensor.setPosition(sensor_vertex)
             zone.setPrimaryDaylightingControl(sensor)
             zone.setFractionofZoneControlledbyPrimaryDaylightingControl(1.0)
-          else #i.e. elsif number_floor < 2
-            floor_vertices = []
-            floors.sort.each do |floor|
-              floor_vertices = floor.vertices
-            end
+            
+          else #i.e. lowest_floor_z.round(2) = highest_floor_z.round(2) # in other words, the daylight_space has floors at one level
 
-            ##### Create daylighting sensor control #1 and put it at the center of each daylight_space.
+            ##### Create daylighting sensor control #1. Divide the space into two parts. Put each of the daylight sensors at the center of each part of the space.
             boundingBox = OpenStudio::BoundingBox.new
-            vertex_0 = OpenStudio::Point3d.new(floor_vertices[0].x, floor_vertices[0].y, floor_vertices[0].z)
-            vertex_1 = OpenStudio::Point3d.new(floor_vertices[1].x, floor_vertices[1].y, floor_vertices[1].z)
+            vertex_0 = OpenStudio::Point3d.new(virtual_floor_vertex_0.x, virtual_floor_vertex_0.y, virtual_floor_vertex_0.z)
+            vertex_1 = OpenStudio::Point3d.new(virtual_floor_vertex_1.x, virtual_floor_vertex_1.y, virtual_floor_vertex_1.z)
             # Find the mean point of the side connecting vertices 1 and 2.
-            vertex_2 = OpenStudio::Point3d.new(floor_vertices[1].x - (floor_vertices[1].x - floor_vertices[2].x) / 2.0, floor_vertices[1].y + (floor_vertices[2].y - floor_vertices[1].y) / 2.0, floor_vertices[0].z)
+            vertex_2 = OpenStudio::Point3d.new(virtual_floor_vertex_1.x - (virtual_floor_vertex_1.x - virtual_floor_vertex_2.x) / 2.0, virtual_floor_vertex_1.y + (virtual_floor_vertex_2.y - virtual_floor_vertex_1.y) / 2.0, virtual_floor_vertex_0.z)
             # Find the mean point of the side connecting vertices 0 and 3.
-            vertex_3 = OpenStudio::Point3d.new(floor_vertices[3].x + (floor_vertices[0].x - floor_vertices[3].x) / 2.0, floor_vertices[0].y + (floor_vertices[3].y - floor_vertices[0].y) / 2.0, floor_vertices[0].z)
+            vertex_3 = OpenStudio::Point3d.new(virtual_floor_vertex_3.x + (virtual_floor_vertex_0.x - virtual_floor_vertex_3.x) / 2.0, virtual_floor_vertex_0.y + (virtual_floor_vertex_3.y - virtual_floor_vertex_0.y) / 2.0, virtual_floor_vertex_0.z)
             boundingBox.addPoints([vertex_0, vertex_1, vertex_2, vertex_3])
             xmin = boundingBox.minX.get
             ymin = boundingBox.minY.get
@@ -1169,10 +1120,10 @@ class NECB2011 < Standard
 
             ##### Create daylighting sensor control #2. Divide the space into two parts. Put each of the daylight sensors at the center of each part of the space.
             boundingBox = OpenStudio::BoundingBox.new
-            vertex_0 = OpenStudio::Point3d.new(floor_vertices[2].x, floor_vertices[2].y, floor_vertices[2].z)
-            vertex_1 = OpenStudio::Point3d.new(floor_vertices[3].x, floor_vertices[3].y, floor_vertices[3].z)
-            vertex_2 = OpenStudio::Point3d.new(floor_vertices[3].x + (floor_vertices[0].x - floor_vertices[3].x) / 2, floor_vertices[0].y + (floor_vertices[3].y - floor_vertices[0].y) / 2, floor_vertices[0].z)
-            vertex_3 = OpenStudio::Point3d.new(floor_vertices[1].x - (floor_vertices[1].x - floor_vertices[2].x) / 2, floor_vertices[1].y + (floor_vertices[2].y - floor_vertices[1].y) / 2, floor_vertices[0].z)
+            vertex_0 = OpenStudio::Point3d.new(virtual_floor_vertex_2.x, virtual_floor_vertex_2.y, virtual_floor_vertex_2.z)
+            vertex_1 = OpenStudio::Point3d.new(virtual_floor_vertex_3.x, virtual_floor_vertex_3.y, virtual_floor_vertex_3.z)
+            vertex_2 = OpenStudio::Point3d.new(virtual_floor_vertex_3.x + (virtual_floor_vertex_0.x - virtual_floor_vertex_3.x) / 2, virtual_floor_vertex_0.y + (virtual_floor_vertex_3.y - virtual_floor_vertex_0.y) / 2, virtual_floor_vertex_0.z)
+            vertex_3 = OpenStudio::Point3d.new(virtual_floor_vertex_1.x - (virtual_floor_vertex_1.x - virtual_floor_vertex_2.x) / 2, virtual_floor_vertex_1.y + (virtual_floor_vertex_2.y - virtual_floor_vertex_1.y) / 2, virtual_floor_vertex_0.z)
             boundingBox.addPoints([vertex_0, vertex_1, vertex_2, vertex_3])
             xmin = boundingBox.minX.get
             ymin = boundingBox.minY.get
@@ -1197,8 +1148,9 @@ class NECB2011 < Standard
       end
 
     end #daylight_spaces.each do |daylight_space|
-  end #model_add_daylighting_controls
+  end
 
+  #model_add_daylighting_controls
 
 
   def model_enable_demand_controlled_ventilation(model, dcv_type = 'No DCV') # Note: Values for dcv_type are: 'Occupancy-based DCV', 'CO2-based DCV', 'No DCV'
@@ -1307,7 +1259,9 @@ class NECB2011 < Standard
 
       end #air_loop.supplyComponents.each do |supply_component|
     end #model.getAirLoopHVACs.each do |air_loop|
-  end #def model_enable_demand_controlled_ventilation
+  end
+
+  #def model_enable_demand_controlled_ventilation
 
 
   def set_lighting_per_area_led_lighting(space_type, definition, lighting_per_area_led_lighting)

@@ -846,16 +846,63 @@ class NECB2011 < Standard
     # puts daylighted_area_under_skylights_hash
     # puts skylight_effective_aperture_hash
 
-    ##### Find office spaces >= 25m2 among daylight_spaces #TODO: Just as a NOTE: here, it has been assumed that office spaces have only one floor. So, the area of one floor is calculated.
+    ##### Find office spaces >= 25m2 among daylight_spaces
     offices_larger_25m2 = []
     daylight_spaces.sort.each do |daylight_space|
-      office_area = nil
+
+      ## The following steps are for in case an office has multiple floors at various heights
+      ## 1. Calculate number of floors of each daylight_space
+      ## 2. Find the lowest z among all floors of each daylight_space
+      ## 3. Find lowest floors of each daylight_space (these floors are at the same level)
+      ## 4. Calculate 'daylight_space_area' as sum of area of all the lowest floors of each daylight_space, and gather the vertices of all the lowest floors of each daylight_space
+
+      ## 1. Calculate number of floors of daylight_space
+      floor_vertices = []
+      number_floor = 0
       daylight_space.surfaces.sort.each do |surface|
-        if surface.surfaceType == "Floor"
-          office_area = surface.netArea
+        if surface.surfaceType == 'Floor'
+          floor_vertices << surface.vertices
+          number_floor += 1
         end
       end
-      if daylight_space.spaceType.get.standardsSpaceType.get.to_s == "Office - enclosed" && office_area >= 25.0
+
+      ## 2. Loop through all floors of daylight_space, and find the lowest z among all floors of daylight_space
+      lowest_floor_z = []
+      highest_floor_z = []
+      for i in 0..number_floor - 1
+        if i == 0
+          lowest_floor_z = floor_vertices[i][0].z
+          highest_floor_z = floor_vertices[i][0].z
+        else
+          if lowest_floor_z > floor_vertices[i][0].z
+            lowest_floor_z = floor_vertices[i][0].z
+          else
+            lowest_floor_z = lowest_floor_z
+          end
+          if highest_floor_z < floor_vertices[i][0].z
+            highest_floor_z = floor_vertices[i][0].z
+          else
+            highest_floor_z = highest_floor_z
+          end
+        end
+      end
+
+      ## 3 and 4. Loop through all floors of daylight_space, and calculate the sum of area of all the lowest floors of daylight_space,
+      ## and gather the vertices of all the lowest floors of daylight_space
+      daylight_space_area = 0
+      lowest_floors_vertices = []
+      floor_vertices = []
+      daylight_space.surfaces.sort.each do |surface|
+        if surface.surfaceType == 'Floor'
+          floor_vertices = surface.vertices
+          if floor_vertices[0].z == lowest_floor_z
+            lowest_floors_vertices << floor_vertices
+            daylight_space_area = daylight_space_area + surface.netArea
+          end
+        end
+      end
+
+      if daylight_space.spaceType.get.standardsSpaceType.get.to_s == "Office - enclosed" && daylight_space_area >= 25.0
         offices_larger_25m2 << daylight_space.name.to_s
       end
     end
@@ -1180,24 +1227,57 @@ class NECB2011 < Standard
       end
 
       ##### Define indoor CO2 availability schedule (required for CO2-based DCV)
+      ##### Reference: see page B.13 of PNNL (2017), "Impacts of Commercial Building Controls on Energy Savings and Peak Load Reduction", available a: https://www.energy.gov/eere/buildings/downloads/impacts-commercial-building-controls-energy-savings-and-peak-load-reduction
       ##### Note: the defined schedule here is redundant as the schedule says it is always on AND
       ##### the "ZoneControl:ContaminantController" object says that "If this field is left blank, the schedule has a value of 1 for all time periods".
       indoor_co2_availability_schedule = OpenStudio::Model::ScheduleCompact.new(model)
       indoor_co2_availability_schedule.setName('indoor_co2_availability_schedule')
       indoor_co2_availability_schedule.setScheduleTypeLimits(BTAP::Resources::Schedules::StandardScheduleTypeLimits::get_fraction(model))
-      indoor_co2_availability_schedule.setToConstantValue(1)
+      indoor_co2_availability_schedule.to_ScheduleCompact.get
+      # indoor_co2_availability_schedule.setString(1,"indoor_co2_availability_schedule")
+      indoor_co2_availability_schedule.setString(3,"Through: 12/31")
+      indoor_co2_availability_schedule.setString(4,"For: Weekdays SummerDesignDay")
+      indoor_co2_availability_schedule.setString(5,"Until: 07:00")
+      indoor_co2_availability_schedule.setString(6,"0.0")
+      indoor_co2_availability_schedule.setString(7,"Until: 22:00")
+      indoor_co2_availability_schedule.setString(8,"1.0")
+      indoor_co2_availability_schedule.setString(9,"Until: 24:00")
+      indoor_co2_availability_schedule.setString(10,"0.0")
+      indoor_co2_availability_schedule.setString(11,"For: Saturday WinterDesignDay")
+      indoor_co2_availability_schedule.setString(12,"Until: 07:00")
+      indoor_co2_availability_schedule.setString(13,"0.0")
+      indoor_co2_availability_schedule.setString(14,"Until: 18:00")
+      indoor_co2_availability_schedule.setString(15,"1.0")
+      indoor_co2_availability_schedule.setString(16,"Until: 24:00")
+      indoor_co2_availability_schedule.setString(17,"0.0")
+      indoor_co2_availability_schedule.setString(18,"For: AllOtherDays")
+      indoor_co2_availability_schedule.setString(19,"Until: 24:00")
+      indoor_co2_availability_schedule.setString(20,"0.0")
 
       ##### Define indoor CO2 setpoint schedule (required for CO2-based DCV)
+      ##### Reference: see page B.13 of PNNL (2017), "Impacts of Commercial Building Controls on Energy Savings and Peak Load Reduction", available a: https://www.energy.gov/eere/buildings/downloads/impacts-commercial-building-controls-energy-savings-and-peak-load-reduction
       indoor_co2_setpoint_schedule = OpenStudio::Model::ScheduleCompact.new(model)
       indoor_co2_setpoint_schedule.setName('indoor_co2_setpoint_schedule')
       indoor_co2_setpoint_schedule.setScheduleTypeLimits(get_any_number_ppm(model))
-      indoor_co2_setpoint_schedule.setToConstantValue(1000.0) #1000 ppm
+      indoor_co2_setpoint_schedule.to_ScheduleCompact.get
+      indoor_co2_setpoint_schedule.setString(3,"Through: 12/31")
+      indoor_co2_setpoint_schedule.setString(4,"For: AllDays")
+      indoor_co2_setpoint_schedule.setString(5,"Until: 24:00")
+      indoor_co2_setpoint_schedule.setString(6,"1000.0")
+      # indoor_co2_setpoint_schedule.setToConstantValue(1000.0) #1000 ppm
 
-      ##### Define outdoor CO2 schedule (required for CO2-based DCV)
+
+      ##### Define outdoor CO2 schedule (required for CO2-based DCV
+      ##### Reference: see page B.13 of PNNL (2017), "Impacts of Commercial Building Controls on Energy Savings and Peak Load Reduction", available a: https://www.energy.gov/eere/buildings/downloads/impacts-commercial-building-controls-energy-savings-and-peak-load-reduction
       outdoor_co2_schedule = OpenStudio::Model::ScheduleCompact.new(model)
       outdoor_co2_schedule.setName('outdoor_co2_schedule')
       outdoor_co2_schedule.setScheduleTypeLimits(get_any_number_ppm(model))
-      outdoor_co2_schedule.setToConstantValue(400.0) #400 ppm
+      outdoor_co2_schedule.to_ScheduleCompact.get
+      outdoor_co2_schedule.setString(3,"Through: 12/31")
+      outdoor_co2_schedule.setString(4,"For: AllDays")
+      outdoor_co2_schedule.setString(5,"Until: 24:00")
+      outdoor_co2_schedule.setString(6,"400.0")
+      # outdoor_co2_schedule.setToConstantValue(400.0) #400 ppm
 
       ##### Define ZoneAirContaminantBalance (required for CO2-based DCV)
       zone_air_contaminant_balance = model.getZoneAirContaminantBalance()
@@ -1259,9 +1339,7 @@ class NECB2011 < Standard
 
       end #air_loop.supplyComponents.each do |supply_component|
     end #model.getAirLoopHVACs.each do |air_loop|
-  end
-
-  #def model_enable_demand_controlled_ventilation
+  end #def model_enable_demand_controlled_ventilation
 
 
   def set_lighting_per_area_led_lighting(space_type, definition, lighting_per_area_led_lighting)

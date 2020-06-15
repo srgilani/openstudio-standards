@@ -16,8 +16,8 @@ class YourTestName_Test < Minitest::Test
     @test_passed = true
     #Range of test options.
     @templates = ['NECB2011']
-    @building_types = ['FullServiceRestaurant']
-    # @building_types = ['FullServiceRestaurant','HighriseApartment','Hospital','LargeHotel','LargeOffice','MediumOffice','MidriseApartment','Outpatient','PrimarySchool','QuickServiceRestaurant','RetailStandalone','SecondarySchool','SmallHotel','Warehouse']
+    # @building_types = ['FullServiceRestaurant']
+    @building_types = ['FullServiceRestaurant','HighriseApartment','Hospital','LargeHotel','LargeOffice','MediumOffice','MidriseApartment','Outpatient','PrimarySchool','QuickServiceRestaurant','RetailStandalone','SecondarySchool','SmallHotel','Warehouse']
     @epw_files = ['CAN_AB_Banff.CS.711220_CWEC2016.epw']
     @primary_heating_fuels = ['DefaultFuel']
     @dcv_types = ['Occupancy-based DCV','CO2-based DCV']
@@ -61,31 +61,60 @@ class YourTestName_Test < Minitest::Test
               # BTAP::FileIO.save_osm(model, File.join(@output_folder,"#{template}-#{building_type}-#{dcv_type}.osm"))
               # puts File.join(@output_folder,"#{template}-#{building_type}-DCV.osm")
 
-              # puts dcv_type
+              ##### Get info about contaminant type to be simulated (i.e. Carbon Dioxide Concentration, Outdoor Carbon Dioxide Schedule)
               zone_air_contaminant_balance = model.getZoneAirContaminantBalance()
               carbonDioxideConcentration_status = zone_air_contaminant_balance.carbonDioxideConcentration()
-              outdoor_co2_schedule_name = zone_air_contaminant_balance.outdoorCarbonDioxideSchedule.get.name()
-              outdoor_co2_schedule_ppm = zone_air_contaminant_balance.outdoorCarbonDioxideSchedule.get.constantValue() #TODO: correct this
-              puts carbonDioxideConcentration_status
-              puts outdoor_co2_schedule_name
-              puts outdoor_co2_schedule_ppm
-              raise('check outdoor co2')
+
+              ##### Gather information about outdoor_co2_schedule
+              outdoor_co2_schedule = zone_air_contaminant_balance.outdoorCarbonDioxideSchedule.get
+              outdoor_co2_schedule_name = outdoor_co2_schedule.name()
+              result["outdoor_co2_schedule_name"] = outdoor_co2_schedule_name
+              result["outdoor_co2_schedule_through_date"] = outdoor_co2_schedule.getString(3)
+              result["outdoor_co2_schedule_for_alldays"] = outdoor_co2_schedule.getString(4)
+              result["outdoor_co2_schedule_for_alldays_time"] = outdoor_co2_schedule.getString(5)
+              result["outdoor_co2_schedule_for_alldays_ppm"] = outdoor_co2_schedule.getString(6)
 
               ##### Set CO2 controller in each space (required for CO2-based DCV)
               model.getSpaces.sort.each do |space|
-                # puts space.name.to_s
                 zone = space.thermalZone
                 if !zone.empty?
                   zone = space.thermalZone.get
                 end
                 zone_control_co2 = zone.zoneControlContaminantController.get
-                # puts zone_control_co2
-                zone_control_co2_indoor_co2_availability_schedule = zone_control_co2.carbonDioxideControlAvailabilitySchedule.get.name()
-                # puts zone_control_co2_indoor_co2_availability_schedule
-                zone_control_co2_indoor_co2_setpoint_schedule = zone_control_co2.carbonDioxideSetpointSchedule.get.name()
-                # puts zone_control_co2_indoor_co2_setpoint_schedule
-                result["#{space.name.to_s} - zone_control_co2_indoor_co2_availability_schedule"] = zone_control_co2_indoor_co2_availability_schedule
-                result["#{space.name.to_s} - zone_control_co2_indoor_co2_setpoint_schedule"] = zone_control_co2_indoor_co2_setpoint_schedule
+
+                ##### Gather names of indoor_co2_availability_schedule and indoor_co2_setpoint_schedule
+                zone_control_co2_indoor_co2_availability_schedule = zone_control_co2.carbonDioxideControlAvailabilitySchedule.get
+                zone_control_co2_indoor_co2_availability_schedule_name = zone_control_co2_indoor_co2_availability_schedule.name()
+                zone_control_co2_indoor_co2_setpoint_schedule = zone_control_co2.carbonDioxideSetpointSchedule.get
+                zone_control_co2_indoor_co2_setpoint_schedule_name = zone_control_co2_indoor_co2_setpoint_schedule.name()
+
+                ##### Gather information about indoor_co2_availability_schedule
+                result["#{space.name.to_s} - zone_control_co2_indoor_co2_availability_schedule_name"] = zone_control_co2_indoor_co2_availability_schedule_name
+                result["#{space.name.to_s} - zone_control_co2_indoor_co2_availability_schedule_through_date"] = zone_control_co2_indoor_co2_availability_schedule.getString(3)
+                result["#{space.name.to_s} - zone_control_co2_indoor_co2_availability_schedule_for_weekdays"] = zone_control_co2_indoor_co2_availability_schedule.getString(4)
+                result["#{space.name.to_s} - zone_control_co2_indoor_co2_availability_schedule_for_weekdays_time_1"] = zone_control_co2_indoor_co2_availability_schedule.getString(5)
+                result["#{space.name.to_s} - zone_control_co2_indoor_co2_availability_schedule_for_weekdays_fraction_1"] = zone_control_co2_indoor_co2_availability_schedule.getString(6)
+                result["#{space.name.to_s} - zone_control_co2_indoor_co2_availability_schedule_for_weekdays_time_2"] = zone_control_co2_indoor_co2_availability_schedule.getString(7)
+                result["#{space.name.to_s} - zone_control_co2_indoor_co2_availability_schedule_for_weekdays_fraction_2"] = zone_control_co2_indoor_co2_availability_schedule.getString(8)
+                result["#{space.name.to_s} - zone_control_co2_indoor_co2_availability_schedule_for_weekdays_time_3"] = zone_control_co2_indoor_co2_availability_schedule.getString(9)
+                result["#{space.name.to_s} - zone_control_co2_indoor_co2_availability_schedule_for_weekdays_fraction_3"] = zone_control_co2_indoor_co2_availability_schedule.getString(10)
+                result["#{space.name.to_s} - zone_control_co2_indoor_co2_availability_schedule_for_saturday"] = zone_control_co2_indoor_co2_availability_schedule.getString(11)
+                result["#{space.name.to_s} - zone_control_co2_indoor_co2_availability_schedule_for_saturday_time_1"] = zone_control_co2_indoor_co2_availability_schedule.getString(12)
+                result["#{space.name.to_s} - zone_control_co2_indoor_co2_availability_schedule_for_saturday_fraction_1"] = zone_control_co2_indoor_co2_availability_schedule.getString(13)
+                result["#{space.name.to_s} - zone_control_co2_indoor_co2_availability_schedule_for_saturday_time_2"] = zone_control_co2_indoor_co2_availability_schedule.getString(14)
+                result["#{space.name.to_s} - zone_control_co2_indoor_co2_availability_schedule_for_saturday_fraction_2"] = zone_control_co2_indoor_co2_availability_schedule.getString(15)
+                result["#{space.name.to_s} - zone_control_co2_indoor_co2_availability_schedule_for_saturday_time_3"] = zone_control_co2_indoor_co2_availability_schedule.getString(16)
+                result["#{space.name.to_s} - zone_control_co2_indoor_co2_availability_schedule_for_saturday_fraction_3"] = zone_control_co2_indoor_co2_availability_schedule.getString(17)
+                result["#{space.name.to_s} - zone_control_co2_indoor_co2_availability_schedule_for_otherdays"] = zone_control_co2_indoor_co2_availability_schedule.getString(18)
+                result["#{space.name.to_s} - zone_control_co2_indoor_co2_availability_schedule_for_otherdays_time_1"] = zone_control_co2_indoor_co2_availability_schedule.getString(19)
+                result["#{space.name.to_s} - zone_control_co2_indoor_co2_availability_schedule_for_otherdays_fraction_1"] = zone_control_co2_indoor_co2_availability_schedule.getString(20)
+
+                ##### Gather information about indoor_co2_setpoint_schedule
+                result["#{space.name.to_s} - zone_control_co2_indoor_co2_setpoint_schedule_name"] = zone_control_co2_indoor_co2_setpoint_schedule_name
+                result["#{space.name.to_s} - zone_control_co2_indoor_co2_setpoint_schedule_through_date"] = zone_control_co2_indoor_co2_setpoint_schedule.getString(3)
+                result["#{space.name.to_s} - zone_control_co2_indoor_co2_setpoint_schedule_for_alldays"] = zone_control_co2_indoor_co2_setpoint_schedule.getString(4)
+                result["#{space.name.to_s} - zone_control_co2_indoor_co2_setpoint_schedule_for_alldays_time"] = zone_control_co2_indoor_co2_setpoint_schedule.getString(5)
+                result["#{space.name.to_s} - zone_control_co2_indoor_co2_setpoint_schedule_for_alldays_ppm"] = zone_control_co2_indoor_co2_setpoint_schedule.getString(6)
               end
               ##### Loop through AirLoopHVACs
               model.getAirLoopHVACs.each do |air_loop|
@@ -101,25 +130,20 @@ class YourTestName_Test < Minitest::Test
                     ##### Find Controller:OutdoorAir using AirLoopHVAC:OutdoorAirSystem.
                     hvac_component = hvac_component.get
                     hvac_component_name = hvac_component.name()
-                    # puts hvac_component_name
                     controller_outdoorair = hvac_component.getControllerOutdoorAir
                     controller_outdoorair_name = controller_outdoorair.name()
-                    # puts controller_outdoorair_name
                     result["#{hvac_component_name} - controller_outdoorair_name"] = controller_outdoorair_name
 
                     ##### Get "Controller Mechanical Ventilation" from Controller:OutdoorAir.
                     controller_mechanical_ventilation = controller_outdoorair.controllerMechanicalVentilation
                     controller_mechanical_ventilation_name = controller_mechanical_ventilation.name()
-                    # puts controller_mechanical_ventilation_name
                     result["#{controller_outdoorair_name} - controller_mechanical_ventilation_name"] = controller_mechanical_ventilation_name
 
                     ##### Check if "Demand Controlled Ventilation" is "Yes" in Controller:MechanicalVentilation depending on dcv_type.
                     controller_mechanical_ventilation_demand_controlled_ventilation_status = controller_mechanical_ventilation.demandControlledVentilation
-                    # puts controller_mechanical_ventilation_demand_controlled_ventilation_status
                     result["#{controller_mechanical_ventilation_name} - controller_mechanical_ventilation_demand_controlled_ventilation_status"] = controller_mechanical_ventilation_demand_controlled_ventilation_status
 
                     controller_mechanical_ventilation_system_outdoor_air_method = controller_mechanical_ventilation.systemOutdoorAirMethod()
-                    # puts controller_mechanical_ventilation_system_outdoor_air_method
                     result["#{controller_mechanical_ventilation_name} - controller_mechanical_ventilation_system_outdoor_air_method"] = controller_mechanical_ventilation_system_outdoor_air_method
 
                   end #if !hvac_component.empty?
@@ -129,8 +153,6 @@ class YourTestName_Test < Minitest::Test
 
               #then store results into the array that contains all the scenario results.
               @test_results_array << result
-              # File.open(@test_results_file, 'w') {|f| f.write(JSON.pretty_generate(@test_results_array))}
-              # raise('check for dcv')
 
             end
           end
@@ -140,32 +162,32 @@ class YourTestName_Test < Minitest::Test
     # Save test results to file.
     File.open(@test_results_file, 'w') {|f| f.write(JSON.pretty_generate(@test_results_array))}
 
-    # # Compare results
-    # compare_message = ''
-    # # Check if expected file exists.
-    # if File.exist?(@expected_results_file)
-    #   # Load expected results from file.
-    #   @expected_results = JSON.parse(File.read(@expected_results_file))
-    #   if @expected_results.size == @test_results_array.size
-    #     # Iterate through each test result.
-    #     @expected_results.each_with_index do |expected, row|
-    #       # Compare if row /hash is exactly the same.
-    #       if expected != @test_results_array[row]
-    #         #if not set test flag to false
-    #         @test_passed = false
-    #         compare_message << "\nERROR: This row was different expected/result\n"
-    #         compare_message << "EXPECTED:#{expected.to_s}\n"
-    #         compare_message << "TEST:    #{@test_results_array[row].to_s}\n\n"
-    #       end
-    #     end
-    #   else
-    #     assert(false, "#{@expected_results_file} # of rows do not match the #{@test_results_array}..cannot compare")
-    #   end
-    # else
-    #   assert(false, "#{@expected_results_file} does not exist..cannot compare")
-    # end
-    # puts compare_message
-    # assert(@test_passed, "Error: This test failed to produce the same result as in the #{@expected_results_file}\n")
+    # Compare results
+    compare_message = ''
+    # Check if expected file exists.
+    if File.exist?(@expected_results_file)
+      # Load expected results from file.
+      @expected_results = JSON.parse(File.read(@expected_results_file))
+      if @expected_results.size == @test_results_array.size
+        # Iterate through each test result.
+        @expected_results.each_with_index do |expected, row|
+          # Compare if row /hash is exactly the same.
+          if expected != @test_results_array[row]
+            #if not set test flag to false
+            @test_passed = false
+            compare_message << "\nERROR: This row was different expected/result\n"
+            compare_message << "EXPECTED:#{expected.to_s}\n"
+            compare_message << "TEST:    #{@test_results_array[row].to_s}\n\n"
+          end
+        end
+      else
+        assert(false, "#{@expected_results_file} # of rows do not match the #{@test_results_array}..cannot compare")
+      end
+    else
+      assert(false, "#{@expected_results_file} does not exist..cannot compare")
+    end
+    puts compare_message
+    assert(@test_passed, "Error: This test failed to produce the same result as in the #{@expected_results_file}\n")
   end
 
 end

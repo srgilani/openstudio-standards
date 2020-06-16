@@ -10,7 +10,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Library - cataloging",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 1.1984487,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -19,7 +19,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Automotive facility",
           "space_type": "WholeBuilding",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.7060628,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -28,7 +28,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Convention centre",
           "space_type": "WholeBuilding",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.7618045999999999,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -37,7 +37,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Courthouse",
           "space_type": "WholeBuilding",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.9011590999999999,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -46,7 +46,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Dining - bar/lounge",
           "space_type": "WholeBuilding",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.9011590999999999,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -55,7 +55,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Dining - cafeteria",
           "space_type": "WholeBuilding",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.7896755,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -64,7 +64,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Dining - family",
           "space_type": "WholeBuilding",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.7803852,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -73,7 +73,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Dormitory",
           "space_type": "WholeBuilding",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.6131597999999999,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -82,7 +82,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Exercise centre",
           "space_type": "WholeBuilding",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.650321,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -91,7 +91,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Fire station",
           "space_type": "WholeBuilding",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.5295471,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -100,7 +100,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Gymnasium",
           "space_type": "WholeBuilding",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.6781919,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -109,7 +109,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Health-care clinic",
           "space_type": "WholeBuilding",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.8175464,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -118,7 +118,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Hospital",
           "space_type": "WholeBuilding",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 1.0498039000000001,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -127,7 +127,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Hotel",
           "space_type": "WholeBuilding",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.7525143,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -136,7 +136,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Library",
           "space_type": "WholeBuilding",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.7803852,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -145,7 +145,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Manufacturing facility",
           "space_type": "WholeBuilding",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.9011590999999999,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -154,7 +154,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Motel",
           "space_type": "WholeBuilding",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.7525143,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -163,7 +163,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Motion picture theatre",
           "space_type": "WholeBuilding",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.8268367,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -172,7 +172,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Multi-unit residential",
           "space_type": "WholeBuilding",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.6781919,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -181,7 +181,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Museum",
           "space_type": "WholeBuilding",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 1.0590942,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -190,7 +190,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Office",
           "space_type": "WholeBuilding",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.7896755,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -199,7 +199,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Parking garage",
           "space_type": "WholeBuilding",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.1486448,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -208,7 +208,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Penitentiary",
           "space_type": "WholeBuilding",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.7525143,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -217,7 +217,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Performing arts theatre",
           "space_type": "WholeBuilding",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 1.1798681,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -226,7 +226,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Police station",
           "space_type": "WholeBuilding",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.7989658,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -235,7 +235,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Post office",
           "space_type": "WholeBuilding",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.6689016,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -244,7 +244,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Religious",
           "space_type": "WholeBuilding",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.9383203,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -253,7 +253,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Retail",
           "space_type": "WholeBuilding",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 1.0590942,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -262,7 +262,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "School/university",
           "space_type": "WholeBuilding",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.8082560999999999,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -271,7 +271,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Sports arena",
           "space_type": "WholeBuilding",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.8732882000000001,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -280,7 +280,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Town hall",
           "space_type": "WholeBuilding",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.7989658,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -289,7 +289,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Transportation",
           "space_type": "WholeBuilding",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.6131597999999999,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -298,7 +298,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Warehouse",
           "space_type": "WholeBuilding",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.4830956,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -307,7 +307,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Workshop",
           "space_type": "WholeBuilding",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.9011590999999999,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -316,7 +316,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Warehouse - refrigerated",
           "space_type": "WholeBuilding",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.4830956,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -343,7 +343,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Audience - auditorium",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.6317404,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -352,7 +352,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Audience - performance arts",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 2.0252854,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -361,7 +361,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Audience - motion picture",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 1.1427069,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -370,7 +370,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Classroom/lecture/training",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.9569009,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -379,7 +379,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Conf./meet./multi-purpose",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 1.0683845,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -388,7 +388,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Corr. >= 2.4m wide-sch-A",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.6596113,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -397,7 +397,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Corr. >= 2.4m wide-sch-B",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.6596113,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -406,7 +406,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Corr. >= 2.4m wide-sch-C",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.6596113,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -415,7 +415,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Corr. >= 2.4m wide-sch-D",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.6596113,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -424,7 +424,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Corr. >= 2.4m wide-sch-E",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.6596113,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -433,7 +433,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Corr. >= 2.4m wide-sch-F",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.6596113,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -442,7 +442,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Corr. >= 2.4m wide-sch-G",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.6596113,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -451,7 +451,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Corr. >= 2.4m wide-sch-H",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.6596113,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -460,7 +460,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Corr. >= 2.4m wide-sch-I",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.6596113,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -469,7 +469,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Corr. < 2.4m wide-sch-A",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.6596113,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -478,7 +478,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Corr. < 2.4m wide-sch-B",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.6596113,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -487,7 +487,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Corr. < 2.4m wide-sch-C",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.6596113,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -496,7 +496,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Corr. < 2.4m wide-sch-D",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.6596113,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -505,7 +505,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Corr. < 2.4m wide-sch-E",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.6596113,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -514,7 +514,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Corr. < 2.4m wide-sch-F",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.6596113,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -523,7 +523,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Corr. < 2.4m wide-sch-G",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.6596113,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -532,7 +532,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Corr. < 2.4m wide-sch-H",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.6596113,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -541,7 +541,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Corr. < 2.4m wide-sch-I",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.6596113,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -550,7 +550,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Dining - other",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.6317404,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -559,7 +559,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Dining - bar lounge/leisure",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.9011590999999999,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -568,7 +568,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Dining - family space",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.7060628,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -577,7 +577,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Dress./fitt. - performance arts",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.6131597999999999,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -586,7 +586,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Electrical/Mechanical-sch-A",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.42735379999999995,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -595,7 +595,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Electrical/Mechanical-sch-B",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.42735379999999995,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -604,7 +604,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Electrical/Mechanical-sch-C",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.42735379999999995,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -613,7 +613,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Electrical/Mechanical-sch-D",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.42735379999999995,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -622,7 +622,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Electrical/Mechanical-sch-E",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.42735379999999995,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -631,7 +631,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Electrical/Mechanical-sch-F",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.42735379999999995,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -640,7 +640,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Electrical/Mechanical-sch-G",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.42735379999999995,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -649,7 +649,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Electrical/Mechanical-sch-H",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.42735379999999995,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -658,7 +658,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Electrical/Mechanical-sch-I",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.42735379999999995,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -667,7 +667,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Food preparation",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 1.0590942,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -676,7 +676,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Lab - classrooms",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 1.1984487,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -685,7 +685,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Lab - research",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 1.4492867999999999,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -694,7 +694,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Lobby - other",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 1.0033524,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -703,7 +703,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Lobby - elevator",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.6781919,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -712,7 +712,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Lobby - performance arts",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 1.7001249,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -721,7 +721,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Lobby - motion picture",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.4459344,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -730,7 +730,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Locker room-sch-A",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.4830956,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -739,7 +739,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Locker room-sch-B",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.4830956,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -748,7 +748,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Locker room-sch-C",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.4830956,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -757,7 +757,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Locker room-sch-D",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.4830956,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -766,7 +766,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Locker room-sch-E",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.4830956,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -775,7 +775,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Locker room-sch-F",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.4830956,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -784,7 +784,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Locker room-sch-G",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.4830956,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -793,7 +793,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Locker room-sch-H",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.4830956,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -802,7 +802,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Locker room-sch-I",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.4830956,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -811,7 +811,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Lounge/recreation",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.6224501,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -820,7 +820,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Washroom-sch-A",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.8454172999999999,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -829,7 +829,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Washroom-sch-B",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.8454172999999999,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -838,7 +838,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Washroom-sch-C",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.8454172999999999,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -847,7 +847,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Washroom-sch-D",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.8454172999999999,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -856,7 +856,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Washroom-sch-E",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.8454172999999999,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -865,7 +865,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Washroom-sch-F",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.8454172999999999,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -874,7 +874,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Washroom-sch-G",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.8454172999999999,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -883,7 +883,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Washroom-sch-H",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.8454172999999999,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -892,7 +892,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Washroom-sch-I",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.8454172999999999,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -901,7 +901,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Sales area",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 1.2170292999999999,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -910,7 +910,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Stairway-sch-A",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.5759986,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -919,7 +919,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Stairway-sch-B",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.5759986,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -928,7 +928,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Stairway-sch-C",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.5759986,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -937,7 +937,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Stairway-sch-D",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.5759986,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -946,7 +946,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Stairway-sch-E",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.5759986,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -955,7 +955,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Stairway-sch-F",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.5759986,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -964,7 +964,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Stairway-sch-G",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.5759986,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -973,7 +973,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Stairway-sch-H",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.5759986,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -982,7 +982,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Stairway-sch-I",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.5759986,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -991,7 +991,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Storage area",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.9661912,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -1000,7 +1000,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Workshop space",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 1.1427069,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -1009,7 +1009,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Automotive - repair",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.557418,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -1018,7 +1018,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Bank - banking and offices",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.8639979000000001,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -1027,7 +1027,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Convention centre - audience",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.8175464,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -1036,7 +1036,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Convention centre - exhibit",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.8825785,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -1045,7 +1045,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Courthouse - courtroom",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 1.393545,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -1054,7 +1054,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Courthouse - cell",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.8082560999999999,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -1063,7 +1063,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Courthouse - chambers",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 1.393545,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -1072,7 +1072,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Penitentiary - audience",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.278709,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -1081,7 +1081,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Penitentiary - classroom",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 1.3378032,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -1090,7 +1090,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Penitentiary - dining",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.9569009,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -1099,7 +1099,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Dormitory - living quarters",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.5388374,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -1108,7 +1108,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Dwelling Unit(s)",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.464515,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -1117,7 +1117,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Fire station - engine room",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.4087732,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -1126,7 +1126,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Fire station - quarters",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.2043866,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -1135,7 +1135,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Gym - fitness",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.5016762,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -1144,7 +1144,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Gym - audience",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.650321,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -1153,7 +1153,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Gym - play",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.8175464,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -1162,7 +1162,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Hospital corr. >= 2.4m-sch-A",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.9197397,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -1171,7 +1171,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Hospital corr. >= 2.4m-sch-B",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.9197397,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -1180,7 +1180,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Hospital corr. >= 2.4m-sch-C",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.9197397,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -1189,7 +1189,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Hospital corr. >= 2.4m-sch-D",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.9197397,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -1198,7 +1198,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Hospital corr. >= 2.4m-sch-E",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.9197397,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -1207,7 +1207,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Hospital corr. >= 2.4m-sch-F",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.9197397,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -1216,7 +1216,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Hospital corr. >= 2.4m-sch-G",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.9197397,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -1225,7 +1225,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Hospital corr. >= 2.4m-sch-H",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.9197397,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -1234,7 +1234,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Hospital corr. >= 2.4m-sch-I",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.9197397,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -1243,7 +1243,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Hospital corr. < 2.4m-sch-A",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.9197397,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -1252,7 +1252,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Hospital corr. < 2.4m-sch-B",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.9197397,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -1261,7 +1261,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Hospital corr. < 2.4m-sch-C",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.9197397,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -1270,7 +1270,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Hospital corr. < 2.4m-sch-D",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.9197397,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -1279,7 +1279,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Hospital corr. < 2.4m-sch-E",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.9197397,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -1288,7 +1288,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Hospital corr. < 2.4m-sch-F",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.9197397,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -1297,7 +1297,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Hospital corr. < 2.4m-sch-G",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.9197397,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -1306,7 +1306,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Hospital corr. < 2.4m-sch-H",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.9197397,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -1315,7 +1315,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Hospital corr. < 2.4m-sch-I",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.9197397,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -1324,7 +1324,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Hospital - emergency",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 1.6815443,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -1333,7 +1333,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Hospital - exam",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 1.6815443,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -1342,7 +1342,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Hospital - laundry/washing",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.42735379999999995,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -1351,7 +1351,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Hospital - lounge/recreation",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.7803852,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -1360,7 +1360,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Hospital - medical supply",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.5388374,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -1369,7 +1369,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Hospital - nursery",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 1.0033524,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -1378,7 +1378,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Hospital - nurses station",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.8082560999999999,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -1387,7 +1387,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Hospital - operating room",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 2.1739302,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -1396,7 +1396,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Hospital - patient room",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.6224501,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -1405,7 +1405,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Hospital - pharmacy",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 1.3378032,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -1414,7 +1414,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Hospital - physical therapy",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.836127,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -1423,7 +1423,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Hospital - radiology/imaging",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 1.0590942,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -1432,7 +1432,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Hospital - recovery",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 1.0312233,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -1441,7 +1441,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Hotel/Motel - dining",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.6317404,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -1450,7 +1450,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Hotel/Motel - rooms",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.7710949,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -1459,7 +1459,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Hotel/Motel - lobby",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 1.0590942,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -1468,7 +1468,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Hway lodging - dining",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.6317404,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -1477,7 +1477,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Hway lodging - rooms",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.7710949,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -1486,7 +1486,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Library - reading",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.8175464,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -1495,7 +1495,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Library - stacks",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 1.1984487,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -1504,7 +1504,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Mfg - corr. >= 2.4m-sch-A",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.2879993,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -1513,7 +1513,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Mfg - corr. >= 2.4m-sch-B",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.2879993,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -1522,7 +1522,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Mfg - corr. >= 2.4m-sch-C",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.2879993,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -1531,7 +1531,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Mfg - corr. >= 2.4m-sch-D",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.2879993,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -1540,7 +1540,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Mfg - corr. >= 2.4m-sch-E",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.2879993,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -1549,7 +1549,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Mfg - corr. >= 2.4m-sch-F",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.2879993,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -1558,7 +1558,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Mfg - corr. >= 2.4m-sch-G",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.2879993,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -1567,7 +1567,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Mfg - corr. >= 2.4m-sch-H",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.2879993,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -1576,7 +1576,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Mfg - corr. >= 2.4m-sch-I",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.2879993,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -1585,7 +1585,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Mfg - corr. < 2.4m-sch-A",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.2879993,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -1594,7 +1594,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Mfg - corr. < 2.4m-sch-B",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.2879993,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -1603,7 +1603,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Mfg - corr. < 2.4m-sch-C",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.2879993,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -1612,7 +1612,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Mfg - corr. < 2.4m-sch-D",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.2879993,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -1621,7 +1621,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Mfg - corr. < 2.4m-sch-E",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.2879993,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -1630,7 +1630,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Mfg - corr. < 2.4m-sch-F",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.2879993,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -1639,7 +1639,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Mfg - corr. < 2.4m-sch-G",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.2879993,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -1648,7 +1648,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Mfg - corr. < 2.4m-sch-H",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.2879993,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -1657,7 +1657,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Mfg - corr. < 2.4m-sch-I",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.2879993,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -1675,7 +1675,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Mfg - equipment",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.650321,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -1684,7 +1684,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Mfg - bay H > 15m",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 1.0498039000000001,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -1693,7 +1693,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Mfg - 7.5 <= bay H <= 15m",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.7525143,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -1702,7 +1702,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Mfg - bay H < 7.5m",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.9569009,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -1711,7 +1711,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Museum - exhibition",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 1.0498039000000001,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -1720,7 +1720,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Museum - restoration",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.8547075999999999,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -1729,7 +1729,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Parking garage space",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.1393545,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -1738,7 +1738,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Post office sorting",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.6781919,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -1747,7 +1747,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Religious - audience",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 1.5328995,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -1756,7 +1756,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Religious - fellowship hall",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.5481277,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -1765,7 +1765,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Religious - pulpit/choir",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 1.5328995,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -1774,7 +1774,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Retail - dressing/fitting",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.5016762,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -1783,7 +1783,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Retail - mall concourse",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.9011590999999999,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -1792,7 +1792,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Retail - sales",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 1.2170292999999999,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -1801,7 +1801,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Sports arena - audience",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.42735379999999995,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -1810,7 +1810,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Sports arena - court c4",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 1.1334165999999999,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -1819,7 +1819,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Sports arena - court c3",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 1.7001249,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -1828,7 +1828,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Sports arena - court c2",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 1.9602533000000002,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -1837,7 +1837,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Sports arena - court c1",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 2.4712198,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -1846,7 +1846,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Sports arena - ring",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 2.4712198,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -1855,7 +1855,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Transp. baggage",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.4459344,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -1864,7 +1864,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Transp. concourse",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.30657989999999996,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -1873,7 +1873,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Transp. seating",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.42735379999999995,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -1882,7 +1882,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Transp. counter",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.6224501,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -1891,7 +1891,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Warehouse - fine",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.6874822,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -1900,7 +1900,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Warehouse - med/blk",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.3530314,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -1909,7 +1909,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Warehouse - med/blk2",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.3530314,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -1918,7 +1918,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "- undefined -",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.0,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -1927,7 +1927,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Food preparation - vented",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 1.0590942,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -1945,7 +1945,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Storage area - occsens",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.9661912,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -1954,7 +1954,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Storage area - refrigerated",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.9661912,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -1963,7 +1963,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Storage area - refrigerated - occsens",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.9661912,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -1972,7 +1972,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Warehouse - fine - refrigerated",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.6874822,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -1981,7 +1981,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Warehouse - med/blk - refrigerated",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.3530314,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -1990,7 +1990,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Warehouse - med/blk2 - refrigerated",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.3530314,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6
@@ -2017,7 +2017,7 @@
           "lighting_standard": "NECB2011",
           "building_type": "Space Function",
           "space_type": "Office - open plan",
-          "lighting_per_area": 0.92903,
+          "lighting_per_area": 0.8082560999999999,
           "lighting_fraction_to_return_air": 0.0,
           "lighting_fraction_radiant": 0.2,
           "lighting_fraction_visible": 0.6

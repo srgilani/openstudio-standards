@@ -20,8 +20,6 @@ Furthermore, two variables have been added to the **apply_standard_lights** func
 * This measure has been called in the **apply_loads** function (in necb_2011.rb) -> **model_add_loads** function (in necb_2011.rb) 
 -> **space_type_apply_internal_loads** function (in beps_compliance_path.rb) -> **apply_standard_lights** function (in lighting.rb).
 * This measure was tested for NECB 2011 full service restaurant archetype.
-Note that since setting the four fields of LPD, fraction radiant, fraction visible, and return air fraction are upon another BTAP task, 
-for testing the measure, dummy values were used.
 
 # Waiting On
 * There are four fields in the OS:Lights:Definition object that need to be updated in standards/lib/openstudio-standards/standards/necb/NECB2011/**data/led_lighting_data.json**, as follows:

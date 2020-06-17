@@ -1,0 +1,75 @@
+DEVELOPERS OF OPENSTUDIO-STANDARDS: Requiring code directly instead of using installed gem.  This avoids having to run rake install every time you make a change.
+Started with run options --seed 19337
+
+RunAllTests
+Running 63 tests suites in parallel using 3 of available cpus.
+To increase or decrease the ProcessorsUsed, please edit the test/test_run_all_locally.rb file.
+
+Progress :: |[32mPASSED: /home/osdev/openstudio-standards/test/necb/unit_tests/tests/test_necb_hrv_rules.rb[0m
+=[32mPASSED: /home/osdev/openstudio-standards/test/doe_prototype/test_add_refrigeration.rb[0m
+==[32mPASSED: /home/osdev/openstudio-standards/test/90_1_general/test_find_construction_properties_data.rb[0m
+=[32mPASSED: /home/osdev/openstudio-standards/test/cbes_prototype/test_small_office.rb[0m
+==[32mPASSED: /home/osdev/openstudio-standards/test/doe_prototype/test_effective_num_stories.rb[0m
+=[32mPASSED: /home/osdev/openstudio-standards/test/doe_prototype/test_warehouse.rb[0m
+==[32mPASSED: /home/osdev/openstudio-standards/test/necb/unit_tests/tests/test_necb_airloop_sizing_parameters.rb[0m
+==[32mPASSED: /home/osdev/openstudio-standards/test/necb/unit_tests/tests/test_space_type_led_lights.rb[0m
+=[32mPASSED: /home/osdev/openstudio-standards/test/90_1_general/test_coil_dx.rb[0m
+==[32mPASSED: /home/osdev/openstudio-standards/test/doe_prototype/test_quick_service_restaurant.rb[0m
+=[32mPASSED: /home/osdev/openstudio-standards/test/doe_prototype/test_small_office.rb[0m
+===[32mPASSED: /home/osdev/openstudio-standards/test/90_1_general/test_find_target_eui_by_end_use.rb[0m
+==[32mPASSED: /home/osdev/openstudio-standards/test/doe_prototype/test_mid_rise_apartment.rb[0m
+=[32mPASSED: /home/osdev/openstudio-standards/test/doe_prototype/test_supermarket.rb[0m
+==[32mPASSED: /home/osdev/openstudio-standards/test/necb/unit_tests/tests/test_necb_weather.rb[0m
+=[32mPASSED: /home/osdev/openstudio-standards/test/necb/unit_tests/tests/test_necb_waterheater_rules.rb[0m
+==[32mPASSED: /home/osdev/openstudio-standards/test/necb/unit_tests/tests/test_necb_default_spacetypes.rb[0m
+=[32mPASSED: /home/osdev/openstudio-standards/test/cbes_prototype/test_retail_standalone.rb[0m
+==[32mPASSED: /home/osdev/openstudio-standards/test/necb/unit_tests/tests/test_necb_coolingtower_rules.rb[0m
+==[32mPASSED: /home/osdev/openstudio-standards/test/doe_prototype/test_add_hvac_systems.rb[0m
+=[32mPASSED: /home/osdev/openstudio-standards/test/necb/unit_tests/tests/test_necb_heatpump_rules.rb[0m
+==[32mPASSED: /home/osdev/openstudio-standards/test/necb/unit_tests/tests/test_necb_constructions_fdwr.rb[0m
+==[32mPASSED: /home/osdev/openstudio-standards/test/doe_prototype/test_add_elevators.rb[0m
+==[32mPASSED: /home/osdev/openstudio-standards/test/necb/unit_tests/tests/test_necb_fan_rules.rb[0m
+==[32mPASSED: /home/osdev/openstudio-standards/test/doe_prototype/test_small_hotel.rb[0m
+=[32mPASSED: /home/osdev/openstudio-standards/test/necb/unit_tests/tests/test_necb_total_and_tz_ceiling_centroid.rb[0m
+==[32mPASSED: /home/osdev/openstudio-standards/test/90_1_prm/test_create_performance_rating_method_baseline_bldg_2.rb[0m
+=[32mPASSED: /home/osdev/openstudio-standards/test/necb/unit_tests/tests/test_necb_loop_rules.rb[0m
+==[32mPASSED: /home/osdev/openstudio-standards/test/90_1_general/test_get_building_climate_zone_and_building_type.rb[0m
+==[32mPASSED: /home/osdev/openstudio-standards/test/doe_prototype/test_space_type_hash.rb[0m
+=[32mPASSED: /home/osdev/openstudio-standards/test/necb/unit_tests/tests/test_necb_shw.rb[0m
+==[32mPASSED: /home/osdev/openstudio-standards/test/necb/unit_tests/tests/test_remove_duplicate_materials_and_constructions.rb[0m
+==[32mPASSED: /home/osdev/openstudio-standards/test/90_1_general/test_find_target_eui.rb[0m
+==[32mPASSED: /home/osdev/openstudio-standards/test/doe_prototype/test_add_exterior_lights.rb[0m
+=[32mPASSED: /home/osdev/openstudio-standards/test/doe_prototype/test_secondary_school.rb[0m
+==[32mPASSED: /home/osdev/openstudio-standards/test/necb/unit_tests/tests/test_necb_chiller_rules.rb[0m
+==[32mPASSED: /home/osdev/openstudio-standards/test/cbes_prototype/test_medium_office.rb[0m
+=[32mPASSED: /home/osdev/openstudio-standards/test/doe_prototype/test_strip_mall.rb[0m
+==[32mPASSED: /home/osdev/openstudio-standards/test/necb/unit_tests/tests/test_necb_auto_zone_test.rb[0m
+=[32mPASSED: /home/osdev/openstudio-standards/test/necb/unit_tests/tests/test_necb_pumppower_rules.rb[0m
+==[32mPASSED: /home/osdev/openstudio-standards/test/doe_prototype/test_large_office_detailed.rb[0m
+==[32mPASSED: /home/osdev/openstudio-standards/test/doe_prototype/test_outpatient.rb[0m
+=[32mPASSED: /home/osdev/openstudio-standards/test/necb/unit_tests/tests/test_necb_schedules.rb[0m
+===[32mPASSED: /home/osdev/openstudio-standards/test/necb/unit_tests/tests/test_btap_geometry_wizards.rb[0m
+=[32mPASSED: /home/osdev/openstudio-standards/test/doe_prototype/test_full_service_restaurant.rb[0m
+==[32mPASSED: /home/osdev/openstudio-standards/test/doe_prototype/test_primary_school.rb[0m
+==[32mPASSED: /home/osdev/openstudio-standards/test/necb/unit_tests/tests/test_necb_boiler_rules.rb[0m
+=[32mPASSED: /home/osdev/openstudio-standards/test/necb/unit_tests/tests/test_necb_unitary_rules.rb[0m
+==[32mPASSED: /home/osdev/openstudio-standards/test/90_1_general/test_boiler_hot_water.rb[0m
+=[32mPASSED: /home/osdev/openstudio-standards/test/doe_prototype/test_add_exhaust.rb[0m
+==[32mPASSED: /home/osdev/openstudio-standards/test/90_1_general/test_chiller_electric_eir.rb[0m
+=[32mPASSED: /home/osdev/openstudio-standards/test/doe_prototype/test_add_swh.rb[0m
+==[32mPASSED: /home/osdev/openstudio-standards/test/90_1_prm/test_create_performance_rating_method_baseline_building.rb[0m
+===[32mPASSED: /home/osdev/openstudio-standards/test/doe_prototype/test_large_hotel.rb[0m
+=[32mPASSED: /home/osdev/openstudio-standards/test/doe_prototype/test_performance.rb[0m
+==[32mPASSED: /home/osdev/openstudio-standards/test/90_1_general/test_find_space_type_standards_data.rb[0m
+=[32mPASSED: /home/osdev/openstudio-standards/test/doe_prototype/test_small_office_detailed.rb[0m
+==[32mPASSED: /home/osdev/openstudio-standards/test/necb/unit_tests/tests/test_necb_space_types_default_constructions_set.rb[0m
+==[32mPASSED: /home/osdev/openstudio-standards/test/doe_prototype/test_medium_office.rb[0m
+=[32mPASSED: /home/osdev/openstudio-standards/test/doe_prototype/test_large_office.rb[0m
+==[32mPASSED: /home/osdev/openstudio-standards/test/doe_prototype/test_retail_standalone.rb[0m
+=[32mPASSED: /home/osdev/openstudio-standards/test/doe_prototype/test_swh.rb[0m
+==[32mPASSED: /home/osdev/openstudio-standards/test/doe_prototype/test_high_rise_apartment.rb[0m
+===|
+  test_all                                                        PASS (26480.03s)
+
+Finished in 26480.03490s
+1 tests, 1 assertions, 0 failures, 0 errors, 0 skips

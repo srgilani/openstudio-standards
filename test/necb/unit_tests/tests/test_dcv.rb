@@ -16,10 +16,11 @@ class YourTestName_Test < Minitest::Test
     @test_passed = true
     #Range of test options.
     @templates = ['NECB2011']
-    # @building_types = ['FullServiceRestaurant']
+    # @building_types = ['Hospital']
     @building_types = ['FullServiceRestaurant','HighriseApartment','Hospital','LargeHotel','LargeOffice','MediumOffice','MidriseApartment','Outpatient','PrimarySchool','QuickServiceRestaurant','RetailStandalone','SecondarySchool','SmallHotel','Warehouse']
     @epw_files = ['CAN_AB_Banff.CS.711220_CWEC2016.epw']
     @primary_heating_fuels = ['DefaultFuel']
+    # @dcv_types = ['Occupancy-based DCV']
     @dcv_types = ['Occupancy-based DCV','CO2-based DCV']
 
     # Test results storage array.
@@ -68,11 +69,19 @@ class YourTestName_Test < Minitest::Test
               ##### Gather information about outdoor_co2_schedule
               outdoor_co2_schedule = zone_air_contaminant_balance.outdoorCarbonDioxideSchedule.get
               outdoor_co2_schedule_name = outdoor_co2_schedule.name()
-              result["outdoor_co2_schedule_name"] = outdoor_co2_schedule_name
-              result["outdoor_co2_schedule_through_date"] = outdoor_co2_schedule.getString(3)
-              result["outdoor_co2_schedule_for_alldays"] = outdoor_co2_schedule.getString(4)
-              result["outdoor_co2_schedule_for_alldays_time"] = outdoor_co2_schedule.getString(5)
-              result["outdoor_co2_schedule_for_alldays_ppm"] = outdoor_co2_schedule.getString(6)
+              result["outdoor_co2_schedule_name"] = outdoor_co2_schedule_name.to_s
+              # result["outdoor_co2_schedule_through_date"] = outdoor_co2_schedule.getString(3).to_s
+              # result["outdoor_co2_schedule_for_alldays"] = outdoor_co2_schedule.getString(4).to_s
+              # result["outdoor_co2_schedule_for_alldays_time"] = outdoor_co2_schedule.getString(5).to_s
+              result["outdoor_co2_schedule_for_alldays_ppm"] = outdoor_co2_schedule.getString(6).to_s
+              # puts outdoor_co2_schedule_name
+              # puts outdoor_co2_schedule.getString(6)
+              # result["outdoor_co2_schedule_name"]
+              # result["outdoor_co2_schedule_for_alldays_ppm"]
+              # puts result
+              # @test_results_array << result
+              # puts @test_results_array
+              # raise('check outdoor_co2_schedule_name')
 
               ##### Set CO2 controller in each space (required for CO2-based DCV)
               model.getSpaces.sort.each do |space|
@@ -89,40 +98,40 @@ class YourTestName_Test < Minitest::Test
                 zone_control_co2_indoor_co2_setpoint_schedule_name = zone_control_co2_indoor_co2_setpoint_schedule.name()
 
                 ##### Gather information about indoor_co2_availability_schedule
-                result["#{space.name.to_s} - zone_control_co2_indoor_co2_availability_schedule_name"] = zone_control_co2_indoor_co2_availability_schedule_name
-                result["#{space.name.to_s} - zone_control_co2_indoor_co2_availability_schedule_through_date"] = zone_control_co2_indoor_co2_availability_schedule.getString(3)
-                result["#{space.name.to_s} - zone_control_co2_indoor_co2_availability_schedule_for_weekdays"] = zone_control_co2_indoor_co2_availability_schedule.getString(4)
-                result["#{space.name.to_s} - zone_control_co2_indoor_co2_availability_schedule_for_weekdays_time_1"] = zone_control_co2_indoor_co2_availability_schedule.getString(5)
-                result["#{space.name.to_s} - zone_control_co2_indoor_co2_availability_schedule_for_weekdays_fraction_1"] = zone_control_co2_indoor_co2_availability_schedule.getString(6)
-                result["#{space.name.to_s} - zone_control_co2_indoor_co2_availability_schedule_for_weekdays_time_2"] = zone_control_co2_indoor_co2_availability_schedule.getString(7)
-                result["#{space.name.to_s} - zone_control_co2_indoor_co2_availability_schedule_for_weekdays_fraction_2"] = zone_control_co2_indoor_co2_availability_schedule.getString(8)
-                result["#{space.name.to_s} - zone_control_co2_indoor_co2_availability_schedule_for_weekdays_time_3"] = zone_control_co2_indoor_co2_availability_schedule.getString(9)
-                result["#{space.name.to_s} - zone_control_co2_indoor_co2_availability_schedule_for_weekdays_fraction_3"] = zone_control_co2_indoor_co2_availability_schedule.getString(10)
-                result["#{space.name.to_s} - zone_control_co2_indoor_co2_availability_schedule_for_saturday"] = zone_control_co2_indoor_co2_availability_schedule.getString(11)
-                result["#{space.name.to_s} - zone_control_co2_indoor_co2_availability_schedule_for_saturday_time_1"] = zone_control_co2_indoor_co2_availability_schedule.getString(12)
-                result["#{space.name.to_s} - zone_control_co2_indoor_co2_availability_schedule_for_saturday_fraction_1"] = zone_control_co2_indoor_co2_availability_schedule.getString(13)
-                result["#{space.name.to_s} - zone_control_co2_indoor_co2_availability_schedule_for_saturday_time_2"] = zone_control_co2_indoor_co2_availability_schedule.getString(14)
-                result["#{space.name.to_s} - zone_control_co2_indoor_co2_availability_schedule_for_saturday_fraction_2"] = zone_control_co2_indoor_co2_availability_schedule.getString(15)
-                result["#{space.name.to_s} - zone_control_co2_indoor_co2_availability_schedule_for_saturday_time_3"] = zone_control_co2_indoor_co2_availability_schedule.getString(16)
-                result["#{space.name.to_s} - zone_control_co2_indoor_co2_availability_schedule_for_saturday_fraction_3"] = zone_control_co2_indoor_co2_availability_schedule.getString(17)
-                result["#{space.name.to_s} - zone_control_co2_indoor_co2_availability_schedule_for_otherdays"] = zone_control_co2_indoor_co2_availability_schedule.getString(18)
-                result["#{space.name.to_s} - zone_control_co2_indoor_co2_availability_schedule_for_otherdays_time_1"] = zone_control_co2_indoor_co2_availability_schedule.getString(19)
-                result["#{space.name.to_s} - zone_control_co2_indoor_co2_availability_schedule_for_otherdays_fraction_1"] = zone_control_co2_indoor_co2_availability_schedule.getString(20)
+                result["#{space.name.to_s} - zone_control_co2_indoor_co2_availability_schedule_name"] = zone_control_co2_indoor_co2_availability_schedule_name.to_s
+                # result["#{space.name.to_s} - zone_control_co2_indoor_co2_availability_schedule_through_date"] = zone_control_co2_indoor_co2_availability_schedule.getString(3).to_s
+                # result["#{space.name.to_s} - zone_control_co2_indoor_co2_availability_schedule_for_weekdays"] = zone_control_co2_indoor_co2_availability_schedule.getString(4).to_s
+                # result["#{space.name.to_s} - zone_control_co2_indoor_co2_availability_schedule_for_weekdays_time_1"] = zone_control_co2_indoor_co2_availability_schedule.getString(5).to_s
+                # result["#{space.name.to_s} - zone_control_co2_indoor_co2_availability_schedule_for_weekdays_fraction_1"] = zone_control_co2_indoor_co2_availability_schedule.getString(6).to_s
+                # result["#{space.name.to_s} - zone_control_co2_indoor_co2_availability_schedule_for_weekdays_time_2"] = zone_control_co2_indoor_co2_availability_schedule.getString(7).to_s
+                # result["#{space.name.to_s} - zone_control_co2_indoor_co2_availability_schedule_for_weekdays_fraction_2"] = zone_control_co2_indoor_co2_availability_schedule.getString(8).to_s
+                # result["#{space.name.to_s} - zone_control_co2_indoor_co2_availability_schedule_for_weekdays_time_3"] = zone_control_co2_indoor_co2_availability_schedule.getString(9).to_s
+                # result["#{space.name.to_s} - zone_control_co2_indoor_co2_availability_schedule_for_weekdays_fraction_3"] = zone_control_co2_indoor_co2_availability_schedule.getString(10).to_s
+                # result["#{space.name.to_s} - zone_control_co2_indoor_co2_availability_schedule_for_saturday"] = zone_control_co2_indoor_co2_availability_schedule.getString(11).to_s
+                # result["#{space.name.to_s} - zone_control_co2_indoor_co2_availability_schedule_for_saturday_time_1"] = zone_control_co2_indoor_co2_availability_schedule.getString(12).to_s
+                # result["#{space.name.to_s} - zone_control_co2_indoor_co2_availability_schedule_for_saturday_fraction_1"] = zone_control_co2_indoor_co2_availability_schedule.getString(13).to_s
+                # result["#{space.name.to_s} - zone_control_co2_indoor_co2_availability_schedule_for_saturday_time_2"] = zone_control_co2_indoor_co2_availability_schedule.getString(14).to_s
+                # result["#{space.name.to_s} - zone_control_co2_indoor_co2_availability_schedule_for_saturday_fraction_2"] = zone_control_co2_indoor_co2_availability_schedule.getString(15).to_s
+                # result["#{space.name.to_s} - zone_control_co2_indoor_co2_availability_schedule_for_saturday_time_3"] = zone_control_co2_indoor_co2_availability_schedule.getString(16).to_s
+                # result["#{space.name.to_s} - zone_control_co2_indoor_co2_availability_schedule_for_saturday_fraction_3"] = zone_control_co2_indoor_co2_availability_schedule.getString(17).to_s
+                # result["#{space.name.to_s} - zone_control_co2_indoor_co2_availability_schedule_for_otherdays"] = zone_control_co2_indoor_co2_availability_schedule.getString(18).to_s
+                # result["#{space.name.to_s} - zone_control_co2_indoor_co2_availability_schedule_for_otherdays_time_1"] = zone_control_co2_indoor_co2_availability_schedule.getString(19).to_s
+                # result["#{space.name.to_s} - zone_control_co2_indoor_co2_availability_schedule_for_otherdays_fraction_1"] = zone_control_co2_indoor_co2_availability_schedule.getString(20).to_s
 
                 ##### Gather information about indoor_co2_setpoint_schedule
-                result["#{space.name.to_s} - zone_control_co2_indoor_co2_setpoint_schedule_name"] = zone_control_co2_indoor_co2_setpoint_schedule_name
-                result["#{space.name.to_s} - zone_control_co2_indoor_co2_setpoint_schedule_through_date"] = zone_control_co2_indoor_co2_setpoint_schedule.getString(3)
-                result["#{space.name.to_s} - zone_control_co2_indoor_co2_setpoint_schedule_for_alldays"] = zone_control_co2_indoor_co2_setpoint_schedule.getString(4)
-                result["#{space.name.to_s} - zone_control_co2_indoor_co2_setpoint_schedule_for_alldays_time"] = zone_control_co2_indoor_co2_setpoint_schedule.getString(5)
-                result["#{space.name.to_s} - zone_control_co2_indoor_co2_setpoint_schedule_for_alldays_ppm"] = zone_control_co2_indoor_co2_setpoint_schedule.getString(6)
+                result["#{space.name.to_s} - zone_control_co2_indoor_co2_setpoint_schedule_name"] = zone_control_co2_indoor_co2_setpoint_schedule_name.to_s
+                # result["#{space.name.to_s} - zone_control_co2_indoor_co2_setpoint_schedule_through_date"] = zone_control_co2_indoor_co2_setpoint_schedule.getString(3).to_s
+                # result["#{space.name.to_s} - zone_control_co2_indoor_co2_setpoint_schedule_for_alldays"] = zone_control_co2_indoor_co2_setpoint_schedule.getString(4).to_s
+                # result["#{space.name.to_s} - zone_control_co2_indoor_co2_setpoint_schedule_for_alldays_time"] = zone_control_co2_indoor_co2_setpoint_schedule.getString(5).to_s
+                result["#{space.name.to_s} - zone_control_co2_indoor_co2_setpoint_schedule_for_alldays_ppm"] = zone_control_co2_indoor_co2_setpoint_schedule.getString(6).to_s
               end
               ##### Loop through AirLoopHVACs
-              model.getAirLoopHVACs.each do |air_loop|
+              model.getAirLoopHVACs.sort.each do |air_loop|
                 ##### Loop through AirLoopHVAC's supply nodes to:
                 ##### (1) Find its AirLoopHVAC:OutdoorAirSystem using the supply node;
                 ##### (2) Find Controller:OutdoorAir using AirLoopHVAC:OutdoorAirSystem;
                 ##### (3) Get "Controller Mechanical Ventilation" from Controller:OutdoorAir.
-                air_loop.supplyComponents.each do |supply_component|
+                air_loop.supplyComponents.sort.each do |supply_component|
                   ##### Find AirLoopHVAC:OutdoorAirSystem of AirLoopHVAC using the supply node.
                   hvac_component = supply_component.to_AirLoopHVACOutdoorAirSystem
 
@@ -132,19 +141,19 @@ class YourTestName_Test < Minitest::Test
                     hvac_component_name = hvac_component.name()
                     controller_outdoorair = hvac_component.getControllerOutdoorAir
                     controller_outdoorair_name = controller_outdoorair.name()
-                    result["#{hvac_component_name} - controller_outdoorair_name"] = controller_outdoorair_name
+                    result["#{hvac_component_name} - controller_outdoorair_name"] = controller_outdoorair_name.to_s
 
                     ##### Get "Controller Mechanical Ventilation" from Controller:OutdoorAir.
                     controller_mechanical_ventilation = controller_outdoorair.controllerMechanicalVentilation
                     controller_mechanical_ventilation_name = controller_mechanical_ventilation.name()
-                    result["#{controller_outdoorair_name} - controller_mechanical_ventilation_name"] = controller_mechanical_ventilation_name
+                    result["#{controller_outdoorair_name} - controller_mechanical_ventilation_name"] = controller_mechanical_ventilation_name.to_s
 
                     ##### Check if "Demand Controlled Ventilation" is "Yes" in Controller:MechanicalVentilation depending on dcv_type.
                     controller_mechanical_ventilation_demand_controlled_ventilation_status = controller_mechanical_ventilation.demandControlledVentilation
-                    result["#{controller_mechanical_ventilation_name} - controller_mechanical_ventilation_demand_controlled_ventilation_status"] = controller_mechanical_ventilation_demand_controlled_ventilation_status
+                    result["#{controller_mechanical_ventilation_name} - controller_mechanical_ventilation_demand_controlled_ventilation_status"] = controller_mechanical_ventilation_demand_controlled_ventilation_status.to_s
 
                     controller_mechanical_ventilation_system_outdoor_air_method = controller_mechanical_ventilation.systemOutdoorAirMethod()
-                    result["#{controller_mechanical_ventilation_name} - controller_mechanical_ventilation_system_outdoor_air_method"] = controller_mechanical_ventilation_system_outdoor_air_method
+                    result["#{controller_mechanical_ventilation_name} - controller_mechanical_ventilation_system_outdoor_air_method"] = controller_mechanical_ventilation_system_outdoor_air_method.to_s
 
                   end #if !hvac_component.empty?
 
@@ -159,6 +168,8 @@ class YourTestName_Test < Minitest::Test
         end
       end
     end
+    # puts @test_results_array
+
     # Save test results to file.
     File.open(@test_results_file, 'w') {|f| f.write(JSON.pretty_generate(@test_results_array))}
 

@@ -1301,12 +1301,12 @@ class NECB2011 < Standard
     end #if dcv_type == "Occupancy-based DCV" || dcv_type == "CO2-based DCV"
 
     ##### Loop through AirLoopHVACs
-    model.getAirLoopHVACs.each do |air_loop|
+    model.getAirLoopHVACs.sort.each do |air_loop|
       ##### Loop through AirLoopHVAC's supply nodes to:
       ##### (1) Find its AirLoopHVAC:OutdoorAirSystem using the supply node;
       ##### (2) Find Controller:OutdoorAir using AirLoopHVAC:OutdoorAirSystem;
       ##### (3) Get "Controller Mechanical Ventilation" from Controller:OutdoorAir.
-      air_loop.supplyComponents.each do |supply_component|
+      air_loop.supplyComponents.sort.each do |supply_component|
         ##### Find AirLoopHVAC:OutdoorAirSystem of AirLoopHVAC using the supply node.
         hvac_component = supply_component.to_AirLoopHVACOutdoorAirSystem
 

@@ -25,6 +25,7 @@ class NECB2011
       lights_frac_radiant_led_lighting = led_space_type_properties['lighting_fraction_radiant'].to_f #Sara
       lights_frac_visible_led_lighting = led_space_type_properties['lighting_fraction_visible'].to_f #Sara
       led_lights_have_info = true unless lighting_per_area_led_lighting.zero? #Sara
+
     end
 
     if set_lights && lights_have_info

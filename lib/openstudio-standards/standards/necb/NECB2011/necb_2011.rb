@@ -1358,9 +1358,67 @@ class NECB2011 < Standard
       # This is checked in a space loop after this function in the calling routine.
       occ_sens_lpd_frac = 0.9
     end
-    definition.setWattsperSpaceFloorArea(OpenStudio.convert(lighting_per_area_led_lighting.to_f * occ_sens_lpd_frac, 'W/ft^2', 'W/m^2').get)
+
+    ##### Since Atrium's LPD for LED lighting depends on atrium's height, the height of the atrium (if applicable) should be found.
+    space_type_atrium = ['Atrium - H < 13m', 'Atrium - H > 13m']
+    if [space_type].any? {|word| space_type_atrium.include?(word)} == true
+      ##### Get the atrium height
+      space_height = led_lighting_atrium(space_type: space_type)
+      # puts space_type
+      # puts space_height
+      # raise('check if standards_space_type is atrium')
+      if space_height <= 13.0
+        lighting_per_area_led_lighting_atrium = (1.06 * space_height) * 0.092903 # W/ft2 #TODO: to be corrected as per Mike's input
+      else
+        lighting_per_area_led_lighting_atrium = (4.3 + 1.06 * space_height) * 0.092903 # W/ft2 #TODO: to be corrected as per Mike's input
+      end
+      definition.setWattsperSpaceFloorArea(OpenStudio.convert(lighting_per_area_led_lighting_atrium.to_f * occ_sens_lpd_frac, 'W/ft^2', 'W/m^2').get)
+    else
+      definition.setWattsperSpaceFloorArea(OpenStudio.convert(lighting_per_area_led_lighting.to_f * occ_sens_lpd_frac, 'W/ft^2', 'W/m^2').get)
+    end
+
     OpenStudio.logFree(OpenStudio::Info, 'openstudio.standards.SpaceType', "#{space_type.name} set LPD to #{lighting_per_area_led_lighting} W/ft^2.")
   end
+
+  def led_lighting_atrium(space_type: space_type)
+    space_type_spaces = space_type.spaces()
+    # puts space_type_spaces
+    # puts space_type_spaces.class
+    # puts space_type_spaces.length
+    space_walls_vertices = []
+    for i in 0..space_type_spaces.length - 1
+      space_type_spaces[i].surfaces.sort.each do |surface|
+        if surface.surfaceType == "Wall"
+          space_walls_vertices << surface.vertices
+        end
+      end
+    end
+    # puts space_walls_vertices
+    # puts space_walls_vertices.length
+    for i in 0..space_walls_vertices.length - 1
+      if i == 0
+        space_height = [space_walls_vertices[i][0].z, space_walls_vertices[i][1].z, space_walls_vertices[i][2].z,space_walls_vertices[i][3].z,].max
+      end
+      if space_height < [space_walls_vertices[i][0].z, space_walls_vertices[i][1].z, space_walls_vertices[i][2].z,space_walls_vertices[i][3].z,].max
+        space_height = [space_walls_vertices[i][0].z, space_walls_vertices[i][1].z, space_walls_vertices[i][2].z,space_walls_vertices[i][3].z,].max
+      else
+        space_height = space_height
+      end
+    end
+    # puts space_walls_vertices
+    if space_type_spaces.length > 0
+      space_height = space_height
+    else
+      space_height = 0
+    end
+    # puts space_height
+    # raise('check space_height')
+    return space_height
+  end
+
+
+
+
 
   # Adds the loads and associated schedules for each space type
   # as defined in the OpenStudio_Standards_space_types.json file.
@@ -1376,6 +1434,39 @@ class NECB2011 < Standard
     # Loop through all the space types currently in the model,
     # which are placeholders, and give them appropriate loads and schedules
     model.getSpaceTypes.sort.each do |space_type|
+
+      # #Sara - atrium led
+      # # puts space_type
+      # # puts space_type.standardsSpaceType()
+      # # puts space_type.spaces()
+      # space_type_spaces = space_type.spaces()
+      # # puts space_type_spaces
+      # # puts space_type_spaces.class
+      # # puts space_type_spaces.length
+      # space_walls_vertices = []
+      # for i in 0..space_type_spaces.length - 1
+      #   space_type_spaces[i].surfaces.sort.each do |surface|
+      #     if surface.surfaceType == "Wall"
+      #       space_walls_vertices << surface.vertices
+      #     end
+      #   end
+      # end
+      # # puts space_walls_vertices
+      # # puts space_walls_vertices.length
+      # for i in 0..space_walls_vertices.length - 1
+      #   if i == 0
+      #     space_height = [space_walls_vertices[i][0].z, space_walls_vertices[i][1].z, space_walls_vertices[i][2].z,space_walls_vertices[i][3].z,].max
+      #   end
+      #   if space_height < [space_walls_vertices[i][0].z, space_walls_vertices[i][1].z, space_walls_vertices[i][2].z,space_walls_vertices[i][3].z,].max
+      #     space_height = [space_walls_vertices[i][0].z, space_walls_vertices[i][1].z, space_walls_vertices[i][2].z,space_walls_vertices[i][3].z,].max
+      #   else
+      #     space_height = space_height
+      #   end
+      # end
+      # # puts space_walls_vertices
+      # # puts space_height
+      # # raise('check space_height')
+
       # Rendering color
       space_type_apply_rendering_color(space_type)
 

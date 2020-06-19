@@ -65,4 +65,28 @@ class NECB2015 < NECB2011
     #model = BTAP::FileIO::remove_duplicate_materials_and_constructions(model)
     return model
   end
+
+
+
+  def set_lighting_per_area_led_lighting(space_type, definition, lighting_per_area_led_lighting)
+    ##### Since Atrium's LPD for LED lighting depends on atrium's height, the height of the atrium (if applicable) should be found.
+    space_type_atrium = ['Atrium - H < 13m', 'Atrium - H > 13m'] #TODO to be corrected as Mike inputs
+    if [space_type].any? {|word| space_type_atrium.include?(word)} == true
+      ##### Get the atrium height
+      space_height = led_lighting_atrium(space_type: space_type)
+      # puts space_type
+      # puts space_height
+      # raise('check if standards_space_type is atrium')
+      if space_height <= 13.0   #TODO to be corrected as Mike inputs
+        lighting_per_area_led_lighting_atrium = (1.06 * space_height) * 0.092903 # W/ft2 #TODO: to be corrected as per Mike's input
+      else
+        lighting_per_area_led_lighting_atrium = (4.3 + 1.06 * space_height) * 0.092903 # W/ft2 #TODO: to be corrected as per Mike's input
+      end
+      definition.setWattsperSpaceFloorArea(OpenStudio.convert(lighting_per_area_led_lighting_atrium.to_f, 'W/ft^2', 'W/m^2').get)
+    else
+      definition.setWattsperSpaceFloorArea(OpenStudio.convert(lighting_per_area_led_lighting.to_f, 'W/ft^2', 'W/m^2').get)
+    end
+
+    OpenStudio.logFree(OpenStudio::Info, 'openstudio.standards.SpaceType', "#{space_type.name} set LPD to #{lighting_per_area_led_lighting} W/ft^2.")
+  end
 end

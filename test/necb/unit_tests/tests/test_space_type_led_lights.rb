@@ -6,7 +6,7 @@ require_relative '../../../helpers/minitest_helper'
 # to specifically test aspects of the NECB2011 code that are Spacetype dependant. 
 class NECB2011DefaultSpaceTypesTests < Minitest::Test
   #Standards
-  Templates = ['NECB2011', 'NECB2015', 'NECB2017']#,'90.1-2004', '90.1-2007', '90.1-2010', '90.1-2013'] 'BTAPPRE1980'
+  Templates = ['NECB2011']#['NECB2011', 'NECB2015', 'NECB2017']#,'90.1-2004', '90.1-2007', '90.1-2010', '90.1-2013'] 'BTAPPRE1980'
 
 
   def setup()
@@ -62,7 +62,7 @@ class NECB2011DefaultSpaceTypesTests < Minitest::Test
         space_area = space.floorArea #m2
           
   
-        #Lights
+        #Lights #TODO: This should be discussed as occSensLPDfactor has been considered inside lighing function
         total_lpd = []
         lpd_sched = []
         occSensLPDfactor = 1.0
@@ -117,6 +117,8 @@ class NECB2011DefaultSpaceTypesTests < Minitest::Test
       puts template
 
     end #loop Template
+    # puts output
+
     #Write test report file.
     test_result_file = File.join( @test_results_folder,'space_type_led_lights_test_results.csv')
     File.open(test_result_file, 'w') {|f| f.write(header_output + output) }
@@ -124,9 +126,9 @@ class NECB2011DefaultSpaceTypesTests < Minitest::Test
     #Test that the values are correct by doing a file compare.
     expected_result_file = File.join(@expected_results_folder,'space_type_led_lights_expected_results.csv')
     b_result = FileUtils.compare_file(expected_result_file , test_result_file )
-    assert( b_result, 
+    assert( b_result,
       "Spacetype test results do not match expected results! Compare/diff the output with the stored values here #{expected_result_file} and #{test_result_file}"
-    )  
+    )
   end 
   
 end

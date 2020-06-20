@@ -68,19 +68,24 @@ class NECB2015 < NECB2011
 
 
 
-  def set_lighting_per_area_led_lighting(space_type, definition, lighting_per_area_led_lighting)
+  def set_lighting_per_area_led_lighting(space_type, definition, lighting_per_area_led_lighting, space_height)
     ##### Since Atrium's LPD for LED lighting depends on atrium's height, the height of the atrium (if applicable) should be found.
-    space_type_atrium = ['Atrium - H < 13m', 'Atrium - H > 13m'] #TODO to be corrected as Mike inputs
-    if [space_type].any? {|word| space_type_atrium.include?(word)} == true
+    standards_space_type = space_type.standardsSpaceType.is_initialized ? space_type.standardsSpaceType.get : nil
+    # puts standards_space_type
+    if standards_space_type.include? 'office' #TODO 'office' should be changed to Atrium
+      # puts standards_space_type
+      puts "#{standards_space_type} - has atrium"  #space_type.name.to_s
+      # puts space_type
       ##### Get the atrium height
-      space_height = led_lighting_atrium(space_type: space_type)
+      # space_height = led_lighting_atrium(space_type: space_type)
+      puts space_height
       # puts space_type
       # puts space_height
       # raise('check if standards_space_type is atrium')
-      if space_height <= 13.0   #TODO to be corrected as Mike inputs
-        lighting_per_area_led_lighting_atrium = (1.06 * space_height) * 0.092903 # W/ft2 #TODO: to be corrected as per Mike's input
+      if space_height <= 12.0
+        lighting_per_area_led_lighting_atrium = (1.06 * space_height) * 0.092903 # W/ft2
       else
-        lighting_per_area_led_lighting_atrium = (4.3 + 1.06 * space_height) * 0.092903 # W/ft2 #TODO: to be corrected as per Mike's input
+        lighting_per_area_led_lighting_atrium = (4.3 + 1.06 * space_height) * 0.092903 # W/ft2
       end
       definition.setWattsperSpaceFloorArea(OpenStudio.convert(lighting_per_area_led_lighting_atrium.to_f, 'W/ft^2', 'W/m^2').get)
     else

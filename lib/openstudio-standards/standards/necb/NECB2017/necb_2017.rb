@@ -46,37 +46,39 @@ class NECB2017 < NECB2015
     return @standards_data
   end
 
-  def set_lighting_per_area_led_lighting(space_type, definition, lighting_per_area_led_lighting)
-    ##### Since Atrium's LPD for LED lighting depends on atrium's height, the height of the atrium (if applicable) should be found.
-    standards_space_type = space_type.standardsSpaceType.is_initialized ? space_type.standardsSpaceType.get : nil
-    puts standards_space_type
-    space_type_atrium = ['Atrium (height < 6m)-sch-A','Atrium (height < 6m)-sch-B','Atrium (height < 6m)-sch-C','Atrium (height < 6m)-sch-D',
-                         'Atrium (height < 6m)-sch-E','Atrium (height < 6m)-sch-F','Atrium (height < 6m)-sch-G','Atrium (height < 6m)-sch-H',
-                         'Atrium (height < 6m)-sch-I','Atrium (height < 6m)-sch-J','Atrium (height < 6m)-sch-K',
-                         'Atrium (6 =< height <= 12m)-sch-A','Atrium (6 =< height <= 12m)-sch-B','Atrium (6 =< height <= 12m)-sch-B',
-                         'Atrium (6 =< height <= 12m)-sch-D','Atrium (6 =< height <= 12m)-sch-E','Atrium (6 =< height <= 12m)-sch-F',
-                         'Atrium (6 =< height <= 12m)-sch-G','Atrium (6 =< height <= 12m)-sch-H','Atrium (6 =< height <= 12m)-sch-I',
-                         'Atrium (6 =< height <= 12m)-sch-J','Atrium (6 =< height <= 12m)-sch-K',
-                         'Atrium (height > 12m)-sch-A','Atrium (height > 12m)-sch-B','Atrium (height > 12m)-sch-C',
-                         'Atrium (height > 12m)-sch-D','Atrium (height > 12m)-sch-E','Atrium (height > 12m)-sch-F',
-                         'Atrium (height > 12m)-sch-G','Atrium (height > 12m)-sch-H','Atrium (height > 12m)-sch-I',
-                         'Atrium (height > 12m)-sch-J','Atrium (height > 12m)-sch-K']
-    if [standards_space_type].any? {|word| space_type_atrium.include?(word)} == true
+  def set_lighting_per_area_led_lighting(space_type, definition, lighting_per_area_led_lighting, scale, space_height)
+    puts "#{space_type.name.to_s} - 'space_height' - #{space_height.to_s}"
+    occ_sens_lpd_frac = 1.0
+    # NECB2011 space types that require a reduction in the LPD to account for
+    # the requirement of an occupancy sensor (8.4.4.6(3) and 4.2.2.2(2))
+    reduce_lpd_spaces = ['Classroom/lecture/training', 'Conf./meet./multi-purpose', 'Lounge/recreation',
+                         'Conf./meet./multi-purpose', 'Washroom-sch-A', 'Washroom-sch-B', 'Washroom-sch-C', 'Washroom-sch-D',
+                         'Washroom-sch-E', 'Washroom-sch-F', 'Washroom-sch-G', 'Washroom-sch-H', 'Washroom-sch-I',
+                         'Dress./fitt. - performance arts', 'Locker room', 'Locker room-sch-A', 'Locker room-sch-B',
+                         'Locker room-sch-C', 'Locker room-sch-D', 'Locker room-sch-E', 'Locker room-sch-F', 'Locker room-sch-G',
+                         'Locker room-sch-H', 'Locker room-sch-I', 'Retail - dressing/fitting']
+    if reduce_lpd_spaces.include?(space_type.standardsSpaceType.get)
+      # Note that "Storage area", "Storage area - refrigerated", "Hospital - medical supply" and "Office - enclosed"
+      # LPD should only be reduced if their space areas are less than specific area values.
+      # This is checked in a space loop after this function in the calling routine.
+      occ_sens_lpd_frac = 0.9
+    end
+
+    # ##### Since Atrium's LPD for LED lighting depends on atrium's height, the height of the atrium (if applicable) should be found.
+    standards_space_type = space_type.standardsSpaceType.is_initialized ? space_type.standardsSpaceType.get : nil #Sara
+    if standards_space_type.include? 'Atrium' #TODO: Note that since none of the archetypes has Atrium, this was tested for 'Dining'. #Atrium
       puts "#{standards_space_type} - has atrium"  #space_type.name.to_s
-      ##### Get the atrium height
-      space_height = led_lighting_atrium(space_type: space_type)
-      # puts space_type
       # puts space_height
-      # raise('check if standards_space_type is atrium')
-      if space_height <= 12.0   #TODO to be corrected as Mike inputs
+      if space_height < 12.0
         lighting_per_area_led_lighting_atrium = (1.06 * space_height) * 0.092903 # W/ft2
-      else
+      else #i.e. space_height >= 12.0
         lighting_per_area_led_lighting_atrium = (4.3 + 0.71 * space_height) * 0.092903 # W/ft2
       end
-      definition.setWattsperSpaceFloorArea(OpenStudio.convert(lighting_per_area_led_lighting_atrium.to_f, 'W/ft^2', 'W/m^2').get)
-    else
-      definition.setWattsperSpaceFloorArea(OpenStudio.convert(lighting_per_area_led_lighting.to_f, 'W/ft^2', 'W/m^2').get)
+      puts "#{standards_space_type} - has lighting_per_area_led_lighting_atrium - #{lighting_per_area_led_lighting_atrium}"
+      lighting_per_area_led_lighting = lighting_per_area_led_lighting_atrium * scale
     end
+
+    definition.setWattsperSpaceFloorArea(OpenStudio.convert(lighting_per_area_led_lighting.to_f * occ_sens_lpd_frac, 'W/ft^2', 'W/m^2').get)
 
     OpenStudio.logFree(OpenStudio::Info, 'openstudio.standards.SpaceType', "#{space_type.name} set LPD to #{lighting_per_area_led_lighting} W/ft^2.")
   end

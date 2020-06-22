@@ -1,5 +1,7 @@
 class NECB2011
-  def apply_standard_lights(set_lights, space_type, space_type_properties, lights_type: 'NECB_Default', scale: 1.0, space_height:)
+  def apply_standard_lights(set_lights, space_type, space_type_properties, lights_type: 'LED', scale: 1.0, space_height:)
+    # puts space_height
+    # raise('check space_height inside apply_standard_lights function')
     lights_have_info = false
     lighting_per_area = space_type_properties['lighting_per_area'].to_f
     lighting_per_person = space_type_properties['lighting_per_person'].to_f
@@ -25,17 +27,6 @@ class NECB2011
       lights_frac_radiant_led_lighting = led_space_type_properties['lighting_fraction_radiant'].to_f #Sara
       lights_frac_visible_led_lighting = led_space_type_properties['lighting_fraction_visible'].to_f #Sara
       led_lights_have_info = true unless lighting_per_area_led_lighting.zero? #Sara
-
-      if standards_space_type.include? 'office' #TODO 'office' should be changed to Atrium
-        puts "#{standards_space_type} - has atrium"  #space_type.name.to_s
-        puts space_height
-        if space_height <= 13.0
-          lighting_per_area_led_lighting_atrium = (1.06 * space_height) * 0.092903 # W/ft2 #TODO: to be corrected as per Mike's input
-        else
-          lighting_per_area_led_lighting_atrium = (4.3 + 1.06 * space_height) * 0.092903 # W/ft2 #TODO: to be corrected as per Mike's input
-        end
-        lighting_per_area_led_lighting = lighting_per_area_led_lighting_atrium * scale
-      end
 
     end
 
@@ -70,7 +61,7 @@ class NECB2011
           if lights_type == 'NECB_Default'
             set_lighting_per_area(space_type, definition, lighting_per_area)
           elsif lights_type == 'LED'
-            set_lighting_per_area_led_lighting(space_type, definition, lighting_per_area_led_lighting, space_height)
+            set_lighting_per_area_led_lighting(space_type, definition, lighting_per_area_led_lighting, scale, space_height)
           end
         end
         unless lighting_per_person.zero?

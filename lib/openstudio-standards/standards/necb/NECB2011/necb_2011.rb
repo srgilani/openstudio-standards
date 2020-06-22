@@ -1342,7 +1342,8 @@ class NECB2011 < Standard
   end #def model_enable_demand_controlled_ventilation
 
 
-  def set_lighting_per_area_led_lighting(space_type, definition, lighting_per_area_led_lighting, space_height)
+  def set_lighting_per_area_led_lighting(space_type, definition, lighting_per_area_led_lighting, scale, space_height)
+    puts "#{space_type.name.to_s} - 'space_height' - #{space_height.to_s}"
     occ_sens_lpd_frac = 1.0
     # NECB2011 space types that require a reduction in the LPD to account for
     # the requirement of an occupancy sensor (8.4.4.6(3) and 4.2.2.2(2))
@@ -1360,25 +1361,22 @@ class NECB2011 < Standard
     end
 
     # ##### Since Atrium's LPD for LED lighting depends on atrium's height, the height of the atrium (if applicable) should be found.
-    # standards_space_type = space_type.standardsSpaceType.is_initialized ? space_type.standardsSpaceType.get : nil
-    # puts standards_space_type
-    # if standards_space_type.include? 'office' #TODO 'office' should be changed to Atrium
-    #   puts "#{standards_space_type} - has atrium"  #space_type.name.to_s
-    #   ##### Get the atrium height
-    #   # space_height = led_lighting_atrium(space_type: space_type)
-    #   # puts space_type
-    #   # puts space_height
-    #   # raise('check if standards_space_type is atrium')
-    #   if space_height <= 13.0
-    #     lighting_per_area_led_lighting_atrium = (1.06 * space_height) * 0.092903 # W/ft2 #TODO: to be corrected as per Mike's input
-    #   else
-    #     lighting_per_area_led_lighting_atrium = (4.3 + 1.06 * space_height) * 0.092903 # W/ft2 #TODO: to be corrected as per Mike's input
-    #   end
-    #   puts lighting_per_area_led_lighting_atrium
-    #   definition.setWattsperSpaceFloorArea(OpenStudio.convert(lighting_per_area_led_lighting_atrium.to_f * occ_sens_lpd_frac, 'W/ft^2', 'W/m^2').get)
-    # else
+    standards_space_type = space_type.standardsSpaceType.is_initialized ? space_type.standardsSpaceType.get : nil #Sara
+    if standards_space_type.include? 'Atrium' #TODO: Note that since none of the archetypes has Atrium, this was tested for 'Dining'. #Atrium
+      puts "#{standards_space_type} - has atrium"  #space_type.name.to_s
+      # puts space_height
+      if space_height < 12.0 #TODO: Note that since none of the archetypes has Atrium, this was tested for 'Dining' with the threshold of 5.0 m for space_height.
+        lighting_per_area_led_lighting_atrium = (1.06 * 12.0) * 0.092903 # W/ft2 TODO: Note that for NECB2011, a constant LPD is used for atrium based on NECB2015's equations. NECB2011's threshold for height is 13.0 m.
+      elsif space_height >= 12.0 && space_height < 13.0
+        lighting_per_area_led_lighting_atrium = (4.3 + 1.06 * 12.5) * 0.092903 # W/ft2
+      else #i.e. space_height >= 13.0
+        lighting_per_area_led_lighting_atrium = (4.3 + 1.06 * 13.0) * 0.092903 # W/ft2
+      end
+      puts "#{standards_space_type} - has lighting_per_area_led_lighting_atrium - #{lighting_per_area_led_lighting_atrium}"
+      lighting_per_area_led_lighting = lighting_per_area_led_lighting_atrium * scale
+    end
+
     definition.setWattsperSpaceFloorArea(OpenStudio.convert(lighting_per_area_led_lighting.to_f * occ_sens_lpd_frac, 'W/ft^2', 'W/m^2').get)
-    # end
 
     OpenStudio.logFree(OpenStudio::Info, 'openstudio.standards.SpaceType', "#{space_type.name} set LPD to #{lighting_per_area_led_lighting} W/ft^2.")
   end
@@ -1386,6 +1384,7 @@ class NECB2011 < Standard
   def led_lighting_atrium(space_type: space_type)
 
     space_type_spaces = space_type.spaces()
+    # puts space_type
     # puts space_type_spaces
     # puts space_type_spaces.class
     # puts space_type_spaces.length
@@ -1398,7 +1397,7 @@ class NECB2011 < Standard
         end
       end
     end
-    puts space_walls_vertices
+    # puts space_walls_vertices
     # puts space_walls_vertices.length
     for i in 0..space_walls_vertices.length - 1
       if i == 0
@@ -1416,8 +1415,6 @@ class NECB2011 < Standard
     else
       space_height = 0
     end
-    # puts space_height
-    # raise('check space_height')
 
     return space_height
   end
@@ -1434,20 +1431,15 @@ class NECB2011 < Standard
   # pulled from sources such as the DOE Reference and DOE Prototype Buildings.
   #
   # @return [Bool] returns true if successful, false if not
-  def model_add_loads(model, lights_type = 'NECB_Default', lights_scale = 1.0)
+  def model_add_loads(model, lights_type = 'LED', lights_scale = 1.0)
     OpenStudio.logFree(OpenStudio::Info, 'openstudio.model.Model', 'Started applying space types (loads)')
 
     # Loop through all the space types currently in the model,
     # which are placeholders, and give them appropriate loads and schedules
     model.getSpaceTypes.sort.each do |space_type|
-      puts space_type
-      puts space_type.spaces()
-      # puts space_type_spaces
-      # puts space_type_spaces.class
-      # puts space_type_spaces.length
 
-      space_height = 2.0
-      # space_height = led_lighting_atrium(space_type: space_type)
+      space_height = led_lighting_atrium(space_type: space_type) #Sara
+      # puts "#{space_type.name.to_s} - 'space_height' - #{space_height.to_s}" #Sara
 
       # Rendering color
       space_type_apply_rendering_color(space_type)

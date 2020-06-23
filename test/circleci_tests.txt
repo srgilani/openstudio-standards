@@ -192,7 +192,7 @@ necb/unit_tests/tests/test_necb_loop_rules.rb
 necb/unit_tests/tests/test_necb_total_and_tz_ceiling_centroid.rb
 necb/unit_tests/tests/test_necb_chiller_rules.rb
 necb/unit_tests/tests/test_necb_constructions_fdwr.rb
-necb/unit_tests/tests/test_space_type_led_lights.rb
+necb/unit_tests/tests/test_led_lighting.rb
 necb/unit_tests/tests/test_daylighting_sensor_control.rb
 necb/unit_tests/tests/test_dcv.rb
 

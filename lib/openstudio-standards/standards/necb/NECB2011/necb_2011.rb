@@ -1343,7 +1343,7 @@ class NECB2011 < Standard
 
 
   def set_lighting_per_area_led_lighting(space_type, definition, lighting_per_area_led_lighting, scale, space_height)
-    puts "#{space_type.name.to_s} - 'space_height' - #{space_height.to_s}"
+    # puts "#{space_type.name.to_s} - 'space_height' - #{space_height.to_s}"
     occ_sens_lpd_frac = 1.0
     # NECB2011 space types that require a reduction in the LPD to account for
     # the requirement of an occupancy sensor (8.4.4.6(3) and 4.2.2.2(2))
@@ -1439,7 +1439,8 @@ class NECB2011 < Standard
     model.getSpaceTypes.sort.each do |space_type|
 
       space_height = led_lighting_atrium(space_type: space_type) #Sara
-      # puts "#{space_type.name.to_s} - 'space_height' - #{space_height.to_s}" #Sara
+      puts "#{space_type.name.to_s} - 'space_height' - #{space_height.to_s}" #Sara
+      # raise('check space_height inside model_add_loads function')
 
       # Rendering color
       space_type_apply_rendering_color(space_type)

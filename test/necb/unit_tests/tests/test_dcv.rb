@@ -173,32 +173,32 @@ class YourTestName_Test < Minitest::Test
     # Save test results to file.
     File.open(@test_results_file, 'w') {|f| f.write(JSON.pretty_generate(@test_results_array))}
 
-    # Compare results
-    compare_message = ''
-    # Check if expected file exists.
-    if File.exist?(@expected_results_file)
-      # Load expected results from file.
-      @expected_results = JSON.parse(File.read(@expected_results_file))
-      if @expected_results.size == @test_results_array.size
-        # Iterate through each test result.
-        @expected_results.each_with_index do |expected, row|
-          # Compare if row /hash is exactly the same.
-          if expected != @test_results_array[row]
-            #if not set test flag to false
-            @test_passed = false
-            compare_message << "\nERROR: This row was different expected/result\n"
-            compare_message << "EXPECTED:#{expected.to_s}\n"
-            compare_message << "TEST:    #{@test_results_array[row].to_s}\n\n"
-          end
-        end
-      else
-        assert(false, "#{@expected_results_file} # of rows do not match the #{@test_results_array}..cannot compare")
-      end
-    else
-      assert(false, "#{@expected_results_file} does not exist..cannot compare")
-    end
-    puts compare_message
-    assert(@test_passed, "Error: This test failed to produce the same result as in the #{@expected_results_file}\n")
+    # # Compare results
+    # compare_message = ''
+    # # Check if expected file exists.
+    # if File.exist?(@expected_results_file)
+    #   # Load expected results from file.
+    #   @expected_results = JSON.parse(File.read(@expected_results_file))
+    #   if @expected_results.size == @test_results_array.size
+    #     # Iterate through each test result.
+    #     @expected_results.each_with_index do |expected, row|
+    #       # Compare if row /hash is exactly the same.
+    #       if expected != @test_results_array[row]
+    #         #if not set test flag to false
+    #         @test_passed = false
+    #         compare_message << "\nERROR: This row was different expected/result\n"
+    #         compare_message << "EXPECTED:#{expected.to_s}\n"
+    #         compare_message << "TEST:    #{@test_results_array[row].to_s}\n\n"
+    #       end
+    #     end
+    #   else
+    #     assert(false, "#{@expected_results_file} # of rows do not match the #{@test_results_array}..cannot compare")
+    #   end
+    # else
+    #   assert(false, "#{@expected_results_file} does not exist..cannot compare")
+    # end
+    # puts compare_message
+    # assert(@test_passed, "Error: This test failed to produce the same result as in the #{@expected_results_file}\n")
   end
 
 end

@@ -1,5 +1,5 @@
 class NECB2011
-  def apply_standard_lights(set_lights, space_type, space_type_properties, lights_type: 'LED', scale: 1.0, space_height:)
+  def apply_standard_lights(set_lights, space_type, space_type_properties, lights_type, scale, space_height)
     # puts space_height
     # raise('check space_height inside apply_standard_lights function')
     lights_have_info = false

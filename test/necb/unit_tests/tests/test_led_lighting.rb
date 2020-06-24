@@ -15,12 +15,13 @@ class YourTestName_Test < Minitest::Test
     # Intial test condition
     @test_passed = true
     #Range of test options.
-    @templates = ['NECB2011', 'NECB2015', 'NECB2017']
-    # @building_types = ['FullServiceRestaurant', 'Hospital']
+    @templates = ['NECB2011', 'NECB2015', 'NECB2017'] #['NECB2011']
+    # @building_types = ['FullServiceRestaurant'] #'Hospital'
     @building_types = ['FullServiceRestaurant','HighriseApartment','Hospital','LargeHotel','LargeOffice','MediumOffice','MidriseApartment','Outpatient','PrimarySchool','QuickServiceRestaurant','RetailStandalone','SecondarySchool','SmallHotel','Warehouse']
     @epw_files = ['CAN_AB_Banff.CS.711220_CWEC2016.epw']
     @primary_heating_fuels = ['DefaultFuel']
     @dcv_types = ['No DCV']
+    @lighting_types = ['LED'] #LED  #NECB_Default
 
     # Test results storage array.
     @test_results_array = []
@@ -30,104 +31,106 @@ class YourTestName_Test < Minitest::Test
         @building_types.sort.each do |building_type|
           @primary_heating_fuels.sort.each do |primary_heating_fuel|
             @dcv_types.sort.each do |dcv_type|
+              @lighting_types.sort.each do |lighting_type|
 
-              result = {}
-              result['template'] = template
-              result['epw_file'] = epw_file
-              result['building_type'] = building_type
-              result['primary_heating_fuel'] = primary_heating_fuel
-              result['dcv_type'] = dcv_type
+                result = {}
+                result['template'] = template
+                result['epw_file'] = epw_file
+                result['building_type'] = building_type
+                result['primary_heating_fuel'] = primary_heating_fuel
+                result['dcv_type'] = dcv_type
+                result['lighting_type'] = lighting_type
 
-              # make an empty model
-              model = OpenStudio::Model::Model.new
-              #set up basic model.
-              standard = Standard.build(template)
+                # make an empty model
+                model = OpenStudio::Model::Model.new
+                #set up basic model.
+                standard = Standard.build(template)
 
-              #loads osm geometry and spactypes from library.
-              model = standard.load_building_type_from_library(building_type: building_type)
+                #loads osm geometry and spactypes from library.
+                model = standard.load_building_type_from_library(building_type: building_type)
 
-              # this runs the step in the model. You can remove steps after what you want to test if you wish to make the test run faster.
-              standard.apply_weather_data(model: model, epw_file: epw_file)
-              standard.apply_loads(model: model)
-              # standard.apply_envelope(model: model)
-              # standard.apply_fdwr_srr_daylighting(model: model)
-              # standard.apply_auto_zoning(model: model, sizing_run_dir: @sizing_run_dir)
-              # standard.apply_systems(model: model, primary_heating_fuel: primary_heating_fuel, sizing_run_dir: @sizing_run_dir, dcv_type: dcv_type)
-              # standard.apply_standard_efficiencies(model: model, sizing_run_dir: @sizing_run_dir)
-              # model = standard.apply_loop_pump_power(model: model, sizing_run_dir: @sizing_run_dir)
-              # standard.model_add_daylighting_controls(model)
+                # this runs the step in the model. You can remove steps after what you want to test if you wish to make the test run faster.
+                standard.apply_weather_data(model: model, epw_file: epw_file)
+                standard.apply_loads(model: model, lights_type: lighting_type, lights_scale: 1.0)
+                # standard.apply_envelope(model: model)
+                # standard.apply_fdwr_srr_daylighting(model: model)
+                # standard.apply_auto_zoning(model: model, sizing_run_dir: @sizing_run_dir)
+                # standard.apply_systems(model: model, primary_heating_fuel: primary_heating_fuel, sizing_run_dir: @sizing_run_dir, dcv_type: dcv_type)
+                # standard.apply_standard_efficiencies(model: model, sizing_run_dir: @sizing_run_dir)
+                # model = standard.apply_loop_pump_power(model: model, sizing_run_dir: @sizing_run_dir)
+                # standard.model_add_daylighting_controls(model)
 
-              # # comment out for regular tests
-              # BTAP::FileIO.save_osm(model, File.join(@output_folder, "#{template}-#{building_type}-led_lighting.osm"))
-              # puts File.join(@output_folder, "#{template}-#{building_type}-led_lighting.osm")
+                # # comment out for regular tests
+                # BTAP::FileIO.save_osm(model, File.join(@output_folder, "#{template}-#{building_type}-led_lighting.osm"))
+                # puts File.join(@output_folder, "#{template}-#{building_type}-led_lighting.osm")
 
-              model.getSpaceTypes.sort.each do |space_type|
-                #   puts model
+                model.getSpaceTypes.sort.each do |space_type|
+                  #   puts model
 
-                ##### Calculate height of spaces, as this is required for the calculation of atriums' LPD
-                space_type_spaces = space_type.spaces()
-                # puts space_type
-                # puts space_type_spaces
-                # puts space_type_spaces.class
-                # puts space_type_spaces.length
-                # puts space_type_spaces[0]
-                space_walls_vertices = []
-                for i in 0..space_type_spaces.length - 1
-                  space_type_spaces[i].surfaces.sort.each do |surface|
-                    if surface.surfaceType == "Wall"
-                      space_walls_vertices << surface.vertices
+                  ##### Calculate height of spaces, as this is required for the calculation of atriums' LPD
+                  space_type_spaces = space_type.spaces()
+                  # puts space_type
+                  # puts space_type_spaces
+                  # puts space_type_spaces.class
+                  # puts space_type_spaces.length
+                  # puts space_type_spaces[0]
+                  space_walls_vertices = []
+                  for i in 0..space_type_spaces.length - 1
+                    space_type_spaces[i].surfaces.sort.each do |surface|
+                      if surface.surfaceType == "Wall"
+                        space_walls_vertices << surface.vertices
+                      end
                     end
                   end
-                end
-                for i in 0..space_walls_vertices.length - 1
-                  if i == 0
-                    space_height = [space_walls_vertices[i][0].z, space_walls_vertices[i][1].z, space_walls_vertices[i][2].z, space_walls_vertices[i][3].z,].max
+                  for i in 0..space_walls_vertices.length - 1
+                    if i == 0
+                      space_height = [space_walls_vertices[i][0].z, space_walls_vertices[i][1].z, space_walls_vertices[i][2].z, space_walls_vertices[i][3].z,].max
+                    end
+                    if space_height < [space_walls_vertices[i][0].z, space_walls_vertices[i][1].z, space_walls_vertices[i][2].z, space_walls_vertices[i][3].z,].max
+                      space_height = [space_walls_vertices[i][0].z, space_walls_vertices[i][1].z, space_walls_vertices[i][2].z, space_walls_vertices[i][3].z,].max
+                    else
+                      space_height = space_height
+                    end
                   end
-                  if space_height < [space_walls_vertices[i][0].z, space_walls_vertices[i][1].z, space_walls_vertices[i][2].z, space_walls_vertices[i][3].z,].max
-                    space_height = [space_walls_vertices[i][0].z, space_walls_vertices[i][1].z, space_walls_vertices[i][2].z, space_walls_vertices[i][3].z,].max
-                  else
+                  if space_type_spaces.length > 0
                     space_height = space_height
+                  else
+                    space_height = 0
                   end
-                end
-                if space_type_spaces.length > 0
-                  space_height = space_height
-                else
-                  space_height = 0
-                end
-                # puts space_type.name()
-                result["#{space_type.name.to_s} - space_height"] = space_height.to_s
+                  # puts space_type.name()
+                  result["#{space_type.name.to_s} - space_height"] = space_height.to_s
 
-                if !space_type.lights().empty?
-                  space_type_lights = space_type.lights()
-                  # puts space_type_lights
-                  space_type.lights.sort.each do |inst|
-                    space_type_lights_definition = inst.lightsDefinition
-                    # puts space_type_lights_definition
-                    # puts space_type_lights_definition.name()
-                    # puts space_type_lights_definition.designLevelCalculationMethod()
-                    # puts space_type_lights_definition.wattsperSpaceFloorArea()
-                    # puts space_type_lights_definition.fractionRadiant()
-                    # puts space_type_lights_definition.fractionVisible()
-                    # puts space_type_lights_definition.returnAirFraction()
+                  if !space_type.lights().empty?
+                    space_type_lights = space_type.lights()
+                    # puts space_type_lights
+                    space_type.lights.sort.each do |inst|
+                      space_type_lights_definition = inst.lightsDefinition
+                      # puts space_type_lights_definition
+                      # puts space_type_lights_definition.name()
+                      # puts space_type_lights_definition.designLevelCalculationMethod()
+                      # puts space_type_lights_definition.wattsperSpaceFloorArea()
+                      # puts space_type_lights_definition.fractionRadiant()
+                      # puts space_type_lights_definition.fractionVisible()
+                      # puts space_type_lights_definition.returnAirFraction()
 
-                    ##### Gather information about lights definitions of spaces/space types
-                    result["#{space_type.name.to_s} - space_type_lights_definition - name"] = space_type_lights_definition.name().to_s
-                    result["#{space_type.name.to_s} - space_type_lights_definition - designLevelCalculationMethod"] = space_type_lights_definition.designLevelCalculationMethod()
-                    result["#{space_type.name.to_s} - space_type_lights_definition - wattsperSpaceFloorArea"] = space_type_lights_definition.wattsperSpaceFloorArea().to_s
-                    result["#{space_type.name.to_s} - space_type_lights_definition - fractionRadiant"] = space_type_lights_definition.fractionRadiant().to_s
-                    result["#{space_type.name.to_s} - space_type_lights_definition - fractionVisible"] = space_type_lights_definition.fractionVisible().to_s
-                    result["#{space_type.name.to_s} - space_type_lights_definition - returnAirFraction"] = space_type_lights_definition.returnAirFraction().to_s
+                      ##### Gather information about lights definitions of spaces/space types
+                      result["#{space_type.name.to_s} - space_type_lights_definition - name"] = space_type_lights_definition.name().to_s
+                      result["#{space_type.name.to_s} - space_type_lights_definition - designLevelCalculationMethod"] = space_type_lights_definition.designLevelCalculationMethod()
+                      result["#{space_type.name.to_s} - space_type_lights_definition - wattsperSpaceFloorArea"] = space_type_lights_definition.wattsperSpaceFloorArea().to_s
+                      result["#{space_type.name.to_s} - space_type_lights_definition - fractionRadiant"] = space_type_lights_definition.fractionRadiant().to_s
+                      result["#{space_type.name.to_s} - space_type_lights_definition - fractionVisible"] = space_type_lights_definition.fractionVisible().to_s
+                      result["#{space_type.name.to_s} - space_type_lights_definition - returnAirFraction"] = space_type_lights_definition.returnAirFraction().to_s
+                    end
+                    # puts result
+                    # raise('check space_type_spaces')
                   end
-                  # puts result
-                  # raise('check space_type_spaces')
-                end
 
 
-              end #model.getSpaces.each do |space|
+                end #model.getSpaces.each do |space|
 
-              #then store results into the array that contains all the scenario results.
-              @test_results_array << result
-
+                #then store results into the array that contains all the scenario results.
+                @test_results_array << result
+              end #@lighting_types.sort.each do |lighting_type|
             end #@dcv_types.sort.each do |dcv_type|
           end #@primary_heating_fuels.sort.each do |primary_heating_fuel|
         end #@building_types.sort.each do |building_type|

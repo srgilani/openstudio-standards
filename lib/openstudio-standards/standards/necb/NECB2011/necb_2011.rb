@@ -194,7 +194,7 @@ class NECB2011 < Standard
                            primary_heating_fuel: 'DefaultFuel',
                            dcv_type: 'No DCV')
     apply_weather_data(model: model, epw_file: epw_file)
-    apply_loads(model: model)
+    apply_loads(model: model, lights_type: lights_type, lights_scale: lights_scale) #Sara
     apply_envelope(model: model)
     apply_fdwr_srr_daylighting(model: model)
     apply_auto_zoning(model: model, sizing_run_dir: sizing_run_dir)
@@ -205,13 +205,13 @@ class NECB2011 < Standard
     return model
   end
 
-  def apply_loads(model:)
+  def apply_loads(model:, lights_type: 'NECB_Default', lights_scale: 1.0) #Sara
     raise('validation of model failed.') unless validate_initial_model(model)
     raise('validation of spacetypes failed.') unless validate_and_upate_space_types(model)
     #this sets/stores the template version loads that the model uses.
     model.getBuilding.setStandardsTemplate(self.class.name)
     set_occ_sensor_spacetypes(model, @space_type_map)
-    model_add_loads(model)
+    model_add_loads(model, lights_type, lights_scale) #Sara
   end
 
   def apply_weather_data(model:, epw_file:)
@@ -1381,48 +1381,6 @@ class NECB2011 < Standard
     OpenStudio.logFree(OpenStudio::Info, 'openstudio.standards.SpaceType', "#{space_type.name} set LPD to #{lighting_per_area_led_lighting} W/ft^2.")
   end
 
-  def led_lighting_atrium(space_type: space_type)
-
-    space_type_spaces = space_type.spaces()
-    # puts space_type
-    # puts space_type_spaces
-    # puts space_type_spaces.class
-    # puts space_type_spaces.length
-    # puts space_type_spaces[0]
-    space_walls_vertices = []
-    for i in 0..space_type_spaces.length - 1
-      space_type_spaces[i].surfaces.sort.each do |surface|
-        if surface.surfaceType == "Wall"
-          space_walls_vertices << surface.vertices
-        end
-      end
-    end
-    # puts space_walls_vertices
-    # puts space_walls_vertices.length
-    for i in 0..space_walls_vertices.length - 1
-      if i == 0
-        space_height = [space_walls_vertices[i][0].z, space_walls_vertices[i][1].z, space_walls_vertices[i][2].z, space_walls_vertices[i][3].z,].max
-      end
-      if space_height < [space_walls_vertices[i][0].z, space_walls_vertices[i][1].z, space_walls_vertices[i][2].z, space_walls_vertices[i][3].z,].max
-        space_height = [space_walls_vertices[i][0].z, space_walls_vertices[i][1].z, space_walls_vertices[i][2].z, space_walls_vertices[i][3].z,].max
-      else
-        space_height = space_height
-      end
-    end
-    # puts space_walls_vertices
-    if space_type_spaces.length > 0
-      space_height = space_height
-    else
-      space_height = 0
-    end
-
-    return space_height
-  end
-
-
-
-
-
   # Adds the loads and associated schedules for each space type
   # as defined in the OpenStudio_Standards_space_types.json file.
   # This includes lights, plug loads, occupants, ventilation rate requirements,
@@ -1431,15 +1389,41 @@ class NECB2011 < Standard
   # pulled from sources such as the DOE Reference and DOE Prototype Buildings.
   #
   # @return [Bool] returns true if successful, false if not
-  def model_add_loads(model, lights_type = 'LED', lights_scale = 1.0)
+  def model_add_loads(model, lights_type = 'NECB_Default', lights_scale = 1.0)
     OpenStudio.logFree(OpenStudio::Info, 'openstudio.model.Model', 'Started applying space types (loads)')
 
     # Loop through all the space types currently in the model,
     # which are placeholders, and give them appropriate loads and schedules
     model.getSpaceTypes.sort.each do |space_type|
 
-      space_height = led_lighting_atrium(space_type: space_type) #Sara
-      puts "#{space_type.name.to_s} - 'space_height' - #{space_height.to_s}" #Sara
+      ##### The below loop is added as the space height is needed for the calculation of atriums' LPD when LED lighting is used in atriums. ***START***
+      space_type_spaces = space_type.spaces()
+      space_walls_vertices = []
+      for i in 0..space_type_spaces.length - 1
+        space_type_spaces[i].surfaces.sort.each do |surface|
+          if surface.surfaceType == "Wall"
+            space_walls_vertices << surface.vertices
+          end
+        end
+      end
+      for i in 0..space_walls_vertices.length - 1
+        if i == 0
+          space_height = [space_walls_vertices[i][0].z, space_walls_vertices[i][1].z, space_walls_vertices[i][2].z, space_walls_vertices[i][3].z,].max
+        end
+        if space_height < [space_walls_vertices[i][0].z, space_walls_vertices[i][1].z, space_walls_vertices[i][2].z, space_walls_vertices[i][3].z,].max
+          space_height = [space_walls_vertices[i][0].z, space_walls_vertices[i][1].z, space_walls_vertices[i][2].z, space_walls_vertices[i][3].z,].max
+        else
+          space_height = space_height
+        end
+      end
+      if space_type_spaces.length > 0
+        space_height = space_height
+      else
+        space_height = 0
+      end
+      ##### The above loop is added as the space height is needed for the calculation of atriums' LPD when LED lighting is used in atriums. ***END***
+
+      # puts "#{space_type.name.to_s} - 'space_height' - #{space_height.to_s}" #Sara
       # raise('check space_height inside model_add_loads function')
 
       # Rendering color

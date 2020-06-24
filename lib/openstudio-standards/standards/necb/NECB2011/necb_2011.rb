@@ -192,7 +192,9 @@ class NECB2011 < Standard
                            epw_file:,
                            sizing_run_dir: Dir.pwd,
                            primary_heating_fuel: 'DefaultFuel',
-                           dcv_type: 'No DCV')
+                           dcv_type: 'No DCV',
+                           lights_type: 'NECB_Default',
+                           lights_scale: 1.0)
     apply_weather_data(model: model, epw_file: epw_file)
     apply_loads(model: model, lights_type: lights_type, lights_scale: lights_scale) #Sara
     apply_envelope(model: model)

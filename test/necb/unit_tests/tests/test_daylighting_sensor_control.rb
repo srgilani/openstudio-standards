@@ -16,9 +16,27 @@ class YourTestName_Test < Minitest::Test
     @test_passed = true
 
     #Range of test options.
-    @templates = ['NECB2011', 'NECB2015', 'NECB2017']
-    @building_types = ['Outpatient', 'Hospital', 'LargeOffice', 'Warehouse'] #'Outpatient','Hospital','LargeOffice','Warehouse'
-    # @building_types = ['FullServiceRestaurant','HighriseApartment','Hospital','LargeHotel','LargeOffice','MediumOffice','MidriseApartment','Outpatient','PrimarySchool','QuickServiceRestaurant','RetailStandalone','SecondarySchool','SmallHotel','Warehouse']
+    @templates = [
+        'NECB2011',
+        'NECB2015',
+        'NECB2017'
+    ]
+    @building_types = [
+        # 'FullServiceRestaurant',
+        # 'HighriseApartment',
+        'Hospital',
+        # 'LargeHotel',
+        'LargeOffice',
+        # 'MediumOffice',
+        # 'MidriseApartment',
+        'Outpatient',
+        # 'PrimarySchool',
+        # 'QuickServiceRestaurant',
+        # 'RetailStandalone',
+        # 'SecondarySchool',
+        # 'SmallHotel',
+        'Warehouse'
+    ]
     @epw_files = ['CAN_AB_Banff.CS.711220_CWEC2016.epw']
     @primary_heating_fuels = ['DefaultFuel']
     @dcv_types = ['No DCV']
@@ -54,10 +72,6 @@ class YourTestName_Test < Minitest::Test
                 standard.apply_loads(model: model, lights_type: lighting_type, lights_scale: 1.0)
                 standard.apply_envelope(model: model)
                 standard.apply_fdwr_srr_daylighting(model: model)
-                # standard.apply_auto_zoning(model: model, sizing_run_dir: @sizing_run_dir)
-                # standard.apply_systems(model: model, primary_heating_fuel: primary_heating_fuel, sizing_run_dir: @sizing_run_dir, dcv_type: dcv_type)
-                # standard.apply_standard_efficiencies(model: model, sizing_run_dir: @sizing_run_dir)
-                # model = standard.apply_loop_pump_power(model: model, sizing_run_dir: @sizing_run_dir)
                 standard.model_add_daylighting_controls(model)
 
                 # # comment out for regular tests

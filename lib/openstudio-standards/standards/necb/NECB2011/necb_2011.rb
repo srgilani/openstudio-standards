@@ -169,13 +169,23 @@ class NECB2011 < Standard
                                    epw_file:,
                                    debug: false,
                                    sizing_run_dir: Dir.pwd,
-                                   primary_heating_fuel: 'DefaultFuel')
+                                   primary_heating_fuel: 'DefaultFuel'#,
+                                   # dcv_type:,
+                                   # lights_type:,
+                                   # lights_scale:,
+                                   # space_height:
+  )
 
     model = load_building_type_from_library(building_type: building_type)
     return model_apply_standard(model: model,
                                 epw_file: epw_file,
                                 sizing_run_dir: sizing_run_dir,
-                                primary_heating_fuel: primary_heating_fuel)
+                                primary_heating_fuel: primary_heating_fuel,
+                                dcv_type: 'No DCV',
+                                lights_type: 'NECB_Default',
+                                lights_scale: 1.0,
+                                space_height: @space_height
+    )
   end
 
   def load_building_type_from_library(building_type:)
@@ -194,12 +204,14 @@ class NECB2011 < Standard
                            primary_heating_fuel: 'DefaultFuel',
                            dcv_type: 'No DCV',
                            lights_type: 'NECB_Default',
-                           lights_scale: 1.0)
+                           lights_scale: 1.0,
+                           space_height:
+  )
     apply_weather_data(model: model, epw_file: epw_file)
     apply_loads(model: model, lights_type: lights_type, lights_scale: lights_scale) #Sara
     apply_envelope(model: model)
     apply_fdwr_srr_daylighting(model: model)
-    apply_auto_zoning(model: model, sizing_run_dir: sizing_run_dir)
+    apply_auto_zoning(model: model, sizing_run_dir: sizing_run_dir, lights_type: lights_type, lights_scale: lights_scale, space_height: space_height)
     apply_systems(model: model, primary_heating_fuel: primary_heating_fuel, sizing_run_dir: sizing_run_dir, dcv_type: dcv_type)
     apply_standard_efficiencies(model: model, sizing_run_dir: sizing_run_dir)
     model = apply_loop_pump_power(model: model, sizing_run_dir: sizing_run_dir)
@@ -1344,7 +1356,7 @@ class NECB2011 < Standard
   end #def model_enable_demand_controlled_ventilation
 
 
-  def set_lighting_per_area_led_lighting(space_type, definition, lighting_per_area_led_lighting, scale, space_height)
+  def set_lighting_per_area_led_lighting(space_type, definition, lighting_per_area_led_lighting, lights_scale, space_height)
     # puts "#{space_type.name.to_s} - 'space_height' - #{space_height.to_s}"
     occ_sens_lpd_frac = 1.0
     # NECB2011 space types that require a reduction in the LPD to account for
@@ -1375,7 +1387,7 @@ class NECB2011 < Standard
         lighting_per_area_led_lighting_atrium = (4.3 + 1.06 * 13.0) * 0.092903 # W/ft2
       end
       puts "#{standards_space_type} - has lighting_per_area_led_lighting_atrium - #{lighting_per_area_led_lighting_atrium}"
-      lighting_per_area_led_lighting = lighting_per_area_led_lighting_atrium * scale
+      lighting_per_area_led_lighting = lighting_per_area_led_lighting_atrium * lights_scale
     end
 
     definition.setWattsperSpaceFloorArea(OpenStudio.convert(lighting_per_area_led_lighting.to_f * occ_sens_lpd_frac, 'W/ft^2', 'W/m^2').get)
@@ -1423,7 +1435,7 @@ class NECB2011 < Standard
       else
         space_height = 0
       end
-      ##### The above loop is added as the space height is needed for the calculation of atriums' LPD when LED lighting is used in atriums. ***END***
+      ##### The above loop is added as thespace_type_apply_internal_loads space height is needed for the calculation of atriums' LPD when LED lighting is used in atriums. ***END***
 
       # puts "#{space_type.name.to_s} - 'space_height' - #{space_height.to_s}" #Sara
       # raise('check space_height inside model_add_loads function')

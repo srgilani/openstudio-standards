@@ -1,5 +1,5 @@
 class NECB2011
-  def apply_standard_lights(set_lights, space_type, space_type_properties, lights_type, scale, space_height)
+  def apply_standard_lights(set_lights, space_type, space_type_properties, lights_type, lights_scale, space_height)
     # puts space_height
     # raise('check space_height inside apply_standard_lights function')
     lights_have_info = false
@@ -22,7 +22,7 @@ class NECB2011
       if led_space_type_properties.nil?
         raise("#{standards_building_type} for #{standards_space_type} was not found please verify the led lighting database names match the space type names.")
       end
-      lighting_per_area_led_lighting = led_space_type_properties['lighting_per_area'].to_f * scale #Sara
+      lighting_per_area_led_lighting = led_space_type_properties['lighting_per_area'].to_f #Sara
       lights_frac_to_return_air_led_lighting = led_space_type_properties['lighting_fraction_to_return_air'].to_f #Sara
       lights_frac_radiant_led_lighting = led_space_type_properties['lighting_fraction_radiant'].to_f #Sara
       lights_frac_visible_led_lighting = led_space_type_properties['lighting_fraction_visible'].to_f #Sara
@@ -61,7 +61,7 @@ class NECB2011
           if lights_type == 'NECB_Default'
             set_lighting_per_area(space_type, definition, lighting_per_area)
           elsif lights_type == 'LED'
-            set_lighting_per_area_led_lighting(space_type, definition, lighting_per_area_led_lighting, scale, space_height)
+            set_lighting_per_area_led_lighting(space_type, definition, lighting_per_area_led_lighting, lights_scale, space_height)
           end
         end
         unless lighting_per_person.zero?

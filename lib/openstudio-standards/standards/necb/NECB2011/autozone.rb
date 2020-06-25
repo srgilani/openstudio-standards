@@ -52,7 +52,7 @@ class NECB2011
   # Some expections are dwelling units wet zone and wild zones.  These spaces will have special considerations when autozoning a
   # building.
 
-  def apply_auto_zoning(model:, sizing_run_dir: Dir.pwd)
+  def apply_auto_zoning(model:, sizing_run_dir: Dir.pwd, lights_type:, lights_scale:, space_height:)
     raise('validation of model failed.') unless validate_initial_model(model)
 
     # Check to see if model is using another vintage of spacetypes. If so overwrite the @standards for the object with the
@@ -84,7 +84,7 @@ class NECB2011
     self.auto_zone_dwelling_units(model)
     self.auto_zone_wet_spaces(model)
     self.auto_zone_all_other_spaces(model)
-    self.auto_zone_wild_spaces(model)
+    self.auto_zone_wild_spaces(model, lights_type, lights_scale, space_height)
     #THis will color the spaces and zones.
     random = Random.new(1234)
     #Set ideal hvac in case we want to not implement the hvac yet and still run osm right after this function.
@@ -302,7 +302,7 @@ class NECB2011
 
       #this method will determine if the right schedule was used for this wet & wild space if not.. it will reset the space
       # to use the correct schedule version of the wet and wild space type.
-      adjust_wildcard_spacetype_schedule(space, dominant_schedule)
+      adjust_wildcard_spacetype_schedule(space, dominant_schedule, @lights_type, @lights_scale, @space_height) #Sara
       #Find spacetype thermostat and assign it to the zone.
       thermostat_name = space.spaceType.get.name.get + ' Thermostat'
       thermostat = model.getThermostatSetpointDualSetpointByName(thermostat_name)
@@ -320,7 +320,7 @@ class NECB2011
       model.getSpaces.select {|s| is_an_necb_wet_space?(s)}.each do |space_target|
         if space_target.thermalZone.empty?
           if are_space_loads_similar?(space_1: space, space_2: space_target) && space.buildingStory().get == space_target.buildingStory().get # added since chris needs zones to not span floors for costing.
-            adjust_wildcard_spacetype_schedule(space_target, dominant_schedule)
+            adjust_wildcard_spacetype_schedule(space_target, dominant_schedule, lights_type, lights_scale, space_height) #Sara
             space_target.setThermalZone(zone)
           end
         end
@@ -379,7 +379,7 @@ class NECB2011
 
   # This will take all the wildcard spaces and merge them to be supported by a system 4. The control zone will be the
   # zone that has the largest heating load per area.
-  def auto_zone_wild_spaces(model)
+  def auto_zone_wild_spaces(model, lights_type, lights_scale, space_height) #Sara
     other_tz_array = Array.new
     #iterate through wildcard spaces.
     model.getSpaces.select {|space| is_an_necb_wildcard_space?(space) and not is_an_necb_wet_space?(space)}.each do |space|
@@ -399,7 +399,7 @@ class NECB2011
       #lets keep the wild schedules to be the same as what dominate the floor.
       dominant_floor_schedule = determine_dominant_schedule(space.model.getSpaces)
 
-      adjust_wildcard_spacetype_schedule(space, dominant_floor_schedule)
+      adjust_wildcard_spacetype_schedule(space, dominant_floor_schedule, lights_type, lights_scale, space_height) #Sara
 
       # Add a thermostat
       space_type_name = space.spaceType.get.name.get
@@ -464,7 +464,7 @@ class NECB2011
         schedule_type = determine_dominant_schedule(space.buildingStory.get.spaces)
         zone = other_adjacent_spaces.first.thermalZone.get
         wild_adjacent_spaces.each do |space|
-          adjust_wildcard_spacetype_schedule(space, schedule_type)
+          adjust_wildcard_spacetype_schedule(space, schedule_type, lights_type, lights_scale, space_height) #Sara
           space.setThermalZone(zone)
         end
       end
@@ -483,7 +483,7 @@ class NECB2011
       dominant_floor_schedule = determine_dominant_schedule(space.buildingStory().get.spaces)
       #this method will determine if the right schedule was used for this wet & wild space if not.. it will reset the space
       # to use the correct schedule version of the wet and wild space type.
-      adjust_wildcard_spacetype_schedule(space, dominant_floor_schedule)
+      adjust_wildcard_spacetype_schedule(space, dominant_floor_schedule, lights_type, lights_scale, space_height) #Sara
       #Find spacetype thermostat and assign it to the zone.
       thermostat_name = space.spaceType.get.name.get + ' Thermostat'
       thermostat = model.getThermostatSetpointDualSetpointByName(thermostat_name)
@@ -502,7 +502,7 @@ class NECB2011
         if space_target.thermalZone.empty?
           if are_space_loads_similar?(space_1: space, space_2: space_target) &&
               space.buildingStory().get == space_target.buildingStory().get # added since chris needs zones to not span floors for costing.
-            adjust_wildcard_spacetype_schedule(space_target, dominant_floor_schedule)
+            adjust_wildcard_spacetype_schedule(space_target, dominant_floor_schedule, lights_type, lights_scale, space_height) #Sara
             space_target.setThermalZone(zone)
           end
         end
@@ -708,7 +708,7 @@ class NECB2011
   end
 
   # Set wildcard spactype schedule to NECB letter index.
-  def adjust_wildcard_spacetype_schedule(space, schedule)
+  def adjust_wildcard_spacetype_schedule(space, schedule, lights_type, lights_scale, space_height) #Sara
     if space.spaceType.empty?
       OpenStudio.logFree(OpenStudio::Error, 'Error: No spacetype assigned for #{space.name.get}. This must be assigned. Aborting.')
     end
@@ -733,7 +733,7 @@ class NECB2011
         new_spacetype.setStandardsBuildingType(space.spaceType.get.standardsBuildingType.get)
         new_spacetype.setStandardsSpaceType(new_spacetype_name)
         new_spacetype.setName("#{space.spaceType.get.standardsBuildingType.get} #{new_spacetype_name}")
-        space_type_apply_internal_loads(new_spacetype, true, true, true, true, true, true)
+        space_type_apply_internal_loads(new_spacetype, true, true, true, true, true, true, lights_type, lights_scale, space_height)  #Sara
         space_type_apply_internal_load_schedules(new_spacetype, true, true, true, true, true, true, true)
       end
       space.setSpaceType(new_spacetype)

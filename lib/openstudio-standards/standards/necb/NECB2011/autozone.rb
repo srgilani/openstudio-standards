@@ -320,7 +320,7 @@ class NECB2011
       model.getSpaces.select {|s| is_an_necb_wet_space?(s)}.each do |space_target|
         if space_target.thermalZone.empty?
           if are_space_loads_similar?(space_1: space, space_2: space_target) && space.buildingStory().get == space_target.buildingStory().get # added since chris needs zones to not span floors for costing.
-            adjust_wildcard_spacetype_schedule(space_target, dominant_schedule, lights_type, lights_scale, space_height) #Sara
+            adjust_wildcard_spacetype_schedule(space_target, dominant_schedule, @lights_type, @lights_scale, @space_height) #Sara
             space_target.setThermalZone(zone)
           end
         end

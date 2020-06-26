@@ -20,7 +20,7 @@ class YourTestName_Test < Minitest::Test
       'NECB2015',
       'NECB2017'
     ]
-    @building_types = [
+    @building_types = [     #test for 'FullServiceRestaurant' and 'Hospital'
         'FullServiceRestaurant',
         # 'HighriseApartment',
         'Hospital'#,
@@ -72,7 +72,7 @@ class YourTestName_Test < Minitest::Test
                 standard.apply_loads(model: model, lights_type: lighting_type, lights_scale: 1.0)
                 standard.apply_envelope(model: model)
                 standard.apply_fdwr_srr_daylighting(model: model)
-                standard.apply_auto_zoning(model: model, sizing_run_dir: @sizing_run_dir, lights_type: @lights_type, lights_scale: @lights_scale, space_height: @space_height)
+                standard.apply_auto_zoning(model: model, sizing_run_dir: @sizing_run_dir, lights_type: lighting_type, lights_scale: 1.0, space_height: @space_height)
                 standard.apply_systems(model: model, primary_heating_fuel: primary_heating_fuel, sizing_run_dir: @sizing_run_dir, dcv_type: dcv_type)
                 standard.apply_standard_efficiencies(model: model, sizing_run_dir: @sizing_run_dir)
                 # model = standard.apply_loop_pump_power(model: model, sizing_run_dir: @sizing_run_dir)

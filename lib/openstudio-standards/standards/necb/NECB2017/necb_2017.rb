@@ -46,7 +46,7 @@ class NECB2017 < NECB2015
     return @standards_data
   end
 
-  def set_lighting_per_area_led_lighting(space_type, definition, lighting_per_area_led_lighting, scale, space_height)
+  def set_lighting_per_area_led_lighting(space_type, definition, lighting_per_area_led_lighting, lights_scale, space_height)
     # puts "#{space_type.name.to_s} - 'space_height' - #{space_height.to_s}"
     #TODO: Note that 'occ_sens_lpd_frac' in this function has been removed for NECB2015 and 2017.
     # ##### Since Atrium's LPD for LED lighting depends on atrium's height, the height of the atrium (if applicable) should be found.
@@ -55,13 +55,19 @@ class NECB2017 < NECB2015
       puts "#{standards_space_type} - has atrium"  #space_type.name.to_s
       # puts space_height
       if space_height < 12.0
-        lighting_per_area_led_lighting_atrium = (1.06 * space_height) * 0.092903 # W/ft2
+        # TODO: REFERENCE FOR BELOW EQUATIONS
+        atrium_lpd_eq_smaller_12_intercept = 0
+        atrium_lpd_eq_smaller_12_slope = 1.06
+        atrium_lpd_eq_larger_12_intercept = 4.3
+        atrium_lpd_eq_larger_12_slope = 0.71
+        lighting_per_area_led_lighting_atrium = (atrium_lpd_eq_smaller_12_intercept + atrium_lpd_eq_smaller_12_slope * space_height) * 0.092903 # W/ft2
       else #i.e. space_height >= 12.0
-        lighting_per_area_led_lighting_atrium = (4.3 + 0.71 * space_height) * 0.092903 # W/ft2
+        lighting_per_area_led_lighting_atrium = (atrium_lpd_eq_larger_12_intercept + atrium_lpd_eq_larger_12_slope * space_height) * 0.092903 # W/ft2
       end
       puts "#{standards_space_type} - has lighting_per_area_led_lighting_atrium - #{lighting_per_area_led_lighting_atrium}"
-      lighting_per_area_led_lighting = lighting_per_area_led_lighting_atrium * scale
+      lighting_per_area_led_lighting = lighting_per_area_led_lighting_atrium
     end
+    lighting_per_area_led_lighting = lighting_per_area_led_lighting * lights_scale
 
     definition.setWattsperSpaceFloorArea(OpenStudio.convert(lighting_per_area_led_lighting.to_f, 'W/ft^2', 'W/m^2').get)
 

@@ -1380,16 +1380,21 @@ class NECB2011 < Standard
       puts "#{standards_space_type} - has atrium"  #space_type.name.to_s
       # puts space_height
       if space_height < 12.0 #TODO: Note that since none of the archetypes has Atrium, this was tested for 'Dining' with the threshold of 5.0 m for space_height.
-        lighting_per_area_led_lighting_atrium = (1.06 * 12.0) * 0.092903 # W/ft2 TODO: Note that for NECB2011, a constant LPD is used for atrium based on NECB2015's equations. NECB2011's threshold for height is 13.0 m.
+        # TODO: REFERENCE FOR BELOW EQUATIONS
+        atrium_lpd_eq_smaller_12_intercept = 0
+        atrium_lpd_eq_smaller_12_slope = 1.06
+        atrium_lpd_eq_larger_12_intercept = 4.3
+        atrium_lpd_eq_larger_12_slope = 1.06
+        lighting_per_area_led_lighting_atrium = (atrium_lpd_eq_smaller_12_intercept + atrium_lpd_eq_smaller_12_slope * 12.0) * 0.092903 # W/ft2 TODO: Note that for NECB2011, a constant LPD is used for atrium based on NECB2015's equations. NECB2011's threshold for height is 13.0 m.
       elsif space_height >= 12.0 && space_height < 13.0
-        lighting_per_area_led_lighting_atrium = (4.3 + 1.06 * 12.5) * 0.092903 # W/ft2
+        lighting_per_area_led_lighting_atrium = (atrium_lpd_eq_larger_12_intercept + atrium_lpd_eq_larger_12_slope * 12.5) * 0.092903 # W/ft2
       else #i.e. space_height >= 13.0
-        lighting_per_area_led_lighting_atrium = (4.3 + 1.06 * 13.0) * 0.092903 # W/ft2
+        lighting_per_area_led_lighting_atrium = (atrium_lpd_eq_larger_12_intercept + atrium_lpd_eq_larger_12_slope * 13.0) * 0.092903 # W/ft2
       end
       puts "#{standards_space_type} - has lighting_per_area_led_lighting_atrium - #{lighting_per_area_led_lighting_atrium}"
-      lighting_per_area_led_lighting = lighting_per_area_led_lighting_atrium * lights_scale
+      lighting_per_area_led_lighting = lighting_per_area_led_lighting_atrium
     end
-
+    lighting_per_area_led_lighting = lighting_per_area_led_lighting * lights_scale
     definition.setWattsperSpaceFloorArea(OpenStudio.convert(lighting_per_area_led_lighting.to_f * occ_sens_lpd_frac, 'W/ft^2', 'W/m^2').get)
 
     OpenStudio.logFree(OpenStudio::Info, 'openstudio.standards.SpaceType', "#{space_type.name} set LPD to #{lighting_per_area_led_lighting} W/ft^2.")
@@ -1422,10 +1427,10 @@ class NECB2011 < Standard
       end
       for i in 0..space_walls_vertices.length - 1
         if i == 0
-          space_height = [space_walls_vertices[i][0].z, space_walls_vertices[i][1].z, space_walls_vertices[i][2].z, space_walls_vertices[i][3].z,].max
+          space_height = [space_walls_vertices[i][0].z, space_walls_vertices[i][1].z, space_walls_vertices[i][2].z, space_walls_vertices[i][3].z].max
         end
-        if space_height < [space_walls_vertices[i][0].z, space_walls_vertices[i][1].z, space_walls_vertices[i][2].z, space_walls_vertices[i][3].z,].max
-          space_height = [space_walls_vertices[i][0].z, space_walls_vertices[i][1].z, space_walls_vertices[i][2].z, space_walls_vertices[i][3].z,].max
+        if space_height < [space_walls_vertices[i][0].z, space_walls_vertices[i][1].z, space_walls_vertices[i][2].z, space_walls_vertices[i][3].z].max
+          space_height = [space_walls_vertices[i][0].z, space_walls_vertices[i][1].z, space_walls_vertices[i][2].z, space_walls_vertices[i][3].z].max
         else
           space_height = space_height
         end

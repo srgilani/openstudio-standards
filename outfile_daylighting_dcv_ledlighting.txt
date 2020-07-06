@@ -325,4 +325,42 @@ Progress :: |[32mPASSED: /home/osdev/openstudio-standards/test/90_1_general/tes
 ==[32mPASSED: /home/osdev/openstudio-standards/test/necb/unit_tests/tests/test_necb_heatpump_rules.rb[0m
 ===[32mPASSED: /home/osdev/openstudio-standards/test/90_1_general/test_coil_dx.rb[0m
 ==[32mPASSED: /home/osdev/openstudio-standards/test/necb/unit_tests/tests/test_necb_auto_zone_test.rb[0m
-===
+===/home/osdev/openstudio-standards/lib/openstudio-standards/standards/necb/NECB2011/necb_2011.rb:1384: warning: circular argument reference - space_type
+/home/osdev/openstudio-standards/lib/openstudio-standards/standards/necb/NECB2011/beps_compliance_path.rb:58: warning: circular argument reference - space_height
+/home/osdev/openstudio-standards/lib/openstudio-standards/standards/necb/NECB2011/necb_2011.rb:1384: warning: circular argument reference - space_type
+/home/osdev/openstudio-standards/lib/openstudio-standards/standards/necb/NECB2011/beps_compliance_path.rb:58: warning: circular argument reference - space_height
+DEVELOPERS OF OPENSTUDIO-STANDARDS: Requiring code directly instead of using installed gem.  This avoids having to run rake install every time you make a change.
+Started with run options --seed 62777
+
+RunAllTests
+Running 225 tests suites in parallel using 3 of available cpus.
+To increase or decrease the ProcessorsUsed, please edit the test/test_run_all_locally.rb file.
+
+Progress :: |[31mFAILED: /home/osdev/openstudio-standards/test/output/test_necb_bldg_PrimarySchool_BTAP1980TO2010_NaturalGas.rb_test_output.json[0m
+[31mFAILED: /home/osdev/openstudio-standards/test/output/test_necb_bldg_MidriseApartment_NECB2017_NaturalGas.rb_test_output.json[0m
+[31mFAILED: /home/osdev/openstudio-standards/test/output/test_necb_bldg_HighriseApartment_NECB2011_Electricity.rb_test_output.json[0m
+=[31mFAILED: /home/osdev/openstudio-standards/test/output/test_necb_bldg_SecondarySchool_BTAP1980TO2010_NaturalGas.rb_test_output.json[0m
+[31mFAILED: /home/osdev/openstudio-standards/test/output/test_necb_bldg_RetailStandalone_BTAPPRE1980_NaturalGas.rb_test_output.json[0m
+==[31mFAILED: /home/osdev/openstudio-standards/test/output/test_necb_bldg_QuickServiceRestaurant_NECB2017_NaturalGas.rb_test_output.json[0m
+[31mFAILED: /home/osdev/openstudio-standards/test/output/test_necb_bldg_SmallOffice_BTAPPRE1980_NaturalGas.rb_test_output.json[0m
+=[31mFAILED: /home/osdev/openstudio-standards/test/output/test_necb_bldg_Outpatient_BTAPPRE1980_Electricity.rb_test_output.json[0m
+[31mFAILED: /home/osdev/openstudio-standards/test/output/test_necb_bldg_QuickServiceRestaurant_NECB2011_NaturalGas.rb_test_output.json[0m
+==[31mFAILED: /home/osdev/openstudio-standards/test/output/test_necb_bldg_PrimarySchool_BTAPPRE1980_NaturalGas.rb_test_output.json[0m
+[31mFAILED: /home/osdev/openstudio-standards/test/output/test_necb_bldg_MediumOffice_NECB2017_Electricity.rb_test_output.json[0m
+[31mFAILED: /home/osdev/openstudio-standards/test/output/test_necb_bldg_RetailStandalone_NECB2015_NaturalGas.rb_test_output.json[0m
+=[32mPASSED: /home/osdev/openstudio-standards/test/necb/unit_tests/tests/test_necb_loop_rules.rb[0m
+[32mPASSED: /home/osdev/openstudio-standards/test/necb/unit_tests/tests/test_necb_schedules.rb[0m
+==[32mPASSED: /home/osdev/openstudio-standards/test/doe_prototype/test_retail_standalone.rb[0m
+[31mFAILED: /home/osdev/openstudio-standards/test/output/test_necb_bldg_Hospital_NECB2015_NaturalGas.rb_test_output.json[0m
+=DEVELOPERS OF OPENSTUDIO-STANDARDS: Requiring code directly instead of using installed gem.  This avoids having to run rake install every time you make a change.
+Started with run options --seed 28610
+
+RunAllTests
+Running 225 tests suites in parallel using 3 of available cpus.
+To increase or decrease the ProcessorsUsed, please edit the test/test_run_all_locally.rb file.
+
+Progress :: |[31mFAILED: /home/osdev/openstudio-standards/test/output/test_necb_bldg_SmallOffice_NECB2011_Electricity.rb_test_output.json[0m
+
+Progress :: |[31mFAILED: /home/osdev/openstudio-standards/test/output/test_necb_bldg_RetailStripmall_NECB2011_NaturalGas.rb_test_output.json[0m
+[31mFAILED: /home/osdev/openstudio-standards/test/output/test_necb_bldg_MediumOffice_NECB2011_Electricity.rb_test_output.json[0m
+=[31mFAILED: /home/osdev/openstudio-standards/test/output/test_necb_bldg_PrimarySchool_NECB2011_Electricity.rb_test_output.json[0m

@@ -15,6 +15,10 @@ class YourTestName_Test < Minitest::Test
     # Initial test condition
     @test_passed = true
 
+    #Range of test options for costing.
+    @templates = ['NECB2011']
+    @building_types = ['FullServiceRestaurant','LargeOffice','MidriseApartment','PrimarySchool']
+
     #Range of test options.
     @templates = [
         'NECB2011',

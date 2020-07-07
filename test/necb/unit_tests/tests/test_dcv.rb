@@ -14,6 +14,11 @@ class YourTestName_Test < Minitest::Test
 
     # Intial test condition
     @test_passed = true
+
+    # #Range of test options for costing.
+    # @templates = ['NECB2011']
+    # @building_types = ['FullServiceRestaurant','LargeOffice','MidriseApartment','PrimarySchool']
+
     #Range of test options.
     @templates = [
       'NECB2011',
@@ -39,7 +44,7 @@ class YourTestName_Test < Minitest::Test
     @epw_files = ['CAN_AB_Banff.CS.711220_CWEC2016.epw']
     @primary_heating_fuels = ['DefaultFuel']
     # @dcv_types = ['Occupancy-based DCV']
-    @dcv_types = ['Occupancy-based DCV', 'CO2-based DCV']
+    @dcv_types = ['Occupancy-based DCV', 'CO2-based DCV'] #['No DCV']#
     @lighting_types = ['NECB_Default'] #LED  #NECB_Default
 
     # Test results storage array.
@@ -80,7 +85,9 @@ class YourTestName_Test < Minitest::Test
 
                 # # comment out for regular tests
                 # BTAP::FileIO.save_osm(model, File.join(@output_folder,"#{template}-#{building_type}-#{dcv_type}.osm"))
-                # puts File.join(@output_folder,"#{template}-#{building_type}-DCV.osm")
+                # puts File.join(@output_folder,"#{template}-#{building_type}-#{dcv_type}.osm")
+                # BTAP::FileIO.save_osm(model, File.join(@output_folder,"#{template}-#{building_type}-before.osm"))
+                # puts File.join(@output_folder,"#{template}-#{building_type}-before.osm")
 
                 ##### Get info about contaminant type to be simulated (i.e. Carbon Dioxide Concentration, Outdoor Carbon Dioxide Schedule)
                 zone_air_contaminant_balance = model.getZoneAirContaminantBalance()

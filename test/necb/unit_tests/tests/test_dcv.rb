@@ -15,10 +15,6 @@ class YourTestName_Test < Minitest::Test
     # Intial test condition
     @test_passed = true
 
-    # #Range of test options for costing.
-    # @templates = ['NECB2011']
-    # @building_types = ['FullServiceRestaurant','LargeOffice','MidriseApartment','PrimarySchool']
-
     #Range of test options.
     @templates = [
       'NECB2011',
@@ -78,16 +74,14 @@ class YourTestName_Test < Minitest::Test
                 standard.apply_envelope(model: model)
                 standard.apply_fdwr_srr_daylighting(model: model)
                 standard.apply_auto_zoning(model: model, sizing_run_dir: @sizing_run_dir, lights_type: lighting_type, lights_scale: 1.0, space_height: @space_height)
-                standard.apply_systems(model: model, primary_heating_fuel: primary_heating_fuel, sizing_run_dir: @sizing_run_dir, dcv_type: dcv_type)
-                standard.apply_standard_efficiencies(model: model, sizing_run_dir: @sizing_run_dir)
+                standard.apply_systems(model: model, primary_heating_fuel: primary_heating_fuel, sizing_run_dir: @sizing_run_dir) #, dcv_type: dcv_type
+                standard.apply_standard_efficiencies(model: model, sizing_run_dir: @sizing_run_dir, dcv_type: dcv_type)
                 # model = standard.apply_loop_pump_power(model: model, sizing_run_dir: @sizing_run_dir)
                 # standard.model_add_daylighting_controls(model)
 
                 # # comment out for regular tests
                 # BTAP::FileIO.save_osm(model, File.join(@output_folder,"#{template}-#{building_type}-#{dcv_type}.osm"))
                 # puts File.join(@output_folder,"#{template}-#{building_type}-#{dcv_type}.osm")
-                # BTAP::FileIO.save_osm(model, File.join(@output_folder,"#{template}-#{building_type}-before.osm"))
-                # puts File.join(@output_folder,"#{template}-#{building_type}-before.osm")
 
                 ##### Get info about contaminant type to be simulated (i.e. Carbon Dioxide Concentration, Outdoor Carbon Dioxide Schedule)
                 zone_air_contaminant_balance = model.getZoneAirContaminantBalance()

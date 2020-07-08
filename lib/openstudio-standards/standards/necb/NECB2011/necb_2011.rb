@@ -181,8 +181,8 @@ class NECB2011 < Standard
                                 epw_file: epw_file,
                                 sizing_run_dir: sizing_run_dir,
                                 primary_heating_fuel: primary_heating_fuel,
-                                dcv_type: 'No DCV',
-                                lights_type: 'NECB_Default',
+                                dcv_type: 'No DCV', #CO2-based DCV  #No DCV  #Occupancy-based DCV
+                                lights_type: 'NECB_Default', #NECB_Default #LED
                                 lights_scale: 1.0,
                                 space_height: @space_height
     )
@@ -212,10 +212,14 @@ class NECB2011 < Standard
     apply_envelope(model: model)
     apply_fdwr_srr_daylighting(model: model)
     apply_auto_zoning(model: model, sizing_run_dir: sizing_run_dir, lights_type: lights_type, lights_scale: lights_scale, space_height: space_height)
-    apply_systems(model: model, primary_heating_fuel: primary_heating_fuel, sizing_run_dir: sizing_run_dir, dcv_type: dcv_type)
-    apply_standard_efficiencies(model: model, sizing_run_dir: sizing_run_dir)
+    apply_systems(model: model, primary_heating_fuel: primary_heating_fuel, sizing_run_dir: sizing_run_dir) #, dcv_type: dcv_type #Sara
+    # puts model
+    # raise('check model for dcv')
+    apply_standard_efficiencies(model: model, sizing_run_dir: sizing_run_dir, dcv_type: dcv_type) #Sara
+    # puts model
+    # raise('check model for dcv')
     model = apply_loop_pump_power(model: model, sizing_run_dir: sizing_run_dir)
-    model_add_daylighting_controls(model)
+    # model_add_daylighting_controls(model)
     return model
   end
 
@@ -273,7 +277,7 @@ class NECB2011 < Standard
     # model_add_daylighting_controls(model) # to be removed after refactor.
   end
 
-  def apply_standard_efficiencies(model:, sizing_run_dir:)
+  def apply_standard_efficiencies(model:, sizing_run_dir:, dcv_type:)
     raise('validation of model failed.') unless validate_initial_model(model)
     climate_zone = 'NECB HDD Method'
     raise("sizing run 1 failed! check #{sizing_run_dir}") if model_run_sizing_run(model, "#{sizing_run_dir}/plant_loops") == false
@@ -283,6 +287,7 @@ class NECB2011 < Standard
     model_apply_prototype_hvac_assumptions(model, nil, climate_zone)
     # Apply the HVAC efficiency standard
     model_apply_hvac_efficiency_standard(model, climate_zone)
+    model_enable_demand_controlled_ventilation(model, dcv_type) #Sara
   end
 
   def apply_loop_pump_power(model:, sizing_run_dir:)
@@ -1333,22 +1338,25 @@ class NECB2011 < Standard
           controller_mv = controller_oa.controllerMechanicalVentilation
 
           ##### Set "Demand Controlled Ventilation" to "Yes" or "No" in Controller:MechanicalVentilation depending on dcv_type.
-          if dcv_type == 'Occupancy-based DCV' || dcv_type == 'CO2-based DCV'
-            if controller_mv.demandControlledVentilation != true
-              controller_mv.setDemandControlledVentilation(true)
+          if (dcv_type == 'CO2-based DCV') || (dcv_type == 'Occupancy-based DCV') #Occupancy
+            controller_mv.setDemandControlledVentilation(true)
+            ##### Set the "System Outdoor Air Method" field based on dcv_type in the Controller:MechanicalVentilation object
+            if dcv_type == 'CO2-based DCV'
+              controller_mv.setSystemOutdoorAirMethod('IndoorAirQualityProcedure')
+            else #dcv_type == 'Occupancy-based DCV'
+              controller_mv.setSystemOutdoorAirMethod('ZoneSum')
             end
-          elsif dcv_type == 'No DCV'
-            if controller_mv.demandControlledVentilation != false
-              controller_mv.setDemandControlledVentilation(false)
-            end
+          else#if dcv_type == 'No DCV'
+            controller_mv.setDemandControlledVentilation(false)
           end
+          # puts controller_mv
 
-          ##### Set the "System Outdoor Air Method" field based on dcv_type in the Controller:MechanicalVentilation object
-          if dcv_type == 'Occupancy-based DCV'
-            controller_mv.setSystemOutdoorAirMethod('ZoneSum')
-          elsif dcv_type == 'CO2-based DCV'
-            controller_mv.setSystemOutdoorAirMethod('IndoorAirQualityProcedure')
-          end
+          # ##### Set the "System Outdoor Air Method" field based on dcv_type in the Controller:MechanicalVentilation object
+          # if dcv_type == 'Occupancy-based DCV' #TODO
+          #   controller_mv.setSystemOutdoorAirMethod('ZoneSum')
+          # elsif dcv_type == 'CO2-based DCV'
+          #   controller_mv.setSystemOutdoorAirMethod('IndoorAirQualityProcedure')
+          # end
         end #if !hvac_component.empty?
 
       end #air_loop.supplyComponents.each do |supply_component|
@@ -1380,7 +1388,7 @@ class NECB2011 < Standard
       puts "#{standards_space_type} - has atrium"  #space_type.name.to_s
       # puts space_height
       if space_height < 12.0 #TODO: Note that since none of the archetypes has Atrium, this was tested for 'Dining' with the threshold of 5.0 m for space_height.
-        # TODO: REFERENCE FOR BELOW EQUATIONS
+        # TODO: Regarding the below equations, identify which version of ASHRAE 90.1 was used in NECB2015.
         atrium_lpd_eq_smaller_12_intercept = 0
         atrium_lpd_eq_smaller_12_slope = 1.06
         atrium_lpd_eq_larger_12_intercept = 4.3

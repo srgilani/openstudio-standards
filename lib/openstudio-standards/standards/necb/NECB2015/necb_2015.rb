@@ -77,7 +77,7 @@ class NECB2015 < NECB2011
       puts "#{standards_space_type} - has atrium"  #space_type.name.to_s
       # puts space_height
       if space_height < 12.0
-        # TODO: REFERENCE FOR BELOW EQUATIONS
+        # TODO: Regarding the below equations, identify which version of ASHRAE 90.1 was used in NECB2015.
         atrium_lpd_eq_smaller_12_intercept = 0
         atrium_lpd_eq_smaller_12_slope = 1.06
         atrium_lpd_eq_larger_12_intercept = 4.3

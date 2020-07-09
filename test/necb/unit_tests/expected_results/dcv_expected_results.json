@@ -764,11 +764,11 @@
     "Air Loop HVAC Outdoor Air System 55 - controller_outdoorair_name": "Controller Outdoor Air 55",
     "Controller Outdoor Air 55 - controller_mechanical_ventilation_name": "Controller Mechanical Ventilation 55",
     "Controller Mechanical Ventilation 55 - controller_mechanical_ventilation_demand_controlled_ventilation_status": "true",
-    "Controller Mechanical Ventilation 55 - controller_mechanical_ventilation_system_outdoor_air_method": "ZoneSum",
+    "Controller Mechanical Ventilation 55 - controller_mechanical_ventilation_system_outdoor_air_method": "IndoorAirQualityProcedure",
     "Air Loop HVAC Outdoor Air System 56 - controller_outdoorair_name": "Controller Outdoor Air 56",
     "Controller Outdoor Air 56 - controller_mechanical_ventilation_name": "Controller Mechanical Ventilation 56",
     "Controller Mechanical Ventilation 56 - controller_mechanical_ventilation_demand_controlled_ventilation_status": "true",
-    "Controller Mechanical Ventilation 56 - controller_mechanical_ventilation_system_outdoor_air_method": "ZoneSum"
+    "Controller Mechanical Ventilation 56 - controller_mechanical_ventilation_system_outdoor_air_method": "IndoorAirQualityProcedure"
   },
   {
     "template": "NECB2011",
@@ -2278,11 +2278,11 @@
     "Air Loop HVAC Outdoor Air System 61 - controller_outdoorair_name": "Controller Outdoor Air 61",
     "Controller Outdoor Air 61 - controller_mechanical_ventilation_name": "Controller Mechanical Ventilation 61",
     "Controller Mechanical Ventilation 61 - controller_mechanical_ventilation_demand_controlled_ventilation_status": "true",
-    "Controller Mechanical Ventilation 61 - controller_mechanical_ventilation_system_outdoor_air_method": "ZoneSum",
+    "Controller Mechanical Ventilation 61 - controller_mechanical_ventilation_system_outdoor_air_method": "IndoorAirQualityProcedure",
     "Air Loop HVAC Outdoor Air System 62 - controller_outdoorair_name": "Controller Outdoor Air 62",
     "Controller Outdoor Air 62 - controller_mechanical_ventilation_name": "Controller Mechanical Ventilation 62",
     "Controller Mechanical Ventilation 62 - controller_mechanical_ventilation_demand_controlled_ventilation_status": "true",
-    "Controller Mechanical Ventilation 62 - controller_mechanical_ventilation_system_outdoor_air_method": "ZoneSum"
+    "Controller Mechanical Ventilation 62 - controller_mechanical_ventilation_system_outdoor_air_method": "IndoorAirQualityProcedure"
   },
   {
     "template": "NECB2015",
@@ -3836,11 +3836,11 @@
     "Air Loop HVAC Outdoor Air System 66 - controller_outdoorair_name": "Controller Outdoor Air 66",
     "Controller Outdoor Air 66 - controller_mechanical_ventilation_name": "Controller Mechanical Ventilation 66",
     "Controller Mechanical Ventilation 66 - controller_mechanical_ventilation_demand_controlled_ventilation_status": "true",
-    "Controller Mechanical Ventilation 66 - controller_mechanical_ventilation_system_outdoor_air_method": "ZoneSum",
+    "Controller Mechanical Ventilation 66 - controller_mechanical_ventilation_system_outdoor_air_method": "IndoorAirQualityProcedure",
     "Air Loop HVAC Outdoor Air System 67 - controller_outdoorair_name": "Controller Outdoor Air 67",
     "Controller Outdoor Air 67 - controller_mechanical_ventilation_name": "Controller Mechanical Ventilation 67",
     "Controller Mechanical Ventilation 67 - controller_mechanical_ventilation_demand_controlled_ventilation_status": "true",
-    "Controller Mechanical Ventilation 67 - controller_mechanical_ventilation_system_outdoor_air_method": "ZoneSum"
+    "Controller Mechanical Ventilation 67 - controller_mechanical_ventilation_system_outdoor_air_method": "IndoorAirQualityProcedure"
   },
   {
     "template": "NECB2017",

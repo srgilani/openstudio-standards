@@ -498,138 +498,29 @@ class YourTestName_Test < Minitest::Test
                     end
                   end
 
-                  ##### Loop through all lowest floors of daylight_space and find the min and max of x and y among their vertices (these vertices are required for boundingBox)
-                  xmin = []
-                  ymin = []
-                  xmax = []
-                  ymax = []
-                  zmin = lowest_floor_z
-                  for i in 0..lowest_floors_vertices.count - 1 #this loops through each of the lowers floors of daylight_space
-                    for j in 0..lowest_floors_vertices[i].count - 1 #this loops through each of vertices of each of the lowers floors of daylight_space
-
-                      ### xmin
-                      if i == 0 && j == 0
-                        virtual_floor_vertex_0 = OpenStudio::Point3d.new(lowest_floors_vertices[i][j].x, lowest_floors_vertices[i][j].y, zmin)
-                      else
-                        if lowest_floors_vertices[i][j].x < virtual_floor_vertex_0.x
-                          virtual_floor_vertex_0 = OpenStudio::Point3d.new(lowest_floors_vertices[i][j].x, lowest_floors_vertices[i][j].y, zmin)
-                        else
-                          virtual_floor_vertex_0 = OpenStudio::Point3d.new(virtual_floor_vertex_0.x, virtual_floor_vertex_0.y, zmin)
-                        end
-                      end
-
-                      ### ymin
-                      if i == 0 && j == 0
-                        virtual_floor_vertex_1 = OpenStudio::Point3d.new(lowest_floors_vertices[i][j].x, lowest_floors_vertices[i][j].y, zmin)
-                      else
-                        if lowest_floors_vertices[i][j].y < virtual_floor_vertex_0.y
-                          virtual_floor_vertex_1 = OpenStudio::Point3d.new(lowest_floors_vertices[i][j].x, lowest_floors_vertices[i][j].y, zmin)
-                        else
-                          virtual_floor_vertex_1 = OpenStudio::Point3d.new(virtual_floor_vertex_1.x, virtual_floor_vertex_1.y, zmin)
-                        end
-                      end
-
-                      ### xmax
-                      if i == 0 && j == 0
-                        virtual_floor_vertex_2 = OpenStudio::Point3d.new(lowest_floors_vertices[i][j].x, lowest_floors_vertices[i][j].y, zmin)
-                      else
-                        if lowest_floors_vertices[i][j].x > virtual_floor_vertex_0.x
-                          virtual_floor_vertex_2 = OpenStudio::Point3d.new(lowest_floors_vertices[i][j].x, lowest_floors_vertices[i][j].y, zmin)
-                        else
-                          virtual_floor_vertex_2 = OpenStudio::Point3d.new(virtual_floor_vertex_2.x, virtual_floor_vertex_2.y, zmin)
-                        end
-                      end
-
-                      ### ymax
-                      if i == 0 && j == 0
-                        virtual_floor_vertex_3 = OpenStudio::Point3d.new(lowest_floors_vertices[i][j].x, lowest_floors_vertices[i][j].y, zmin)
-                      else
-                        if lowest_floors_vertices[i][j].y > virtual_floor_vertex_0.y
-                          virtual_floor_vertex_3 = OpenStudio::Point3d.new(lowest_floors_vertices[i][j].x, lowest_floors_vertices[i][j].y, zmin)
-                        else
-                          virtual_floor_vertex_3 = OpenStudio::Point3d.new(virtual_floor_vertex_3.x, virtual_floor_vertex_3.y, zmin)
-                        end
-                      end
-                    end
-                  end
-
                   ##### Get the thermal zone of daylight_space (this is used later to assign daylighting sensor)
                   zone = daylight_space.thermalZone
                   if !zone.empty?
                     zone = daylight_space.thermalZone.get
 
-                    if daylight_space_area <= 250.0
-                      number_daylight_sensor = 1
-                      zone_daylighting_control_primary = zone.primaryDaylightingControl.get
-                      primary_daylighting_control_fraction_of_zone_controlled = zone.fractionofZoneControlledbyPrimaryDaylightingControl()
-                      primary_daylighting_control_illuminance_setpoint = zone_daylighting_control_primary.illuminanceSetpoint()
-                      primary_daylighting_control_lighting_control_type = zone_daylighting_control_primary.lightingControlType()
-                      primary_daylighting_control_number_of_stepped_control_steps = zone_daylighting_control_primary.numberofSteppedControlSteps()
-                      primary_daylighting_x_pos = zone_daylighting_control_primary.positionXCoordinate()
-                      primary_daylighting_y_pos = zone_daylighting_control_primary.positionYCoordinate()
-                      primary_daylighting_z_pos = zone_daylighting_control_primary.positionZCoordinate()
-                    else
-
-                      if lowest_floor_z.round(2) != highest_floor_z.round(2)
-                        number_daylight_sensor = 1
-                        zone_daylighting_control_primary = zone.primaryDaylightingControl.get
-                        primary_daylighting_control_fraction_of_zone_controlled = zone.fractionofZoneControlledbyPrimaryDaylightingControl()
-                        primary_daylighting_control_illuminance_setpoint = zone_daylighting_control_primary.illuminanceSetpoint()
-                        primary_daylighting_control_lighting_control_type = zone_daylighting_control_primary.lightingControlType()
-                        primary_daylighting_control_number_of_stepped_control_steps = zone_daylighting_control_primary.numberofSteppedControlSteps()
-                        primary_daylighting_x_pos = zone_daylighting_control_primary.positionXCoordinate()
-                        primary_daylighting_y_pos = zone_daylighting_control_primary.positionYCoordinate()
-                        primary_daylighting_z_pos = zone_daylighting_control_primary.positionZCoordinate()
-                      else
-                        number_daylight_sensor = 2
-                        zone_daylighting_control_primary = zone.primaryDaylightingControl.get
-                        primary_daylighting_control_fraction_of_zone_controlled = zone.fractionofZoneControlledbyPrimaryDaylightingControl()
-                        primary_daylighting_control_illuminance_setpoint = zone_daylighting_control_primary.illuminanceSetpoint()
-                        primary_daylighting_control_lighting_control_type = zone_daylighting_control_primary.lightingControlType()
-                        primary_daylighting_control_number_of_stepped_control_steps = zone_daylighting_control_primary.numberofSteppedControlSteps()
-                        primary_daylighting_x_pos = zone_daylighting_control_primary.positionXCoordinate()
-                        primary_daylighting_y_pos = zone_daylighting_control_primary.positionYCoordinate()
-                        primary_daylighting_z_pos = zone_daylighting_control_primary.positionZCoordinate()
-
-                        zone_daylighting_control_secondary = zone.secondaryDaylightingControl.get
-                        secondary_daylighting_control_fraction_of_zone_controlled = zone.fractionofZoneControlledbySecondaryDaylightingControl()
-                        secondary_daylighting_control_illuminance_setpoint = zone_daylighting_control_secondary.illuminanceSetpoint()
-                        secondary_daylighting_control_lighting_control_type = zone_daylighting_control_secondary.lightingControlType()
-                        secondary_daylighting_control_number_of_stepped_control_steps = zone_daylighting_control_secondary.numberofSteppedControlSteps()
-                        secondary_daylighting_x_pos = zone_daylighting_control_secondary.positionXCoordinate()
-                        secondary_daylighting_y_pos = zone_daylighting_control_secondary.positionYCoordinate()
-                        secondary_daylighting_z_pos = zone_daylighting_control_secondary.positionZCoordinate()
-                      end
-                    end
+                    zone_daylighting_control_primary = zone.primaryDaylightingControl.get
+                    primary_daylighting_control_fraction_of_zone_controlled = zone.fractionofZoneControlledbyPrimaryDaylightingControl()
+                    primary_daylighting_control_illuminance_setpoint = zone_daylighting_control_primary.illuminanceSetpoint()
+                    primary_daylighting_control_lighting_control_type = zone_daylighting_control_primary.lightingControlType()
+                    primary_daylighting_control_number_of_stepped_control_steps = zone_daylighting_control_primary.numberofSteppedControlSteps()
+                    primary_daylighting_x_pos = zone_daylighting_control_primary.positionXCoordinate()
+                    primary_daylighting_y_pos = zone_daylighting_control_primary.positionYCoordinate()
+                    primary_daylighting_z_pos = zone_daylighting_control_primary.positionZCoordinate()
 
                     ##### Gather results from this iteration and store it into the test_result_array.
                     result["#{daylight_space.name.to_s} - area"] = daylight_space_area
-                    result["#{daylight_space.name.to_s} - number_of_daylight_sensor"] = number_daylight_sensor
-                    if number_daylight_sensor == 1
-                      result["#{daylight_space.name.to_s} - primary_daylighting_control_fraction_of_zone_controlled"] = primary_daylighting_control_fraction_of_zone_controlled
-                      result["#{daylight_space.name.to_s} - primary_daylighting_control_illuminance_setpoint"] = primary_daylighting_control_illuminance_setpoint
-                      result["#{daylight_space.name.to_s} - primary_daylighting_control_lighting_control_type"] = primary_daylighting_control_lighting_control_type
-                      result["#{daylight_space.name.to_s} - primary_daylighting_control_number_of_stepped_control_steps"] = primary_daylighting_control_number_of_stepped_control_steps
-                      result["#{daylight_space.name.to_s} - primary_daylighting_x_pos"] = primary_daylighting_x_pos
-                      result["#{daylight_space.name.to_s} - primary_daylighting_y_pos"] = primary_daylighting_y_pos
-                      result["#{daylight_space.name.to_s} - primary_daylighting_z_pos"] = primary_daylighting_z_pos
-                    elsif number_daylight_sensor == 2
-                      result["#{daylight_space.name.to_s} - primary_daylighting_control_fraction_of_zone_controlled"] = primary_daylighting_control_fraction_of_zone_controlled
-                      result["#{daylight_space.name.to_s} - primary_daylighting_control_illuminance_setpoint"] = primary_daylighting_control_illuminance_setpoint
-                      result["#{daylight_space.name.to_s} - primary_daylighting_control_lighting_control_type"] = primary_daylighting_control_lighting_control_type
-                      result["#{daylight_space.name.to_s} - primary_daylighting_control_number_of_stepped_control_steps"] = primary_daylighting_control_number_of_stepped_control_steps
-                      result["#{daylight_space.name.to_s} - primary_daylighting_x_pos"] = primary_daylighting_x_pos
-                      result["#{daylight_space.name.to_s} - primary_daylighting_y_pos"] = primary_daylighting_y_pos
-                      result["#{daylight_space.name.to_s} - primary_daylighting_z_pos"] = primary_daylighting_z_pos
-
-                      result["#{daylight_space.name.to_s} - secondary_daylighting_control_fraction_of_zone_controlled"] = secondary_daylighting_control_fraction_of_zone_controlled
-                      result["#{daylight_space.name.to_s} - secondary_daylighting_control_illuminance_setpoint"] = secondary_daylighting_control_illuminance_setpoint
-                      result["#{daylight_space.name.to_s} - secondary_daylighting_control_lighting_control_type"] = secondary_daylighting_control_lighting_control_type
-                      result["#{daylight_space.name.to_s} - secondary_daylighting_control_number_of_stepped_control_steps"] = secondary_daylighting_control_number_of_stepped_control_steps
-                      result["#{daylight_space.name.to_s} - secondary_daylighting_x_pos"] = secondary_daylighting_x_pos
-                      result["#{daylight_space.name.to_s} - secondary_daylighting_y_pos"] = secondary_daylighting_y_pos
-                      result["#{daylight_space.name.to_s} - secondary_daylighting_z_pos"] = secondary_daylighting_z_pos
-                    end
+                    result["#{daylight_space.name.to_s} - primary_daylighting_control_fraction_of_zone_controlled"] = primary_daylighting_control_fraction_of_zone_controlled
+                    result["#{daylight_space.name.to_s} - primary_daylighting_control_illuminance_setpoint"] = primary_daylighting_control_illuminance_setpoint
+                    result["#{daylight_space.name.to_s} - primary_daylighting_control_lighting_control_type"] = primary_daylighting_control_lighting_control_type
+                    result["#{daylight_space.name.to_s} - primary_daylighting_control_number_of_stepped_control_steps"] = primary_daylighting_control_number_of_stepped_control_steps
+                    result["#{daylight_space.name.to_s} - primary_daylighting_x_pos"] = primary_daylighting_x_pos
+                    result["#{daylight_space.name.to_s} - primary_daylighting_y_pos"] = primary_daylighting_y_pos
+                    result["#{daylight_space.name.to_s} - primary_daylighting_z_pos"] = primary_daylighting_z_pos
 
                   end #!zone.empty?
 
